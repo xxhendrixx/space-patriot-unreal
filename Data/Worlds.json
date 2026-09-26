@@ -1,0 +1,175 @@
+{
+  "worlds": [
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "system": "Sun",
+      "seed": 3321527684,
+      "biome": "rock",
+      "temperature": 440,
+      "radius": 0.383
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "system": "Sun",
+      "seed": 1732359244,
+      "biome": "desert",
+      "temperature": 227,
+      "radius": 0.949
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "system": "Sun",
+      "seed": 1270752749,
+      "biome": "temperate",
+      "temperature": 255,
+      "radius": 1
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "system": "Sun",
+      "seed": 3778613462,
+      "biome": "desert",
+      "temperature": 210,
+      "radius": 0.532
+    },
+    {
+      "id": "jupiter",
+      "name": "Jupiter",
+      "system": "Sun",
+      "seed": 2444393736,
+      "biome": "gas",
+      "temperature": 110,
+      "radius": 11.21
+    },
+    {
+      "id": "saturn",
+      "name": "Saturn",
+      "system": "Sun",
+      "seed": 872456640,
+      "biome": "gas",
+      "temperature": 81,
+      "radius": 9.45
+    },
+    {
+      "id": "uranus",
+      "name": "Uranus",
+      "system": "Sun",
+      "seed": 87653223,
+      "biome": "gas",
+      "temperature": 59,
+      "radius": 4.01
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "system": "Sun",
+      "seed": 4207941460,
+      "biome": "gas",
+      "temperature": 47,
+      "radius": 3.88
+    },
+    {
+      "id": "trappist-1-b",
+      "name": "TRAPPIST-1 b",
+      "system": "TRAPPIST-1",
+      "seed": 1953829944,
+      "biome": "volcanic",
+      "temperature": 397.6,
+      "radius": 1.116
+    },
+    {
+      "id": "trappist-1-c",
+      "name": "TRAPPIST-1 c",
+      "system": "TRAPPIST-1",
+      "seed": 1970607563,
+      "biome": "desert",
+      "temperature": 339.7,
+      "radius": 1.097
+    },
+    {
+      "id": "trappist-1-d",
+      "name": "TRAPPIST-1 d",
+      "system": "TRAPPIST-1",
+      "seed": 2054495658,
+      "biome": "desert",
+      "temperature": 286.2,
+      "radius": 0.788
+    },
+    {
+      "id": "trappist-1-e",
+      "name": "TRAPPIST-1 e",
+      "system": "TRAPPIST-1",
+      "seed": 2071273277,
+      "biome": "temperate",
+      "temperature": 249.7,
+      "radius": 0.92
+    },
+    {
+      "id": "trappist-1-f",
+      "name": "TRAPPIST-1 f",
+      "system": "TRAPPIST-1",
+      "seed": 2020940420,
+      "biome": "ice",
+      "temperature": 217.7,
+      "radius": 1.045
+    },
+    {
+      "id": "trappist-1-g",
+      "name": "TRAPPIST-1 g",
+      "system": "TRAPPIST-1",
+      "seed": 2037718039,
+      "biome": "ice",
+      "temperature": 197.3,
+      "radius": 1.129
+    },
+    {
+      "id": "trappist-1-h",
+      "name": "TRAPPIST-1 h",
+      "system": "TRAPPIST-1",
+      "seed": 1853164230,
+      "biome": "rock",
+      "temperature": 171.7,
+      "radius": 0.755
+    },
+    {
+      "id": "toi-270-b",
+      "name": "TOI-270 b",
+      "system": "TOI-270",
+      "seed": 274680840,
+      "biome": "desert",
+      "temperature": 600,
+      "radius": 1.28
+    },
+    {
+      "id": "toi-270-c",
+      "name": "TOI-270 c",
+      "system": "TOI-270",
+      "seed": 291458459,
+      "biome": "gas",
+      "temperature": 489,
+      "radius": 2.33
+    },
+    {
+      "id": "k2-141-b",
+      "name": "K2-141 b",
+      "system": "K2-141",
+      "seed": 3969741818,
+      "biome": "volcanic",
+      "temperature": 2103,
+      "radius": 1.51
+    },
+    {
+      "id": "wasp-76-b",
+      "name": "WASP-76 b",
+      "system": "WASP-76",
+      "seed": 1016419044,
+      "biome": "gas",
+      "temperature": 2228,
+      "radius": 20.78145022
+    }
+  ]
+}
