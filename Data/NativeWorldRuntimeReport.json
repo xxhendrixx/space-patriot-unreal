@@ -1,0 +1,8 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+  "world_runtime": "/Game/SpacePatriot/Blueprints/BP_WorldRuntime",
+  "worlds_loaded": 19,
+  "creatures_loaded": 190,
+  "earth_creatures": 10,
+  "world_runtime_actors": 1
+}

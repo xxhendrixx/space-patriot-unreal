@@ -1,0 +1,45 @@
+{
+  "source_fbx": "SourceAssets/KestrelK017/Kestrel_K017.fbx",
+  "mesh_paths": [
+    "/Game/SpacePatriot/Ships/KestrelK017/Drive_Port_LOD0.Drive_Port_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Drive_Starboard_LOD0.Drive_Starboard_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Gear_Nose_LOD0.Gear_Nose_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Gear_Port_LOD0.Gear_Port_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Gear_Starboard_LOD0.Gear_Starboard_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Hull_LOD0.Hull_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Wing_Port_LOD0.Wing_Port_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Wing_Starboard_LOD0.Wing_Starboard_LOD0"
+  ],
+  "texture_paths": {
+    "Kestrel_BaseColor.png": [
+      "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_BaseColor.Kestrel_BaseColor"
+    ],
+    "Kestrel_BaseColor_LOD1.png": [
+      "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_BaseColor_LOD1.Kestrel_BaseColor_LOD1"
+    ],
+    "Kestrel_Normal.png": [
+      "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_Normal.Kestrel_Normal"
+    ],
+    "Kestrel_MetallicSmoothness.png": [
+      "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_MetallicSmoothness.Kestrel_MetallicSmoothness"
+    ],
+    "Kestrel_Roughness_source.png": [
+      "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_Roughness_source.Kestrel_Roughness_source"
+    ]
+  },
+  "assets": [
+    "/Game/SpacePatriot/Ships/KestrelK017/Drive_Port_LOD0.Drive_Port_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Drive_Starboard_LOD0.Drive_Starboard_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Gear_Nose_LOD0.Gear_Nose_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Gear_Port_LOD0.Gear_Port_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Gear_Starboard_LOD0.Gear_Starboard_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Hull_LOD0.Hull_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_BaseColor_LOD1.Kestrel_BaseColor_LOD1",
+    "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_BaseColor.Kestrel_BaseColor",
+    "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_MetallicSmoothness.Kestrel_MetallicSmoothness",
+    "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_Normal.Kestrel_Normal",
+    "/Game/SpacePatriot/Ships/KestrelK017/Kestrel_Roughness_source.Kestrel_Roughness_source",
+    "/Game/SpacePatriot/Ships/KestrelK017/Wing_Port_LOD0.Wing_Port_LOD0",
+    "/Game/SpacePatriot/Ships/KestrelK017/Wing_Starboard_LOD0.Wing_Starboard_LOD0"
+  ]
+}

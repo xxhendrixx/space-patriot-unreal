@@ -1,27 +1,28 @@
-# Space Patriot — Unreal Blueprint handoff
+# Space Patriot — Unreal Engine 5.8 project
 
-This is a separate Unreal Engine project for collaborators who work in Unreal. It carries the source game's world and wildlife catalogs, Blueprint-facing gameplay systems, and a one-click Editor Python bootstrap that creates the starter Blueprint classes and a test level.
+This is the Unreal development branch of Space Patriot. The first map now contains the accepted symmetric Kestrel K-017 mesh, a Blueprint pawn for editor flight, a Kellen Reach landing apron, imported materials, and the 19-world/190-creature source catalogs. It is an early playable slice, not a finished transfer of the Unity game.
 
-## Open it
+## Open and play
 
-1. Install Unreal Engine **5.8** and enable the bundled Python Editor Script Plugin when prompted.
-2. Clone this repository and open `SpacePatriotUnreal.uproject`.
-3. Let Unreal compile the `SpacePatriotUnreal` module. If it offers to rebuild missing modules, choose **Yes**.
-4. In the Unreal Python console, run `Tools/CreateBlueprintHandoff.py` (or use **Tools → Execute Python Script**).
-5. Open `/Game/SpacePatriot/Maps/L_SpacePatriotPrototype` and inspect the placed `BP_WorldRuntime` actor. Press Play to run its compact off-screen story simulation; the ship, NPC, and wildlife Blueprint classes are ready to place and extend.
+1. Install Git LFS, Unreal Engine 5.8, Visual Studio 2022 C++ Build Tools, Windows SDK 10.0.22621 or newer, and the .NET Framework SDK. Run `git lfs install` once, clone this repository, and run `git lfs pull` inside the clone.
+2. Open **`SpacePatriotUnreal.uproject`**. Accept Unreal's request to compile the `SpacePatriotUnreal` module. The project uses the UE 5.8 V7 build settings.
+3. The startup map is `/Game/SpacePatriot/Maps/L_KestrelFlight`. Press **Play**. `BP_KestrelGameMode` spawns `BP_KestrelFlyable`, which carries eight Kestrel parts and uses Unreal's `DefaultPawn` movement.
 
-The bootstrap creates Blueprint children for the world runtime, ship pawn, wildlife encounter, citizen agent, cockpit MFD, systems component, and game mode. The native base classes expose editable properties, event dispatchers, and callable actions in Blueprint graphs. Use these as the starting point for BP-authored presentation and level logic.
+The Kestrel pawn is a flight prototype. Its camera and collision are still temporary, and the port has not yet reproduced Unity's throttle, atmospheric flight, landing gear articulation, cockpit displays, weapons, cargo handling, settlements, terrain streaming, animation, sound, or quests. The broader universe C++ simulation and wildlife catalog are in this repository but need integration and visual work in the main map.
 
-## What is in this handoff
+## Project contents
 
-- `Data/Worlds.json`: source world catalog.
-- `Data/CreatureRosters.json`: 190 creature records, ten assigned to each of 19 worlds.
-- `Source/SpacePatriotUnreal`: Blueprint-exposed runtime bases for world simulation, ship/cargo state, deterministic citizen activity, wildlife damage, cockpit pages, and seeded story beats.
-- `Tools/CreateBlueprintHandoff.py`: generates the editable Blueprint assets and a prototype level after the C++ module compiles.
-- `PORT_MAP.md`: system-by-system source mapping and limits of this first Unreal transfer.
+- `Content/SpacePatriot/Maps/L_KestrelFlight.umap`: initial Kellen Reach flight map.
+- `Content/SpacePatriot/Blueprints/BP_KestrelFlyable.uasset`: free-flight player pawn with the Kestrel mesh.
+- `Content/SpacePatriot/Ships/KestrelK017/`: imported ship meshes and textures. The mesh was converted from X-forward/Y-up Unity art into Unreal's X-forward/Z-up coordinates; the symmetric wing and drive pairs occupy matching ±Y positions.
+- `SourceAssets/KestrelK017/`: the reimportable, Unreal-oriented FBX and texture source. The original Blender project remains in the Unity repository.
+- `Source/SpacePatriotUnreal/`: Blueprint-facing native components and actor bases for worlds, wildlife, NPC decisions, cargo, story beats, and MFD interaction.
+- `Data/Worlds.json` and `Data/CreatureRosters.json`: stable world and wildlife identities.
+- `Tools/ImportKestrel.py`, `Tools/BuildPlayablePrototype.py`, `Tools/ValidatePlayablePrototype.py`: reproducible Editor import, map creation, and validation. Assets in `Content/` are committed, so opening the map does **not** require rerunning these scripts.
+- `Tools/CreateBlueprintHandoff.py`: creates optional Blueprint subclasses from the native systems and a separate systems test map.
 
-This repo is a **playable systems handoff**, not a completed Unreal remake. The original Unity scenes, detailed 3D meshes, animation rigs, MFD art, audio, quests, and visual node graphs still need to be migrated and reviewed in Unreal. This project does not claim to contain compiled `.uasset` files: Unreal creates those locally from the included source classes when the bootstrap script runs. That keeps the repo reviewable and avoids committing engine-version-specific binary assets before your collaborator opens it.
+`Data/PlayableValidation.json` records automated Editor checks. See `PORT_MAP.md` for the remaining subsystem work. The Kestrel's geometry still has visible bake seams and imperfect gear mounts; importing it into Unreal does not approve those art defects.
 
-## Data and source control
+## Working with a friend
 
-Commit `Config`, `Content`, `Source`, `Data`, and `Tools`. Do not commit `Binaries`, `DerivedDataCache`, `Intermediate`, `Saved`, or local IDE files. Binary Unreal assets generated by a collaborator should be committed with Git LFS if they grow beyond ordinary Git's practical limits.
+After cloning once, run `git pull` followed by `git lfs pull` to receive incremental changes. Unreal-generated `Binaries`, `DerivedDataCache`, `Intermediate`, and `Saved` folders stay local. Commit source changes plus deliberate `Content/` assets; Git LFS tracks `.uasset`, `.umap`, `.fbx`, and `.png` files.
