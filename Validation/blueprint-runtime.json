@@ -1,0 +1,91 @@
+{
+  "passed": 17,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "ship_bp_exists",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Blueprints/BP_KestrelFlyable.BP_KestrelFlyable' (0x0000028991696600) Class 'Blueprint'>"
+    },
+    {
+      "name": "ship_spawns",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Maps/L_KestrelFlight.L_KestrelFlight:PersistentLevel.BP_KestrelFlyable_C_0' (0x00000289B0AFE000) Class 'BP_KestrelFlyable_C'>"
+    },
+    {
+      "name": "vessel_systems_attached",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "readout_attached",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Maps/L_KestrelFlight.L_KestrelFlight:PersistentLevel.BP_KestrelFlyable_C_0.CockpitReadout' (0x00000289B17B0700) Class 'TextRenderComponent'>"
+    },
+    {
+      "name": "old_world_readout_hidden",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "name": "page_button_changes_text",
+      "passed": true,
+      "detail": "MFD 2/4  SYSTEMS\nENGINE 100%  SHIELD 100%\nCABIN 100%  HEAT 000%\nBUS NOMINAL"
+    },
+    {
+      "name": "power_page",
+      "passed": true,
+      "detail": "MFD 3/4  POWER\nPROFILE Balanced\nENG 4  WPN 4  SHD 4\nF1 TRAVEL   F2 COMBAT\nF3 PAGE     F4 DIM"
+    },
+    {
+      "name": "mission_page",
+      "passed": true,
+      "detail": "MFD 4/4  MISSION\nF5 START THE WATER LEDGER\nF6 SAVE WORLD"
+    },
+    {
+      "name": "nav_page_visible_text",
+      "passed": true,
+      "detail": "MFD 1/4  NAV\nSPD 0000 m/s   HDG 000\nFUEL 100%  GEAR DOWN\nMODE SCM  PWR ON"
+    },
+    {
+      "name": "brightness_button_changes_state",
+      "passed": true,
+      "detail": "0.5"
+    },
+    {
+      "name": "preset_changes_vessel_state",
+      "passed": true,
+      "detail": "<SPVesselProfile.TRAVEL: 3>"
+    },
+    {
+      "name": "tick_output_changes_readout",
+      "passed": true,
+      "detail": "1.0"
+    },
+    {
+      "name": "world_runtime_spawns",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Maps/L_KestrelFlight.L_KestrelFlight:PersistentLevel.BP_WorldRuntime_C_1' (0x00000289A220AF00) Class 'BP_WorldRuntime_C'>"
+    },
+    {
+      "name": "world_receives_player_input",
+      "passed": true,
+      "detail": "<AutoReceiveInput.PLAYER0: 1>"
+    },
+    {
+      "name": "campaign_component_attached",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "water_quest_starts",
+      "passed": true,
+      "detail": "(True, True)"
+    },
+    {
+      "name": "mission_mfd_shows_live_story",
+      "passed": true,
+      "detail": "MFD 4/4  MISSION\nThe Water Ledger\nSomeone is buying water for people who no longer exist. Twelve manifests\n  0/0"
+    }
+  ]
+}

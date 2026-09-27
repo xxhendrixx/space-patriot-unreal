@@ -1,0 +1,38 @@
+{
+  "material": "/Game/SpacePatriot/Materials/M_WorldTerrainPBR",
+  "fallback_untouched": "/Game/SpacePatriot/Materials/M_WorldVertex",
+  "projection": "WorldAlignedTexture/WorldAlignedNormal XYZ triplanar, world centimetres",
+  "normal_space": "world",
+  "uses_mesh_uv": false,
+  "surface_map_modified": false,
+  "texture_sets": {
+    "rock": {
+      "tile_cm": 200.0,
+      "textures": {
+        "albedo": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_diff_2k",
+        "normal": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_nor_dx_1k",
+        "roughness": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_rough_1k",
+        "ao": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_ao_1k"
+      }
+    },
+    "grass": {
+      "tile_cm": 251.0,
+      "textures": {
+        "albedo": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_diff_2k",
+        "normal": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_nor_dx_1k",
+        "roughness": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_rough_1k",
+        "ao": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_ao_1k"
+      }
+    },
+    "sand": {
+      "tile_cm": 300.0,
+      "textures": {
+        "albedo": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_diff_2k",
+        "normal": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_nor_dx_1k",
+        "roughness": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_rough_1k",
+        "ao": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_ao_1k"
+      }
+    }
+  },
+  "expression_count": 77
+}

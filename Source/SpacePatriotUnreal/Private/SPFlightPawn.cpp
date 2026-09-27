@@ -1,15 +1,27 @@
 #include "SPFlightPawn.h"
+#include "SPCockpitMFDWidget.h"
+#include "SPStoryCampaignComponent.h"
+#include "SpacePatriotBlueprintBases.h"
 
 #include "SPHyperdriveVisualComponent.h"
 #include "SPWorldSurface.h"
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/TextRenderComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
+#include "Blueprint/UserWidget.h"
+#include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
 #include "Math/RotationMatrix.h"
 #include "EngineUtils.h"
+#if WITH_EDITOR
+#include "UnrealClient.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+#endif
 
 ASPFlightPawn::ASPFlightPawn()
 {
@@ -22,6 +34,15 @@ ASPFlightPawn::ASPFlightPawn()
     FlightCamera->SetRelativeRotation(FRotator(-5.0f, 0.0f, 0.0f));
     TravelNavigation = CreateDefaultSubobject<USPTravelNavigationComponent>(TEXT("TravelNavigation"));
     HyperdriveVisual = CreateDefaultSubobject<USPHyperdriveVisualComponent>(TEXT("HyperdriveVisual"));
+    CockpitReadout = CreateDefaultSubobject<UTextRenderComponent>(TEXT("CockpitReadout"));
+    CockpitReadout->SetupAttachment(RootComponent);
+    CockpitReadout->SetHorizontalAlignment(EHTA_Center);
+    CockpitReadout->SetVerticalAlignment(EVRTA_TextCenter);
+    CockpitReadout->SetWorldSize(28.0f);
+    CockpitReadout->SetRelativeRotation(FRotator(0.0f, 180.0f, 0.0f));
+    CockpitReadout->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    CockpitReadout->SetHiddenInGame(true);
+    CockpitReadout->SetVisibility(false);
 }
 
 void ASPFlightPawn::BeginPlay()
@@ -51,6 +72,7 @@ void ASPFlightPawn::BeginPlay()
         HyperdriveVisual->SetNavigationComponent(TravelNavigation);
         HyperdriveVisual->BindToCamera(FlightCamera);
     }
+    UpdateCockpitReadout();
 }
 
 void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -75,6 +97,7 @@ void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     PlayerInputComponent->BindAction(TEXT("SPCruise"), IE_Pressed, this, &ASPFlightPawn::ToggleCruise);
     PlayerInputComponent->BindAction(TEXT("SPPower"), IE_Pressed, this, &ASPFlightPawn::TogglePower);
     PlayerInputComponent->BindAction(TEXT("SPCamera"), IE_Pressed, this, &ASPFlightPawn::ToggleCamera);
+    PlayerInputComponent->BindAction(TEXT("SPMFDPointer"), IE_Pressed, this, &ASPFlightPawn::ToggleMFDPointer);
     PlayerInputComponent->BindAction(TEXT("SPLand"), IE_Pressed, this, &ASPFlightPawn::TryLand);
     PlayerInputComponent->BindAction(TEXT("SPTravelNext"), IE_Pressed, this, &ASPFlightPawn::InputNextTravelDestination);
     PlayerInputComponent->BindAction(TEXT("SPTravelJump"), IE_Pressed, this, &ASPFlightPawn::InputBeginHyperdriveJump);
@@ -84,6 +107,17 @@ void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 void ASPFlightPawn::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    EnsureMFDWidget();
+#if WITH_EDITOR
+    // Opt-in visual validation captures the actual viewport/Slate composite
+    // after the pawn has run, unlike a startup HighResShot of the scene only.
+    if (!bMFDValidationShotQueued && MFDWidget && GetGameTimeSinceCreation() > 4.0f
+        && FParse::Param(FCommandLine::Get(), TEXT("SPCaptureMFD")))
+    {
+        FScreenshotRequest::RequestScreenshot(TEXT("SPMFDViewport.png"), true, false);
+        bMFDValidationShotQueued = true;
+    }
+#endif
     if (DeltaSeconds <= 0.0f) return;
     const float Dt = FMath::Min(DeltaSeconds, 0.1f);
     if (TickTravel(Dt)) return;
@@ -116,9 +150,10 @@ void ASPFlightPawn::Tick(float DeltaSeconds)
         return;
     }
 
-    const bool bCanThrust = bPowered && FuelPercent > 0.0f;
+    const bool bCanThrust = bPowered && FuelPercent > 0.0f && VesselEngineFactor > 0.01f;
     const bool bBoosting = bBoostHeld && bCanThrust && HeatPercent < 90.0f;
-    const float TurnLimit = TurnRateDegreesPerSecond * (bGearDown ? 0.6f : 1.0f);
+    const float TurnLimit = TurnRateDegreesPerSecond * (bGearDown ? 0.6f : 1.0f)
+        * FMath::Clamp(VesselEngineFactor, 0.05f, 1.0f);
     const FVector RateInput(PitchInput, YawInput, RollInput);
     AngularVelocityDegreesPerSecond = FMath::VInterpConstantTo(
         AngularVelocityDegreesPerSecond,
@@ -138,10 +173,11 @@ void ASPFlightPawn::Tick(float DeltaSeconds)
     FVector Translation(ForwardInput, RightInput, UpInput);
     if (bCruise && Translation.X >= 0.0f) Translation.X = 1.0f;
     Translation = Translation.GetClampedToMaxSize(1.0f);
-    const float SpeedLimit = MaxSpeedCmPerSecond * ThrottleLimit
+    const float SpeedLimit = MaxSpeedCmPerSecond * ThrottleLimit * FMath::Clamp(VesselEngineFactor, 0.0f, 1.0f)
         * (bGearDown ? 0.35f : 1.0f) * (bBoosting ? 2.65f : 1.0f)
         * (bCruise ? 4.0f : 1.0f);
-    const float Acceleration = AccelerationCmPerSecondSquared * (bBoosting ? 3.0f : 1.0f);
+    const float Acceleration = AccelerationCmPerSecondSquared * (bBoosting ? 3.0f : 1.0f)
+        * FMath::Clamp(VesselEngineFactor, 0.05f, 1.0f);
     if (bCanThrust)
     {
         const FVector DesiredVelocity = GetActorQuat().RotateVector(Translation) * SpeedLimit;
@@ -334,6 +370,84 @@ FSPFlightTelemetry ASPFlightPawn::GetFlightTelemetry() const
     return Telemetry;
 }
 
+FSPVesselSimulationInput ASPFlightPawn::BuildVesselSimulationInput() const
+{
+    FSPVesselSimulationInput Input;
+    Input.bPowerOn = bPowered;
+    Input.CruiseSpool01 = bCruise ? 1.0f : 0.0f;
+    Input.HullPercent = FMath::Clamp(HullPercent, 0.0f, 100.0f);
+    Input.ShipHeat01 = FMath::Clamp(HeatPercent / 100.0f, 0.0f, 1.0f);
+    Input.Thrust01 = FMath::Clamp(FVector(ForwardInput, RightInput, UpInput).Size(), 0.0f, 1.0f);
+    Input.ShieldPercent = FMath::Clamp(VesselShieldPercent, 0.0f, 100.0f);
+    return Input;
+}
+
+void ASPFlightPawn::ApplyVesselSimulationOutput(const FSPVesselSimulationOutput& Output)
+{
+    HeatPercent = FMath::Clamp(Output.ShipHeat01 * 100.0f, 0.0f, 100.0f);
+    VesselShieldPercent = FMath::Clamp(Output.ShieldPercent, 0.0f, 100.0f);
+    VesselEngineFactor = FMath::Clamp(Output.EngineFactor, 0.0f, 1.0f);
+    if (Output.bCancelCruise) bCruise = false;
+    UpdateCockpitReadout();
+    OnFlightStateChanged.Broadcast();
+}
+
+void ASPFlightPawn::CycleMFDPage(int32 Direction)
+{
+    CockpitMFDPage = (CockpitMFDPage + (Direction < 0 ? -1 : 1) + 4) % 4;
+    UpdateCockpitReadout();
+    OnFlightStateChanged.Broadcast();
+}
+
+void ASPFlightPawn::AdjustMFDBrightness(float Delta)
+{
+    CockpitMFDBrightness = FMath::Clamp(CockpitMFDBrightness + Delta, 0.05f, 1.0f);
+    UpdateCockpitReadout();
+    OnFlightStateChanged.Broadcast();
+}
+
+void ASPFlightPawn::RefreshMFD()
+{
+    UpdateCockpitReadout();
+    OnFlightStateChanged.Broadcast();
+}
+
+void ASPFlightPawn::ToggleMFDPointer()
+{
+    APlayerController* PlayerController = Cast<APlayerController>(GetController());
+    if (!PlayerController || !IsLocallyControlled()) return;
+    bMFDPointerMode = !bMFDPointerMode;
+    PlayerController->bShowMouseCursor = bMFDPointerMode;
+    if (bMFDPointerMode)
+    {
+        MousePitch = MouseYaw = 0.0f;
+        FInputModeGameAndUI Mode;
+        Mode.SetWidgetToFocus(MFDWidget ? MFDWidget->TakeWidget() : TSharedPtr<SWidget>());
+        Mode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
+        Mode.SetHideCursorDuringCapture(false);
+        PlayerController->SetInputMode(Mode);
+    }
+    else
+    {
+        PlayerController->SetInputMode(FInputModeGameOnly());
+    }
+    if (MFDWidget) MFDWidget->SetPresentation(bCockpitCamera, bMFDPointerMode);
+}
+
+void ASPFlightPawn::EnsureMFDWidget()
+{
+    if (MFDWidget || !IsLocallyControlled()) return;
+    APlayerController* PlayerController = Cast<APlayerController>(GetController());
+    if (!PlayerController) return;
+    MFDWidget = CreateWidget<USPCockpitMFDWidget>(PlayerController, USPCockpitMFDWidget::StaticClass());
+    if (!MFDWidget) return;
+    MFDWidget->SetShip(this);
+    MFDWidget->AddToPlayerScreen(20);
+    MFDWidget->SetPresentation(bCockpitCamera, bMFDPointerMode);
+    MFDWidget->SetReadout(CockpitReadout->Text, CockpitMFDBrightness);
+    UE_LOG(LogTemp, Display, TEXT("SpacePatriot MFD viewport widget attached to local player %s"), *GetNameSafe(PlayerController));
+}
+
 void ASPFlightPawn::SetThrottleLimit(float NewLimit)
 {
     ThrottleLimit = FMath::Clamp(NewLimit, 0.05f, 3.0f);
@@ -389,6 +503,7 @@ void ASPFlightPawn::TogglePower()
 {
     bPowered = !bPowered;
     if (!bPowered) bCruise = false;
+    UpdateCockpitReadout();
     OnFlightStateChanged.Broadcast();
 }
 
@@ -403,7 +518,68 @@ void ASPFlightPawn::ToggleCamera()
         FlightCamera->SetRelativeRotation(bCockpitCamera
             ? FRotator::ZeroRotator : FRotator(-5.0f, 0.0f, 0.0f));
     }
+    UpdateCockpitReadout();
+    if (MFDWidget) MFDWidget->SetPresentation(bCockpitCamera, bMFDPointerMode);
     OnFlightStateChanged.Broadcast();
+}
+
+void ASPFlightPawn::UpdateCockpitReadout()
+{
+    if (!CockpitReadout) return;
+    const float Luminance = FMath::Clamp(CockpitMFDBrightness, 0.05f, 1.0f);
+    CockpitReadout->SetTextRenderColor(FColor(
+        static_cast<uint8>(42.0f * Luminance),
+        static_cast<uint8>(255.0f * Luminance),
+        static_cast<uint8>(125.0f * Luminance), 255));
+    const USPVesselSystemsComponent* Systems = FindComponentByClass<USPVesselSystemsComponent>();
+    const FSPVesselTelemetry Vessel = Systems ? Systems->GetTelemetry(bPowered) : FSPVesselTelemetry();
+    FString Text;
+    if (CockpitMFDPage == 0)
+    {
+        Text = FString::Printf(TEXT("MFD 1/4  NAV\nSPD %04.0f m/s   HDG %03.0f\nFUEL %03.0f%%  GEAR %s\nMODE %s  %s"),
+            GetFlightTelemetry().SpeedMetersPerSecond, GetActorRotation().Yaw < 0.0f ? GetActorRotation().Yaw + 360.0f : GetActorRotation().Yaw,
+            FuelPercent, bGearDown ? TEXT("DOWN") : TEXT("UP"),
+            *StaticEnum<ESPVesselMode>()->GetNameStringByValue(static_cast<int64>(Vessel.Mode)),
+            bPowered ? TEXT("PWR ON") : TEXT("PWR OFF"));
+    }
+    else if (CockpitMFDPage == 1)
+    {
+        Text = FString::Printf(TEXT("MFD 2/4  SYSTEMS\nENGINE %03.0f%%  SHIELD %03.0f%%\nCABIN %03.0f%%  HEAT %03.0f%%\n%s"),
+            Vessel.EngineFactor * 100.0f, VesselShieldPercent,
+            Vessel.PressurePercent, HeatPercent, *Vessel.Warning);
+    }
+    else if (CockpitMFDPage == 2)
+    {
+        Text = FString::Printf(TEXT("MFD 3/4  POWER\nPROFILE %s\nENG %d  WPN %d  SHD %d\nF1 TRAVEL   F2 COMBAT\nF3 PAGE     F4 DIM"),
+            *StaticEnum<ESPVesselProfile>()->GetNameStringByValue(static_cast<int64>(Vessel.Profile)),
+            Vessel.EngineAllocation, Vessel.WeaponAllocation, Vessel.ShieldAllocation);
+    }
+    else
+    {
+        Text = TEXT("MFD 4/4  MISSION\nF5 START THE WATER LEDGER\nF6 SAVE WORLD");
+        if (GetWorld())
+        {
+            // Multiple runtime actors can coexist in editor previews. Prefer a
+            // campaign with an active node instead of whichever actor loads first.
+            TArray<AActor*> RuntimeActors;
+            UGameplayStatics::GetAllActorsOfClass(GetWorld(), ASPWorldRuntime::StaticClass(), RuntimeActors);
+            for (const AActor* WorldRuntime : RuntimeActors)
+            {
+                const USPStoryCampaignComponent* Campaign = WorldRuntime
+                    ? WorldRuntime->FindComponentByClass<USPStoryCampaignComponent>() : nullptr;
+                FSPStoryNodeView Node;
+                if (Campaign && Campaign->GetCurrentNode(TEXT("water"), Node))
+                {
+                    Text = FString::Printf(TEXT("MFD 4/4  MISSION\n%s\n%s\n%s  %d/%d"),
+                        *Node.Title.Left(30), *Node.Text.Left(72), *Node.ObjectiveKind,
+                        Node.Progress, Node.Goal);
+                    break;
+                }
+            }
+        }
+    }
+    CockpitReadout->SetText(FText::FromString(Text));
+    if (MFDWidget) MFDWidget->SetReadout(CockpitReadout->Text, CockpitMFDBrightness);
 }
 
 FVector ASPFlightPawn::TraceDown() const

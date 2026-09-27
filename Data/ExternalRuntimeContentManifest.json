@@ -1,0 +1,1233 @@
+{
+  "engine_version": "5.8.3",
+  "asset_registry_roots": [
+    "/Game/SpacePatriot/Maps/L_KestrelFlight",
+    "/Game/SpacePatriot/Maps/L_KellenReachWalk",
+    "/Game/SpacePatriot/Blueprints/BP_KestrelGameMode",
+    "/Game/SpacePatriot/Blueprints/BP_KestrelFlyable",
+    "/Game/SpacePatriot/Blueprints/BP_WorldRuntime",
+    "/Game/Variant_Shooter/Blueprints/BP_ShooterGameMode",
+    "/Game/Variant_Shooter/Blueprints/BP_ShooterCharacter",
+    "/Game/Variant_Shooter/Blueprints/BP_ShooterPlayerController",
+    "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPC",
+    "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterAIController",
+    "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPCSpawner",
+    "/Game/Variant_Shooter/Blueprints/Pickups/BP_ShooterPickup",
+    "/Game/Variant_Shooter/Blueprints/Pickups/DT_WeaponList",
+    "/Game/Variant_Shooter/UI/UI_Shooter",
+    "/Game/SpacePatriot/Materials/M_HyperdriveVisual",
+    "/Game/SpacePatriot/Materials/M_WorldVertex"
+  ],
+  "asset_registry_missing_game_packages": [],
+  "epic_template_required": [
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Pistol/Aim/AO_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Pistol/Aim/AO_Pistol.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Pistol/Aim/AO_Pistol.uasset",
+      "sha256": "a4f2fca2458488be2d05cb2188bd641293d06bdcc4e598feee59ba1b23156c24",
+      "bytes": 8824
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1.uasset",
+      "sha256": "4d7113f1799219db01d8394c2984d5afd2957de07d66cfa463c9c33822e11d89",
+      "bytes": 2056489
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CD",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CD.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CD.uasset",
+      "sha256": "2898b38d8ef305d1d2e285f519be72cde7e2b0106bb85657fda47e35dc27b15d",
+      "bytes": 170203
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CU",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CU.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CU.uasset",
+      "sha256": "e5c5855b58743d51bf1abe11b470749f50ae6074fac734da446d1c4a9b076650",
+      "bytes": 173260
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.uasset",
+      "sha256": "766a02544f06604946d8c47c47c6bb877e14208904306188bc1f5b174fd7715b",
+      "bytes": 2068319
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Rifle/AIM/AO_Rifle.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle.uasset",
+      "sha256": "a3cfb9e380d881fa8561df0515f4ff24d96af4d3e1430df829c7ede641a12b1d",
+      "bytes": 10402
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CC",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CC.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CC.uasset",
+      "sha256": "9521c1941980dc784cedb3df736d7c1edf56afaa0201f28b41c5ae9923e88bbb",
+      "bytes": 94995
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CD",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CD.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CD.uasset",
+      "sha256": "09b2c98aa7778b6a970b0d90882555cf920c03d761f1e50bb3feaf0e3c9a6fef",
+      "bytes": 94882
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CU",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CU.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CU.uasset",
+      "sha256": "60969c39ff3c1bd1e30e7c728a9dbe49c236857659b1ae8d20ae7605d8152324",
+      "bytes": 95154
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Rifle/MF_Rifle_Idle_ADS",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Rifle/MF_Rifle_Idle_ADS.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Rifle/MF_Rifle_Idle_ADS.uasset",
+      "sha256": "cfa32b19207a25546bb5bc2dde8454dc633cc27c3de45747e941756e23da5d4d",
+      "bytes": 1700234
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Fire",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Rifle/MM_Rifle_Fire.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Rifle/MM_Rifle_Fire.uasset",
+      "sha256": "1c5b983bd6c09431c83866f772ccf13871ad9626426c86cc08a0c87c150555f7",
+      "bytes": 184600
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/ABP_Unarmed.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed.uasset",
+      "sha256": "60ae8c970189979d9e070beb0fd8675f4afb2b04d8aaa8d11a0f03c5b7ebf4b2",
+      "bytes": 385911
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run.uasset",
+      "sha256": "bc71af8768b569695d4bcb69c79867f998e085693f5e8230854d228de359f5bb",
+      "bytes": 52333
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd.uasset",
+      "sha256": "1f6e9448f0e0737f506d9e8f11b8d661d6d65c818f0e3160938f1e24082b16c3",
+      "bytes": 483265
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left.uasset",
+      "sha256": "e6e68e6cf4175f85c0e16a60f80335a1fab3f8c76a014d02bc0cd18aabe3314a",
+      "bytes": 417528
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Right",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Right.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Right.uasset",
+      "sha256": "ee3137ff2b7d2cb721c935e2de91d55479e20f030ff230e9f912f6b70658c399",
+      "bytes": 417530
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd.uasset",
+      "sha256": "0ccbe851f85a6d4cd7c6438c219cb6af8e281784107b5be8e9b052e4df3069cb",
+      "bytes": 531789
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Left",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Left.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Left.uasset",
+      "sha256": "12ee5a11f277af90429980f120026f430ae1e438f6eae42c10222e175f9dbe12",
+      "bytes": 466995
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Right",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Right.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Right.uasset",
+      "sha256": "66a7561d60453794864edd7e0c55487817068b6b66e31e179c98b9f2bab4c76b",
+      "bytes": 467310
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Left",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Left.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Left.uasset",
+      "sha256": "f7842445f0c2b2f8d3cd9d43b9f58bc3ea888adeb1e161398b492097358431bd",
+      "bytes": 487864
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Right",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Right.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Right.uasset",
+      "sha256": "208f642310d9627d12a5125889b480e051a1f1fc5397a10b83975903a0c59aea",
+      "bytes": 521907
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop.uasset",
+      "sha256": "408be742c63adffe8c6c1d22442e99ea34a7618cd33c6e78e0eed3d7db877433",
+      "bytes": 925351
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jump/MM_Jump.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump.uasset",
+      "sha256": "252cbf69b07b797d3c3c6177d3ae9df17e9873f4872c4fa040c0d441dc3b3cef",
+      "bytes": 403730
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Jump/MM_Land.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land.uasset",
+      "sha256": "a00de25a6beca56ff6d8077081531e5cef238c92825b6c184351d0aa99ef3fcb",
+      "bytes": 410017
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/MM_Idle.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/MM_Idle.uasset",
+      "sha256": "11ee7fdeb84db89c1a66785b43b9bfc1415782122b8ac229517f4c5125d9cb0d",
+      "bytes": 1436554
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd.uasset",
+      "sha256": "ae0c2ee1c1178fd1b9493f6c327e52d10a3d6bbde29eae54dcb07c13a27dcf46",
+      "bytes": 606821
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Left",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Left.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Left.uasset",
+      "sha256": "7c25a8eebb9883085ac8f82de3c83fc34fd19b02567f17fafde9dd60c09cf3e5",
+      "bytes": 537758
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Right",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Right.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Right.uasset",
+      "sha256": "8c71b9bbf7b15d75cacddbeb8827e22888cfa63a359ecbc0e017aec822d1a522",
+      "bytes": 537632
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd.uasset",
+      "sha256": "c74b2fc0cb651c4924804b364e534856a1b44dee818127c408dc055e4bda5ed9",
+      "bytes": 475783
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Left",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Left.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Left.uasset",
+      "sha256": "a7d8ff5a55eb0c445da2c74b2fd9460b6a3aff0db206be9e99aed319158d5770",
+      "bytes": 411535
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Right",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Right.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Right.uasset",
+      "sha256": "67d3d4fed066023a14220277f5598db83f19efee97de908b1397b0ae998e5599",
+      "bytes": 411529
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Left",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Left.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Left.uasset",
+      "sha256": "81500e4fcdd9ae9aa6433e652e67dea8f9dd9fa7b9ef1714e29f6ab0a1bb9d97",
+      "bytes": 486552
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Right",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Right.uasset",
+      "destination": "Content/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Right.uasset",
+      "sha256": "f5922b4e632351353224b32f719af97e85512ab4f6553b15315cf14ad04f675f",
+      "bytes": 491934
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Materials/M_Mannequin",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Materials/M_Mannequin.uasset",
+      "destination": "Content/Characters/Mannequins/Materials/M_Mannequin.uasset",
+      "sha256": "d7ffe412d906380bd5bd4462f464b2a1fe48fdb79b9077f29bd0f958a782035c",
+      "bytes": 59292
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Materials/Manny/MI_Manny_01_New",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Materials/Manny/MI_Manny_01_New.uasset",
+      "destination": "Content/Characters/Mannequins/Materials/Manny/MI_Manny_01_New.uasset",
+      "sha256": "9f1e4ed382304d020b750c81505140fc1de4d339b0909430adb5380a6bb89b65",
+      "bytes": 17963
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Materials/Manny/MI_Manny_02_New",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Materials/Manny/MI_Manny_02_New.uasset",
+      "destination": "Content/Characters/Mannequins/Materials/Manny/MI_Manny_02_New.uasset",
+      "sha256": "26389db06f0b7928b487494bef3320d6b0e6bccd58193bccedd67c2c89132a46",
+      "bytes": 18706
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Meshes/SKM_Manny_Simple.uasset",
+      "destination": "Content/Characters/Mannequins/Meshes/SKM_Manny_Simple.uasset",
+      "sha256": "be9f011191ee1887b97cd13bce09886a6066c2fd62c619991070ec142184e1bf",
+      "bytes": 15825101
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Meshes/SK_Mannequin.uasset",
+      "destination": "Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset",
+      "sha256": "22029d47455f24471195b26a0e04a1e1389f27d6a924e88c9f46a0f600c9a530",
+      "bytes": 191198
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Rigs/CR_Mannequin_FootIK.uasset",
+      "destination": "Content/Characters/Mannequins/Rigs/CR_Mannequin_FootIK.uasset",
+      "sha256": "aa01be065d2efa2dfd3b258f60b94b09fcd5d351356d16bb52578ef5bcbfb5c5",
+      "bytes": 498698
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Rigs/PA_Mannequin",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Rigs/PA_Mannequin.uasset",
+      "destination": "Content/Characters/Mannequins/Rigs/PA_Mannequin.uasset",
+      "sha256": "c0ceaf003947088ff076555b81a46e5ccb11149c94025eb2a9e74263fbaa0d67",
+      "bytes": 301538
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_01_BN",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Textures/Manny/T_Manny_01_BN.uasset",
+      "destination": "Content/Characters/Mannequins/Textures/Manny/T_Manny_01_BN.uasset",
+      "sha256": "2f623209571ecbd8185b5b463786be033c3284190b4fc7b249e8d1d2ed995fd8",
+      "bytes": 1422785
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_01_D",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Textures/Manny/T_Manny_01_D.uasset",
+      "destination": "Content/Characters/Mannequins/Textures/Manny/T_Manny_01_D.uasset",
+      "sha256": "6ae0f4f9908c30ecc9aedf1ebb442e4983e526a7832ec791542064c7853f9999",
+      "bytes": 699555
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_01_MRA",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Textures/Manny/T_Manny_01_MRA.uasset",
+      "destination": "Content/Characters/Mannequins/Textures/Manny/T_Manny_01_MRA.uasset",
+      "sha256": "3e42e888aed8aefff68da7d7dda4f177c5647b19473e4e913f61375c1319abd8",
+      "bytes": 712594
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_02_BN",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Textures/Manny/T_Manny_02_BN.uasset",
+      "destination": "Content/Characters/Mannequins/Textures/Manny/T_Manny_02_BN.uasset",
+      "sha256": "c9575d21c9e2872b3358c0efb9e202535ce2efce94c338b9d3bd04cb9831e353",
+      "bytes": 20999487
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_02_D",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Textures/Manny/T_Manny_02_D.uasset",
+      "destination": "Content/Characters/Mannequins/Textures/Manny/T_Manny_02_D.uasset",
+      "sha256": "474728713232c6833f55c041548f555bc62c5c49e74082a5d16e68a5ce488cfe",
+      "bytes": 1036712
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_02_MRA",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Textures/Manny/T_Manny_02_MRA.uasset",
+      "destination": "Content/Characters/Mannequins/Textures/Manny/T_Manny_02_MRA.uasset",
+      "sha256": "6697972eaf2dfe201923dba6a302f024b0ef4c4e46b4ecf578178717098e8277",
+      "bytes": 1059559
+    },
+    {
+      "package": "/Game/Characters/Mannequins/Textures/Shared/T_UE_Logo_M",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Characters/Content/Mannequins/Textures/Shared/T_UE_Logo_M.uasset",
+      "destination": "Content/Characters/Mannequins/Textures/Shared/T_UE_Logo_M.uasset",
+      "sha256": "34e6fa3414c04a86b7a5287e5569ea9d6e53c319d6e7dbfc8b09dab5b70611a6",
+      "bytes": 59927
+    },
+    {
+      "package": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "source_relative_to_engine": "Templates/TP_FirstPersonBP/Content/FirstPerson/Anims/ABP_FP_Copy.uasset",
+      "destination": "Content/FirstPerson/Anims/ABP_FP_Copy.uasset",
+      "sha256": "a9d36cac5bb30f5a5ecdb175dc4fcbd50d8ae74405ad57802436fbedbab02455",
+      "bytes": 57892
+    },
+    {
+      "package": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "source_relative_to_engine": "Templates/TP_FirstPersonBP/Content/FirstPerson/Anims/CtrlRig_FPWarp.uasset",
+      "destination": "Content/FirstPerson/Anims/CtrlRig_FPWarp.uasset",
+      "sha256": "7cab27cf0fdec19da9dd6ec98c5c1e8308774c460dda518ca0753c276af85078",
+      "bytes": 248824
+    },
+    {
+      "package": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+      "source_relative_to_engine": "Templates/TP_FirstPersonBP/Content/FirstPerson/Blueprints/BP_FirstPersonCameraManager.uasset",
+      "destination": "Content/FirstPerson/Blueprints/BP_FirstPersonCameraManager.uasset",
+      "sha256": "3426584f105e39755833ebc2ede7b586cfde5a11fcebeecaf0eac37d819cce57",
+      "bytes": 15761
+    },
+    {
+      "package": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "source_relative_to_engine": "Templates/TP_FirstPersonBP/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
+      "destination": "Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
+      "sha256": "32d47177b176a430adb28897153e9bf5d2a3807bfca232815aa60ad58b6ae6a3",
+      "bytes": 138384
+    },
+    {
+      "package": "/Game/FirstPerson/Blueprints/BP_FirstPersonPlayerController",
+      "source_relative_to_engine": "Templates/TP_FirstPersonBP/Content/FirstPerson/Blueprints/BP_FirstPersonPlayerController.uasset",
+      "destination": "Content/FirstPerson/Blueprints/BP_FirstPersonPlayerController.uasset",
+      "sha256": "0ad6c2154837e1aafbbd6da30c9f49697c031d8ae2221d481956f08e827edc14",
+      "bytes": 83021
+    },
+    {
+      "package": "/Game/FirstPerson/MI_FirstPersonColorway",
+      "source_relative_to_engine": "Templates/TP_FirstPersonBP/Content/FirstPerson/MI_FirstPersonColorway.uasset",
+      "destination": "Content/FirstPerson/MI_FirstPersonColorway.uasset",
+      "sha256": "d0821072d542c67e5eb8802456cf0f4744ea3eeb843fbf59baeae1771e939d23",
+      "bytes": 9419
+    },
+    {
+      "package": "/Game/Input/Actions/IA_Jump",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/Actions/IA_Jump.uasset",
+      "destination": "Content/Input/Actions/IA_Jump.uasset",
+      "sha256": "73c14789fee45a6e1eff57f3304a0bafee23790cc8ea6a6a5bf0056e75d7b3e4",
+      "bytes": 1695
+    },
+    {
+      "package": "/Game/Input/Actions/IA_Look",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/Actions/IA_Look.uasset",
+      "destination": "Content/Input/Actions/IA_Look.uasset",
+      "sha256": "0d4a2cb59db11a0a080834e1b292207e530b8df217446afb46e382d9fa12f5a9",
+      "bytes": 1385
+    },
+    {
+      "package": "/Game/Input/Actions/IA_MouseLook",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/Actions/IA_MouseLook.uasset",
+      "destination": "Content/Input/Actions/IA_MouseLook.uasset",
+      "sha256": "2901132a04ceb384e2693107b8f5455de48b7c325d6cc5ce07556c6425c19f48",
+      "bytes": 1410
+    },
+    {
+      "package": "/Game/Input/Actions/IA_Move",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/Actions/IA_Move.uasset",
+      "destination": "Content/Input/Actions/IA_Move.uasset",
+      "sha256": "85567b9d91ffd9f7106c3062557a6fa864a791233380353f63eb563470985add",
+      "bytes": 1385
+    },
+    {
+      "package": "/Game/Input/IMC_Default",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/IMC_Default.uasset",
+      "destination": "Content/Input/IMC_Default.uasset",
+      "sha256": "133bda6567aaeea1aae05c03597345e4b1d9ef24d868a0275203b3203a7aae98",
+      "bytes": 7787
+    },
+    {
+      "package": "/Game/Input/IMC_MouseLook",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/IMC_MouseLook.uasset",
+      "destination": "Content/Input/IMC_MouseLook.uasset",
+      "sha256": "6a00157cd520edcf0b037d7091bfe188fa6eb7c48465f695981f7cbe5fb4cc80",
+      "bytes": 2521
+    },
+    {
+      "package": "/Game/Input/Touch/BPI_TouchInterface",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/Touch/BPI_TouchInterface.uasset",
+      "destination": "Content/Input/Touch/BPI_TouchInterface.uasset",
+      "sha256": "e778ae087305a34cd6957fcf9b29670f0a2a01be96bad89c79b83286496ec45f",
+      "bytes": 16393
+    },
+    {
+      "package": "/Game/Input/Touch/UI_Thumbstick",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/Touch/UI_Thumbstick.uasset",
+      "destination": "Content/Input/Touch/UI_Thumbstick.uasset",
+      "sha256": "49c8c04b2e8c88beb55935b05d9af72c35d89512ea6435f20d5e3123be139f8b",
+      "bytes": 223040
+    },
+    {
+      "package": "/Game/Input/Touch/UI_TouchSimple",
+      "source_relative_to_engine": "Templates/TemplateResources/High/Input/Content/Touch/UI_TouchSimple.uasset",
+      "destination": "Content/Input/Touch/UI_TouchSimple.uasset",
+      "sha256": "81f45f11e73180f0964ee3f59f77c8c55e61d355e5c69427e1de67e5aa5db77b",
+      "bytes": 70301
+    },
+    {
+      "package": "/Game/LevelPrototyping/Materials/MF_ProcGrid",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Materials/MF_ProcGrid.uasset",
+      "destination": "Content/LevelPrototyping/Materials/MF_ProcGrid.uasset",
+      "sha256": "e5ee13abdb241d9811f6c1bcc0a607d229fa7adc5f46bfd5a9d5fedbfa279683",
+      "bytes": 49820
+    },
+    {
+      "package": "/Game/LevelPrototyping/Materials/MI_DefaultColorway",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Materials/MI_DefaultColorway.uasset",
+      "destination": "Content/LevelPrototyping/Materials/MI_DefaultColorway.uasset",
+      "sha256": "786a4dfcaaa6f4daf459c77bda247c2c138140680a8246d521974d0cc4fc8a8e",
+      "bytes": 9260
+    },
+    {
+      "package": "/Game/LevelPrototyping/Materials/MI_PrototypeGrid_Gray",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Materials/MI_PrototypeGrid_Gray.uasset",
+      "destination": "Content/LevelPrototyping/Materials/MI_PrototypeGrid_Gray.uasset",
+      "sha256": "084681bf680dad66b8c8ca803d927053cf46756f2f2e62d18fcc439e07de7263",
+      "bytes": 13121
+    },
+    {
+      "package": "/Game/LevelPrototyping/Materials/M_FlatCol",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Materials/M_FlatCol.uasset",
+      "destination": "Content/LevelPrototyping/Materials/M_FlatCol.uasset",
+      "sha256": "41dbbda4b463a224c29ee01765e1f52a8ae63f2f94f1440ee267fe7b1a481585",
+      "bytes": 11771
+    },
+    {
+      "package": "/Game/LevelPrototyping/Materials/M_PrototypeGrid",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Materials/M_PrototypeGrid.uasset",
+      "destination": "Content/LevelPrototyping/Materials/M_PrototypeGrid.uasset",
+      "sha256": "bf8625ad5917cee705867038d8a590b25465e6b5d5818a738a584e515d7cbdfc",
+      "bytes": 79863
+    },
+    {
+      "package": "/Game/LevelPrototyping/Meshes/SM_ChamferCube",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Meshes/SM_ChamferCube.uasset",
+      "destination": "Content/LevelPrototyping/Meshes/SM_ChamferCube.uasset",
+      "sha256": "b20a3ae9668ec599db519af3f84b67952d0e31ac4427b80ee812232edde91f53",
+      "bytes": 128849
+    },
+    {
+      "package": "/Game/LevelPrototyping/Meshes/SM_Cylinder",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Meshes/SM_Cylinder.uasset",
+      "destination": "Content/LevelPrototyping/Meshes/SM_Cylinder.uasset",
+      "sha256": "76aaa3c2b812ff790fb57ae7736b748e4e1556afbb13466fd787d4bacd2c7dfe",
+      "bytes": 193636
+    },
+    {
+      "package": "/Game/LevelPrototyping/Textures/T_GridChecker_A",
+      "source_relative_to_engine": "Templates/TemplateResources/High/LevelPrototyping/Content/Textures/T_GridChecker_A.uasset",
+      "destination": "Content/LevelPrototyping/Textures/T_GridChecker_A.uasset",
+      "sha256": "bb8334767064b107ec4f4407ef1365e8b9e2dfeff5984e66d4a6232254ddd02a",
+      "bytes": 9600
+    },
+    {
+      "package": "/Game/Variant_Shooter/Anims/ABP_FP_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Anims/ABP_FP_Pistol.uasset",
+      "destination": "Content/Variant_Shooter/Anims/ABP_FP_Pistol.uasset",
+      "sha256": "2737d9a1c5814ed16a9166ca16a59c882916c8d4fd9fab03debc7778c758e906",
+      "bytes": 231575
+    },
+    {
+      "package": "/Game/Variant_Shooter/Anims/ABP_FP_Weapon",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Anims/ABP_FP_Weapon.uasset",
+      "destination": "Content/Variant_Shooter/Anims/ABP_FP_Weapon.uasset",
+      "sha256": "14ed6eee063f9fc6ac20911585bb23d90b7103b9809a851abe886fb9aaf3e02b",
+      "bytes": 231454
+    },
+    {
+      "package": "/Game/Variant_Shooter/Anims/ABP_TP_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Anims/ABP_TP_Pistol.uasset",
+      "destination": "Content/Variant_Shooter/Anims/ABP_TP_Pistol.uasset",
+      "sha256": "a1a6108ba04ed24e071cd70df4cfd1c02d826c5855e206092784f6066489325f",
+      "bytes": 411714
+    },
+    {
+      "package": "/Game/Variant_Shooter/Anims/ABP_TP_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Anims/ABP_TP_Rifle.uasset",
+      "destination": "Content/Variant_Shooter/Anims/ABP_TP_Rifle.uasset",
+      "sha256": "9488759ac8d959a23eecdf194864238615cd2e93637f274897259b3044d05a9b",
+      "bytes": 414718
+    },
+    {
+      "package": "/Game/Variant_Shooter/Anims/Ctrl_HandAdjusment",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Anims/Ctrl_HandAdjusment.uasset",
+      "destination": "Content/Variant_Shooter/Anims/Ctrl_HandAdjusment.uasset",
+      "sha256": "4a7ba77935dc0e3b83a40788f9f7385655bbcfb95b0a85851b4ebe95b59238cc",
+      "bytes": 513638
+    },
+    {
+      "package": "/Game/Variant_Shooter/Anims/Ctrl_HandAdjusment_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Anims/Ctrl_HandAdjusment_Pistol.uasset",
+      "destination": "Content/Variant_Shooter/Anims/Ctrl_HandAdjusment_Pistol.uasset",
+      "sha256": "51c33bad01c55bb9db49598c3154effb6f0900b14f53bd52adedf39c0afd516a",
+      "bytes": 512901
+    },
+    {
+      "package": "/Game/Variant_Shooter/Anims/FP_Rifle_Shoot_Montage",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Anims/FP_Rifle_Shoot_Montage.uasset",
+      "destination": "Content/Variant_Shooter/Anims/FP_Rifle_Shoot_Montage.uasset",
+      "sha256": "81c6018e2e811754fc8d2083b239723f2ab2a51c132929a7468d3dbdfab5f314",
+      "bytes": 11155
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterAIController",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/BP_ShooterAIController.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/BP_ShooterAIController.uasset",
+      "sha256": "0e974fa72ec46b948f863513e2b28c347eed757e0a49cc765d641aed6a3d872e",
+      "bytes": 78591
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPC",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/BP_ShooterNPC.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/BP_ShooterNPC.uasset",
+      "sha256": "81befe8c8d4b58d3ee94579d0998f5469fc6081a8bf2e51b7253de7abd4174f1",
+      "bytes": 349317
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPCSpawner",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/BP_ShooterNPCSpawner.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/BP_ShooterNPCSpawner.uasset",
+      "sha256": "061778ad79375b980e5710f36957c0aec3536a8cbf104743eb669d2aea1cb8a5",
+      "bytes": 110440
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/EQS/EQS_FindRoamLocation",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/EQS/EQS_FindRoamLocation.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/EQS/EQS_FindRoamLocation.uasset",
+      "sha256": "f65699743d3992109eb8b66c3d3dfb0e9b79564a355c792054ccf99510b1dfbc",
+      "bytes": 9445
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/EQS/EQS_FindSnipingLocation",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/EQS/EQS_FindSnipingLocation.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/EQS/EQS_FindSnipingLocation.uasset",
+      "sha256": "577b48453b51dc518aade85561dd71841bb36ddf31d3a6b1c077258c5867cb55",
+      "bytes": 14539
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/EQS/EnvQueryContext_Target",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/EQS/EnvQueryContext_Target.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/EQS/EnvQueryContext_Target.uasset",
+      "sha256": "71bca1780881c5b1a74da6c3b903b53de5bb0cbe46cceaa0368673056ce8b665",
+      "bytes": 31509
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/ST_Shooter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/ST_Shooter.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/ST_Shooter.uasset",
+      "sha256": "1a0127a2ef39a9f19feea1070a66ff8f203f551e31d9777f7f88f1d3d78b57ba",
+      "bytes": 234704
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/ST_Shooter_ShootAtTarget",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/ST_Shooter_ShootAtTarget.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/ST_Shooter_ShootAtTarget.uasset",
+      "sha256": "dbc77f8f985043aca9d4927b153371e5c26d8e08b0511279e47737242bb124cb",
+      "bytes": 107406
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/StateTree/StateTreeCondition_HasLineOfSightToTarget",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/StateTree/StateTreeCondition_HasLineOfSightToTarget.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/StateTree/StateTreeCondition_HasLineOfSightToTarget.uasset",
+      "sha256": "c44f5db2b2f67a5715bbc8d6067364b21b528fe2f8780017d361f14e9acfeb5a",
+      "bytes": 170595
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_FaceActor",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/StateTree/StateTreeTask_FaceActor.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_FaceActor.uasset",
+      "sha256": "f0f7ec0305a7594c0dca4f011ae722a3694ccd537454f2e5fee329aa3b2ab5c4",
+      "bytes": 34733
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_FaceLocation",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/StateTree/StateTreeTask_FaceLocation.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_FaceLocation.uasset",
+      "sha256": "d65f2bc569b4d7af4f02a5eb0609b031302951cba76e8531042466967adcf5e8",
+      "bytes": 53273
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_SenseEnemies",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/StateTree/StateTreeTask_SenseEnemies.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_SenseEnemies.uasset",
+      "sha256": "eb04159417a50ac9bdb7ae46f8515b98fd36eb245a46efe45c2e1c341ac2c32e",
+      "bytes": 267963
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_SetRandomFloat",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/StateTree/StateTreeTask_SetRandomFloat.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_SetRandomFloat.uasset",
+      "sha256": "c187f36a30eb9ee694cc8fc1dc6c0bfc46c6f00ccc13cc0eee1d34c4caa8c083",
+      "bytes": 46953
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_ShootAtTarget",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/AI/StateTree/StateTreeTask_ShootAtTarget.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/AI/StateTree/StateTreeTask_ShootAtTarget.uasset",
+      "sha256": "e4c3a2be771649ac6daf62f78e9b3900dc72a06664769b77115ade56a3fbff86",
+      "bytes": 41312
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/BPI_Shooter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/BPI_Shooter.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/BPI_Shooter.uasset",
+      "sha256": "6f3bc8f6c7553ef835dfcf23f126af76c62393fd73e74b78820a6c893521fcc9",
+      "bytes": 23816
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/BPI_Teammate",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/BPI_Teammate.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/BPI_Teammate.uasset",
+      "sha256": "27d2fc0d8acabada75dcd41b9e6423afc6749f55e4cd8e22dd912aa91f300fd8",
+      "bytes": 13929
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/BP_ShooterCharacter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/BP_ShooterCharacter.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/BP_ShooterCharacter.uasset",
+      "sha256": "4a6fd12ffb4c2d39620e50b56ceffd165d49b14513b760ad2e73611f8da29615",
+      "bytes": 541314
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/BP_ShooterGameMode",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/BP_ShooterGameMode.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/BP_ShooterGameMode.uasset",
+      "sha256": "ee20f85b829deb145afc069ce6d1fc4444994b705f63ced602bb7dbe6e370287",
+      "bytes": 149709
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/BP_ShooterPlayerController",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/BP_ShooterPlayerController.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/BP_ShooterPlayerController.uasset",
+      "sha256": "09b782fa391a18ae14f483c725a3cd1dad796e9cd2efe926f7d9d6fd4192f0fd",
+      "bytes": 167069
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/BPI_Pickups",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/BPI_Pickups.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/BPI_Pickups.uasset",
+      "sha256": "070975b077ea00c70b258714654ba73baf8253b5b43a38cb433363d136e65558",
+      "bytes": 11279
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/BPI_WeaponHolder",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/BPI_WeaponHolder.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/BPI_WeaponHolder.uasset",
+      "sha256": "1e344696cfeefe48fab902078ed5b9b9037d890ea77e48d47599396b7e82adc0",
+      "bytes": 32462
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/BP_ShooterPickup",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/BP_ShooterPickup.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/BP_ShooterPickup.uasset",
+      "sha256": "1e541db34831b1cdc86eec4f5d6f2a3ce89fbe8c417d6d2e8744cc466b843393",
+      "bytes": 171485
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/BP_ShooterWeaponBase",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/BP_ShooterWeaponBase.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/BP_ShooterWeaponBase.uasset",
+      "sha256": "61c7e7b7f30ac9399b4052476bd2640f106028fb908cf76801d7bf03ae46cee5",
+      "bytes": 348618
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/DT_WeaponList",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/DT_WeaponList.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/DT_WeaponList.uasset",
+      "sha256": "32d659e1d60feeeff7cacf210d80dd668de5e119e6d25b3e8ec5d97630b5a494",
+      "bytes": 3204
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_ShooterProjectileBase",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Projectiles/BP_ShooterProjectileBase.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_ShooterProjectileBase.uasset",
+      "sha256": "8b548948a39e7660d67aac6e0c477b4300af5db83996814da51876f2ef99b559",
+      "bytes": 271304
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_ShooterProjectile_Bullet",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Projectiles/BP_ShooterProjectile_Bullet.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_ShooterProjectile_Bullet.uasset",
+      "sha256": "a57ea144438b70a419cc037881f08402ce1042576dacc41a88c094150fdda0df",
+      "bytes": 108324
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_ShooterProjectile_Grenade",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Projectiles/BP_ShooterProjectile_Grenade.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_ShooterProjectile_Grenade.uasset",
+      "sha256": "6c4b4032e2cf005f21eb85d2bb33860202612278f9e09a8a7a21ca1bd6498dea",
+      "bytes": 39607
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_Shooter_GrenadeExplosion",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Projectiles/BP_Shooter_GrenadeExplosion.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Projectiles/BP_Shooter_GrenadeExplosion.uasset",
+      "sha256": "ef79804e35fef5143dbc8040aee59bee077d47b1e3be82b0ec6d1449cdb58d3f",
+      "bytes": 56154
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Projectiles/Materials/M_Explosion",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Projectiles/Materials/M_Explosion.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Projectiles/Materials/M_Explosion.uasset",
+      "sha256": "d1b6de725fc7c5eecdcf0cda3b23e4148ecfec0bfe10f4136e0e37bd11cf366c",
+      "bytes": 28329
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Projectiles/Meshes/SM_FoamBullet",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Projectiles/Meshes/SM_FoamBullet.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Projectiles/Meshes/SM_FoamBullet.uasset",
+      "sha256": "fe63e1fc045cc85c66bd14f3e0adc0284cb9afc2d1175fb0fa291f12894a40e6",
+      "bytes": 81876
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/ST_WeaponTableRow",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/ST_WeaponTableRow.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/ST_WeaponTableRow.uasset",
+      "sha256": "109a59dc5d57e29576f5315cd679d0ca6e408fd8a7136090c0a4d5524b6f2409",
+      "bytes": 5424
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Weapons/BP_ShooterWeapon_GrenadeLauncher",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Weapons/BP_ShooterWeapon_GrenadeLauncher.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Weapons/BP_ShooterWeapon_GrenadeLauncher.uasset",
+      "sha256": "168eb272a89f759afd01aeeb256af8b045d17d153e9fca8da90427279ec2cf75",
+      "bytes": 42102
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Weapons/BP_ShooterWeapon_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Weapons/BP_ShooterWeapon_Pistol.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Weapons/BP_ShooterWeapon_Pistol.uasset",
+      "sha256": "45e17efd7bc7b5b6660caf80e148ac54c2df91c456fae61eeaa4029773650a5c",
+      "bytes": 41406
+    },
+    {
+      "package": "/Game/Variant_Shooter/Blueprints/Pickups/Weapons/BP_ShooterWeapon_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Blueprints/Pickups/Weapons/BP_ShooterWeapon_Rifle.uasset",
+      "destination": "Content/Variant_Shooter/Blueprints/Pickups/Weapons/BP_ShooterWeapon_Rifle.uasset",
+      "sha256": "e865b6f27c4282f74999c4fbc50b7022b44d6d7062021bf6ad388d6fdaaf110d",
+      "bytes": 38746
+    },
+    {
+      "package": "/Game/Variant_Shooter/Input/Actions/IA_Shoot",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Input/Actions/IA_Shoot.uasset",
+      "destination": "Content/Variant_Shooter/Input/Actions/IA_Shoot.uasset",
+      "sha256": "d3a3ab965908d858bdb38d7c19c0f236eb338cedc099ea1e3ac32beeeb8e2ce1",
+      "bytes": 1740
+    },
+    {
+      "package": "/Game/Variant_Shooter/Input/Actions/IA_SwapWeapon",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Input/Actions/IA_SwapWeapon.uasset",
+      "destination": "Content/Variant_Shooter/Input/Actions/IA_SwapWeapon.uasset",
+      "sha256": "e634a9fddf277fa8e1f934712d39cbd4ac4ba68ceec0c81278164a22a96f8450",
+      "bytes": 1555
+    },
+    {
+      "package": "/Game/Variant_Shooter/Input/BPI_Touch_Shooter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Input/BPI_Touch_Shooter.uasset",
+      "destination": "Content/Variant_Shooter/Input/BPI_Touch_Shooter.uasset",
+      "sha256": "e3d9e8021420f65f06e1813c11991c509a15b48d31390aa7dcc585e08fd30932",
+      "bytes": 13300
+    },
+    {
+      "package": "/Game/Variant_Shooter/Input/IMC_Weapons",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Input/IMC_Weapons.uasset",
+      "destination": "Content/Variant_Shooter/Input/IMC_Weapons.uasset",
+      "sha256": "02cc3371d6e3686008f850cdb743a625c3acaaadd51a0a6b4df4784f07eaf057",
+      "bytes": 3979
+    },
+    {
+      "package": "/Game/Variant_Shooter/Input/UI_TouchInterface_Shooter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/Input/UI_TouchInterface_Shooter.uasset",
+      "destination": "Content/Variant_Shooter/Input/UI_TouchInterface_Shooter.uasset",
+      "sha256": "113abb559a6a7832fb8d24995ebb8fe118f5fa70168d4744855ea11bba744084",
+      "bytes": 94873
+    },
+    {
+      "package": "/Game/Variant_Shooter/UI/M_BulletCounter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/UI/M_BulletCounter.uasset",
+      "destination": "Content/Variant_Shooter/UI/M_BulletCounter.uasset",
+      "sha256": "4f51a9a252506c3eb1bf8db5857b5095fe6f523b7baeb594bb4dd436bae885ec",
+      "bytes": 37289
+    },
+    {
+      "package": "/Game/Variant_Shooter/UI/UI_Shooter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/UI/UI_Shooter.uasset",
+      "destination": "Content/Variant_Shooter/UI/UI_Shooter.uasset",
+      "sha256": "26be4983c9fd6b03c285fc996ca4ad9cdeee279d612bada7797429a30947ecbf",
+      "bytes": 63682
+    },
+    {
+      "package": "/Game/Variant_Shooter/UI/UI_ShooterBulletCounter",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Variant_Shooter/Content/UI/UI_ShooterBulletCounter.uasset",
+      "destination": "Content/Variant_Shooter/UI/UI_ShooterBulletCounter.uasset",
+      "sha256": "ca528ddbdf026395833339dd6f91224d38e54a2025dffb543bab6032b5bbbb43",
+      "bytes": 155863
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Materials/M_GrenadeLauncher",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Materials/M_GrenadeLauncher.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Materials/M_GrenadeLauncher.uasset",
+      "sha256": "0efea7f92b8d05461c4dbf6fdb23e5519d48795680658575138a4b097cb46b6c",
+      "bytes": 27126
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Materials/M_ProjectileBullet",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Materials/M_ProjectileBullet.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Materials/M_ProjectileBullet.uasset",
+      "sha256": "a632681a46fef4cc87f4a9933eb7e19d73a9efbd856b55335bd883309b92530a",
+      "bytes": 14888
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Meshes/FirstPersonProjectileMesh",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Meshes/FirstPersonProjectileMesh.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Meshes/FirstPersonProjectileMesh.uasset",
+      "sha256": "1ceea86d9723b80c01e88d55e4277cccbf6f71da3ce209562dd9c35743342a82",
+      "bytes": 33630
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Meshes/PA_GrenadeLauncher",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Meshes/PA_GrenadeLauncher.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Meshes/PA_GrenadeLauncher.uasset",
+      "sha256": "8917535392ac6df3f7f29c8a675a2357d02d2abf6034215106a4c34cba0b9f34",
+      "bytes": 10166
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Meshes/SKM_GrenadeLauncher",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Meshes/SKM_GrenadeLauncher.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Meshes/SKM_GrenadeLauncher.uasset",
+      "sha256": "cad142505e8354c5db09683074624b7fe89dbc8a450dcfcf3476ce70d0e0941d",
+      "bytes": 2698295
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Meshes/SK_GrenadeLauncher",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Meshes/SK_GrenadeLauncher.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Meshes/SK_GrenadeLauncher.uasset",
+      "sha256": "13a244b07acf7288f3d1da0dcf954c53b4c29f0007cd00ce1b4d5f8fc531c15b",
+      "bytes": 9165
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Meshes/SM_GrenadeLauncher",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Meshes/SM_GrenadeLauncher.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Meshes/SM_GrenadeLauncher.uasset",
+      "sha256": "2d10839f109baf5e7424759d3e5f7d8c7588f080a28a4a1d93b0b4eefc73a378",
+      "bytes": 512976
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Textures/T_FPGun_M",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Textures/T_FPGun_M.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Textures/T_FPGun_M.uasset",
+      "sha256": "87b4ef72e628f6140ffe677d2b64082b10acbd0e03940fc5e0627ccccd091887",
+      "bytes": 156597
+    },
+    {
+      "package": "/Game/Weapons/GrenadeLauncher/Textures/T_FPGun_N",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/GrenadeLauncher/Textures/T_FPGun_N.uasset",
+      "destination": "Content/Weapons/GrenadeLauncher/Textures/T_FPGun_N.uasset",
+      "sha256": "223e0f814cbd8bae88b719b654380cb60755c768217ab0ccdd83c462a913aa7d",
+      "bytes": 1734086
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Materials/MI_Weapon_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Materials/MI_Weapon_Pistol.uasset",
+      "destination": "Content/Weapons/Pistol/Materials/MI_Weapon_Pistol.uasset",
+      "sha256": "9213d13b5529f4c4fa84877099127d9dbc0a779a8afcca48ea1ceabb8bf07634",
+      "bytes": 17359
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Meshes/PA_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Meshes/PA_Pistol.uasset",
+      "destination": "Content/Weapons/Pistol/Meshes/PA_Pistol.uasset",
+      "sha256": "312403ecb1c0f9c735345928619f366cb16027aa7ee22c9142f807a6511b2512",
+      "bytes": 8807
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Meshes/SKM_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Meshes/SKM_Pistol.uasset",
+      "destination": "Content/Weapons/Pistol/Meshes/SKM_Pistol.uasset",
+      "sha256": "cdfe37753e21c8c88c32caa1b7919918fb53c4adeda7c7fd472e9bc6730eb694",
+      "bytes": 999935
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Meshes/SK_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Meshes/SK_Pistol.uasset",
+      "destination": "Content/Weapons/Pistol/Meshes/SK_Pistol.uasset",
+      "sha256": "c6aeb605a2b969ab8a6d48a56c35bb44d96651727e9bfdd7f7fa38a71606e918",
+      "bytes": 9704
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Meshes/SM_Pistol",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Meshes/SM_Pistol.uasset",
+      "destination": "Content/Weapons/Pistol/Meshes/SM_Pistol.uasset",
+      "sha256": "c9a50517218e0c807b8d12f510dccc8a07aa7d8721e649d9eb60419ac139d34e",
+      "bytes": 188852
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Textures/T_Pistol_AORM",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Textures/T_Pistol_AORM.uasset",
+      "destination": "Content/Weapons/Pistol/Textures/T_Pistol_AORM.uasset",
+      "sha256": "65789a079408010ddc777e9291aecbcda28ea550832429b2c05c48f8dbe3c708",
+      "bytes": 1263989
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Textures/T_Pistol_D",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Textures/T_Pistol_D.uasset",
+      "destination": "Content/Weapons/Pistol/Textures/T_Pistol_D.uasset",
+      "sha256": "9014359ad0a79b762fccd472fa5dc5b1087a5407564952c0982d7c907dc9a588",
+      "bytes": 791319
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Textures/T_Pistol_Masks",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Textures/T_Pistol_Masks.uasset",
+      "destination": "Content/Weapons/Pistol/Textures/T_Pistol_Masks.uasset",
+      "sha256": "506d1878e24b3dffb04e9df90d287117a0e12445e5e46d1732a093b96e2a43e3",
+      "bytes": 54818
+    },
+    {
+      "package": "/Game/Weapons/Pistol/Textures/T_Pistol_N",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Pistol/Textures/T_Pistol_N.uasset",
+      "destination": "Content/Weapons/Pistol/Textures/T_Pistol_N.uasset",
+      "sha256": "7a3cabf7783371d113c47b6fe82d2b5cc478c09f1155f54cf08e857e472f54f5",
+      "bytes": 1094269
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Materials/M_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Materials/M_Rifle.uasset",
+      "destination": "Content/Weapons/Rifle/Materials/M_Rifle.uasset",
+      "sha256": "a4825031b9d0c4607f541b778b6e29baf5d3da3aa0a8ae511742eb93ebc429a3",
+      "bytes": 12404
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Materials/M_Weapon",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Materials/M_Weapon.uasset",
+      "destination": "Content/Weapons/Rifle/Materials/M_Weapon.uasset",
+      "sha256": "304ab2ae0a6ba53d20b4d45ce3761e39c7d28597027bcd0f17d67618bc13c175",
+      "bytes": 29581
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Meshes/PA_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Meshes/PA_Rifle.uasset",
+      "destination": "Content/Weapons/Rifle/Meshes/PA_Rifle.uasset",
+      "sha256": "b33b03102c2ff60f6c6f4856a8293d3160293a1582219fdbd39ff0527ac16b75",
+      "bytes": 7677
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Meshes/SKM_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Meshes/SKM_Rifle.uasset",
+      "destination": "Content/Weapons/Rifle/Meshes/SKM_Rifle.uasset",
+      "sha256": "349e47d396d21d908cf4763dfc759e9fd49da776b09dc699799e1b19591c0506",
+      "bytes": 2584805
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Meshes/SK_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Meshes/SK_Rifle.uasset",
+      "destination": "Content/Weapons/Rifle/Meshes/SK_Rifle.uasset",
+      "sha256": "bc21d41a9a220446bcb9b7d021bee25d8811cfc6a01b8b381000f22e586c8e17",
+      "bytes": 7939
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Meshes/SM_Rifle",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Meshes/SM_Rifle.uasset",
+      "destination": "Content/Weapons/Rifle/Meshes/SM_Rifle.uasset",
+      "sha256": "f32e41a07638d165957caee2ba550aac591503b69b8c897e7bd3b284b8d775e2",
+      "bytes": 450116
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Textures/T_Rifle_BC",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Textures/T_Rifle_BC.uasset",
+      "destination": "Content/Weapons/Rifle/Textures/T_Rifle_BC.uasset",
+      "sha256": "a186121704cce5edc611c79a0476a935387c5d2c627a219dcdfe75205be8b979",
+      "bytes": 429100
+    },
+    {
+      "package": "/Game/Weapons/Rifle/Textures/T_Rifle_N",
+      "source_relative_to_engine": "Templates/TemplateResources/Standard/Weapons/Content/Rifle/Textures/T_Rifle_N.uasset",
+      "destination": "Content/Weapons/Rifle/Textures/T_Rifle_N.uasset",
+      "sha256": "df596e6ab2c7c94bddf9eb71717896c6d2c1b7ccf14b804b59b5e54f29d39a16",
+      "bytes": 1115236
+    }
+  ],
+  "poly_haven_imported_required": [
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01.uasset",
+      "bytes": 7049
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD1",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD1.uasset",
+      "bytes": 1598943
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_diff_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_diff_1k.uasset",
+      "bytes": 998585
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_nor_dx_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_nor_dx_1k.uasset",
+      "bytes": 6001851
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_rough_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_rough_1k.uasset",
+      "bytes": 504124
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/M_PH_HangarConcreteXY200cm",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/M_PH_HangarConcreteXY200cm.uasset",
+      "bytes": 10392
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_ao_2k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_ao_2k.uasset",
+      "bytes": 2555726
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_diff_2k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_diff_2k.uasset",
+      "bytes": 2570539
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_nor_dx_2k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_nor_dx_2k.uasset",
+      "bytes": 22124524
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_rough_2k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_rough_2k.uasset",
+      "bytes": 2378945
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/M_PH_NamaqualandBoulder03",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/M_PH_NamaqualandBoulder03.uasset",
+      "bytes": 6830
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_1k.uasset",
+      "bytes": 2532303
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_diff_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_diff_1k.uasset",
+      "bytes": 878466
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_nor_dx_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_nor_dx_1k.uasset",
+      "bytes": 4694467
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_rough_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_rough_1k.uasset",
+      "bytes": 506327
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/M_PH_NamaqualandBoulder05",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/M_PH_NamaqualandBoulder05.uasset",
+      "bytes": 6830
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_1k.uasset",
+      "bytes": 3318222
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_diff_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_diff_1k.uasset",
+      "bytes": 879227
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_nor_dx_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_nor_dx_1k.uasset",
+      "bytes": 5021398
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_rough_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_rough_1k.uasset",
+      "bytes": 371678
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/M_PH_PlasticCrate02",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/M_PH_PlasticCrate02.uasset",
+      "bytes": 7962
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_1k.uasset",
+      "bytes": 247690
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_diff_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_diff_1k.uasset",
+      "bytes": 504192
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_nor_dx_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_nor_dx_1k.uasset",
+      "bytes": 1611307
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_opacity_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_opacity_1k.uasset",
+      "bytes": 24927
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_rough_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_rough_1k.uasset",
+      "bytes": 480416
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_ao_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_ao_1k.uasset",
+      "bytes": 979966
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_diff_2k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_diff_2k.uasset",
+      "bytes": 3798493
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_nor_dx_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_nor_dx_1k.uasset",
+      "bytes": 6402244
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_rough_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_rough_1k.uasset",
+      "bytes": 339544
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_ao_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_ao_1k.uasset",
+      "bytes": 688432
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_diff_2k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_diff_2k.uasset",
+      "bytes": 2295322
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_nor_dx_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_nor_dx_1k.uasset",
+      "bytes": 2667627
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_rough_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_rough_1k.uasset",
+      "bytes": 521459
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_ao_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_ao_1k.uasset",
+      "bytes": 558317
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_diff_2k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_diff_2k.uasset",
+      "bytes": 3236051
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_nor_dx_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_nor_dx_1k.uasset",
+      "bytes": 3094692
+    },
+    {
+      "package": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_rough_1k",
+      "destination": "Content/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_rough_1k.uasset",
+      "bytes": 500912
+    }
+  ],
+  "poly_haven_download_manifest": "SourceAssets/PolyHaven/manifest.json",
+  "caveat": "Conservative hard+soft /Game package closure for the two current playable maps and listed gameplay roots. Include dynamic C++ load assets and retest after adding maps or mechanics. UE external actor packages for unused stock sample maps are not required by these maps."
+}

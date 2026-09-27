@@ -1,0 +1,52 @@
+{
+  "source_manifest": "SourceAssets/PolyHaven/manifest.json",
+  "license": "CC0; https://polyhaven.com/license",
+  "concrete_material": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/M_PH_HangarConcreteXY200cm",
+  "boulder_material": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01",
+  "crate_material": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/M_PH_PlasticCrate02",
+  "imported": {
+    "concrete_diffuse": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_diff_2k.hangar_concrete_floor_diff_2k"
+    ],
+    "concrete_normal": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_nor_dx_2k.hangar_concrete_floor_nor_dx_2k"
+    ],
+    "concrete_roughness": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_rough_2k.hangar_concrete_floor_rough_2k"
+    ],
+    "concrete_ao": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_ao_2k.hangar_concrete_floor_ao_2k"
+    ],
+    "boulder_diffuse": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_diff_1k.boulder_01_diff_1k"
+    ],
+    "boulder_normal": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_nor_dx_1k.boulder_01_nor_dx_1k"
+    ],
+    "boulder_roughness": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_rough_1k.boulder_01_rough_1k"
+    ],
+    "boulder_meshes": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD0.boulder_01_LOD0",
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD1.boulder_01_LOD1",
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD2.boulder_01_LOD2",
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD3.boulder_01_LOD3"
+    ],
+    "crate_diffuse": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_diff_1k.plastic_crate_02_diff_1k"
+    ],
+    "crate_normal": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_nor_dx_1k.plastic_crate_02_nor_dx_1k"
+    ],
+    "crate_roughness": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_rough_1k.plastic_crate_02_rough_1k"
+    ],
+    "crate_opacity": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_opacity_1k.plastic_crate_02_opacity_1k"
+    ],
+    "crate_meshes": [
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_1k.plastic_crate_02_1k"
+    ]
+  },
+  "note": "No level was modified. Imported static meshes use their PBR materials by default."
+}

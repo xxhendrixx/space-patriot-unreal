@@ -1,0 +1,80 @@
+{
+  "source": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+  "walk_map": "/Game/SpacePatriot/Maps/L_KellenReachWalk",
+  "floor_top_cm": -0.5,
+  "game_mode": "/Game/Variant_Shooter/Blueprints/BP_ShooterGameMode.BP_ShooterGameMode_C",
+  "source_ship_positions": {
+    "Kestrel K-017 / Wing_Port": [
+      -190,
+      70,
+      160
+    ],
+    "Kestrel K-017 / Wing_Starboard": [
+      -440,
+      -150,
+      0
+    ],
+    "Kestrel K-017 / Drive_Port": [
+      0,
+      -180,
+      0
+    ],
+    "Kestrel K-017 / Drive_Starboard": [
+      0,
+      190,
+      0
+    ]
+  },
+  "walk_ship_positions": {
+    "Kestrel K-017 / Wing_Port": [
+      -190.0,
+      70.0,
+      160.0
+    ],
+    "Kestrel K-017 / Wing_Starboard": [
+      -440.0,
+      -150.0,
+      0.0
+    ],
+    "Kestrel K-017 / Drive_Port": [
+      0.0,
+      -180.0,
+      0.0
+    ],
+    "Kestrel K-017 / Drive_Starboard": [
+      0.0,
+      190.0,
+      0.0
+    ]
+  },
+  "world_runtime_count": 1,
+  "player_start": [
+    -4500.0,
+    -900.0,
+    119.5
+  ],
+  "pickup": [
+    -4050.0,
+    -750.0,
+    44.5
+  ],
+  "pickup_weapon_type": "<Struct 'DataTableRowHandle' (0x00000146E0595EE0) {data_table: \"/Script/Engine.DataTable'/Game/Variant_Shooter/Blueprints/Pickups/DT_WeaponList.DT_WeaponList'\", row_name: \"Rifle\"}>",
+  "world_runtime_auto_receive_input": "<AutoReceiveInput.PLAYER0: 1>",
+  "shootable_npc": [
+    -2500.0,
+    -900.0,
+    94.5
+  ],
+  "ai_spawner": [
+    2600.0,
+    1500.0,
+    24.5
+  ],
+  "nav_extent_cm": [
+    5000,
+    4000,
+    500
+  ],
+  "saved": true,
+  "reloaded_in_fresh_commandlet": false
+}

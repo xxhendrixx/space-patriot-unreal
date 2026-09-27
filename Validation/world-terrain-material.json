@@ -1,0 +1,89 @@
+{
+  "material": "/Game/SpacePatriot/Materials/M_WorldTerrainPBR",
+  "fallback": "/Game/SpacePatriot/Materials/M_WorldVertex",
+  "textures": {
+    "rock": [
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_diff_2k",
+        "srgb": true,
+        "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_nor_dx_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_rough_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_ao_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      }
+    ],
+    "grass": [
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_diff_2k",
+        "srgb": true,
+        "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_nor_dx_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_rough_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_ao_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      }
+    ],
+    "sand": [
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_diff_2k",
+        "srgb": true,
+        "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_nor_dx_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_rough_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      },
+      {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_ao_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      }
+    ]
+  },
+  "material_functions": {
+    "/Engine/Functions/Engine_MaterialFunctions01/Texturing/WorldAlignedTexture": 9,
+    "/Engine/Functions/Engine_MaterialFunctions01/Texturing/WorldAlignedNormal": 3
+  },
+  "property_inputs": {
+    "base_color": "MaterialExpressionLinearInterpolate",
+    "normal": "MaterialExpressionNormalize",
+    "roughness": "MaterialExpressionLinearInterpolate",
+    "ambient_occlusion": "MaterialExpressionLinearInterpolate"
+  },
+  "failures": [],
+  "tangent_space_normal": false,
+  "expression_count": 77,
+  "texture_object_count": 12,
+  "function_call_count": 12,
+  "vertex_color_count": 1,
+  "ok": true
+}

@@ -22,16 +22,20 @@ def load(path):
     return unreal.EditorAssetLibrary.load_asset(path)
 
 
+def xyz(vector):
+    return [round(vector.x, 4), round(vector.y, 4), round(vector.z, 4)]
+
+
 meshes = {part: load(ROOT + "/Ships/KestrelK017/" + part + "_LOD0") for part in SHIP_PARTS}
 check("eight_kestrel_parts", all(meshes.values()), str([p for p, m in meshes.items() if not m]))
 if all(meshes.values()):
     hull = meshes["Hull"].get_bounds().origin
-    check("hull_unreal_z_up", hull.z > 250 and abs(hull.y) < 1 and hull.x < 0, str(hull))
+    check("hull_unreal_z_up", hull.z > 250 and abs(hull.y) < 1 and hull.x < 0, xyz(hull))
     for pair in (("Wing_Port", "Wing_Starboard"), ("Drive_Port", "Drive_Starboard")):
         left = meshes[pair[0]].get_bounds().origin
         right = meshes[pair[1]].get_bounds().origin
         passed = abs(left.x - right.x) < 0.1 and abs(left.z - right.z) < 0.1 and abs(left.y + right.y) < 0.1
-        check("mirror_" + pair[0].lower(), passed, str((left, right)))
+        check("mirror_" + pair[0].lower(), passed, [xyz(left), xyz(right)])
     for part, mesh in meshes.items():
         check("material_" + part.lower(), mesh.get_material(0) is not None)
 
@@ -52,7 +56,8 @@ if ship_bp:
         check("component_" + part.lower(), part + "_LOD0" in components, str(components))
 if mode_bp and ship_bp:
     pawn_class = unreal.get_default_object(mode_bp.generated_class()).get_editor_property("default_pawn_class")
-    check("mode_spawns_kestrel", pawn_class == ship_bp.generated_class(), str(pawn_class))
+    check("mode_spawns_kestrel", pawn_class == ship_bp.generated_class(),
+          pawn_class.get_path_name() if pawn_class else None)
 
 map_path = ROOT + "/Maps/L_KestrelFlight"
 check("map_exists", unreal.EditorAssetLibrary.does_asset_exist(map_path))
@@ -60,7 +65,8 @@ if unreal.EditorAssetLibrary.does_asset_exist(map_path):
     check("map_loads", unreal.EditorLevelLibrary.load_level(map_path))
     world = unreal.EditorLevelLibrary.get_editor_world()
     mode = world.get_world_settings().get_editor_property("default_game_mode")
-    check("map_uses_kestrel_mode", mode == mode_bp.generated_class() if mode_bp else False, str(mode))
+    check("map_uses_kestrel_mode", mode == mode_bp.generated_class() if mode_bp else False,
+          mode.get_path_name() if mode else None)
     actors = unreal.EditorLevelLibrary.get_all_level_actors()
     check("map_has_launch_apron_and_ship", len(actors) >= 20, len(actors))
     check("map_has_player_start", any(isinstance(actor, unreal.PlayerStart) for actor in actors))

@@ -1,0 +1,182 @@
+{
+  "checks": {
+    "textures": {
+      "concrete_diffuse": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_diff_2k.hangar_concrete_floor_diff_2k",
+        "srgb": true,
+        "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+      },
+      "concrete_normal": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_nor_dx_2k.hangar_concrete_floor_nor_dx_2k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+      },
+      "concrete_roughness": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_rough_2k.hangar_concrete_floor_rough_2k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      },
+      "concrete_ao": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/hangar_concrete_floor_ao_2k.hangar_concrete_floor_ao_2k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      },
+      "boulder_diffuse": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_diff_1k.boulder_01_diff_1k",
+        "srgb": true,
+        "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+      },
+      "boulder_normal": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_nor_dx_1k.boulder_01_nor_dx_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+      },
+      "boulder_roughness": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_rough_1k.boulder_01_rough_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      },
+      "crate_diffuse": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_diff_1k.plastic_crate_02_diff_1k",
+        "srgb": true,
+        "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+      },
+      "crate_normal": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_nor_dx_1k.plastic_crate_02_nor_dx_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+      },
+      "crate_roughness": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_rough_1k.plastic_crate_02_rough_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      },
+      "crate_opacity": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_opacity_1k.plastic_crate_02_opacity_1k",
+        "srgb": false,
+        "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+      }
+    },
+    "meshes": {
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD0.boulder_01_LOD0": {
+        "bounds_min_cm": [
+          -74.81597137451172,
+          -94.84404754638672,
+          -7.364300727844238
+        ],
+        "bounds_max_cm": [
+          52.39759063720703,
+          88.18937683105469,
+          93.01872253417969
+        ],
+        "size_cm": [
+          127.21356201171875,
+          183.0334243774414,
+          100.38302326202393
+        ],
+        "num_lods": 1,
+        "triangles_lod0": 66122,
+        "material_slot_0": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01.M_PH_Boulder01"
+      },
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD1.boulder_01_LOD1": {
+        "bounds_min_cm": [
+          -74.81578063964844,
+          -94.81315612792969,
+          -7.324522018432617
+        ],
+        "bounds_max_cm": [
+          52.4270133972168,
+          88.22933959960938,
+          92.99140930175781
+        ],
+        "size_cm": [
+          127.24279403686523,
+          183.04249572753906,
+          100.31593132019043
+        ],
+        "num_lods": 1,
+        "triangles_lod0": 33060,
+        "material_slot_0": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01.M_PH_Boulder01"
+      },
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD2.boulder_01_LOD2": {
+        "bounds_min_cm": [
+          -74.84129333496094,
+          -94.70295715332031,
+          -7.326821804046631
+        ],
+        "bounds_max_cm": [
+          52.4270133972168,
+          88.07294464111328,
+          93.02488708496094
+        ],
+        "size_cm": [
+          127.26830673217773,
+          182.7759017944336,
+          100.35170888900757
+        ],
+        "num_lods": 1,
+        "triangles_lod0": 16530,
+        "material_slot_0": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01.M_PH_Boulder01"
+      },
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/boulder_01_LOD3.boulder_01_LOD3": {
+        "bounds_min_cm": [
+          -74.81110382080078,
+          -94.70295715332031,
+          -7.168215274810791
+        ],
+        "bounds_max_cm": [
+          52.23388671875,
+          88.19288635253906,
+          93.02488708496094
+        ],
+        "size_cm": [
+          127.04499053955078,
+          182.89584350585938,
+          100.19310235977173
+        ],
+        "num_lods": 1,
+        "triangles_lod0": 8264,
+        "material_slot_0": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01.M_PH_Boulder01"
+      },
+      "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/plastic_crate_02_1k.plastic_crate_02_1k": {
+        "bounds_min_cm": [
+          -25.275070190429688,
+          -20.275070190429688,
+          -0.001596736372448504
+        ],
+        "bounds_max_cm": [
+          25.275070190429688,
+          20.275070190429688,
+          25.40732192993164
+        ],
+        "size_cm": [
+          50.550140380859375,
+          40.550140380859375,
+          25.40891866630409
+        ],
+        "num_lods": 1,
+        "triangles_lod0": 5840,
+        "material_slot_0": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/M_PH_PlasticCrate02.M_PH_PlasticCrate02"
+      }
+    },
+    "materials": {
+      "concrete_material": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/HangarConcrete/M_PH_HangarConcreteXY200cm",
+        "exists": true,
+        "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>"
+      },
+      "boulder_material": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Boulder01/M_PH_Boulder01",
+        "exists": true,
+        "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>"
+      },
+      "crate_material": {
+        "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/PlasticCrate02/M_PH_PlasticCrate02",
+        "exists": true,
+        "blend_mode": "<BlendMode.BLEND_MASKED: 1>"
+      }
+    }
+  },
+  "failures": [],
+  "ok": true
+}

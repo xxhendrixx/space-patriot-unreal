@@ -280,8 +280,10 @@ bool ASPWorldSurface::RebuildSurface()
     if (SurfaceMaterial)
     {
         PlanetMesh->SetMaterial(0, SurfaceMaterial);
-        DetailMesh->SetMaterial(0, SurfaceMaterial);
     }
+    // Preserve the inexpensive vertex-color globe while allowing triplanar
+    // PBR only on the small, streamed patch nearest the player.
+    DetailMesh->SetMaterial(0, DetailMaterial ? DetailMaterial.Get() : SurfaceMaterial.Get());
     BuildPlanetMesh();
     DetailLOD = -1;
     UpdateDetailMesh(true);

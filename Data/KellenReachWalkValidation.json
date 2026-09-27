@@ -1,0 +1,206 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KellenReachWalk",
+  "fresh_process_reload": true,
+  "passed": 38,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "walk_map_loaded_fresh",
+      "passed": true,
+      "detail": "/Game/SpacePatriot/Maps/L_KellenReachWalk.L_KellenReachWalk"
+    },
+    {
+      "name": "asset_BP_ShooterGameMode",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/BP_ShooterGameMode"
+    },
+    {
+      "name": "asset_BP_ShooterCharacter",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/BP_ShooterCharacter"
+    },
+    {
+      "name": "asset_BP_ShooterPlayerController",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/BP_ShooterPlayerController"
+    },
+    {
+      "name": "asset_BP_ShooterNPC",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPC"
+    },
+    {
+      "name": "asset_BP_ShooterPickup",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/Pickups/BP_ShooterPickup"
+    },
+    {
+      "name": "asset_BP_ShooterWeapon_Rifle",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/Pickups/Weapons/BP_ShooterWeapon_Rifle"
+    },
+    {
+      "name": "asset_UI_Shooter",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/UI/UI_Shooter"
+    },
+    {
+      "name": "asset_IMC_Default",
+      "passed": true,
+      "detail": "/Game/Input/IMC_Default"
+    },
+    {
+      "name": "asset_IMC_Weapons",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Input/IMC_Weapons"
+    },
+    {
+      "name": "asset_IA_Shoot",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Input/Actions/IA_Shoot"
+    },
+    {
+      "name": "asset_BP_WorldRuntime",
+      "passed": true,
+      "detail": "/Game/SpacePatriot/Blueprints/BP_WorldRuntime"
+    },
+    {
+      "name": "asset_DT_WeaponList",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/Pickups/DT_WeaponList"
+    },
+    {
+      "name": "shooter_game_mode_override",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/BP_ShooterGameMode.BP_ShooterGameMode_C"
+    },
+    {
+      "name": "shooter_character_is_default_pawn",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/BP_ShooterCharacter.BP_ShooterCharacter_C"
+    },
+    {
+      "name": "shooter_controller_is_default",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/BP_ShooterPlayerController.BP_ShooterPlayerController_C"
+    },
+    {
+      "name": "single_on_foot_player_start",
+      "passed": true,
+      "detail": "[('SP Walk / player start', 119.5)]"
+    },
+    {
+      "name": "dressed_concrete_floor",
+      "passed": true,
+      "detail": "(15000.005493164062, 10000.0, -0.5)"
+    },
+    {
+      "name": "player_spawn_above_floor",
+      "passed": true,
+      "detail": "(-0.5, 119.5)"
+    },
+    {
+      "name": "no_ship_auto_possess",
+      "passed": true,
+      "detail": "[('SP Walk / shootable patrol', '<AutoReceiveInput.DISABLED: 0>')]"
+    },
+    {
+      "name": "preserved_Wing_Port",
+      "passed": true,
+      "detail": "('Kestrel K-017 / Wing_Port', (-190.0, 70.0, 160.0))"
+    },
+    {
+      "name": "preserved_Wing_Starboard",
+      "passed": true,
+      "detail": "('Kestrel K-017 / Wing_Starboard', (-440.0, -150.0, 0.0))"
+    },
+    {
+      "name": "preserved_Drive_Port",
+      "passed": true,
+      "detail": "('Kestrel K-017 / Drive_Port', (0.0, -180.0, 0.0))"
+    },
+    {
+      "name": "preserved_Drive_Starboard",
+      "passed": true,
+      "detail": "('Kestrel K-017 / Drive_Starboard', (0.0, 190.0, 0.0))"
+    },
+    {
+      "name": "society_runtime_preserved",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "society_runtime_receives_player0_input",
+      "passed": true,
+      "detail": "<AutoReceiveInput.PLAYER0: 1>"
+    },
+    {
+      "name": "shootable_npc_placed",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPC.BP_ShooterNPC_C"
+    },
+    {
+      "name": "npc_has_shooter_ai",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterAIController.BP_ShooterAIController_C"
+    },
+    {
+      "name": "npc_auto_possesses_ai",
+      "passed": true,
+      "detail": "<AutoPossessAI.PLACED_IN_WORLD_OR_SPAWNED: 3>"
+    },
+    {
+      "name": "npc_has_hit_capsule",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "weapon_pickup_placed",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/Pickups/BP_ShooterPickup.BP_ShooterPickup_C"
+    },
+    {
+      "name": "pickup_grants_rifle",
+      "passed": true,
+      "detail": "{'row_name': 'Rifle', 'data_table': '/Game/Variant_Shooter/Blueprints/Pickups/DT_WeaponList.DT_WeaponList'}"
+    },
+    {
+      "name": "pickup_has_visual_mesh",
+      "passed": true,
+      "detail": "['/Game/LevelPrototyping/Meshes/SM_Cylinder.SM_Cylinder', '/Game/LevelPrototyping/Meshes/SM_ChamferCube.SM_ChamferCube']"
+    },
+    {
+      "name": "pickup_has_overlap_sphere",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "arena_ai_spawner_placed",
+      "passed": true,
+      "detail": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPCSpawner.BP_ShooterNPCSpawner_C"
+    },
+    {
+      "name": "navmesh_bounds_cover_route",
+      "passed": true,
+      "detail": "(5000.0, 4000.0, 500.0)"
+    },
+    {
+      "name": "rifle_in_weapon_table",
+      "passed": true,
+      "detail": "['GrenadeLauncher', 'Pistol', 'Rifle']"
+    },
+    {
+      "name": "shooter_hud_referenced_by_gameplay",
+      "passed": true,
+      "detail": "['/Game/Variant_Shooter/Blueprints/BP_ShooterGameMode']"
+    }
+  ],
+  "pickup_meshes": [
+    "/Game/LevelPrototyping/Meshes/SM_Cylinder.SM_Cylinder",
+    "/Game/LevelPrototyping/Meshes/SM_ChamferCube.SM_ChamferCube"
+  ],
+  "ui_dependency_owners": [
+    "/Game/Variant_Shooter/Blueprints/BP_ShooterGameMode"
+  ],
+  "limits": "Saved actor/asset validation only. The user's Editor PIE keyboard, weapon damage, pickup overlap and AI navigation remain untested."
+}

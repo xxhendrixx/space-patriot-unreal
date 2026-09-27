@@ -8,12 +8,18 @@
       "Name": "SpacePatriotUnreal",
       "Type": "Runtime",
       "LoadingPhase": "Default"
+    },
+    {
+      "Name": "SpacePatriotBlueprintTools",
+      "Type": "Editor",
+      "LoadingPhase": "Default"
     }
   ],
   "Plugins": [
     { "Name": "PythonScriptPlugin", "Enabled": true },
     { "Name": "EditorScriptingUtilities", "Enabled": true },
     { "Name": "EnhancedInput", "Enabled": true },
-    { "Name": "ProceduralMeshComponent", "Enabled": true }
+    { "Name": "ProceduralMeshComponent", "Enabled": true },
+    { "Name": "GameplayStateTree", "Enabled": true }
   ]
 }

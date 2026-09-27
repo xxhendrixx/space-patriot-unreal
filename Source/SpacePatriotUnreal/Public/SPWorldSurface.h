@@ -47,9 +47,13 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Worldworks|World")
     TObjectPtr<AActor> FocusActor;
 
-    /** Material must read VertexColor RGB for the source climate palette to appear. */
+    /** Low-cost far-globe material; must read VertexColor RGB for the source climate palette. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Worldworks|Mesh")
     TObjectPtr<UMaterialInterface> SurfaceMaterial;
+
+    /** Optional near-field material for the streamed collision patch; null reuses SurfaceMaterial. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Worldworks|Mesh")
+    TObjectPtr<UMaterialInterface> DetailMaterial;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Worldworks|Streaming", meta=(ClampMin="500", ClampMax="6000"))
     float PatchHalfSizeMeters = 3000.0f;
