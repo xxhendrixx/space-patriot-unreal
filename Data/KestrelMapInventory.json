@@ -1,0 +1,545 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+  "actors": [
+    {
+      "label": "DirectionalLight",
+      "class": "DirectionalLight",
+      "location_cm": [
+        0.0,
+        0.0,
+        400.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "SkyAtmosphere",
+      "class": "SkyAtmosphere",
+      "location_cm": [
+        0.0,
+        0.0,
+        -6000.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "SkyLight",
+      "class": "SkyLight",
+      "location_cm": [
+        0.0,
+        0.0,
+        600.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "ExponentialHeightFog",
+      "class": "ExponentialHeightFog",
+      "location_cm": [
+        -5600.0,
+        -50.0,
+        -6850.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "VolumetricCloud",
+      "class": "VolumetricCloud",
+      "location_cm": [
+        0.0,
+        0.0,
+        700.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "PlayerStart",
+      "class": "PlayerStart",
+      "location_cm": [
+        0.0,
+        0.0,
+        92.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "SM_SkySphere",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        400.0,
+        400.0,
+        400.0
+      ],
+      "mesh": "/Engine/EngineSky/SM_SkySphere.SM_SkySphere",
+      "materials": [
+        "/Engine/EngineSky/M_SimpleSkyDome.M_SimpleSkyDome"
+      ],
+      "mesh_extent_cm": [
+        4096.0,
+        4096.0,
+        4096.0
+      ]
+    },
+    {
+      "label": "Floor",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "scale": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "mesh": "/Engine/MapTemplates/SM_Template_Map_Floor.SM_Template_Map_Floor",
+      "materials": [
+        "/Engine/OpenWorldTemplate/LandscapeMaterial/MI_ProcGrid.MI_ProcGrid"
+      ],
+      "mesh_extent_cm": [
+        500.0,
+        500.0,
+        25.0
+      ]
+    },
+    {
+      "label": "Kellen Reach flight apron",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        0.0,
+        -130.0
+      ],
+      "scale": [
+        2.4,
+        2.4,
+        0.16
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_DockConcrete.M_DockConcrete"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Harbor water north",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        26000.0,
+        -480.0
+      ],
+      "scale": [
+        600.0,
+        320.0,
+        2.0
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_HarborWater.M_HarborWater"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Runway edge",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        -7000.0,
+        -30.0
+      ],
+      "scale": [
+        170.0,
+        1.8,
+        0.18
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_DockWarning.M_DockWarning"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Runway edge",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        7000.0,
+        -30.0
+      ],
+      "scale": [
+        170.0,
+        1.8,
+        0.18
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_DockWarning.M_DockWarning"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Runway seam",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        -7000.0,
+        0.0,
+        -30.0
+      ],
+      "scale": [
+        1.8,
+        140.0,
+        0.18
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_DockWarning.M_DockWarning"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Runway seam",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        7000.0,
+        0.0,
+        -30.0
+      ],
+      "scale": [
+        1.8,
+        140.0,
+        0.18
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_DockWarning.M_DockWarning"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Landing mast base",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        8500.0,
+        -8000.0,
+        900.0
+      ],
+      "scale": [
+        4.0,
+        4.0,
+        20.0
+      ],
+      "mesh": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_DockConcrete.M_DockConcrete"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Landing mast base",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        8500.0,
+        8000.0,
+        900.0
+      ],
+      "scale": [
+        4.0,
+        4.0,
+        20.0
+      ],
+      "mesh": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_DockConcrete.M_DockConcrete"
+      ],
+      "mesh_extent_cm": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Hull",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Hull_LOD0.Hull_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelHull.M_KestrelHull"
+      ],
+      "mesh_extent_cm": [
+        974.91,
+        456.0,
+        327.34
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Wing_Port",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        -190.0,
+        70.0,
+        160.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Wing_Port_LOD0.Wing_Port_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelModules.M_KestrelModules"
+      ],
+      "mesh_extent_cm": [
+        137.58,
+        350.01,
+        28.52
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Wing_Starboard",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        -440.0,
+        -150.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Wing_Starboard_LOD0.Wing_Starboard_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelModules.M_KestrelModules"
+      ],
+      "mesh_extent_cm": [
+        137.58,
+        350.01,
+        28.52
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Drive_Port",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        -180.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Drive_Port_LOD0.Drive_Port_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelModules.M_KestrelModules"
+      ],
+      "mesh_extent_cm": [
+        259.93,
+        177.8,
+        111.18
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Drive_Starboard",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        190.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Drive_Starboard_LOD0.Drive_Starboard_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelModules.M_KestrelModules"
+      ],
+      "mesh_extent_cm": [
+        259.93,
+        177.8,
+        111.18
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Gear_Nose",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Gear_Nose_LOD0.Gear_Nose_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelModules.M_KestrelModules"
+      ],
+      "mesh_extent_cm": [
+        74.57,
+        101.48,
+        112.51
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Gear_Port",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Gear_Port_LOD0.Gear_Port_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelModules.M_KestrelModules"
+      ],
+      "mesh_extent_cm": [
+        74.24,
+        101.48,
+        115.26
+      ]
+    },
+    {
+      "label": "Kestrel K-017 / Gear_Starboard",
+      "class": "StaticMeshActor",
+      "location_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/SpacePatriot/Ships/KestrelK017/Gear_Starboard_LOD0.Gear_Starboard_LOD0",
+      "materials": [
+        "/Game/SpacePatriot/Materials/M_KestrelModules.M_KestrelModules"
+      ],
+      "mesh_extent_cm": [
+        74.26,
+        101.48,
+        115.25
+      ]
+    },
+    {
+      "label": "Kestrel flight start",
+      "class": "PlayerStart",
+      "location_cm": [
+        0.0,
+        0.0,
+        250.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "19-world society and wildlife simulation",
+      "class": "BP_WorldRuntime_C",
+      "location_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "label": "20-Worldworks radial world surface",
+      "class": "SPWorldSurface",
+      "location_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ]
+}

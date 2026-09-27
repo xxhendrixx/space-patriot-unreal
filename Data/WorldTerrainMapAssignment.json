@@ -1,0 +1,12 @@
+{
+  "/Game/SpacePatriot/Maps/L_KestrelFlight": {
+    "near_patch": "/Game/SpacePatriot/Materials/M_WorldTerrainPBR.M_WorldTerrainPBR",
+    "far_globe": "/Game/SpacePatriot/Materials/M_WorldVertex.M_WorldVertex",
+    "saved_and_reloaded": true
+  },
+  "/Game/SpacePatriot/Maps/L_KellenReachWalk": {
+    "near_patch": "/Game/SpacePatriot/Materials/M_WorldTerrainPBR.M_WorldTerrainPBR",
+    "far_globe": "/Game/SpacePatriot/Materials/M_WorldVertex.M_WorldVertex",
+    "saved_and_reloaded": true
+  }
+}

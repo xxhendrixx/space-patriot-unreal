@@ -1,0 +1,6 @@
+{
+  "ship_build": "components=1 calls=7 input_actions=4 tick_to_step=true step_to_apply=true saved=true",
+  "ship_verify": "components=1 calls=7 input_actions=4 tick_to_step=true step_to_apply=true saved=true",
+  "world_build": "calls=4 input_actions=2 receives_player0=true saved=true",
+  "world_verify": "calls=4 input_actions=2 receives_player0=true saved=true"
+}

@@ -12,3 +12,25 @@ Saved/
 *.sdf
 *.tmp
 __pycache__/
+
+# Fab Marketplace packs are installed per collaborator under their own license.
+# Never distribute their raw assets through this public repository.
+Content/SpacePatriot/LocalFab/
+Content/SpacePatriot/Maps/LocalFab_*.umap
+
+# Downloadable placeholder dependencies are installed locally from the
+# versioned manifest by Tools/InstallLocalDependencies.ps1.
+/Content/Characters/
+/Content/DemoTemplate/
+/Content/FirstPerson/
+/Content/Input/
+/Content/LevelPrototyping/
+/Content/Variant_Shooter/
+/Content/Weapons/
+/Content/__ExternalActors__/FirstPerson/
+/Content/__ExternalActors__/Variant_Shooter/
+/Content/__ExternalObjects__/FirstPerson/
+/Content/__ExternalObjects__/Variant_Shooter/
+/Content/SpacePatriot/OpenAssets/PolyHaven/
+/SourceAssets/PolyHaven/*/
+/SourceAssets/OpenShips/

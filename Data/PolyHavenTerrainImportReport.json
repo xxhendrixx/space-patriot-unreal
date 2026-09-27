@@ -1,0 +1,100 @@
+{
+  "license": "Poly Haven CC0; https://polyhaven.com/license",
+  "source_manifest": "SourceAssets/PolyHaven/manifest.json",
+  "sets": {
+    "rocks_ground_02": {
+      "source_page": "https://polyhaven.com/a/rocks_ground_02",
+      "native_tile_width_cm": 200.0,
+      "destination": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02",
+      "textures": {
+        "diffuse": {
+          "source": "SourceAssets/PolyHaven/rocks_ground_02/rocks_ground_02_col_2k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_diff_2k.rocks_ground_02_diff_2k",
+          "srgb": true,
+          "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        },
+        "normal": {
+          "source": "SourceAssets/PolyHaven/rocks_ground_02/rocks_ground_02_nor_dx_1k.png",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_nor_dx_1k.rocks_ground_02_nor_dx_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+        },
+        "roughness": {
+          "source": "SourceAssets/PolyHaven/rocks_ground_02/rocks_ground_02_rough_1k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_rough_1k.rocks_ground_02_rough_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        },
+        "ao": {
+          "source": "SourceAssets/PolyHaven/rocks_ground_02/rocks_ground_02_ao_1k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RocksGround02/rocks_ground_02_ao_1k.rocks_ground_02_ao_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        }
+      }
+    },
+    "grass_ground": {
+      "source_page": "https://polyhaven.com/a/grass_ground",
+      "native_tile_width_cm": 251.0,
+      "destination": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround",
+      "textures": {
+        "diffuse": {
+          "source": "SourceAssets/PolyHaven/grass_ground/grass_ground_diff_2k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_diff_2k.grass_ground_diff_2k",
+          "srgb": true,
+          "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        },
+        "normal": {
+          "source": "SourceAssets/PolyHaven/grass_ground/grass_ground_nor_dx_1k.png",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_nor_dx_1k.grass_ground_nor_dx_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+        },
+        "roughness": {
+          "source": "SourceAssets/PolyHaven/grass_ground/grass_ground_rough_1k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_rough_1k.grass_ground_rough_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        },
+        "ao": {
+          "source": "SourceAssets/PolyHaven/grass_ground/grass_ground_ao_1k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/GrassGround/grass_ground_ao_1k.grass_ground_ao_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        }
+      }
+    },
+    "red_sand": {
+      "source_page": "https://polyhaven.com/a/red_sand",
+      "native_tile_width_cm": 300.0,
+      "destination": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand",
+      "textures": {
+        "diffuse": {
+          "source": "SourceAssets/PolyHaven/red_sand/red_sand_diff_2k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_diff_2k.red_sand_diff_2k",
+          "srgb": true,
+          "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        },
+        "normal": {
+          "source": "SourceAssets/PolyHaven/red_sand/red_sand_nor_dx_1k.png",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_nor_dx_1k.red_sand_nor_dx_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+        },
+        "roughness": {
+          "source": "SourceAssets/PolyHaven/red_sand/red_sand_rough_1k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_rough_1k.red_sand_rough_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        },
+        "ao": {
+          "source": "SourceAssets/PolyHaven/red_sand/red_sand_ao_1k.jpg",
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/Terrain/RedSand/red_sand_ao_1k.red_sand_ao_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        }
+      }
+    }
+  },
+  "note": "Texture assets only. No materials, meshes, Blueprints, or maps were modified."
+}

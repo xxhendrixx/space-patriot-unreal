@@ -8,17 +8,17 @@
     {
       "name": "hull_unreal_z_up",
       "passed": true,
-      "detail": "<Struct 'Vector' (0x000001974E2A2A00) {x: -49.943481, y: -0.000031, z: 325.118695}>"
+      "detail": "[-49.9435, -0.0, 325.1187]"
     },
     {
       "name": "mirror_wing_port",
       "passed": true,
-      "detail": "(<Struct 'Vector' (0x000001974E2A27C0) {x: -90.000053, y: -650.000839, z: 264.992798}>, <Struct 'Vector' (0x000001974E2A2800) {x: -90.000053, y: 650.000839, z: 264.992889}>)"
+      "detail": "[[-90.0001, -650.0008, 264.9928], [-90.0001, 650.0008, 264.9929]]"
     },
     {
       "name": "mirror_drive_port",
       "passed": true,
-      "detail": "(<Struct 'Vector' (0x000001974E2A2440) {x: -720.011612, y: -279.986385, z: 459.991425}>, <Struct 'Vector' (0x000001974E2A2600) {x: -720.011612, y: 279.986340, z: 459.991425}>)"
+      "detail": "[[-720.0116, -279.9864, 459.9914], [-720.0116, 279.9863, 459.9914]]"
     },
     {
       "name": "material_hull",
@@ -113,7 +113,7 @@
     {
       "name": "mode_spawns_kestrel",
       "passed": true,
-      "detail": "<Object '/Game/SpacePatriot/Blueprints/BP_KestrelFlyable.BP_KestrelFlyable_C' (0x000001972FC66200) Class 'BlueprintGeneratedClass'>"
+      "detail": "/Game/SpacePatriot/Blueprints/BP_KestrelFlyable.BP_KestrelFlyable_C"
     },
     {
       "name": "map_exists",
@@ -128,12 +128,12 @@
     {
       "name": "map_uses_kestrel_mode",
       "passed": true,
-      "detail": "<Object '/Game/SpacePatriot/Blueprints/BP_KestrelGameMode.BP_KestrelGameMode_C' (0x000001963D116900) Class 'BlueprintGeneratedClass'>"
+      "detail": "/Game/SpacePatriot/Blueprints/BP_KestrelGameMode.BP_KestrelGameMode_C"
     },
     {
       "name": "map_has_launch_apron_and_ship",
       "passed": true,
-      "detail": "25"
+      "detail": "80"
     },
     {
       "name": "map_has_player_start",

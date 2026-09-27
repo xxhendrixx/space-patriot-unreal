@@ -1,0 +1,34 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+  "passed": 4,
+  "failed": 0,
+  "checks": {
+    "source_flight_map_loaded": true,
+    "single_world_runtime": true,
+    "world_runtime_receives_player0_input": true,
+    "manual_ship_positions_preserved": true
+  },
+  "world_runtime_auto_receive_input": "<AutoReceiveInput.PLAYER0: 1>",
+  "ship_positions": {
+    "Kestrel K-017 / Wing_Port": [
+      -190.0,
+      70.0,
+      160.0
+    ],
+    "Kestrel K-017 / Wing_Starboard": [
+      -440.0,
+      -150.0,
+      0.0
+    ],
+    "Kestrel K-017 / Drive_Port": [
+      0.0,
+      -180.0,
+      0.0
+    ],
+    "Kestrel K-017 / Drive_Starboard": [
+      0.0,
+      190.0,
+      0.0
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "license": "Poly Haven CC0; https://polyhaven.com/license",
+  "source_manifest": "SourceAssets/PolyHaven/manifest.json",
+  "rocks": {
+    "namaqualand_boulder_03": {
+      "source_page": "https://polyhaven.com/a/namaqualand_boulder_03",
+      "folder": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03",
+      "material": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/M_PH_NamaqualandBoulder03",
+      "textures": {
+        "diffuse": {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_diff_1k.namaqualand_boulder_03_diff_1k",
+          "srgb": true,
+          "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        },
+        "normal": {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_nor_dx_1k.namaqualand_boulder_03_nor_dx_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+        },
+        "roughness": {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_rough_1k.namaqualand_boulder_03_rough_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        }
+      },
+      "meshes": [
+        {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/namaqualand_boulder_03_1k.namaqualand_boulder_03_1k",
+          "size_cm": [
+            240.70970916748047,
+            306.5406188964844,
+            147.31931161880493
+          ],
+          "triangles_lod0": 64826,
+          "num_lods": 1,
+          "material_slot_0": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder03/M_PH_NamaqualandBoulder03.M_PH_NamaqualandBoulder03"
+        }
+      ]
+    },
+    "namaqualand_boulder_05": {
+      "source_page": "https://polyhaven.com/a/namaqualand_boulder_05",
+      "folder": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05",
+      "material": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/M_PH_NamaqualandBoulder05",
+      "textures": {
+        "diffuse": {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_diff_1k.namaqualand_boulder_05_diff_1k",
+          "srgb": true,
+          "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        },
+        "normal": {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_nor_dx_1k.namaqualand_boulder_05_nor_dx_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>"
+        },
+        "roughness": {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_rough_1k.namaqualand_boulder_05_rough_1k",
+          "srgb": false,
+          "compression": "<TextureCompressionSettings.TC_MASKS: 2>"
+        }
+      },
+      "meshes": [
+        {
+          "asset": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/namaqualand_boulder_05_1k.namaqualand_boulder_05_1k",
+          "size_cm": [
+            136.40306854248047,
+            74.79793548583984,
+            53.83217293024063
+          ],
+          "triangles_lod0": 89618,
+          "num_lods": 1,
+          "material_slot_0": "/Game/SpacePatriot/OpenAssets/PolyHaven/NamaqualandBoulder05/M_PH_NamaqualandBoulder05.M_PH_NamaqualandBoulder05"
+        }
+      ]
+    }
+  },
+  "note": "No map or Blueprint asset was modified."
+}

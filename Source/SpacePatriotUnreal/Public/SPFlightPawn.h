@@ -2,9 +2,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/DefaultPawn.h"
+#include "SPVesselSystemsComponent.h"
 #include "SPFlightPawn.generated.h"
 
 class UCameraComponent;
+class UTextRenderComponent;
+class USPCockpitMFDWidget;
 
 USTRUCT(BlueprintType)
 struct FSPFlightTelemetry
@@ -38,6 +41,10 @@ public:
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Flight")
     TObjectPtr<UCameraComponent> FlightCamera;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Cockpit")
+    TObjectPtr<UTextRenderComponent> CockpitReadout;
+    UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Cockpit")
+    TObjectPtr<USPCockpitMFDWidget> MFDWidget;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Space Patriot|Flight", meta=(ClampMin="100"))
     float MaxSpeedCmPerSecond = 12000.0f;
@@ -67,6 +74,18 @@ public:
     float FuelPercent = 100.0f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Space Patriot|Flight", meta=(ClampMin="0", ClampMax="100"))
     float HeatPercent = 0.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Space Patriot|Vessel", meta=(ClampMin="0", ClampMax="100"))
+    float HullPercent = 100.0f;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Vessel")
+    float VesselShieldPercent = 100.0f;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Vessel")
+    float VesselEngineFactor = 1.0f;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Cockpit")
+    int32 CockpitMFDPage = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Cockpit")
+    float CockpitMFDBrightness = 1.0f;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Cockpit")
+    bool bMFDPointerMode = false;
     UPROPERTY(BlueprintAssignable, Category="Space Patriot|Flight")
     FSPFlightStateChanged OnFlightStateChanged;
 
@@ -76,6 +95,12 @@ public:
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") void SetGearDown(bool bDown);
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") bool Launch();
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") bool RequestSurfaceLanding();
+    UFUNCTION(BlueprintPure, Category="Space Patriot|Vessel") FSPVesselSimulationInput BuildVesselSimulationInput() const;
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Vessel") void ApplyVesselSimulationOutput(const FSPVesselSimulationOutput& Output);
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void CycleMFDPage(int32 Direction);
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void AdjustMFDBrightness(float Delta);
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void RefreshMFD();
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void ToggleMFDPointer();
 
 private:
     FVector FlightVelocityCmPerSecond = FVector::ZeroVector;
@@ -95,6 +120,9 @@ private:
     bool bBoostHeld = false;
     bool bLandingPending = false;
     bool bCockpitCamera = false;
+#if WITH_EDITOR
+    bool bMFDValidationShotQueued = false;
+#endif
 
     void SetForward(float Value) { ForwardInput = Value; }
     void SetRight(float Value) { RightInput = Value; }
@@ -102,8 +130,8 @@ private:
     void SetPitch(float Value) { PitchInput = Value; }
     void SetYaw(float Value) { YawInput = Value; }
     void SetRoll(float Value) { RollInput = Value; }
-    void SetMousePitch(float Value) { MousePitch = Value; }
-    void SetMouseYaw(float Value) { MouseYaw = Value; }
+    void SetMousePitch(float Value) { MousePitch = bMFDPointerMode ? 0.0f : Value; }
+    void SetMouseYaw(float Value) { MouseYaw = bMFDPointerMode ? 0.0f : Value; }
     void AdjustThrottle(float Value);
     void StartBrake() { bBrakeHeld = true; bCruise = false; }
     void StopBrake() { bBrakeHeld = false; }
@@ -117,4 +145,6 @@ private:
     void TryLand() { RequestSurfaceLanding(); }
     FVector TraceDown() const;
     void UpdateGearMeshes();
+    void EnsureMFDWidget();
+    void UpdateCockpitReadout();
 };

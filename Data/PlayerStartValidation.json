@@ -1,0 +1,11 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+  "player_start_count": 1,
+  "label": "Kestrel flight start",
+  "location_cm": [
+    0.0,
+    0.0,
+    250.0
+  ],
+  "saved_and_reloaded": true
+}

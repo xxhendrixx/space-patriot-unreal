@@ -1,0 +1,64 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KellenReachWalk",
+  "checks": [
+    {
+      "name": "walk_map_loaded",
+      "passed": true,
+      "detail": "/Game/SpacePatriot/Maps/L_KellenReachWalk.L_KellenReachWalk"
+    },
+    {
+      "name": "recast_navmesh_present",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "name": "start_present",
+      "passed": true,
+      "detail": [
+        -4500.0,
+        -900.0,
+        119.5
+      ]
+    },
+    {
+      "name": "npc_present",
+      "passed": true,
+      "detail": [
+        -2500.0,
+        -900.0,
+        94.5
+      ]
+    },
+    {
+      "name": "spawner_present",
+      "passed": true,
+      "detail": [
+        2600.0,
+        1500.0,
+        24.5
+      ]
+    },
+    {
+      "name": "start_to_npc_complete",
+      "passed": true,
+      "detail": {
+        "valid": true,
+        "partial": false,
+        "length_cm": 2000.0,
+        "points": 2
+      }
+    },
+    {
+      "name": "npc_to_spawner_complete",
+      "passed": true,
+      "detail": {
+        "valid": true,
+        "partial": false,
+        "length_cm": 5648.5,
+        "points": 3
+      }
+    }
+  ],
+  "passed": 7,
+  "failed": 0
+}

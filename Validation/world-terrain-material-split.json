@@ -1,0 +1,34 @@
+{
+  "far_material": "/Game/SpacePatriot/Materials/M_WorldVertex",
+  "near_material": "/Game/SpacePatriot/Materials/M_WorldTerrainPBR",
+  "saved_map_modified": false,
+  "passed": 5,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "rebuild_with_near_material",
+      "passed": true,
+      "detail": "SPWorldSurface"
+    },
+    {
+      "name": "globe_keeps_vertex_fallback",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Materials/M_WorldVertex.M_WorldVertex' (0x000001874CFFD200) Class 'Material'>"
+    },
+    {
+      "name": "streamed_patch_uses_pbr",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Materials/M_WorldTerrainPBR.M_WorldTerrainPBR' (0x0000018762CD0000) Class 'Material'>"
+    },
+    {
+      "name": "rebuild_without_override",
+      "passed": true,
+      "detail": "SPWorldSurface"
+    },
+    {
+      "name": "null_override_reuses_fallback",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Materials/M_WorldVertex.M_WorldVertex' (0x000001874CFFD200) Class 'Material'>"
+    }
+  ]
+}
