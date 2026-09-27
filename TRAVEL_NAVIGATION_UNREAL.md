@@ -35,11 +35,11 @@ fade/teleport is also not reproduced; this slice requires an explicit spatial
 route confirmation and avoids changing worlds before that confirmation.
 
 Automation tests: `SpacePatriot.Travel` (five native Editor tests). The
-baseline UE5.8 target currently has unrelated unity-build collisions between
+baseline UE5.8 target had unrelated unity-build collisions between
 anonymous-namespace helpers in `SPArchitecture.cpp`,
-`SPStoryCampaignComponent.cpp`, and `SPWorldSurface.cpp`. The slice was built
-and tested in a temporary isolated non-unity validation target; that target is
-not part of this change.
+`SPStoryCampaignComponent.cpp`, and `SPWorldSurface.cpp`. The helpers have
+now been disambiguated; the merged Editor module compiles in a normal unity
+build and all five `SpacePatriot.Travel` automation tests pass.
 
 ## Hyperdrive visuals
 
