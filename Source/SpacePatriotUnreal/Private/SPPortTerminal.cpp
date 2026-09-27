@@ -1,4 +1,5 @@
 #include "SPPortTerminal.h"
+#include "SPPortTerminalWidget.h"
 
 #include "SpacePatriotBlueprintBases.h"
 #include "SPFlightPawn.h"
@@ -70,35 +71,73 @@ void ASPPortTerminal::BeginPlay()
         SetActorHiddenInGame(true);
         SetActorEnableCollision(false);
     }
-    if (APlayerController* Controller = GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr)
+    EnsurePlayerInput();
+}
+
+void ASPPortTerminal::EnsurePlayerInput()
+{
+    APlayerController* Controller = GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr;
+    if (!Controller) return;
+    if (!StatusWidget && Controller->IsLocalController() && Controller->GetLocalPlayer())
     {
-        EnableInput(Controller);
-        if (InputComponent)
-        {
-            FInputKeyBinding& Binding = InputComponent->BindKey(EKeys::F, IE_Pressed, this, &ASPPortTerminal::OnInteractPressed);
-            Binding.bConsumeInput = false;
-            InputComponent->BindKey(EKeys::M, IE_Pressed, this, &ASPPortTerminal::OnMissionPressed).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::H, IE_Pressed, this, &ASPPortTerminal::OnCycleMissionPressed).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::One, IE_Pressed, this, &ASPPortTerminal::OnMissionChoiceOne).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::Two, IE_Pressed, this, &ASPPortTerminal::OnMissionChoiceTwo).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::Three, IE_Pressed, this, &ASPPortTerminal::OnCycleCargoGood).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::Four, IE_Pressed, this, &ASPPortTerminal::OnBuyCargo).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::Five, IE_Pressed, this, &ASPPortTerminal::OnLoadCargo).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::Six, IE_Pressed, this, &ASPPortTerminal::OnUnloadCargo).bConsumeInput = false;
-            InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ASPPortTerminal::OnSellCargo).bConsumeInput = false;
-        }
+        StatusWidget = CreateWidget<USPPortTerminalWidget>(Controller, USPPortTerminalWidget::StaticClass());
+        if (StatusWidget) StatusWidget->AddToPlayerScreen(38);
     }
+    if (bInputBound) return;
+    EnableInput(Controller);
+    if (!InputComponent) return;
+    InputComponent->BindKey(EKeys::F, IE_Pressed, this, &ASPPortTerminal::OnInteractPressed).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::M, IE_Pressed, this, &ASPPortTerminal::OnMissionPressed).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::H, IE_Pressed, this, &ASPPortTerminal::OnCycleMissionPressed).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::One, IE_Pressed, this, &ASPPortTerminal::OnMissionChoiceOne).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::Two, IE_Pressed, this, &ASPPortTerminal::OnMissionChoiceTwo).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::Three, IE_Pressed, this, &ASPPortTerminal::OnCycleCargoGood).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::Four, IE_Pressed, this, &ASPPortTerminal::OnBuyCargo).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::Five, IE_Pressed, this, &ASPPortTerminal::OnLoadCargo).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::Six, IE_Pressed, this, &ASPPortTerminal::OnUnloadCargo).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ASPPortTerminal::OnSellCargo).bConsumeInput = false;
+    bInputBound = true;
 }
 
 void ASPPortTerminal::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    EnsurePlayerInput();
     if (bRemotePortProxy) UpdateRemoteProxy();
     const APlayerController* Controller = GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr;
     const APawn* Pawn = Controller ? Controller->GetPawn() : nullptr;
     const bool bNearby = Pawn && !Pawn->IsA(ASPFlightPawn::StaticClass()) &&
         FVector::DistSquared(Pawn->GetActorLocation(), GetActorLocation()) <= FMath::Square(InteractionRadiusCm);
     if (TerminalLabel) TerminalLabel->SetVisibility(bNearby && !IsHidden());
+    FString WorldName = TEXT("UNKNOWN");
+    for (TActorIterator<ASPWorldSurface> It(GetWorld()); It; ++It)
+    {
+        WorldName = It->WorldId;
+        break;
+    }
+    if (DisplayedWorldId != WorldName)
+    {
+        DisplayedWorldId = WorldName;
+        LastMessage.Empty();
+    }
+    if (StatusWidget)
+    {
+        const bool bShow = bNearby && !IsHidden();
+        StatusWidget->SetVisibility(bShow ? ESlateVisibility::HitTestInvisible : ESlateVisibility::Collapsed);
+        if (bShow)
+        {
+            StatusWidget->SetReadout(WorldName, LastMessage.IsEmpty()
+                ? TEXT("F  FREIGHT / OBJECTIVE     M  CASE     H  NEXT CASE\n1/2  CHOOSE RESPONSE        3  GOOD     4  BUY\n5  LOAD     6  UNLOAD     7  SELL")
+                : LastMessage);
+        }
+    }
+}
+
+void ASPPortTerminal::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+    if (StatusWidget) StatusWidget->RemoveFromParent();
+    StatusWidget = nullptr;
+    Super::EndPlay(EndPlayReason);
 }
 
 void ASPPortTerminal::UpdateRemoteProxy()
@@ -180,7 +219,9 @@ void ASPPortTerminal::Report(const FString& Message, bool bSuccess, float Durati
 {
     LastMessage = Message;
     UE_LOG(LogTemp, Display, TEXT("Space Patriot port terminal: %s"), *Message);
-    if (GEngine) GEngine->AddOnScreenDebugMessage(-1, DurationSeconds,
+    if (StatusWidget && StatusWidget->IsVisible())
+        StatusWidget->SetReadout(DisplayedWorldId, Message);
+    else if (GEngine) GEngine->AddOnScreenDebugMessage(-1, DurationSeconds,
         bSuccess ? FColor(175, 235, 191) : FColor(237, 189, 126), Message);
 }
 

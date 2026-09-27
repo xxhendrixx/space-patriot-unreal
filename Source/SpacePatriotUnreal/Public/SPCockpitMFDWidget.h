@@ -39,4 +39,5 @@ private:
     UFUNCTION() void OnDim();
     UFUNCTION() void OnSelectDestination();
     UFUNCTION() void OnRequestJump();
+    UFUNCTION() void OnAutoRoute();
 };

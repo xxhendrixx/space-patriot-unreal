@@ -457,14 +457,23 @@ float ASPWorldSurface::SurfaceHeightMeters(const FVector& Radial) const
     if (Radius >= LocalRegionMeters) return Globe;
     const float GridX = (X / TerrainField.SizeMeters + 0.5f) * (TerrainField.Width - 1);
     const float GridY = (Y / TerrainField.SizeMeters + 0.5f) * (TerrainField.Height - 1);
-    const float Relief = FMath::Clamp(TerrainField.SampleClamped(GridX, GridY).X, -16.0f, 55.0f);
+    const float SourceRelief = TerrainField.SampleClamped(GridX, GridY).X;
+    // The harbor's restrained terrain band is only needed around its built
+    // apron. Remote worlds must retain the range in their exported height
+    // fields; Mars alone spans roughly -250 to +520 m.
+    const float Relief = WorldId == TEXT("earth")
+        ? FMath::Clamp(SourceRelief, -16.0f, 55.0f) : SourceRelief;
     const float OuterFade = 1.0f - SmoothStep(2400.0f, 3000.0f, Radius);
+    const float AuthoredTerrain = Globe + Relief * 0.62f * OuterFade;
+    // Kellen Reach's level apron belongs to Earth. Applying its flat pad to
+    // every world erased the source terrain directly beneath remote landings.
+    if (WorldId != TEXT("earth")) return AuthoredTerrain;
     const float FlatX = FMath::Max(0.0f, FMath::Abs(X - 120.0f) - 315.0f);
     const float FlatY = FMath::Max(0.0f, FMath::Abs(Y) - 260.0f);
     const float Basin = SmoothStep(0.0f, 230.0f, FMath::Sqrt(FlatX * FlatX + FlatY * FlatY));
     // The original port protects the landing apron and fades the authored
     // local Worldworks relief into the globe over the final 600 metres.
-    return FMath::Lerp(-3.0f, Globe + Relief * 0.62f * OuterFade, Basin);
+    return FMath::Lerp(-3.0f, AuthoredTerrain, Basin);
 }
 
 FVector4f ASPWorldSurface::ClimateChannels(const FVector& Radial) const
@@ -583,7 +592,10 @@ void ASPWorldSurface::BuildPlanetMesh()
             const int32 B = (Row + 1) * Side + Column;
             const int32 C = A + 1;
             const int32 D = B + 1;
-            Triangles.Append({A, B, C, C, B, D});
+            // Longitude vertices collapse at both poles. Skip the triangle
+            // with two coincident corners instead of passing it to Chaos.
+            if (Row > 0) Triangles.Append({A, B, C});
+            if (Row < Latitudes - 1) Triangles.Append({C, B, D});
         }
     }
     CalculateSmoothNormals(Vertices, Triangles, Normals);

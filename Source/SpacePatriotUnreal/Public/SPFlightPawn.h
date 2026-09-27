@@ -136,6 +136,14 @@ public:
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") bool BeginHyperdriveJump();
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") bool CancelHyperdriveJump();
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") void SetTravelWorldSurface(ASPWorldSurface* InSurface);
+    /** The integrated map's route drives this pawn's existing navigation component. */
+    void BindIntegratedRoute(USPHyperjumpRouteComponent* Route);
+    /** Guided version of the original launch-to-surface action; manual input takes over. */
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") bool StartAutoRoute();
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") void CancelAutoRoute();
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") void ToggleAutoRoute();
+    UFUNCTION(BlueprintPure, Category="Space Patriot|Travel") bool IsAutoRouteActive() const { return bAutoRouteActive; }
+    UFUNCTION(BlueprintPure, Category="Space Patriot|Travel") FString GetAutoRouteStatus() const { return AutoRouteFeedback; }
 
 private:
     FVector FlightVelocityCmPerSecond = FVector::ZeroVector;
@@ -161,6 +169,11 @@ private:
     bool bExternalShipVisualActive = false;
     float MFDRefreshSeconds = 0.0f;
     mutable TWeakObjectPtr<USPHyperjumpRouteComponent> CachedMFDHyperjumpRoute;
+    enum class EAutoRoutePhase : uint8 { None, Climb, Charge, Transit, Approach, Landing };
+    EAutoRoutePhase AutoRoutePhase = EAutoRoutePhase::None;
+    bool bAutoRouteActive = false;
+    FString AutoRouteTargetId;
+    FString AutoRouteFeedback;
 #if WITH_EDITOR
     bool bMFDValidationShotQueued = false;
 #endif
@@ -188,6 +201,9 @@ private:
     void InputNextTravelDestination() { SelectNextTravelDestination(); }
     void InputBeginHyperdriveJump() { BeginHyperdriveJump(); }
     void InputCancelHyperdriveJump() { CancelHyperdriveJump(); }
+    void AdvanceAutoRoute(float DeltaSeconds);
+    bool TryAutoRouteLanding();
+    void FinishAutoRoute(const FString& Message);
     FVector TraceDown() const;
     void UpdateGearMeshes();
     bool TickTravel(float DeltaSeconds);

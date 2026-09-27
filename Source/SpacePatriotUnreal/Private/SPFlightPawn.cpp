@@ -153,6 +153,7 @@ void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     PlayerInputComponent->BindAction(TEXT("SPLand"), IE_Pressed, this, &ASPFlightPawn::TryLand);
     PlayerInputComponent->BindAction(TEXT("SPTravelNext"), IE_Pressed, this, &ASPFlightPawn::InputNextTravelDestination);
     PlayerInputComponent->BindAction(TEXT("SPTravelJump"), IE_Pressed, this, &ASPFlightPawn::InputBeginHyperdriveJump);
+    PlayerInputComponent->BindAction(TEXT("SPAutoRoute"), IE_Pressed, this, &ASPFlightPawn::ToggleAutoRoute);
     PlayerInputComponent->BindAction(TEXT("SPTravelCancel"), IE_Pressed, this, &ASPFlightPawn::InputCancelHyperdriveJump);
 }
 
@@ -181,7 +182,13 @@ void ASPFlightPawn::Tick(float DeltaSeconds)
             UpdateCockpitReadout();
         }
     }
-    if (TickTravel(Dt)) return;
+    const bool bTravelHoldsPosition = TickTravel(Dt);
+    if (bAutoRouteActive)
+    {
+        AdvanceAutoRoute(Dt);
+        if (bAutoRouteActive && AutoRoutePhase != EAutoRoutePhase::Landing) return;
+    }
+    if (bTravelHoldsPosition) return;
 
     if (bLandingPending)
     {
@@ -301,17 +308,26 @@ FSPTravelContext ASPFlightPawn::GetTravelContext() const
 
 bool ASPFlightPawn::SelectNextTravelDestination()
 {
-    if (!TravelNavigation || !TravelNavigation->CycleDestination()) return false;
+    USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute();
+    const bool bSelected = Route && Route->GetNavigationComponent() == TravelNavigation
+        ? Route->CycleDestination()
+        : TravelNavigation && TravelNavigation->CycleDestination();
+    if (!bSelected) return false;
+    AutoRouteFeedback.Empty();
+    LandingFeedback.Empty();
     FSPTravelWorld Destination;
     if (TravelNavigation->FindWorld(TravelNavigation->GetNavigationState().DestinationWorldId, Destination))
         AnnounceTravel(FString::Printf(TEXT("NAV target: %s  |  J charge  K cancel"), *Destination.Name));
+    UpdateCockpitReadout();
     return true;
 }
 
 void ASPFlightPawn::AnnounceTravel(const FString& Message) const
 {
     UE_LOG(LogTemp, Display, TEXT("Kestrel travel: %s"), *Message);
-    if (GEngine && GetWorld() && GetWorld()->IsGameWorld())
+    // The integrated play loop has a persistent route HUD and cockpit MFD.
+    // Keep transient debug text for the standalone flight map only.
+    if (!FindMFDHyperjumpRoute() && GEngine && GetWorld() && GetWorld()->IsGameWorld())
         GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor(77, 183, 194), Message);
 }
 
@@ -321,28 +337,261 @@ void ASPFlightPawn::SetTravelWorldSurface(ASPWorldSurface* InSurface)
     if (IsValid(InSurface)) InSurface->FocusActor = this;
 }
 
+void ASPFlightPawn::BindIntegratedRoute(USPHyperjumpRouteComponent* Route)
+{
+    CachedMFDHyperjumpRoute = Route;
+    // Configure binds the ship's existing navigation to the route. Keeping
+    // the visual on this same component avoids a second, stale jump display.
+    if (HyperdriveVisual && Route)
+        HyperdriveVisual->SetNavigationComponent(Route->GetNavigationComponent());
+}
+
+bool ASPFlightPawn::StartAutoRoute()
+{
+    USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute();
+    if (bAutoRouteActive || !Route || Route->GetNavigationComponent() != TravelNavigation ||
+        !IsValid(TravelWorldSurface) || !GetController() || !bPowered || FuelPercent < 8.0f)
+    {
+        AutoRouteFeedback = TEXT("UNAVAILABLE: board a powered ship with at least 8% fuel");
+        UpdateCockpitReadout();
+        return false;
+    }
+    const FSPHyperjumpRouteStatus Status = Route->GetRouteStatus();
+    FSPTravelWorld Destination;
+    if (!TravelNavigation->FindWorld(Status.Navigation.DestinationWorldId, Destination) ||
+        Destination.Biome == TEXT("gas") ||
+        (Status.Navigation.Phase != ESPTravelPhase::Flight &&
+            Status.Navigation.Phase != ESPTravelPhase::Landed))
+    {
+        AutoRouteFeedback = TEXT("SELECT A SOLID WORLD BEFORE AUTO ROUTE");
+        UpdateCockpitReadout();
+        return false;
+    }
+    if (!bFlying && !Launch())
+    {
+        AutoRouteFeedback = TEXT("LAUNCH FAILED: CHECK POWER AND CLEARANCE");
+        UpdateCockpitReadout();
+        return false;
+    }
+    SetGearDown(false);
+    FlightVelocityCmPerSecond = FVector::ZeroVector;
+    AngularVelocityDegreesPerSecond = FVector::ZeroVector;
+    bCruise = false;
+    LandingFeedback.Empty();
+    AutoRouteTargetId = Destination.Id;
+    AutoRoutePhase = EAutoRoutePhase::Climb;
+    bAutoRouteActive = true;
+    AutoRouteFeedback = FString::Printf(TEXT("CLIMB TO JUMP CLEARANCE > %s"), *Destination.Name.ToUpper());
+    AnnounceTravel(TEXT("Auto route engaged. Move or press X/R to take manual control."));
+    UpdateCockpitReadout();
+    return true;
+}
+
+void ASPFlightPawn::FinishAutoRoute(const FString& Message)
+{
+    bAutoRouteActive = false;
+    AutoRoutePhase = EAutoRoutePhase::None;
+    AutoRouteTargetId.Empty();
+    AutoRouteFeedback = Message;
+    AnnounceTravel(Message);
+    UpdateCockpitReadout();
+}
+
+void ASPFlightPawn::CancelAutoRoute()
+{
+    if (!bAutoRouteActive) return;
+    if (USPHyperjumpRouteComponent* Route = CachedMFDHyperjumpRoute.Get())
+        Route->CancelJump(); // Transit cannot be interrupted; it finishes in manual flight.
+    bLandingPending = false;
+    FlightVelocityCmPerSecond = FVector::ZeroVector;
+    FinishAutoRoute(TEXT("CANCELLED: MANUAL FLIGHT"));
+}
+
+void ASPFlightPawn::ToggleAutoRoute()
+{
+    if (bAutoRouteActive) CancelAutoRoute();
+    else StartAutoRoute();
+}
+
+bool ASPFlightPawn::TryAutoRouteLanding()
+{
+    if (!IsValid(TravelWorldSurface)) return false;
+    FlightVelocityCmPerSecond = FVector::ZeroVector;
+    if (RequestSurfaceLanding()) return true;
+
+    // Survey a small, deterministic neighborhood. Every accepted site still
+    // goes through the real four-pad/hatch footprint and descent check.
+    const FTransform Original = GetActorTransform();
+    const FVector Center = TravelWorldSurface->GetPlanetCenterWorld();
+    const FVector Up = (Original.GetLocation() - Center).GetSafeNormal();
+    FVector East = FVector::VectorPlaneProject(GetActorForwardVector(), Up).GetSafeNormal();
+    if (East.IsNearlyZero()) East = FVector::VectorPlaneProject(FVector::ForwardVector, Up).GetSafeNormal();
+    const FVector North = FVector::CrossProduct(Up, East).GetSafeNormal();
+    const double RadiusCm = TravelWorldSurface->GetScaledRadiusKm() * 100000.0;
+    const int32 OffsetsCm[] = {0, 5000, -5000, 10000, -10000};
+    for (const int32 X : OffsetsCm)
+    {
+        for (const int32 Y : OffsetsCm)
+        {
+            if (X == 0 && Y == 0) continue;
+            const FVector Probe = Original.GetLocation() + East * X + North * Y;
+            const FVector Radial = (Probe - Center).GetSafeNormal();
+            const float HeightMeters = TravelWorldSurface->SampleAtWorldLocation(Probe).ElevationMeters;
+            const FVector Candidate = Center + Radial * (RadiusCm + HeightMeters * 100.0 + 22000.0);
+            const FVector Forward = FVector::VectorPlaneProject(Original.GetRotation().GetForwardVector(), Radial).GetSafeNormal();
+            const FQuat Rotation = FRotationMatrix::MakeFromXZ(Forward.IsNearlyZero() ? East : Forward, Radial).ToQuat();
+            FHitResult Sweep;
+            if (!SetActorLocationAndRotation(Candidate, Rotation, true, &Sweep,
+                ETeleportType::TeleportPhysics) || Sweep.bBlockingHit) continue;
+            if (RequestSurfaceLanding()) return true;
+        }
+    }
+    SetActorTransform(Original, false, nullptr, ETeleportType::TeleportPhysics);
+    return false;
+}
+
+void ASPFlightPawn::AdvanceAutoRoute(float DeltaSeconds)
+{
+    if (!bAutoRouteActive) return;
+    if (FMath::Abs(ForwardInput) > 0.1f || FMath::Abs(RightInput) > 0.1f ||
+        FMath::Abs(UpInput) > 0.1f || bBrakeHeld)
+    {
+        CancelAutoRoute();
+        return;
+    }
+    USPHyperjumpRouteComponent* Route = CachedMFDHyperjumpRoute.Get();
+    if (!Route || !IsValid(TravelWorldSurface) || !TravelNavigation || !bPowered)
+    {
+        FinishAutoRoute(TEXT("AUTO ROUTE LOST: MANUAL FLIGHT"));
+        return;
+    }
+    const FSPHyperjumpRouteStatus Status = Route->GetRouteStatus();
+    if (AutoRoutePhase == EAutoRoutePhase::Climb)
+    {
+        if (!bFlying || Status.Navigation.DestinationWorldId != AutoRouteTargetId)
+        {
+            FinishAutoRoute(TEXT("DESTINATION CHANGED: MANUAL FLIGHT"));
+            return;
+        }
+        const float AltitudeMeters = TravelWorldSurface->GetAltitudeMetersAtWorldLocation(GetActorLocation());
+        if (AltitudeMeters >= 6200.0f)
+        {
+            if (Route->RequestJump())
+            {
+                AutoRoutePhase = EAutoRoutePhase::Charge;
+                AutoRouteFeedback = TEXT("JUMP DRIVE CHARGING");
+                UpdateCockpitReadout();
+                return;
+            }
+            else if (AltitudeMeters >= 9000.0f ||
+                !Route->GetRouteStatus().Message.Contains(TEXT("5 km clear")))
+            {
+                FinishAutoRoute(Route->GetRouteStatus().Message + TEXT("  MANUAL FLIGHT"));
+                return;
+            }
+        }
+        const FVector Up = (GetActorLocation() - TravelWorldSurface->GetPlanetCenterWorld()).GetSafeNormal();
+        const FVector Forward = FVector::VectorPlaneProject(GetActorForwardVector(), Up).GetSafeNormal();
+        SetActorRotation(FQuat::Slerp(GetActorQuat(),
+            FRotationMatrix::MakeFromXZ(Forward.IsNearlyZero() ? FVector::ForwardVector : Forward, Up).ToQuat(),
+            FMath::Clamp(DeltaSeconds * 2.0f, 0.0f, 1.0f)));
+        FHitResult Hit;
+        AddActorWorldOffset(Up * FMath::Min(80000.0f * DeltaSeconds,
+            FMath::Max(0.0f, 9200.0f - AltitudeMeters) * 100.0f), true, &Hit);
+        if (Hit.bBlockingHit) FinishAutoRoute(TEXT("ASCENT BLOCKED: MANUAL FLIGHT"));
+        return;
+    }
+    if (AutoRoutePhase == EAutoRoutePhase::Charge)
+    {
+        if (Status.Navigation.Phase == ESPTravelPhase::JumpTransit)
+        {
+            AutoRoutePhase = EAutoRoutePhase::Transit;
+            AutoRouteFeedback = TEXT("HYPERJUMP TRANSIT");
+            UpdateCockpitReadout();
+        }
+        else if (Status.Navigation.Phase != ESPTravelPhase::JumpCharging)
+            FinishAutoRoute(TEXT("JUMP INTERRUPTED: MANUAL FLIGHT"));
+        return;
+    }
+    if (AutoRoutePhase == EAutoRoutePhase::Transit)
+    {
+        if (Status.Navigation.Phase == ESPTravelPhase::Flight &&
+            Status.Navigation.CurrentWorldId == AutoRouteTargetId)
+        {
+            AutoRoutePhase = EAutoRoutePhase::Approach;
+            AutoRouteFeedback = TEXT("SURFACE APPROACH");
+            UpdateCockpitReadout();
+        }
+        else if (Status.Navigation.Phase != ESPTravelPhase::JumpTransit)
+            FinishAutoRoute(TEXT("ARRIVAL INTERRUPTED: MANUAL FLIGHT"));
+        return;
+    }
+    if (AutoRoutePhase == EAutoRoutePhase::Approach)
+    {
+        if (TravelWorldSurface->WorldId != AutoRouteTargetId || !bFlying)
+        {
+            FinishAutoRoute(TEXT("SURFACE UNAVAILABLE: MANUAL FLIGHT"));
+            return;
+        }
+        const float AltitudeMeters = TravelWorldSurface->GetAltitudeMetersAtWorldLocation(GetActorLocation());
+        if (AltitudeMeters <= 230.0f)
+        {
+            if (TryAutoRouteLanding())
+            {
+                AutoRoutePhase = EAutoRoutePhase::Landing;
+                AutoRouteFeedback = TEXT("LANDING GEAR DOWN / DESCENT");
+                UpdateCockpitReadout();
+            }
+            else FinishAutoRoute(TEXT("NO SAFE LANDING SITE: MANUAL FLIGHT"));
+            return;
+        }
+        const FVector Down = -(GetActorLocation() - TravelWorldSurface->GetPlanetCenterWorld()).GetSafeNormal();
+        FHitResult Hit;
+        AddActorWorldOffset(Down * FMath::Min(45000.0f * DeltaSeconds,
+            FMath::Max(0.0f, AltitudeMeters - 220.0f) * 100.0f), true, &Hit);
+        if (Hit.bBlockingHit) FinishAutoRoute(TEXT("APPROACH BLOCKED: MANUAL FLIGHT"));
+        return;
+    }
+    if (AutoRoutePhase == EAutoRoutePhase::Landing)
+    {
+        if (!bFlying) FinishAutoRoute(TEXT("LANDED: E TO EXIT / R FOR NEXT ROUTE"));
+        else if (!bLandingPending) FinishAutoRoute(TEXT("LANDING INTERRUPTED: MANUAL FLIGHT"));
+    }
+}
+
 bool ASPFlightPawn::BeginHyperdriveJump()
 {
-    if (!bFlying || !IsValid(TravelWorldSurface) || !TravelNavigation || !TravelNavigation->BeginJump(GetTravelContext()))
+    USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute();
+    const bool bIntegrated = Route && Route->GetNavigationComponent() == TravelNavigation;
+    const bool bStarted = bFlying && IsValid(TravelWorldSurface) && TravelNavigation &&
+        (bIntegrated ? Route->RequestJump() : TravelNavigation->BeginJump(GetTravelContext()));
+    if (!bStarted)
     {
-        AnnounceTravel(TEXT("Jump blocked: set a target, retract gear, clear the port, climb above 2 km, and check fuel/heat"));
+        const FString Failure = bIntegrated ? Route->GetRouteStatus().Message :
+            FString(TEXT("Jump blocked: set a target, retract gear, clear the port, climb above 2 km, and check fuel/heat"));
+        AnnounceTravel(Failure);
+        UpdateCockpitReadout();
         return false;
     }
     bCruise = false;
     TransitElapsedSeconds = 0.0f;
     AnnounceTravel(TEXT("Hyperdrive charging: K cancels before transit"));
     if (HyperdriveVisual) HyperdriveVisual->RefreshVisuals(0.0f);
+    UpdateCockpitReadout();
     OnFlightStateChanged.Broadcast();
     return true;
 }
 
 bool ASPFlightPawn::CancelHyperdriveJump()
 {
-    if (!TravelNavigation || !TravelNavigation->CancelJump()) return false;
+    USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute();
+    const bool bIntegrated = Route && Route->GetNavigationComponent() == TravelNavigation;
+    if (!(bIntegrated ? Route->CancelJump() : TravelNavigation && TravelNavigation->CancelJump())) return false;
     TravelNavigation->SetDriveMode(ESPTravelDriveMode::SCM);
     bCruise = false;
     AnnounceTravel(TEXT("Charge canceled: manual flight restored"));
     if (HyperdriveVisual) HyperdriveVisual->RefreshVisuals(0.0f);
+    UpdateCockpitReadout();
     OnFlightStateChanged.Broadcast();
     return true;
 }
@@ -350,6 +599,33 @@ bool ASPFlightPawn::CancelHyperdriveJump()
 bool ASPFlightPawn::TickTravel(float DeltaSeconds)
 {
     if (!TravelNavigation) return false;
+    if (USPHyperjumpRouteComponent* Route = CachedMFDHyperjumpRoute.Get();
+        Route && Route->GetNavigationComponent() == TravelNavigation)
+    {
+        // The director's route owns charge, transit and world activation.
+        // Never advance or complete that same navigation state a second time.
+        FSPTravelNavigationState State = TravelNavigation->GetNavigationState();
+        if (bBrakeHeld && State.Phase == ESPTravelPhase::JumpCharging)
+        {
+            Route->CancelJump();
+            State = TravelNavigation->GetNavigationState();
+        }
+        if (State.Phase == ESPTravelPhase::JumpTransit)
+        {
+            if (PreviousTravelPhase != ESPTravelPhase::JumpTransit)
+            {
+                FlightVelocityCmPerSecond = FVector::ZeroVector;
+                AngularVelocityDegreesPerSecond = FVector::ZeroVector;
+                bCruise = false;
+                AnnounceTravel(TEXT("Hyperdrive transit: hold position"));
+                OnFlightStateChanged.Broadcast();
+            }
+            PreviousTravelPhase = State.Phase;
+            return true;
+        }
+        PreviousTravelPhase = State.Phase;
+        return false;
+    }
     TravelNavigation->SetDriveResources(FuelPercent, HeatPercent / 100.0f);
     TravelNavigation->AdvanceDrive(DeltaSeconds, GetTravelContext(), bCruise, bBrakeHeld);
     const FSPTravelNavigationState State = TravelNavigation->GetNavigationState();
@@ -491,6 +767,11 @@ bool ASPFlightPawn::SelectNextMFDDestination()
 {
     USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute();
     const bool bSelected = Route && Route->CycleDestination();
+    if (bSelected)
+    {
+        AutoRouteFeedback.Empty();
+        LandingFeedback.Empty();
+    }
     UpdateCockpitReadout();
     OnFlightStateChanged.Broadcast();
     return bSelected;
@@ -660,10 +941,13 @@ void ASPFlightPawn::UpdateCockpitReadout()
                     ? TEXT("SELECT DESTINATION") : TEXT("ROUTE SELECTED");
                 break;
             }
+            const FString Feedback = !AutoRouteFeedback.IsEmpty() ? AutoRouteFeedback
+                : !LandingFeedback.IsEmpty() ? LandingFeedback
+                : Status.Message.IsEmpty() ? TEXT("DEST cycles worlds; JUMP engages drive.") : Status.Message;
             Text = FString::Printf(TEXT("MFD 1/4  NAV\nHERE %s  >  DEST %s\nSPD %03.0f m/s  FUEL %03.0f%%  GEAR %s\n%s\n%s"),
                 *Here, *Destination, GetFlightTelemetry().SpeedMetersPerSecond,
                 FuelPercent, bGearDown ? TEXT("DOWN") : TEXT("UP"),
-                *Phase, Status.Message.IsEmpty() ? TEXT("DEST cycles worlds; JUMP engages drive.") : *Status.Message);
+                *Phase, *Feedback);
         }
         else
         {
@@ -706,7 +990,11 @@ void ASPFlightPawn::UpdateCockpitReadout()
             }
         }
     }
-    if (!LandingFeedback.IsEmpty()) Text += TEXT("\n") + LandingFeedback;
+    if (CockpitMFDPage != 0)
+    {
+        if (!AutoRouteFeedback.IsEmpty()) Text += TEXT("\n") + AutoRouteFeedback;
+        else if (!LandingFeedback.IsEmpty()) Text += TEXT("\n") + LandingFeedback;
+    }
     CockpitReadout->SetText(FText::FromString(Text));
     if (MFDWidget) MFDWidget->SetReadout(CockpitReadout->Text, CockpitMFDBrightness);
 }

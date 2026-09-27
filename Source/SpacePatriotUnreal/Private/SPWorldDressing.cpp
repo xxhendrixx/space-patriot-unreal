@@ -8,9 +8,13 @@
 
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Blueprint/UserWidget.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
+#include "GameFramework/HUD.h"
+#include "GameFramework/PlayerController.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
 #include "Misc/Crc.h"
@@ -116,6 +120,44 @@ ASPWorldDressing::ASPWorldDressing()
     PrimaryActorTick.bCanEverTick = true;
     SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("WorldDressingRoot"));
     SetRootComponent(SceneRoot);
+}
+
+void ASPWorldDressing::BeginPlay()
+{
+    Super::BeginPlay();
+    ShooterScoreWidgetClass = LoadClass<UUserWidget>(nullptr,
+        TEXT("/Game/Variant_Shooter/UI/UI_Shooter.UI_Shooter_C"));
+    ShooterNpcClass = LoadClass<AActor>(nullptr,
+        TEXT("/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPC.BP_ShooterNPC_C"));
+    ShooterAiControllerClass = LoadClass<AActor>(nullptr,
+        TEXT("/Game/Variant_Shooter/Blueprints/AI/BP_ShooterAIController.BP_ShooterAIController_C"));
+}
+
+void ASPWorldDressing::HideShooterTemplateOverlays()
+{
+    // The Shooter GameMode recreates its score widget after respawn. Keep the
+    // separate rifle bullet-counter widget and every Space Patriot HUD intact.
+    if (ShooterScoreWidgetClass)
+    {
+        TArray<UUserWidget*> Widgets;
+        UWidgetBlueprintLibrary::GetAllWidgetsOfClass(this, Widgets, ShooterScoreWidgetClass, true);
+        for (UUserWidget* Widget : Widgets)
+            if (Widget && Widget->GetClass() == ShooterScoreWidgetClass.Get())
+                Widget->SetVisibility(ESlateVisibility::Collapsed);
+    }
+
+    APlayerController* Controller = GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr;
+    AHUD* Hud = Controller ? Controller->GetHUD() : nullptr;
+    if (!Hud) return;
+    // ST_Shooter's Debug Text Task attaches persistent labels to its NPC or
+    // controller. Remove just those actors' labels; the StateTree still runs,
+    // and unrelated debug strings and GEngine gameplay messages are untouched.
+    if (ShooterNpcClass)
+        for (TActorIterator<AActor> It(GetWorld(), ShooterNpcClass.Get()); It; ++It)
+            Hud->RemoveDebugText(*It);
+    if (ShooterAiControllerClass)
+        for (TActorIterator<AActor> It(GetWorld(), ShooterAiControllerClass.Get()); It; ++It)
+            Hud->RemoveDebugText(*It);
 }
 
 TArray<FSPWorldRockPlacement> ASPWorldDressing::PlanRocks(
@@ -593,6 +635,7 @@ void ASPWorldDressing::SpawnDressing(ASPWorldSurface* Surface, AActor* LandingFo
 void ASPWorldDressing::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    HideShooterTemplateOverlays();
     if (ActiveWorldId.IsEmpty() || ActiveWorldId == TEXT("earth") || ActiveBiome == TEXT("gas")) return;
     ASPFlightPawn* Ship = Cast<ASPFlightPawn>(FocusActor.Get());
     if (!Ship || Ship->bFlying || !ActiveSurface.IsValid()) return;

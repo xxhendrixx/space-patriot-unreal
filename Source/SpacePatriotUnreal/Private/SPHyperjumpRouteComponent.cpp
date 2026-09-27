@@ -34,7 +34,10 @@ bool USPHyperjumpRouteComponent::Configure(ASPFlightPawn* InShip, ASPWorldSurfac
         return false;
     }
 
-    USPTravelNavigationComponent* Candidate = InNavigation;
+    // The flight pawn already owns navigation for standalone maps. Reuse it in
+    // the integrated play loop so keyboard, MFD, visuals and journey saves all
+    // observe the same route state.
+    USPTravelNavigationComponent* Candidate = InNavigation ? InNavigation : InShip->TravelNavigation.Get();
     if (!Candidate) Candidate = GetOwner()->FindComponentByClass<USPTravelNavigationComponent>();
     if (!Candidate)
     {
@@ -43,7 +46,8 @@ bool USPHyperjumpRouteComponent::Configure(ASPFlightPawn* InShip, ASPWorldSurfac
         GetOwner()->AddInstanceComponent(Candidate);
         Candidate->RegisterComponent();
     }
-    if (Candidate->GetOwner() != GetOwner() || !Candidate->LoadWorldCatalog())
+    if ((Candidate->GetOwner() != GetOwner() && Candidate->GetOwner() != InShip) ||
+        !Candidate->LoadWorldCatalog())
     {
         SetMessage(TEXT("Original world catalog is unavailable."));
         return false;
@@ -69,6 +73,7 @@ bool USPHyperjumpRouteComponent::Configure(ASPFlightPawn* InShip, ASPWorldSurfac
     Ship = InShip;
     Surface = InSurface;
     Navigation = Candidate;
+    Ship->BindIntegratedRoute(this);
     Surface->FocusActor = InShip;
     Ship->PlanetCenterCm = Surface->GetPlanetCenterWorld();
     Ship->bUseRadialSurface = true;
@@ -158,6 +163,7 @@ bool USPHyperjumpRouteComponent::RequestJump()
 bool USPHyperjumpRouteComponent::CancelJump()
 {
     if (!Navigation || !Navigation->CancelJump()) return false;
+    Navigation->SetDriveMode(ESPTravelDriveMode::SCM);
     TransitElapsedSeconds = 0.0f;
     SetMessage(TEXT("Jump cancelled."));
     return true;
@@ -186,6 +192,7 @@ void USPHyperjumpRouteComponent::TickComponent(float DeltaTime, ELevelTick TickT
         }
         else if (State.Phase == ESPTravelPhase::Flight)
         {
+            Navigation->SetDriveMode(ESPTravelDriveMode::SCM);
             SetMessage(TEXT("Jump interlock opened; charging cancelled."));
         }
     }

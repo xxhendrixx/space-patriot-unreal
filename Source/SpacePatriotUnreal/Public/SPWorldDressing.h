@@ -10,6 +10,7 @@ struct FSPSocietySettlement;
 class UMaterialInstanceDynamic;
 class UStaticMesh;
 class USceneComponent;
+class UUserWidget;
 
 /** A stable, local placement relative to the tangent plane at a landing site. */
 struct FSPWorldRockPlacement
@@ -52,6 +53,7 @@ class SPACEPATRIOTUNREAL_API ASPWorldDressing : public AActor
 
 public:
     ASPWorldDressing();
+    virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
@@ -116,10 +118,20 @@ private:
     UPROPERTY(Transient)
     TObjectPtr<UMaterialInstanceDynamic> OutpostMaterial;
 
+    /** External Shooter template score screen; the weapon ammo counter is a separate widget. */
+    UPROPERTY(Transient)
+    TSubclassOf<UUserWidget> ShooterScoreWidgetClass;
+    UPROPERTY(Transient)
+    TSubclassOf<AActor> ShooterNpcClass;
+    UPROPERTY(Transient)
+    TSubclassOf<AActor> ShooterAiControllerClass;
+
     TWeakObjectPtr<ASPWorldSurface> ActiveSurface;
     TWeakObjectPtr<AActor> FocusActor;
     FVector AnchorFocusLocation = FVector::ZeroVector;
     float RecenterElapsed = 0.0f;
+
+    void HideShooterTemplateOverlays();
 
     void SpawnDressing(ASPWorldSurface* Surface, AActor* LandingFocus,
                        UStaticMesh* const RockMeshes[3], UStaticMesh* const FoliageMeshes[3], UStaticMesh* Crate,

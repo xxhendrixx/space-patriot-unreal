@@ -10,6 +10,7 @@
 #include "Components/CanvasPanelSlot.h"
 #include "Components/HorizontalBox.h"
 #include "Components/HorizontalBoxSlot.h"
+#include "Components/ScrollBox.h"
 #include "Components/TextBlock.h"
 #include "Components/VerticalBox.h"
 #include "Components/VerticalBoxSlot.h"
@@ -65,11 +66,15 @@ void USPCockpitMFDWidget::NativeOnInitialized()
     Rule->SetBrushColor(FLinearColor(0.28f, 0.39f, 0.32f, 0.85f));
     Stack->AddChildToVerticalBox(Rule)->SetPadding(FMargin(0.0f, 0.0f, 0.0f, 9.0f));
 
-    BodyText = MakeLabel(WidgetTree, TEXT("MFDBody"), 19, FLinearColor(0.70f, 0.84f, 0.64f));
-    BodyText->SetAutoWrapText(true);
-    UVerticalBoxSlot* BodySlot = Stack->AddChildToVerticalBox(BodyText);
+    UScrollBox* BodyScroll = WidgetTree->ConstructWidget<UScrollBox>(UScrollBox::StaticClass(), TEXT("MFDBodyScroll"));
+    BodyScroll->SetClipping(EWidgetClipping::ClipToBounds);
+    UVerticalBoxSlot* BodySlot = Stack->AddChildToVerticalBox(BodyScroll);
     BodySlot->SetSize(FSlateChildSize(ESlateSizeRule::Fill));
     BodySlot->SetPadding(FMargin(1.0f, 0.0f, 0.0f, 8.0f));
+    BodyText = MakeLabel(WidgetTree, TEXT("MFDBody"), 16, FLinearColor(0.70f, 0.84f, 0.64f));
+    BodyText->SetAutoWrapText(true);
+    BodyText->SetWrapTextAt(525.0f);
+    BodyScroll->AddChild(BodyText);
 
     NavControls = WidgetTree->ConstructWidget<UHorizontalBox>(UHorizontalBox::StaticClass(), TEXT("MFDNavControls"));
     Stack->AddChildToVerticalBox(NavControls)->SetPadding(FMargin(0.0f, 0.0f, 0.0f, 5.0f));
@@ -77,6 +82,8 @@ void USPCockpitMFDWidget::NativeOnInitialized()
         ->OnClicked.AddDynamic(this, &USPCockpitMFDWidget::OnSelectDestination);
     MakeButton(WidgetTree, NavControls, TEXT("MFDJump"), TEXT("JUMP"))
         ->OnClicked.AddDynamic(this, &USPCockpitMFDWidget::OnRequestJump);
+    MakeButton(WidgetTree, NavControls, TEXT("MFDAutoRoute"), TEXT("AUTO ROUTE"))
+        ->OnClicked.AddDynamic(this, &USPCockpitMFDWidget::OnAutoRoute);
 
     UHorizontalBox* Controls = WidgetTree->ConstructWidget<UHorizontalBox>(UHorizontalBox::StaticClass(), TEXT("MFDControls"));
     Stack->AddChildToVerticalBox(Controls)->SetPadding(FMargin(0.0f, 2.0f, 0.0f, 5.0f));
@@ -181,4 +188,9 @@ void USPCockpitMFDWidget::OnSelectDestination()
 void USPCockpitMFDWidget::OnRequestJump()
 {
     if (Ship.IsValid()) Ship->RequestMFDJump();
+}
+
+void USPCockpitMFDWidget::OnAutoRoute()
+{
+    if (Ship.IsValid()) Ship->ToggleAutoRoute();
 }

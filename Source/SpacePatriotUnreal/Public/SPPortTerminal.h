@@ -6,6 +6,7 @@
 
 class UStaticMeshComponent;
 class UTextRenderComponent;
+class USPPortTerminalWidget;
 class USPSocietySimulationComponent;
 class USPStoryCampaignComponent;
 struct FSPStoryQuestView;
@@ -20,6 +21,7 @@ public:
     ASPPortTerminal();
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Port|Visual")
     TObjectPtr<UStaticMeshComponent> TerminalMesh;
@@ -32,6 +34,8 @@ public:
     bool bRemotePortProxy = false;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Port|Interaction")
     FString LastMessage;
+    UPROPERTY(Transient)
+    TObjectPtr<USPPortTerminalWidget> StatusWidget;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient, Category="Port|Missions")
     FString SelectedQuestId;
     /** Dock-board selection; only goods and money in SocietyState persist. */
@@ -66,6 +70,9 @@ public:
     UFUNCTION(BlueprintCallable, Category="Port|Cargo") bool TrySellCargo();
 
 private:
+    bool bInputBound = false;
+    FString DisplayedWorldId;
+    void EnsurePlayerInput();
     void OnInteractPressed();
     void OnMissionPressed();
     void OnCycleMissionPressed();

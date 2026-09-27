@@ -1,44 +1,47 @@
 # Kellen Reach in-Editor playtest
 
-Open `SpacePatriotUnreal.uproject` in Unreal Engine 5.8. The on-foot test map is
-`/Game/SpacePatriot/Maps/L_KellenReachWalk`. Press **Play** in the Editor toolbar
-and choose **Selected Viewport** (not Standalone Game) if Unreal asks for a play
-mode. This keeps the test inside the Editor.
+Open `SpacePatriotUnreal.uproject` in Unreal Engine 5.8 and load
+`/Game/SpacePatriot/Maps/L_KellenReachWalk`. Choose **Play in Selected Viewport**.
+The walk, ship, jump, destination surface, survey, and port interactions run in
+this map; no separate play window or flight map is required.
 
-The map reuses the Kellen Reach flight-port layout but gives it a walkable
-concrete apron, raised runway marks, cargo bins and three CC0 rock meshes. Epic's
-First Person Arena Shooter example supplies the placeholder character, rifle,
-enemy, pickup, AI and crosshair/score/ammo HUD. Walk with **WASD**, look with the
-mouse, and fire with **left click**. Walk over the pickup near the spawn to equip
-the rifle. The `SP Walk / rifle pickup` actor is explicitly configured with the
-`DT_WeaponList` `Rifle` row; it is not the template's default Pistol pickup.
-An AI patrol and spawner sit farther along the apron. A NavMeshBoundsVolume
-covers the test route. The world runtime actor still receives Player 0 input:
-**F5** starts the original Storyworks `water` quest and **F6** saves society,
-campaign and survey data. The walk map's GameMode overrides the project default
-with Epic's shooter character and controller.
+Walk with **WASD** and mouse. The nearby rifle pickup, enemy patrols, and ammo
+counter are Epic Shooter template mechanics placeholders. The template score
+display and floating AI debug labels are hidden in the integrated play loop.
+The ship's hatch is on its port side. Press **E** nearby to board. On foot near
+a terminal, a persistent services panel shows prices, stock, hold use, credits,
+freight, and campaign feedback. Press **F** for freight or a matching case
+objective; **3** cycles goods, **4** buys, **5** loads, **6** unloads, and **7**
+sells one unit. Press **H** to cycle available cases, **M** to open or advance
+dialogue, and **1/2** for choices. Press **I** to open/close the case journal.
 
-To test flight instead, open `/Game/SpacePatriot/Maps/L_KestrelFlight` and press
-**Play** in Selected Viewport. **W/S** move forward/back, **A/D** strafe,
-**Space/Ctrl** rise/descend, arrow keys pitch/yaw, **Q/E** roll, **X** brake,
-**Shift** boost, **G** gear, **L** land, **V** change camera. **F1/F2** select
-engineering presets; **F3/F4** cycle/dim the MFD; **Tab** gives the MFD buttons
-a mouse pointer. The world runtime uses the same **F5/F6** quest/save keys.
+In the ship, press **N** until the destination is Mars, then press **R** to
+start auto route. It launches, retracts gear, climbs, jumps, approaches, and
+tries a safe landing. The NAV MFD's **DEST** and **AUTO ROUTE** buttons use the
+same route state as N/R; **Tab** enables its pointer. If auto route cannot find
+a safe landing site, it leaves the ship in manual flight. Press **R**, **X**,
+or a movement key to cancel auto route. After landing, press **E** to exit,
+**B** to scan near the survey site, **Y** to collect a sample, and **E** to
+reboard. A valid sample advances a matching campaign sample objective.
 
-`Data/KellenReachWalkValidation.json` records 38 passing fresh-Editor-load
-checks for the shooter GameMode/pawn/controller, saved placement, configured
-Rifle pickup, AI controller, nav bounds, HUD dependency and world runtime.
-`Data/KellenReachNavigationValidation.json` records seven passing fresh-load
-checks, including complete paths from spawn to the NPC and from the NPC to the
-spawner. Press **P** in the Editor to inspect the green navigation overlay.
-`Data/KestrelFlightInputValidation.json` records four passing flight-map checks.
-These are saved-map and path-query checks. They do **not** prove live controls, enemy movement,
-damage, pickup overlap, frame rate or HUD readability in PIE. Please report
-those observations from Selected Viewport; the next integration pass should
-connect Epic's temporary shooter loop to Space Patriot's native combat and
-inventory simulations, then replace the placeholder art.
+Manual flight remains available: **Space** launches; **W/S/A/D** and
+**Space/Ctrl** translate; arrows pitch/yaw; **Q/E** roll; **G** toggles gear;
+**J** charges a jump after clearing the station, climbing above 2 km, and
+retracting gear; **K** cancels the charge. On arrival at a solid world, descend
+within 650 m and slow below 80 m/s, then press **L** over a broad, level
+surface. **V** changes camera; **F1/F2** choose vessel presets, **F3** cycles
+MFD pages, and **F4** dims the MFD. **I** opens the case journal while aboard.
 
-The imported character, rifle, AI and HUD are temporary Epic template assets.
-Run `Tools/InstallLocalDependencies.ps1` after cloning or updating the project
-before opening either playtest map. The stock Arena sample map is not installed;
-the dependency manifest stages only the assets used by Space Patriot.
+The latest saved-map check passed 102/102, and the native automation suite
+passed 33/33, including the physical travel loop, auto-route touchdown and
+manual takeover, and sample-to-campaign progression. A live Selected Viewport
+pass completed Earth→Mars by N/R, landed, exited, scanned, sampled, and
+reboarded. This short route is playable; the destination surface and cockpit
+still need substantial visual work. Most source cities, NPC routines, ship
+interiors, wildlife, audio, and objective interactions are not yet playable.
+The legacy `/Game/SpacePatriot/Maps/L_KestrelFlight` map remains for flight
+regression checks, not as the main route into the game.
+
+Run `Tools/InstallAllDependencies.ps1` with the Editor closed after cloning.
+`Tools/InstallAllDependencies.ps1 -VerifyOnly` checks local assets after a
+later `git pull`; the public repo does not include third-party pack binaries.

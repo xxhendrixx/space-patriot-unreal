@@ -85,9 +85,12 @@ proof for playtesters; an installer and commercial polish are not in scope.
 
 ## Fast implementation order
 
-1. **Unblock current gameplay**: verify boarding/flight/landing live in
-   Selected Viewport; fix controls and collision before adding content. Current
-   `Data/CohesivePlayValidation.json` reports `live_pie_verified: false`.
+1. **Unblock current gameplay**: an Earth→Mars auto-route/landing/exit/sample
+   loop now passes live in Selected Viewport. Extend that check to manual
+   flight, return travel, cargo, combat and save/reload; keep fixing controls,
+   collision and screen readability before adding content. The older
+   `Data/CohesivePlayValidation.json` predates this live pass and still reports
+   `live_pie_verified: false`.
 2. **Playable destination recipe**: reuse the current jump path but load a
    distinct modular district, sky, day/night preset and services for each
    destination. Preserve identity and per-site deltas. Avoid new tiny test maps.

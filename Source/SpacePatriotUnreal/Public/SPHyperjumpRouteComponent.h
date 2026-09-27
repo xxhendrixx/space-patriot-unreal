@@ -41,7 +41,7 @@ public:
     virtual void BeginPlay() override;
     virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-    /** Existing navigation may be supplied; otherwise one is found or created on the owner. */
+    /** Reuses the ship's navigation by default; an explicit component may also be supplied. */
     UFUNCTION(BlueprintCallable, Category="Hyperjump")
     bool Configure(ASPFlightPawn* InShip, ASPWorldSurface* InSurface, USPTravelNavigationComponent* InNavigation = nullptr);
 

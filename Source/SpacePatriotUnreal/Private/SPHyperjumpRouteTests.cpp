@@ -78,21 +78,41 @@ bool FSPHyperjumpRouteWorldTransitionTest::RunTest(const FString& Parameters)
     Pilot->Possess(Ship);
     if (!TestTrue(TEXT("route uses live ship and world actors"), Route->Configure(Ship, Surface))) return false;
     TestEqual(TEXT("original catalog contains all worlds"), Route->GetNavigationComponent()->GetWorlds().Num(), 19);
+    TestTrue(TEXT("keyboard, MFD, and route share the ship's navigation state"),
+        Route->GetNavigationComponent() == Ship->TravelNavigation);
+    Ship->SetTravelWorldSurface(Surface);
+    TestTrue(TEXT("flight N handler selects a route destination"), Ship->SelectNextTravelDestination());
+    TestEqual(TEXT("N selection appears on the same MFD route"),
+        Ship->TravelNavigation->GetNavigationState().DestinationWorldId,
+        Route->GetRouteStatus().Navigation.DestinationWorldId);
+    TestTrue(TEXT("MFD DEST handler advances that same route"), Ship->SelectNextMFDDestination());
+    TestEqual(TEXT("MFD selection also appears in flight navigation"),
+        Ship->TravelNavigation->GetNavigationState().DestinationWorldId,
+        Route->GetRouteStatus().Navigation.DestinationWorldId);
 
     TestTrue(TEXT("Mars is a selectable source destination"), Route->SelectDestination(TEXT("mars")));
-    TestFalse(TEXT("deployed gear blocks an otherwise safe jump"), Route->RequestJump());
+    TestFalse(TEXT("deployed gear blocks flight J handler"), Ship->BeginHyperdriveJump());
     Ship->bGearDown = false;
-    TestTrue(TEXT("jump begins with pilot, power, altitude, resources and retracted gear"), Route->RequestJump());
+    TestTrue(TEXT("flight J handler starts the shared route"), Ship->BeginHyperdriveJump());
     TestEqual(TEXT("charging does not change the physical world"), Surface->WorldId, FString(TEXT("earth")));
     TestEqual(TEXT("charge starts before any fuel debit"), Ship->FuelPercent, 100.0f);
 
     for (int32 Step = 0; Step < 25; ++Step)
+    {
         Route->TickComponent(0.1f, LEVELTICK_All, nullptr);
+        Ship->Tick(0.1f);
+    }
     const FSPHyperjumpRouteStatus Transit = Route->GetRouteStatus();
     TestEqual(TEXT("two-second charge enters transit"), Transit.Navigation.Phase, ESPTravelPhase::JumpTransit);
     TestEqual(TEXT("world remains Earth during transit"), Surface->WorldId, FString(TEXT("earth")));
     TestEqual(TEXT("jump debits ship fuel exactly once"), Ship->FuelPercent, 93.0f);
     TestTrue(TEXT("NAV inhibits weapons during transit"), Route->GetNavigationComponent()->AreWeaponsInhibited());
+
+    // The pawn must not independently complete the same transit or rebase the
+    // surface before the integrated route's arrival confirmation.
+    for (int32 Step = 0; Step < 40; ++Step) Ship->Tick(0.1f);
+    TestEqual(TEXT("pawn tick cannot complete route-owned transit"), Surface->WorldId, FString(TEXT("earth")));
+    TestEqual(TEXT("pawn tick cannot debit shared fuel again"), Ship->FuelPercent, 93.0f);
 
     Route->TickComponent(1.0f, LEVELTICK_All, nullptr);
     const FSPHyperjumpRouteStatus Arrival = Route->GetRouteStatus();

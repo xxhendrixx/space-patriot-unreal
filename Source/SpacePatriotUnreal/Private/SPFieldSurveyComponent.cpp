@@ -1,4 +1,5 @@
 #include "SPFieldSurveyComponent.h"
+#include "SPStoryCampaignComponent.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
@@ -301,6 +302,28 @@ bool USPFieldSurveyComponent::NotifyFieldSample(const FString& WorldId, const FS
     FSPFieldSurveyRecord* Record = FindRecord(Key);
     if (!Record || Record->Phase != TEXT("sample")) return false;
     Complete(*Record);
+    // Source Storyworks listens to the real sampler action. A survey record
+    // alone must not leave an active sample case stuck on its objective node.
+    if (AActor* Owner = GetOwner())
+    {
+        if (USPStoryCampaignComponent* Campaign = Owner->FindComponentByClass<USPStoryCampaignComponent>())
+        {
+            bool bActiveSampleObjective = false;
+            for (const FSPStoryQuestView& Quest : Campaign->GetQuestSummaries())
+            {
+                FSPStoryNodeView Node;
+                if (Quest.Status == TEXT("active") && Campaign->GetCurrentNode(Quest.Id, Node) &&
+                    Node.Type == TEXT("objective") && Node.ObjectiveKind == TEXT("sample") &&
+                    Node.WorldId == Key)
+                {
+                    bActiveSampleObjective = true;
+                    break;
+                }
+            }
+            if (bActiveSampleObjective)
+                Campaign->SignalGameplay(TEXT("sample"), Key, TEXT("survey:sample:") + Key);
+        }
+    }
     BroadcastStatus(Key);
     if (bAutoSave) SaveSurveys();
     return true;

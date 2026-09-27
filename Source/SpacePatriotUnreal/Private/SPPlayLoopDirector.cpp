@@ -88,8 +88,9 @@ void ASPPlayLoopDirector::BindPlayerInput()
     EnableInput(Player);
     if (!InputComponent) return;
     InputComponent->BindKey(EKeys::E, IE_Pressed, this, &ASPPlayLoopDirector::OnInteract).bConsumeInput = false;
-    InputComponent->BindKey(EKeys::N, IE_Pressed, this, &ASPPlayLoopDirector::OnCycleDestination).bConsumeInput = false;
-    InputComponent->BindKey(EKeys::J, IE_Pressed, this, &ASPPlayLoopDirector::OnJump).bConsumeInput = false;
+    // The possessed flight pawn owns N/J. Its input routes into this
+    // director's hyperjump component; binding the same keys here would cycle
+    // the destination or start a charge twice on a single press.
     // Function keys F8/F9 are Editor viewport shortcuts during PIE. Keep
     // journey controls usable in Selected Viewport as well as packaged play.
     InputComponent->BindKey(EKeys::K, IE_Pressed, this, &ASPPlayLoopDirector::OnSaveJourney).bConsumeInput = false;
@@ -225,7 +226,7 @@ bool ASPPlayLoopDirector::TryBoard()
         return false;
     }
     Surface->FocusActor = Ship;
-    LastAction = TEXT("Kestrel boarded. Space launches; N selects a world; J initiates hyperjump.");
+    LastAction = TEXT("Kestrel boarded. N selects a world; R handles launch, jump and landing. Space gives manual flight.");
     return true;
 }
 
@@ -257,6 +258,10 @@ void ASPPlayLoopDirector::UpdateRespawnAnchor()
     FVector Location;
     if (FindEgressLocation(Location))
     {
+        // The authored PlayerStart has a static capsule. Its position becomes
+        // the latest landed egress point, so the root must allow movement.
+        if (USceneComponent* Root = RespawnStart->GetRootComponent())
+            Root->SetMobility(EComponentMobility::Movable);
         RespawnStart->SetActorLocation(Location, false, nullptr, ETeleportType::TeleportPhysics);
         RespawnStart->SetActorRotation(FRotator(0.0f, Ship->GetActorRotation().Yaw, 0.0f));
     }
@@ -598,6 +603,10 @@ void ASPPlayLoopDirector::OnSaveJourney()
 {
     FeedbackUntilSeconds = GetWorld()->GetTimeSeconds() + 5.0f;
     USPTravelNavigationComponent* Navigation = HyperjumpRoute ? HyperjumpRoute->GetNavigationComponent() : nullptr;
+    // K cancels an active flight charge. Do not save a checkpoint as a side
+    // effect of that same key press from the director's higher-priority input.
+    if (IsPiloting() && Navigation &&
+        Navigation->GetNavigationState().Phase == ESPTravelPhase::JumpCharging) return;
     FSPJourneyState State;
     if (!USPJourneySaveLibrary::CaptureJourney(Player, GroundPawn, Ship, Navigation, State))
     {
@@ -666,7 +675,12 @@ void ASPPlayLoopDirector::RefreshStatus()
     bool bHasSurveyStatus = false;
     if (IsPiloting())
     {
-        if (Status.Navigation.Phase == ESPTravelPhase::JumpCharging)
+        if (Ship->IsAutoRouteActive())
+        {
+            Action = TEXT("AUTO ROUTE ACTIVE  |  R/X CANCEL");
+            Detail = Ship->GetAutoRouteStatus();
+        }
+        else if (Status.Navigation.Phase == ESPTravelPhase::JumpCharging)
         {
             Action = FString::Printf(TEXT("HYPERDRIVE CHARGING  %0.0f%%"), Status.ChargeFraction * 100.0f);
         }
@@ -676,21 +690,22 @@ void ASPPlayLoopDirector::RefreshStatus()
         }
         else if (Ship->bFlying)
         {
-            Action = FString::Printf(TEXT("N DESTINATION: %s  |  J JUMP"),
+            Action = FString::Printf(TEXT("N DEST: %s  |  J JUMP  |  R AUTO"),
                 Status.DestinationWorldName.IsEmpty() ? TEXT("NONE") : *Status.DestinationWorldName);
         }
         else
         {
-            Action = TEXT("SPACE LAUNCH  |  E EXIT  |  N CHOOSE DESTINATION");
+            Action = TEXT("R AUTO ROUTE  |  E EXIT");
         }
-        if (Ship->bFlying)
+        if (!Ship->IsAutoRouteActive() && Ship->bFlying)
         {
             const double AltitudeKm = FMath::Max(0.0,
                 (FVector::Distance(Ship->GetActorLocation(), Ship->PlanetCenterCm) - 1800000.0) / 100000.0);
             Detail = FString::Printf(TEXT("ALT %0.2f km / 2.00 km JUMP  |  G GEAR  |  L LAND  |  K SAVE"),
                 AltitudeKm);
         }
-        else Detail = TEXT("SPACE LAUNCH  |  E EXIT  |  K SAVE  |  O LOAD");
+        else if (!Ship->IsAutoRouteActive())
+            Detail = TEXT("N SELECT TARGET  |  SPACE MANUAL LAUNCH  |  K SAVE");
     }
     else if (GroundPawn && Ship)
     {
@@ -708,11 +723,20 @@ void ASPPlayLoopDirector::RefreshStatus()
     {
         Action = TEXT("PREPARING PLAY AREA");
     }
-    if (!LastAction.IsEmpty() && (Status.Navigation.Phase == ESPTravelPhase::JumpCharging ||
+    const bool bAutoLanded = IsPiloting() && !Ship->bFlying &&
+        Ship->GetAutoRouteStatus().StartsWith(TEXT("LANDED:"));
+    if (bAutoLanded)
+    {
+        Action = TEXT("LANDED  |  E EXIT  |  N NEXT DESTINATION");
+        Detail = Ship->GetAutoRouteStatus();
+    }
+    else if (!(IsPiloting() && Ship->IsAutoRouteActive()) && !LastAction.IsEmpty() &&
+        (Status.Navigation.Phase == ESPTravelPhase::JumpCharging ||
         Status.Navigation.Phase == ESPTravelPhase::JumpTransit ||
         GetWorld()->GetTimeSeconds() < FeedbackUntilSeconds || (!IsPiloting() && !bHasSurveyStatus)))
         Detail = LastAction;
-    else if (IsPiloting() && !Status.Message.IsEmpty() && !Ship->bFlying) Detail = Status.Message;
+    else if (IsPiloting() && !Ship->IsAutoRouteActive() && !Status.Message.IsEmpty() && !Ship->bFlying)
+        Detail = Status.Message;
     const FString Clock = DayNightCycle ? DayNightCycle->GetClockText() : TEXT("--:--");
     StatusWidget->SetStatus(FString::Printf(TEXT("SPACE PATRIOT  /  %s  /  %s"), *WorldName, *Clock),
         Action, Detail);
