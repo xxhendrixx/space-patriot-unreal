@@ -34,9 +34,32 @@ system still needs an Unreal implementation. The Unity `FrontierGame.cs` jump
 fade/teleport is also not reproduced; this slice requires an explicit spatial
 route confirmation and avoids changing worlds before that confirmation.
 
-Automation tests: `SpacePatriot.Travel` (three native Editor tests). The
+Automation tests: `SpacePatriot.Travel` (five native Editor tests). The
 baseline UE5.8 target currently has unrelated unity-build collisions between
 anonymous-namespace helpers in `SPArchitecture.cpp`,
 `SPStoryCampaignComponent.cpp`, and `SPWorldSurface.cpp`. The slice was built
 and tested in a temporary isolated non-unity validation target; that target is
 not part of this change.
+
+## Hyperdrive visuals
+
+`USPHyperdriveVisualComponent` reads `USPTravelNavigationComponent` every
+frame. During `JumpCharging` it constructs converging cyan/amber alignment
+brackets; during `JumpTransit` it constructs 72 restrained radial star streaks
+on a camera-local plane. Cancel, exterior arrival, disabling speed effects,
+and leaving those phases immediately clear the mesh. The vertex-color material
+`M_HyperdriveVisual.uasset` is unlit and additive; no Niagara system, texture
+atlas, camera FOV zoom, or full-screen white flash is used. The mesh has no
+collision or shadow casting.
+
+Add both components to the active flight Pawn and feed `AdvanceDrive` from its
+pilot controls. The visual component auto-finds the travel component and the
+Pawn's `UCameraComponent` on BeginPlay; Blueprint can also call
+`SetNavigationComponent` and `BindToCamera` explicitly. The route actor remains
+responsible for the actual ship trajectory and `ConfirmJumpArrival`. The
+visual does not move the ship or change worlds. The saved material is generated
+by `Tools/CreateHyperdriveVisualMaterial.py` for repeatable edits.
+
+`SpacePatriot.Travel` now also tests both visual phases, charging radius
+convergence, cancel/arrival/accessibility cleanup, cooked material loading,
+camera attachment, and actual procedural mesh section upload.
