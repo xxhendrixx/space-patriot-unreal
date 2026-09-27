@@ -116,8 +116,11 @@ check("weapon_pickup_placed", pickup is not None and pickup_bp and pickup.get_cl
 pickup_meshes = []
 if pickup:
     weapon_type = pickup.get_editor_property("Weapon Type")
-    check("pickup_grants_rifle", str(weapon_type.get_editor_property("row_name")) == "Rifle" and
-          bool(weapon_type.get_editor_property("data_table")), str(weapon_type))
+    row_name = str(weapon_type.get_editor_property("row_name"))
+    weapon_table = weapon_type.get_editor_property("data_table")
+    check("pickup_grants_rifle", row_name == "Rifle" and bool(weapon_table),
+          {"row_name": row_name,
+           "data_table": weapon_table.get_path_name() if weapon_table else None})
     for component in pickup.get_components_by_class(unreal.StaticMeshComponent):
         mesh = component.get_editor_property("static_mesh")
         if mesh:

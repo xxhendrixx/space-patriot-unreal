@@ -162,7 +162,7 @@
     {
       "name": "pickup_grants_rifle",
       "passed": true,
-      "detail": "<Struct 'DataTableRowHandle' (0x0000025E6FF6BEE0) {data_table: \"/Script/Engine.DataTable'/Game/Variant_Shooter/Blueprints/Pickups/DT_WeaponList.DT_WeaponList'\", row_name: \"Rifle\"}>"
+      "detail": "{'row_name': 'Rifle', 'data_table': '/Game/Variant_Shooter/Blueprints/Pickups/DT_WeaponList.DT_WeaponList'}"
     },
     {
       "name": "pickup_has_visual_mesh",
