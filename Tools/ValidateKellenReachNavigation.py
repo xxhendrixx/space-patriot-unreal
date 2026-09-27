@@ -31,18 +31,32 @@ nav_actors = [actor for actor in actors if isinstance(actor, unreal.RecastNavMes
 check("recast_navmesh_present", len(nav_actors) > 0, len(nav_actors))
 
 start = named.get("SP Walk / player start")
+terminal = named.get("SP Adventure / freight terminal")
 npc = named.get("SP Walk / shootable patrol")
 spawner = named.get("SP Walk / AI wave spawner")
-for label, actor in (("start", start), ("npc", npc), ("spawner", spawner)):
+for label, actor in (("start", start), ("terminal", terminal),
+                     ("npc", npc), ("spawner", spawner)):
     point = actor.get_actor_location() if actor else None
     check(label + "_present", actor is not None,
           [point.x, point.y, point.z] if point else None)
 
-if start and npc and spawner:
-    for label, target in (("start_to_npc", npc), ("npc_to_spawner", spawner)):
-        origin = start if label == "start_to_npc" else npc
+if start and terminal and npc and spawner:
+    terminal_approach = terminal.get_actor_location() + unreal.Vector(200, 0, 20)
+    terminal_center, terminal_half = terminal.get_actor_bounds(False, False)
+    interaction_distance = ((terminal_approach.x - terminal.get_actor_location().x) ** 2 +
+                            (terminal_approach.y - terminal.get_actor_location().y) ** 2 +
+                            (terminal_approach.z - terminal.get_actor_location().z) ** 2) ** 0.5
+    check("terminal_approach_outside_mesh_within_interaction_range",
+          terminal_approach.x > terminal_center.x + terminal_half.x + 75 and
+          interaction_distance <= 350,
+          {"approach": [terminal_approach.x, terminal_approach.y, terminal_approach.z],
+           "clearance_cm": round(terminal_approach.x - terminal_center.x - terminal_half.x, 1),
+           "interaction_distance_cm": round(interaction_distance, 1)})
+    for label, origin, target_point in (
+            ("start_to_terminal_approach", start, terminal_approach),
+            ("npc_to_spawner", npc, spawner.get_actor_location())):
         path = unreal.NavigationSystemV1.find_path_to_location_synchronously(
-            world, origin.get_actor_location(), target.get_actor_location()
+            world, origin.get_actor_location(), target_point
         )
         valid = path is not None and path.is_valid() and not path.is_partial()
         detail = {"valid": bool(valid)}
@@ -54,6 +68,14 @@ if start and npc and spawner:
             })
         check(label + "_complete", valid and detail.get("length_cm", 0) > 100
               and detail.get("points", 0) >= 2, detail)
+    path = unreal.NavigationSystemV1.find_path_to_location_synchronously(
+        world, start.get_actor_location(), npc.get_actor_location()
+    )
+    isolated = path is None or not path.is_valid() or path.is_partial()
+    check("port_to_combat_nav_isolated", isolated,
+          {"path_found": path is not None,
+           "valid": bool(path.is_valid()) if path else False,
+           "partial": bool(path.is_partial()) if path else None})
 
 report = {"map": EXPECTED_MAP, "checks": checks,
           "passed": sum(item["passed"] for item in checks),

@@ -15,17 +15,26 @@
       "name": "start_present",
       "passed": true,
       "detail": [
-        -4500.0,
         -900.0,
+        -1400.0,
         119.5
+      ]
+    },
+    {
+      "name": "terminal_present",
+      "passed": true,
+      "detail": [
+        -3470.0,
+        -1500.0,
+        77.5
       ]
     },
     {
       "name": "npc_present",
       "passed": true,
       "detail": [
-        -2500.0,
-        -900.0,
+        6500.0,
+        3200.0,
         94.5
       ]
     },
@@ -33,18 +42,31 @@
       "name": "spawner_present",
       "passed": true,
       "detail": [
-        2600.0,
-        1500.0,
+        8300.0,
+        4200.0,
         24.5
       ]
     },
     {
-      "name": "start_to_npc_complete",
+      "name": "terminal_approach_outside_mesh_within_interaction_range",
+      "passed": true,
+      "detail": {
+        "approach": [
+          -3270.0,
+          -1500.0,
+          97.5
+        ],
+        "clearance_cm": 122.5,
+        "interaction_distance_cm": 201.0
+      }
+    },
+    {
+      "name": "start_to_terminal_approach_complete",
       "passed": true,
       "detail": {
         "valid": true,
         "partial": false,
-        "length_cm": 2000.0,
+        "length_cm": 2372.1,
         "points": 2
       }
     },
@@ -54,11 +76,20 @@
       "detail": {
         "valid": true,
         "partial": false,
-        "length_cm": 5648.5,
+        "length_cm": 2111.0,
         "points": 3
+      }
+    },
+    {
+      "name": "port_to_combat_nav_isolated",
+      "passed": true,
+      "detail": {
+        "path_found": true,
+        "valid": true,
+        "partial": true
       }
     }
   ],
-  "passed": 7,
+  "passed": 10,
   "failed": 0
 }

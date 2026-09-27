@@ -1,0 +1,1040 @@
+{
+  "format": "space-patriot-original-world-locations",
+  "version": 1,
+  "units": "kilometers",
+  "coordinate_frame": "original source X/Y-up/Z; initial catalog positions before celestial.js orbital advancement",
+  "sector_size_km": 50000000.0,
+  "source_algorithm": [
+    "core.js:52-104",
+    "living.js:398-514",
+    "expedition.js:842-850"
+  ],
+  "worlds": [
+    {
+      "id": "mercury",
+      "source_id": "SP-mercury",
+      "name": "Mercury",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 0,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        7000.0,
+        28.046377864666,
+        0.0
+      ],
+      "gameplay_radius_km": 556.982944083569,
+      "physical_radius_km": 2440.093,
+      "seed": 3321527684,
+      "biome": "rock",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 14.0,
+      "primary_settlement_id": "mercury:city:0",
+      "primary_settlement_name": "New Alexandria",
+      "primary_site": {
+        "center_source_y_up_km": [
+          7280.757887946432,
+          443.402993454356,
+          243.273795305037
+        ],
+        "normal_source_y_up": [
+          0.503826967241,
+          0.745367709832,
+          0.436560836792
+        ],
+        "right_source_y_up": [
+          0.654854123668,
+          0.0,
+          -0.755755302142
+        ],
+        "forward_source_y_up": [
+          0.563315598751,
+          -0.666653566059,
+          0.488107118432
+        ],
+        "height_above_nominal_radius_km": 0.267672103061
+      }
+    },
+    {
+      "id": "venus",
+      "source_id": "SP-venus",
+      "name": "Venus",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 1,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        -15471.075559305335,
+        -434.207346627954,
+        14200.204964656852
+      ],
+      "gameplay_radius_km": 876.749679212944,
+      "physical_radius_km": 6046.079,
+      "seed": 1732359244,
+      "biome": "desert",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 16.729394610777,
+      "primary_settlement_id": "venus:city:0",
+      "primary_settlement_name": "New Dakar",
+      "primary_site": {
+        "center_source_y_up_km": [
+          -15170.763842815712,
+          226.900120786714,
+          14692.38707239243
+        ],
+        "normal_source_y_up": [
+          0.34234959311,
+          0.753649824645,
+          0.561078156686
+        ],
+        "right_source_y_up": [
+          0.85364143183,
+          0.0,
+          -0.520861119554
+        ],
+        "forward_source_y_up": [
+          0.392546891416,
+          -0.657276153388,
+          0.643346715409
+        ],
+        "height_above_nominal_radius_km": 0.458071384038
+      }
+    },
+    {
+      "id": "earth",
+      "source_id": "SP-earth",
+      "name": "Earth",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 2,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        2992.726819322996,
+        -61.310562945437,
+        -34871.81650251253
+      ],
+      "gameplay_radius_km": 900.0,
+      "physical_radius_km": 6371.0,
+      "seed": 1270752749,
+      "biome": "temperate",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 17.12,
+      "primary_settlement_id": "earth:city:0",
+      "primary_settlement_name": "New York",
+      "primary_site": {
+        "center_source_y_up_km": [
+          3309.759674939252,
+          581.164620629337,
+          -34327.02685899564
+        ],
+        "normal_source_y_up": [
+          0.352241345404,
+          0.713826087871,
+          0.605291955061
+        ],
+        "right_source_y_up": [
+          0.86430396787,
+          0.0,
+          -0.502969831227
+        ],
+        "forward_source_y_up": [
+          0.359032986942,
+          -0.700323008528,
+          0.616962720116
+        ],
+        "height_above_nominal_radius_km": 0.044414866786
+      }
+    },
+    {
+      "id": "mars",
+      "source_id": "SP-mars",
+      "name": "Mars",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 3,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        29925.74927169837,
+        2.920642995741,
+        38800.12281588094
+      ],
+      "gameplay_radius_km": 656.444971037177,
+      "physical_radius_km": 3389.372,
+      "seed": 3778613462,
+      "biome": "desert",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 14.0,
+      "primary_settlement_id": "mars:city:0",
+      "primary_settlement_name": "New Valencia",
+      "primary_site": {
+        "center_source_y_up_km": [
+          30175.01542201945,
+          478.490674713176,
+          39177.811067351795
+        ],
+        "normal_source_y_up": [
+          0.379708593606,
+          0.724438627835,
+          0.575334735995
+        ],
+        "right_source_y_up": [
+          0.834617631097,
+          0.0,
+          -0.550829746712
+        ],
+        "forward_source_y_up": [
+          0.399042345879,
+          -0.689339302884,
+          0.604629251439
+        ],
+        "height_above_nominal_radius_km": 0.022
+      }
+    },
+    {
+      "id": "jupiter",
+      "source_id": "SP-jupiter",
+      "name": "Jupiter",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 4,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        -62078.768864733065,
+        1379.762614227366,
+        -10734.358678516746
+      ],
+      "gameplay_radius_km": 3013.320427700977,
+      "physical_radius_km": 71418.91,
+      "seed": 2444393736,
+      "biome": "gas",
+      "surface_landing_supported": false,
+      "minimum_exterior_clearance_km": 103.247566370753,
+      "primary_settlement_id": "jupiter:city:0",
+      "primary_settlement_name": "New Alexandria Cloud City",
+      "primary_site": {
+        "center_source_y_up_km": [
+          -61256.24456443491,
+          3621.210873989263,
+          -8827.628383845367
+        ],
+        "normal_source_y_up": [
+          0.269192118135,
+          0.733571281136,
+          0.624026264693
+        ],
+        "right_source_y_up": [
+          0.918208902246,
+          0.0,
+          -0.396096467842
+        ],
+        "forward_source_y_up": [
+          0.290564993368,
+          -0.679612518641,
+          0.67357168077
+        ],
+        "height_above_nominal_radius_km": 42.208485987814
+      }
+    },
+    {
+      "id": "saturn",
+      "source_id": "SP-saturn",
+      "name": "Saturn",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 5,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        64769.362901979905,
+        -877.049607783556,
+        -41640.4806561071
+      ],
+      "gameplay_radius_km": 2766.676706809092,
+      "physical_radius_km": 60205.95,
+      "seed": 872456640,
+      "biome": "gas",
+      "surface_landing_supported": false,
+      "minimum_exterior_clearance_km": 94.960337348785,
+      "primary_settlement_id": "saturn:city:0",
+      "primary_settlement_name": "New Dakar Cloud City",
+      "primary_site": {
+        "center_source_y_up_km": [
+          65906.3903670641,
+          1097.839360875543,
+          -40004.19467082068
+        ],
+        "normal_source_y_up": [
+          0.405294939191,
+          0.703951776928,
+          0.58325629703
+        ],
+        "right_source_y_up": [
+          0.821201165432,
+          0.0,
+          -0.570638805106
+        ],
+        "forward_source_y_up": [
+          0.401702200839,
+          -0.710247770682,
+          0.578086019622
+        ],
+        "height_above_nominal_radius_km": 38.755473895327
+      }
+    },
+    {
+      "id": "uranus",
+      "source_id": "SP-uranus",
+      "name": "Uranus",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 6,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        -23115.7078533923,
+        -75.616288452875,
+        88015.13534862408
+      ],
+      "gameplay_radius_km": 1802.248595505071,
+      "physical_radius_km": 25547.71,
+      "seed": 87653223,
+      "biome": "gas",
+      "surface_landing_supported": false,
+      "minimum_exterior_clearance_km": 62.55555280897,
+      "primary_settlement_id": "uranus:city:0",
+      "primary_settlement_name": "New Lisbon Cloud City",
+      "primary_site": {
+        "center_source_y_up_km": [
+          -22644.540713725804,
+          1380.087736537425,
+          89014.48071201597
+        ],
+        "normal_source_y_up": [
+          0.257820303405,
+          0.796553965237,
+          0.546836787001
+        ],
+        "right_source_y_up": [
+          0.904509170665,
+          0.0,
+          -0.426454171257
+        ],
+        "forward_source_y_up": [
+          0.339693761106,
+          -0.604567432522,
+          0.720490366486
+        ],
+        "height_above_nominal_radius_km": 25.253480337071
+      }
+    },
+    {
+      "id": "neptune",
+      "source_id": "SP-neptune",
+      "name": "Neptune",
+      "system": "Sun",
+      "system_index": 0,
+      "planet_index": 7,
+      "sector_cell": [
+        0,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        -49022.42302944056,
+        1685.227310517803,
+        -92853.65927265644
+      ],
+      "gameplay_radius_km": 1772.794404323299,
+      "physical_radius_km": 24719.48,
+      "seed": 4207941460,
+      "biome": "gas",
+      "surface_landing_supported": false,
+      "minimum_exterior_clearance_km": 61.565891985263,
+      "primary_settlement_id": "neptune:city:0",
+      "primary_settlement_name": "New Valencia Cloud City",
+      "primary_site": {
+        "center_source_y_up_km": [
+          -48173.8178613115,
+          2878.944359486633,
+          -91811.35300293293
+        ],
+        "normal_source_y_up": [
+          0.472067421823,
+          0.664048430126,
+          0.579820689265
+        ],
+        "right_source_y_up": [
+          0.775483192554,
+          0.0,
+          -0.631368211162
+        ],
+        "forward_source_y_up": [
+          0.419259069454,
+          -0.747689562885,
+          0.514958396605
+        ],
+        "height_above_nominal_radius_km": 24.841121660526
+      }
+    },
+    {
+      "id": "trappist-1-b",
+      "source_id": "SP-trappist-1-b",
+      "name": "TRAPPIST-1 b",
+      "system": "TRAPPIST-1",
+      "system_index": 1,
+      "planet_index": 0,
+      "sector_cell": [
+        1,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        50000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        50007000.0,
+        91.447175305802,
+        0.0
+      ],
+      "gameplay_radius_km": 950.768110529587,
+      "physical_radius_km": 7110.036000000001,
+      "seed": 1953829944,
+      "biome": "volcanic",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 17.972904256897,
+      "primary_settlement_id": "trappist-1-b:city:0",
+      "primary_settlement_name": "New Alexandria",
+      "primary_site": {
+        "center_source_y_up_km": [
+          50007215.53070342,
+          724.952708989264,
+          675.477430247273
+        ],
+        "normal_source_y_up": [
+          0.226679538395,
+          0.666275104507,
+          0.710418096608
+        ],
+        "right_source_y_up": [
+          0.952678490974,
+          0.0,
+          -0.303979757279
+        ],
+        "forward_source_y_up": [
+          0.202534144549,
+          -0.745706031298,
+          0.634745961135
+        ],
+        "height_above_nominal_radius_km": 0.048645790084
+      }
+    },
+    {
+      "id": "trappist-1-c",
+      "source_id": "SP-trappist-1-c",
+      "name": "TRAPPIST-1 c",
+      "system": "TRAPPIST-1",
+      "system_index": 1,
+      "planet_index": 1,
+      "sector_cell": [
+        1,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        50000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        49984528.9244407,
+        242.974307772238,
+        14200.204964656852
+      ],
+      "gameplay_radius_km": 942.639910039884,
+      "physical_radius_km": 6988.987,
+      "seed": 1970607563,
+      "biome": "desert",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 17.83635048867,
+      "primary_settlement_id": "trappist-1-c:city:0",
+      "primary_settlement_name": "New Dakar",
+      "primary_site": {
+        "center_source_y_up_km": [
+          49984636.51090288,
+          991.176574548515,
+          14763.45404905072
+        ],
+        "normal_source_y_up": [
+          0.114129231896,
+          0.793703485337,
+          0.597502548773
+        ],
+        "right_source_y_up": [
+          0.982241978518,
+          0.0,
+          -0.187618484264
+        ],
+        "forward_source_y_up": [
+          0.148913444874,
+          -0.608304839175,
+          0.779608881794
+        ],
+        "height_above_nominal_radius_km": 0.032360648546
+      }
+    },
+    {
+      "id": "trappist-1-d",
+      "source_id": "SP-trappist-1-d",
+      "name": "TRAPPIST-1 d",
+      "system": "TRAPPIST-1",
+      "system_index": 1,
+      "planet_index": 2,
+      "sector_cell": [
+        1,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        50000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        50002992.72681932,
+        229.613436502405,
+        -34871.81650251253
+      ],
+      "gameplay_radius_km": 798.924276762197,
+      "physical_radius_km": 5020.348,
+      "seed": 2054495658,
+      "biome": "desert",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 15.421927849605,
+      "primary_settlement_id": "trappist-1-d:city:0",
+      "primary_settlement_name": "New Lisbon",
+      "primary_site": {
+        "center_source_y_up_km": [
+          50003314.524596795,
+          859.154964677003,
+          -34499.570064626045
+        ],
+        "normal_source_y_up": [
+          0.402737174084,
+          0.787885416777,
+          0.465874810052
+        ],
+        "right_source_y_up": [
+          0.756509042875,
+          0.0,
+          -0.653983232238
+        ],
+        "forward_source_y_up": [
+          0.515263851497,
+          -0.615821865501,
+          0.596042442541
+        ],
+        "height_above_nominal_radius_km": 0.102478612442
+      }
+    },
+    {
+      "id": "trappist-1-e",
+      "source_id": "SP-trappist-1-e",
+      "name": "TRAPPIST-1 e",
+      "system": "TRAPPIST-1",
+      "system_index": 1,
+      "planet_index": 3,
+      "sector_cell": [
+        1,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        50000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        50029925.7492717,
+        -570.267003960907,
+        38800.12281588094
+      ],
+      "gameplay_radius_km": 863.24967419629,
+      "physical_radius_km": 5861.320000000001,
+      "seed": 2071273277,
+      "biome": "temperate",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 16.502594526498,
+      "primary_settlement_id": "trappist-1-e:city:0",
+      "primary_settlement_name": "New Valencia",
+      "primary_site": {
+        "center_source_y_up_km": [
+          50030469.85958059,
+          -28.251073233955,
+          39194.39433628725
+        ],
+        "normal_source_y_up": [
+          0.630267749988,
+          0.627841736383,
+          0.456702657514
+        ],
+        "right_source_y_up": [
+          0.586764209733,
+          0.0,
+          -0.809757841689
+        ],
+        "forward_source_y_up": [
+          0.508399769375,
+          -0.778341026836,
+          0.368395060286
+        ],
+        "height_above_nominal_radius_km": 0.050580179679
+      }
+    },
+    {
+      "id": "trappist-1-f",
+      "source_id": "SP-trappist-1-f",
+      "name": "TRAPPIST-1 f",
+      "system": "TRAPPIST-1",
+      "system_index": 1,
+      "planet_index": 4,
+      "sector_cell": [
+        1,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        50000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        49937921.231135264,
+        -506.156959407963,
+        -10734.358678516746
+      ],
+      "gameplay_radius_km": 920.027173511739,
+      "physical_radius_km": 6657.695,
+      "seed": 2020940420,
+      "biome": "ice",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 17.456456514997,
+      "primary_settlement_id": "trappist-1-f:city:0",
+      "primary_settlement_name": "New Alexandria",
+      "primary_site": {
+        "center_source_y_up_km": [
+          49938269.72907411,
+          172.322796064625,
+          -10219.834869726546
+        ],
+        "normal_source_y_up": [
+          0.378775181132,
+          0.737425573085,
+          0.559225255437
+        ],
+        "right_source_y_up": [
+          0.827956383014,
+          0.0,
+          -0.560792499795
+        ],
+        "forward_source_y_up": [
+          0.413542730543,
+          -0.675428400469,
+          0.610556210233
+        ],
+        "height_above_nominal_radius_km": 0.038227304353
+      }
+    },
+    {
+      "id": "trappist-1-g",
+      "source_id": "SP-trappist-1-g",
+      "name": "TRAPPIST-1 g",
+      "system": "TRAPPIST-1",
+      "system_index": 1,
+      "planet_index": 5,
+      "sector_cell": [
+        1,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        50000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        50064769.36290198,
+        -1791.357629105914,
+        -41640.4806561071
+      ],
+      "gameplay_radius_km": 956.289705058044,
+      "physical_radius_km": 7192.859,
+      "seed": 2037718039,
+      "biome": "ice",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 18.065667044975,
+      "primary_settlement_id": "trappist-1-g:city:0",
+      "primary_settlement_name": "New Dakar",
+      "primary_site": {
+        "center_source_y_up_km": [
+          50065234.705259494,
+          -1046.184304700979,
+          -41262.673312043305
+        ],
+        "normal_source_y_up": [
+          0.486592324269,
+          0.77920183721,
+          0.395060004115
+        ],
+        "right_source_y_up": [
+          0.630307866075,
+          0.0,
+          -0.77634528012
+        ],
+        "forward_source_y_up": [
+          0.604929668578,
+          -0.626773082454,
+          0.491137047253
+        ],
+        "height_above_nominal_radius_km": 0.039308581726
+      }
+    },
+    {
+      "id": "trappist-1-h",
+      "source_id": "SP-trappist-1-h",
+      "name": "TRAPPIST-1 h",
+      "system": "TRAPPIST-1",
+      "system_index": 1,
+      "planet_index": 6,
+      "sector_cell": [
+        1,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        50000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        49976884.29214661,
+        -1323.463018902112,
+        88015.13534862408
+      ],
+      "gameplay_radius_km": 782.016623864224,
+      "physical_radius_km": 4810.105,
+      "seed": 1853164230,
+      "biome": "rock",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 14.0,
+      "primary_settlement_id": "trappist-1-h:city:0",
+      "primary_settlement_name": "New Lisbon",
+      "primary_site": {
+        "center_source_y_up_km": [
+          49977190.24099418,
+          -775.489213876662,
+          88482.65349450785
+        ],
+        "normal_source_y_up": [
+          0.390942031854,
+          0.700201992726,
+          0.597395595156
+        ],
+        "right_source_y_up": [
+          0.836753205405,
+          0.0,
+          -0.547580198003
+        ],
+        "forward_source_y_up": [
+          0.383416745819,
+          -0.713944794352,
+          0.585896261844
+        ],
+        "height_above_nominal_radius_km": 0.577271494713
+      }
+    },
+    {
+      "id": "toi-270-b",
+      "source_id": "SP-toi-270-b",
+      "name": "TOI-270 b",
+      "system": "TOI-270",
+      "system_index": 2,
+      "planet_index": 0,
+      "sector_cell": [
+        2,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        100000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        100007000.0,
+        100.680384633597,
+        0.0
+      ],
+      "gameplay_radius_km": 1018.233764908628,
+      "physical_radius_km": 8154.88,
+      "seed": 274680840,
+      "biome": "desert",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 19.106327250465,
+      "primary_settlement_id": "toi-270-b:city:0",
+      "primary_settlement_name": "New Valencia",
+      "primary_site": {
+        "center_source_y_up_km": [
+          100007383.35880639,
+          1013.757478200837,
+          237.0573803552
+        ],
+        "normal_source_y_up": [
+          0.376481204304,
+          0.896696144926,
+          0.23280448123
+        ],
+        "right_source_y_up": [
+          0.525937564156,
+          0.0,
+          -0.850523179349
+        ],
+        "forward_source_y_up": [
+          0.762660856092,
+          -0.442646612633,
+          0.47160618625
+        ],
+        "height_above_nominal_radius_km": 0.034350477049
+      }
+    },
+    {
+      "id": "toi-270-c",
+      "source_id": "SP-toi-270-c",
+      "name": "TOI-270 c",
+      "system": "TOI-270",
+      "system_index": 2,
+      "planet_index": 1,
+      "sector_cell": [
+        2,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        100000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        99984528.9244407,
+        348.753429204226,
+        14200.204964656852
+      ],
+      "gameplay_radius_km": 1373.790377022637,
+      "physical_radius_km": 14844.43,
+      "seed": 291458459,
+      "biome": "gas",
+      "surface_landing_supported": false,
+      "minimum_exterior_clearance_km": 48.159356667961,
+      "primary_settlement_id": "toi-270-c:city:0",
+      "primary_settlement_name": "New Alexandria Cloud City",
+      "primary_site": {
+        "center_source_y_up_km": [
+          99984961.4723655,
+          1330.907835513392,
+          15088.377593839288
+        ],
+        "normal_source_y_up": [
+          0.310505251065,
+          0.705041182782,
+          0.637576206929
+        ],
+        "right_source_y_up": [
+          0.899050265334,
+          0.0,
+          -0.437845429806
+        ],
+        "forward_source_y_up": [
+          0.308699059707,
+          -0.70916636312,
+          0.633867462452
+        ],
+        "height_above_nominal_radius_km": 19.255065278317
+      }
+    },
+    {
+      "id": "k2-141-b",
+      "source_id": "SP-k2-141-b",
+      "name": "K2-141 b",
+      "system": "K2-141",
+      "system_index": 3,
+      "planet_index": 0,
+      "sector_cell": [
+        3,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        150000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        150007000.0,
+        16.746380308177,
+        0.0
+      ],
+      "gameplay_radius_km": 1105.938515470006,
+      "physical_radius_km": 9620.210000000001,
+      "seed": 3969741818,
+      "biome": "volcanic",
+      "surface_landing_supported": true,
+      "minimum_exterior_clearance_km": 20.579767059896,
+      "primary_settlement_id": "k2-141-b:city:0",
+      "primary_settlement_name": "New Dakar",
+      "primary_site": {
+        "center_source_y_up_km": [
+          150007562.52987325,
+          530.426280604987,
+          801.822254650434
+        ],
+        "normal_source_y_up": [
+          0.508618637025,
+          0.464450304208,
+          0.724977928624
+        ],
+        "right_source_y_up": [
+          0.81862985154,
+          0.0,
+          -0.574321483289
+        ],
+        "forward_source_y_up": [
+          0.266743787626,
+          -0.885599184124,
+          0.380212883581
+        ],
+        "height_above_nominal_radius_km": 0.056885207132
+      }
+    },
+    {
+      "id": "wasp-76-b",
+      "source_id": "SP-wasp-76-b",
+      "name": "WASP-76 b",
+      "system": "WASP-76",
+      "system_index": 4,
+      "planet_index": 0,
+      "sector_cell": [
+        4,
+        0,
+        0
+      ],
+      "system_origin_source_y_up_km": [
+        200000000.0,
+        0.0,
+        0.0
+      ],
+      "catalog_center_source_y_up_km": [
+        200007000.0,
+        -130.496534716804,
+        0.0
+      ],
+      "gameplay_radius_km": 3600.0,
+      "physical_radius_km": 132398.61935162,
+      "seed": 1016419044,
+      "biome": "gas",
+      "surface_landing_supported": false,
+      "minimum_exterior_clearance_km": 122.96,
+      "primary_settlement_id": "wasp-76-b:city:0",
+      "primary_settlement_name": "New Lisbon",
+      "primary_site": {
+        "center_source_y_up_km": [
+          200008482.43650156,
+          2511.407478390658,
+          2036.739056048572
+        ],
+        "normal_source_y_up": [
+          0.406100034891,
+          0.723725644078,
+          0.557946192536
+        ],
+        "right_source_y_up": [
+          0.808514772451,
+          0.0,
+          -0.588475881178
+        ],
+        "forward_source_y_up": [
+          0.42589508613,
+          -0.690087814777,
+          0.585142874439
+        ],
+        "height_above_nominal_radius_km": 50.422
+      }
+    }
+  ]
+}

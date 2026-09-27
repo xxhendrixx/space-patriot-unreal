@@ -1,7 +1,7 @@
 {
   "map": "/Game/SpacePatriot/Maps/L_KellenReachWalk",
   "fresh_process_reload": true,
-  "passed": 38,
+  "passed": 37,
   "failed": 0,
   "checks": [
     {
@@ -102,27 +102,17 @@
     {
       "name": "no_ship_auto_possess",
       "passed": true,
-      "detail": "[('SP Walk / shootable patrol', '<AutoReceiveInput.DISABLED: 0>')]"
+      "detail": "[('SP Walk / shootable patrol', '<AutoReceiveInput.DISABLED: 0>'), ('SP Placeholders / south cargo guard', '<AutoReceiveInput.DISABLED: 0>'), ('SP Placeholders / north service guard', '<AutoReceiveInput.DISABLED: 0>')]"
     },
     {
-      "name": "preserved_Wing_Port",
+      "name": "old_display_parts_removed",
       "passed": true,
-      "detail": "('Kestrel K-017 / Wing_Port', (-190.0, 70.0, 160.0))"
+      "detail": "[]"
     },
     {
-      "name": "preserved_Wing_Starboard",
+      "name": "local_cruiser_display",
       "passed": true,
-      "detail": "('Kestrel K-017 / Wing_Starboard', (-440.0, -150.0, 0.0))"
-    },
-    {
-      "name": "preserved_Drive_Port",
-      "passed": true,
-      "detail": "('Kestrel K-017 / Drive_Port', (0.0, -180.0, 0.0))"
-    },
-    {
-      "name": "preserved_Drive_Starboard",
-      "passed": true,
-      "detail": "('Kestrel K-017 / Drive_Starboard', (0.0, 190.0, 0.0))"
+      "detail": "/Game/SpacePatriot/OpenAssets/ViktorShips/Cruiser03_UE.Cruiser03_UE"
     },
     {
       "name": "society_runtime_preserved",
@@ -180,9 +170,14 @@
       "detail": "/Game/Variant_Shooter/Blueprints/AI/BP_ShooterNPCSpawner.BP_ShooterNPCSpawner_C"
     },
     {
-      "name": "navmesh_bounds_cover_route",
+      "name": "navmesh_bounds_cover_port_route",
       "passed": true,
-      "detail": "(5000.0, 4000.0, 500.0)"
+      "detail": "(-1900.0, -250.0, 3600.0, 3000.0, 500.0)"
+    },
+    {
+      "name": "separate_combat_navmesh_bounds",
+      "passed": true,
+      "detail": "(7200.0, 3600.0, 2600.0, 2300.0, 500.0)"
     },
     {
       "name": "rifle_in_weapon_table",

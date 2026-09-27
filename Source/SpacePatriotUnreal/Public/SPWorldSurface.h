@@ -18,6 +18,8 @@ struct FSPWorldSurfaceSample
     UPROPERTY(BlueprintReadOnly, Category="Worldworks") float Temperature = 0.0f;
     UPROPERTY(BlueprintReadOnly, Category="Worldworks") float Rock = 0.0f;
     UPROPERTY(BlueprintReadOnly, Category="Worldworks") float Forest = 0.0f;
+    /** Readable local art direction chosen from the source climate channels. */
+    UPROPERTY(BlueprintReadOnly, Category="Worldworks") FName RegionStyle = NAME_None;
     UPROPERTY(BlueprintReadOnly, Category="Worldworks") FLinearColor Color = FLinearColor::Gray;
     UPROPERTY(BlueprintReadOnly, Category="Worldworks") bool bSourceTerrainField = false;
 };
@@ -91,6 +93,10 @@ public:
     UFUNCTION(BlueprintCallable, Category="Worldworks")
     bool ActivateWorld(const FString& NewWorldId);
 
+    /** Center of the rendered local globe in Unreal world coordinates. */
+    UFUNCTION(BlueprintPure, Category="Worldworks")
+    FVector GetPlanetCenterWorld() const;
+
     UFUNCTION(BlueprintPure, Category="Worldworks")
     FSPWorldSurfaceSample SampleAtWorldLocation(FVector WorldLocation) const;
 
@@ -143,5 +149,6 @@ private:
     float SurfaceHeightMeters(const FVector& Radial) const;
     FVector4f ClimateChannels(const FVector& Radial) const;
     FLinearColor SurfaceColor(const FVector& Radial, float HeightMeters) const;
+    FName RegionStyleFor(const FVector4f& Climate) const;
     static float PeriodicNoise(const FVector& P);
 };

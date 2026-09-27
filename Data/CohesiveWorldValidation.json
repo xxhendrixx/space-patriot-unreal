@@ -1,0 +1,49 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KellenReachWalk",
+  "passed": 102,
+  "failed": 0,
+  "suites": [
+    {
+      "name": "walk",
+      "passed": 37,
+      "failed": 0,
+      "report": "KellenReachWalkValidation.json",
+      "error": ""
+    },
+    {
+      "name": "navigation",
+      "passed": 10,
+      "failed": 0,
+      "report": "KellenReachNavigationValidation.json",
+      "error": ""
+    },
+    {
+      "name": "population",
+      "passed": 10,
+      "failed": 0,
+      "report": "WorldPlaceholderValidation.json",
+      "error": ""
+    },
+    {
+      "name": "play_loop",
+      "passed": 16,
+      "failed": 0,
+      "report": "CohesivePlayValidation.json",
+      "error": ""
+    },
+    {
+      "name": "respawn",
+      "passed": 18,
+      "failed": 0,
+      "report": "ShooterRespawnValidation.json",
+      "error": ""
+    },
+    {
+      "name": "ship_display",
+      "passed": 11,
+      "failed": 0,
+      "report": "ShipDisplayValidation.json",
+      "error": ""
+    }
+  ]
+}

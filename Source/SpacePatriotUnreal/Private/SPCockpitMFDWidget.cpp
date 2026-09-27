@@ -71,6 +71,13 @@ void USPCockpitMFDWidget::NativeOnInitialized()
     BodySlot->SetSize(FSlateChildSize(ESlateSizeRule::Fill));
     BodySlot->SetPadding(FMargin(1.0f, 0.0f, 0.0f, 8.0f));
 
+    NavControls = WidgetTree->ConstructWidget<UHorizontalBox>(UHorizontalBox::StaticClass(), TEXT("MFDNavControls"));
+    Stack->AddChildToVerticalBox(NavControls)->SetPadding(FMargin(0.0f, 0.0f, 0.0f, 5.0f));
+    MakeButton(WidgetTree, NavControls, TEXT("MFDDestination"), TEXT("DEST >"))
+        ->OnClicked.AddDynamic(this, &USPCockpitMFDWidget::OnSelectDestination);
+    MakeButton(WidgetTree, NavControls, TEXT("MFDJump"), TEXT("JUMP"))
+        ->OnClicked.AddDynamic(this, &USPCockpitMFDWidget::OnRequestJump);
+
     UHorizontalBox* Controls = WidgetTree->ConstructWidget<UHorizontalBox>(UHorizontalBox::StaticClass(), TEXT("MFDControls"));
     Stack->AddChildToVerticalBox(Controls)->SetPadding(FMargin(0.0f, 2.0f, 0.0f, 5.0f));
     MakeButton(WidgetTree, Controls, TEXT("MFDPrevious"), TEXT("<"))->OnClicked.AddDynamic(this, &USPCockpitMFDWidget::OnPreviousPage);
@@ -87,6 +94,8 @@ void USPCockpitMFDWidget::NativeOnInitialized()
 void USPCockpitMFDWidget::SetShip(ASPFlightPawn* InShip)
 {
     Ship = InShip;
+    if (NavControls) NavControls->SetVisibility(Ship.IsValid() && Ship->CockpitMFDPage == 0
+        ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
 }
 
 void USPCockpitMFDWidget::SetReadout(const FText& Readout, float Brightness)
@@ -103,6 +112,8 @@ void USPCockpitMFDWidget::SetReadout(const FText& Readout, float Brightness)
     const float Gain = FMath::Clamp(Brightness, 0.15f, 1.0f);
     HeaderText->SetColorAndOpacity(FSlateColor(FLinearColor(0.65f, 0.75f, 0.62f, 1.0f) * Gain));
     BodyText->SetColorAndOpacity(FSlateColor(FLinearColor(0.70f, 0.84f, 0.64f, 1.0f) * Gain));
+    if (NavControls) NavControls->SetVisibility(Ship.IsValid() && Ship->CockpitMFDPage == 0
+        ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
 }
 
 void USPCockpitMFDWidget::SetPresentation(bool bCockpit, bool bPointerActive)
@@ -113,14 +124,14 @@ void USPCockpitMFDWidget::SetPresentation(bool bCockpit, bool bPointerActive)
         FrameSlot->SetAnchors(FAnchors(0.5f, 1.0f));
         FrameSlot->SetAlignment(FVector2D(0.5f, 1.0f));
         FrameSlot->SetPosition(FVector2D(0.0f, -12.0f));
-        FrameSlot->SetSize(FVector2D(600.0f, 270.0f));
+        FrameSlot->SetSize(FVector2D(600.0f, 310.0f));
     }
     else
     {
         FrameSlot->SetAnchors(FAnchors(0.0f, 1.0f));
         FrameSlot->SetAlignment(FVector2D(0.0f, 1.0f));
         FrameSlot->SetPosition(FVector2D(18.0f, -18.0f));
-        FrameSlot->SetSize(FVector2D(600.0f, 270.0f));
+        FrameSlot->SetSize(FVector2D(600.0f, 310.0f));
     }
     HintText->SetText(FText::FromString(bPointerActive
         ? TEXT("TAB FLIGHT  /  F1 TRAVEL  F2 COMBAT  F3 PAGE  F4 DIM")
@@ -160,4 +171,14 @@ void USPCockpitMFDWidget::OnCombatPreset()
 void USPCockpitMFDWidget::OnDim()
 {
     if (Ship.IsValid()) Ship->AdjustMFDBrightness(-0.2f);
+}
+
+void USPCockpitMFDWidget::OnSelectDestination()
+{
+    if (Ship.IsValid()) Ship->SelectNextMFDDestination();
+}
+
+void USPCockpitMFDWidget::OnRequestJump()
+{
+    if (Ship.IsValid()) Ship->RequestMFDJump();
 }

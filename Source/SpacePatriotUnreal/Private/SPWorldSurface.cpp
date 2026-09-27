@@ -306,6 +306,11 @@ FVector ASPWorldSurface::GetPlanetCenterLocal() const
     return FVector(0.0, 0.0, -(PlanetRadiusMeters + 3.0f) * WorldSurfaceUnitsPerMeter);
 }
 
+FVector ASPWorldSurface::GetPlanetCenterWorld() const
+{
+    return GetActorTransform().TransformPosition(GetPlanetCenterLocal());
+}
+
 FVector ASPWorldSurface::GetRadialAtLocal(const FVector& LocalPoint) const
 {
     return (LocalPoint - GetPlanetCenterLocal()).GetSafeNormal(SMALL_NUMBER, FVector::UpVector);
@@ -342,14 +347,103 @@ float ASPWorldSurface::GlobeHeightMeters(const FVector& Radial) const
 {
     if (ResolvedBiome == TEXT("gas")) return 0.0f;
     const FVector Source = SourceNormal(Radial);
-    const float Q = PeriodicNoise(Source * (12.0f * TerrainFrequency) + NoiseOffset) * 2.0f - 1.0f;
+    const auto Noise = [this, &Source](float Scale)
+    {
+        return PeriodicNoise(Source * (Scale * TerrainFrequency) + NoiseOffset);
+    };
+    const float Q = Noise(12.0f) * 2.0f - 1.0f;
     const float Regional =
-        0.58f * PeriodicNoise(Source * (3.5f * TerrainFrequency) + NoiseOffset) +
+        0.58f * Noise(3.5f) +
         0.26f * (1.0f - Q * Q) +
-        0.14f * PeriodicNoise(Source * (42.0f * TerrainFrequency) + NoiseOffset) +
-        0.02f * PeriodicNoise(Source * (135.0f * TerrainFrequency) + NoiseOffset);
-    // Matches PlanetEngineSurface.SourceHeightMeters after cancelling radiusKm.
-    return PlanetRadiusMeters * TerrainAmplitude * (Regional - TerrainBase - 0.02f);
+        0.14f * Noise(42.0f) +
+        0.02f * Noise(135.0f);
+
+    // Port the original Geology.sample landforms, not a texture-pack height map.
+    // The source's gameplay planet radius is compressed to this project's 18 km
+    // globe, so local kilometre noise uses the rendered radius as its domain.
+    const float Warp = Noise(73.0f);
+    const float Channel = 1.0f - Smooth01(FMath::Clamp(
+        (FMath::Abs(Noise(260.0f) - 0.5f + (Warp - 0.5f) * 0.16f) - 0.018f) / 0.075f,
+        0.0f, 1.0f));
+    const float Ridge = 1.0f - FMath::Abs(Noise(95.0f) * 2.0f - 1.0f);
+    float Landform = 0.0f;
+    if (ResolvedBiome == TEXT("rock"))
+    {
+        const FVector CellPoint = Source * (TerrainFrequency * 48.0f) + NoiseOffset;
+        const FVector Cell(FMath::FloorToFloat(CellPoint.X + 0.5f),
+            FMath::FloorToFloat(CellPoint.Y + 0.5f), FMath::FloorToFloat(CellPoint.Z + 0.5f));
+        const float Jitter = PeriodicNoise(Cell * 0.73f + NoiseOffset) - 0.5f;
+        const float Distance = (CellPoint - Cell - FVector(Jitter * 0.12f)).Length();
+        Landform = 0.026f * FMath::Exp(-FMath::Square((Distance - 0.32f) / 0.055f))
+            - 0.046f * (1.0f - SmoothStep(0.2f, 0.31f, Distance)) + 0.009f * Ridge;
+    }
+    else if (ResolvedBiome == TEXT("desert"))
+    {
+        const float Dune = FMath::Pow(0.5f + 0.5f * FMath::Sin(
+            (Source.X * 0.82f + Source.Z * 0.58f) * TerrainFrequency * 480.0f + Warp * 4.0f), 3.0f);
+        Landform = 0.024f * Dune + 0.065f * SmoothStep(0.54f, 0.71f, Noise(42.0f))
+            - 0.016f * Channel;
+    }
+    else if (ResolvedBiome == TEXT("ice"))
+    {
+        Landform = 0.04f * FMath::Pow(Ridge, 5.0f) - 0.045f * FMath::Pow(Channel, 3.0f)
+            + 0.018f * FMath::Abs(FMath::Sin(Source.Y * TerrainFrequency * 260.0f + Warp * 3.0f));
+    }
+    else if (ResolvedBiome == TEXT("volcanic"))
+    {
+        const float Vent = Noise(62.0f);
+        Landform = 0.1f * SmoothStep(0.59f, 0.74f, Vent)
+            - 0.055f * SmoothStep(0.73f, 0.83f, Vent) - 0.025f * Channel
+            + 0.025f * FMath::Pow(Ridge, 4.0f);
+    }
+    else
+    {
+        Landform = 0.055f * SmoothStep(0.48f, 0.72f, Noise(18.0f)) * FMath::Pow(Ridge, 3.0f)
+            - 0.013f * Channel * (0.4f + Warp);
+    }
+
+    const FVector LocalKilometres = Source * (PlanetRadiusMeters / 1000.0f);
+    const auto LocalNoise = [this, &LocalKilometres](float Scale)
+    {
+        return PeriodicNoise(LocalKilometres * Scale + NoiseOffset);
+    };
+    const float Broad = LocalNoise(0.7f);
+    const float FineRidge = 1.0f - FMath::Abs(LocalNoise(2.6f) * 2.0f - 1.0f);
+    float LocalForm = 0.0f;
+    if (ResolvedBiome == TEXT("rock"))
+    {
+        const FVector CellPoint = LocalKilometres * 1.8f + NoiseOffset;
+        const FVector Cell(FMath::FloorToFloat(CellPoint.X + 0.5f),
+            FMath::FloorToFloat(CellPoint.Y + 0.5f), FMath::FloorToFloat(CellPoint.Z + 0.5f));
+        const float Distance = (CellPoint - Cell).Length();
+        LocalForm = 0.28f * FMath::Exp(-FMath::Square((Distance - 0.31f) / 0.07f))
+            - 0.32f * (1.0f - SmoothStep(0.13f, 0.3f, Distance)) + 0.18f * Broad;
+    }
+    else if (ResolvedBiome == TEXT("desert"))
+    {
+        const float Dune = FMath::Pow(0.5f + 0.5f * FMath::Sin(
+            LocalKilometres.X * 7.5f + LocalKilometres.Z * 4.2f + LocalNoise(0.6f) * 3.0f), 3.0f);
+        LocalForm = 0.36f * Dune + 0.64f * SmoothStep(0.48f, 0.72f, LocalNoise(1.2f));
+    }
+    else if (ResolvedBiome == TEXT("ice"))
+    {
+        LocalForm = 0.7f * FMath::Pow(FineRidge, 7.0f) + 0.26f * Broad
+            - 0.1f * FMath::Pow(1.0f - FineRidge, 3.0f);
+    }
+    else if (ResolvedBiome == TEXT("volcanic"))
+    {
+        LocalForm = 0.72f * FMath::Square(FineRidge)
+            + 0.25f * SmoothStep(0.45f, 0.7f, LocalNoise(1.1f));
+    }
+    else
+    {
+        LocalForm = 0.75f * SmoothStep(0.32f, 0.75f, Broad) * FMath::Square(FineRidge)
+            + 0.12f * LocalNoise(4.0f);
+    }
+    const float ReliefMeters = FMath::Min(200.0f, PlanetRadiusMeters * TerrainAmplitude * 0.23f);
+    return PlanetRadiusMeters * TerrainAmplitude *
+        (Regional - TerrainBase - 0.02f + Landform + 0.0018f * (Noise(1500.0f) - 0.5f))
+        + ReliefMeters * LocalForm;
 }
 
 float ASPWorldSurface::SurfaceHeightMeters(const FVector& Radial) const
@@ -399,24 +493,61 @@ FVector4f ASPWorldSurface::ClimateChannels(const FVector& Radial) const
 FLinearColor ASPWorldSurface::SurfaceColor(const FVector& Radial, float HeightMeters) const
 {
     const FVector4f C = ClimateChannels(Radial);
+    const float Rocky = SmoothStep(0.42f, 0.74f, C.Z);
+    const float Moist = SmoothStep(0.16f, 0.70f, C.X);
     FLinearColor Base(0.36f, 0.35f, 0.32f, 1.0f);
     if (ResolvedBiome == TEXT("temperate"))
     {
-        Base = FLinearColor(0.28f, 0.30f, 0.23f);
-        Base = FMath::Lerp(Base, FLinearColor(0.18f, 0.28f, 0.19f), FMath::Clamp(C.X * (0.40f + C.W * 0.45f), 0.0f, 0.85f));
+        Base = FMath::Lerp(FLinearColor(0.38f, 0.32f, 0.22f),
+            FLinearColor(0.18f, 0.29f, 0.18f), Moist);
+        Base = FMath::Lerp(Base, FLinearColor(0.12f, 0.23f, 0.17f),
+            FMath::Clamp(C.W * Moist * 0.65f, 0.0f, 0.65f));
     }
-    else if (ResolvedBiome == TEXT("desert")) Base = FMath::Lerp(FLinearColor(0.40f, 0.30f, 0.23f), FLinearColor(0.51f, 0.37f, 0.23f), C.Y);
-    else if (ResolvedBiome == TEXT("ice")) Base = FMath::Lerp(FLinearColor(0.46f, 0.54f, 0.56f), FLinearColor(0.68f, 0.72f, 0.70f), 1.0f - C.Y);
+    else if (ResolvedBiome == TEXT("desert"))
+        Base = FMath::Lerp(FLinearColor(0.53f, 0.38f, 0.23f),
+            FLinearColor(0.35f, 0.25f, 0.21f), Rocky);
+    else if (ResolvedBiome == TEXT("ice"))
+        Base = FMath::Lerp(FLinearColor(0.68f, 0.72f, 0.70f),
+            FLinearColor(0.35f, 0.44f, 0.48f), Rocky);
     else if (ResolvedBiome == TEXT("volcanic")) Base = FMath::Lerp(FLinearColor(0.19f, 0.17f, 0.16f), FLinearColor(0.38f, 0.23f, 0.18f), C.Y * 0.6f);
     else if (ResolvedBiome == TEXT("gas")) Base = FMath::Lerp(FLinearColor(0.50f, 0.43f, 0.39f), FLinearColor(0.68f, 0.58f, 0.45f), C.Y);
     if (ResolvedBiome != TEXT("gas"))
     {
-        Base = FMath::Lerp(Base, FLinearColor(0.34f, 0.34f, 0.33f), FMath::Clamp(C.Z * 0.52f, 0.0f, 0.55f));
+        Base = FMath::Lerp(Base, FLinearColor(0.34f, 0.34f, 0.33f), Rocky * 0.34f);
         if (HeightMeters < -4.0f && ResolvedBiome == TEXT("temperate"))
             Base = FMath::Lerp(Base, FLinearColor(0.13f, 0.23f, 0.27f), 0.75f);
     }
+    // Small, stable world-specific pigment shifts keep worlds in the same
+    // biome from sharing an identical palette without replacing source data.
+    const uint32 TintSeed = SourceHash(WorldSeed ^ 0x93a7d145U);
+    Base.R *= 0.93f + static_cast<float>(TintSeed & 0xffU) / 255.0f * 0.14f;
+    Base.G *= 0.93f + static_cast<float>((TintSeed >> 8) & 0xffU) / 255.0f * 0.14f;
+    Base.B *= 0.93f + static_cast<float>((TintSeed >> 16) & 0xffU) / 255.0f * 0.14f;
     Base.A = 1.0f;
     return Base;
+}
+
+FName ASPWorldSurface::RegionStyleFor(const FVector4f& Climate) const
+{
+    if (ResolvedBiome == TEXT("gas")) return FName(TEXT("Atmosphere"));
+    if (ResolvedBiome == TEXT("temperate"))
+    {
+        if (Climate.Z > 0.60f) return FName(TEXT("Highland"));
+        if (Climate.X > 0.61f && Climate.W > 0.45f) return FName(TEXT("Woodland"));
+        if (Climate.X < 0.40f) return FName(TEXT("DryPlain"));
+        return FName(TEXT("OpenPlain"));
+    }
+    if (ResolvedBiome == TEXT("desert"))
+    {
+        if (Climate.Z > 0.67f) return FName(TEXT("Badlands"));
+        if (Climate.X > 0.23f) return FName(TEXT("Scrubland"));
+        return FName(TEXT("Dunefield"));
+    }
+    if (ResolvedBiome == TEXT("ice"))
+        return Climate.Z > 0.65f ? FName(TEXT("BrokenIce")) : FName(TEXT("Icefield"));
+    if (ResolvedBiome == TEXT("volcanic"))
+        return Climate.Z > 0.62f ? FName(TEXT("VolcanicRidge")) : FName(TEXT("LavaPlain"));
+    return Climate.Z > 0.62f ? FName(TEXT("Craterfield")) : FName(TEXT("Regolith"));
 }
 
 void ASPWorldSurface::BuildPlanetMesh()
@@ -572,6 +703,7 @@ FSPWorldSurfaceSample ASPWorldSurface::SampleAtWorldLocation(FVector WorldLocati
     Result.Temperature = Climate.Y;
     Result.Rock = Climate.Z;
     Result.Forest = Climate.W;
+    Result.RegionStyle = RegionStyleFor(Climate);
     Result.Color = SurfaceColor(Radial, Result.ElevationMeters);
     const FVector Nominal = GetPlanetCenterLocal() + Radial * PlanetRadiusMeters * WorldSurfaceUnitsPerMeter;
     Result.bSourceTerrainField = TerrainField.Width > 0 && Radial.Z > 0.985f &&

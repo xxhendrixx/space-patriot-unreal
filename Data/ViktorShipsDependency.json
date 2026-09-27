@@ -1,0 +1,22 @@
+{
+  "id": "viktor-hahn-more-spaceships-2017",
+  "source_page": "https://opengameart.org/content/more-spaceships",
+  "archive_url": "https://opengameart.org/sites/default/files/spaceships2.zip",
+  "archive_bytes": 14479175,
+  "archive_sha256": "6f2c427656938dbfb7126d35de53f61b665f15a6a9b6f45e1da014b9f064b984",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "attribution": "Viktor Hahn (Viktor.Hahn@web.de), More Spaceships, CC BY 3.0; changes: reoriented, rescaled, and imported for Space Patriot.",
+  "hero_source": "cruiser03.obj",
+  "hero_mesh": "/Game/SpacePatriot/OpenAssets/ViktorShips/Cruiser03_UE",
+  "hero_local_asset_files": [
+    "Content/SpacePatriot/OpenAssets/ViktorShips/Cruiser03_UE.uasset",
+    "Content/SpacePatriot/OpenAssets/ViktorShips/cruiser03_diffuse.uasset",
+    "Content/SpacePatriot/OpenAssets/ViktorShips/cruiser03_normal.uasset",
+    "Content/SpacePatriot/OpenAssets/ViktorShips/cruiser03_specular.uasset",
+    "Content/SpacePatriot/OpenAssets/ViktorShips/cruiser03_emission.uasset",
+    "Content/SpacePatriot/OpenAssets/ViktorShips/M_ViktorCruiser.uasset"
+  ],
+  "coordinate_transform": "Unreal X=source Z, Unreal Y=source X, Unreal Z=source Y; 130 cm per source unit, +160 cm local Z. Forward is +X, up is +Z.",
+  "note": "Download/import locally only. This pack provides an exterior placeholder, not a walkable interior or final original Kestrel design. Do not commit the archive or generated Unreal assets."
+}

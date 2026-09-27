@@ -11,6 +11,7 @@ class UTextRenderComponent;
 class USPCockpitMFDWidget;
 class USPHyperdriveVisualComponent;
 class ASPWorldSurface;
+class USPHyperjumpRouteComponent;
 
 USTRUCT(BlueprintType)
 struct FSPFlightTelemetry
@@ -39,6 +40,7 @@ class SPACEPATRIOTUNREAL_API ASPFlightPawn : public ADefaultPawn
 public:
     ASPFlightPawn();
     virtual void BeginPlay() override;
+    virtual void UnPossessed() override;
     virtual void Tick(float DeltaSeconds) override;
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
@@ -105,6 +107,9 @@ public:
     float CockpitMFDBrightness = 1.0f;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Cockpit")
     bool bMFDPointerMode = false;
+    /** Latest landing result, displayed on the cockpit MFD. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Flight")
+    FString LandingFeedback;
     UPROPERTY(BlueprintAssignable, Category="Space Patriot|Flight")
     FSPFlightStateChanged OnFlightStateChanged;
 
@@ -114,12 +119,17 @@ public:
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") void SetGearDown(bool bDown);
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") bool Launch();
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") bool RequestSurfaceLanding();
+    /** Clear physical velocity before an interplanetary relocation. */
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") void ResetMotionAfterWarp();
     UFUNCTION(BlueprintPure, Category="Space Patriot|Vessel") FSPVesselSimulationInput BuildVesselSimulationInput() const;
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Vessel") void ApplyVesselSimulationOutput(const FSPVesselSimulationOutput& Output);
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void CycleMFDPage(int32 Direction);
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void AdjustMFDBrightness(float Delta);
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void RefreshMFD();
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") void ToggleMFDPointer();
+    /** These call the same configured route authority as the N/J keyboard shortcuts. */
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") bool SelectNextMFDDestination();
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Cockpit") bool RequestMFDJump();
 
     UFUNCTION(BlueprintPure, Category="Space Patriot|Travel") FSPTravelContext GetTravelContext() const;
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") bool SelectNextTravelDestination();
@@ -148,6 +158,9 @@ private:
     UPROPERTY(Transient) TObjectPtr<ASPWorldSurface> TravelWorldSurface;
     ESPTravelPhase PreviousTravelPhase = ESPTravelPhase::Flight;
     float TransitElapsedSeconds = 0.0f;
+    bool bExternalShipVisualActive = false;
+    float MFDRefreshSeconds = 0.0f;
+    mutable TWeakObjectPtr<USPHyperjumpRouteComponent> CachedMFDHyperjumpRoute;
 #if WITH_EDITOR
     bool bMFDValidationShotQueued = false;
 #endif
@@ -166,6 +179,7 @@ private:
     void StartBoost() { bBoostHeld = true; }
     void StopBoost() { bBoostHeld = false; }
     void ToggleGear() { SetGearDown(!bGearDown); }
+    void OnLaunchPressed() { if (!bFlying) Launch(); }
     void ToggleAssist() { SetFlightAssist(!bFlightAssist); }
     void ToggleCruise();
     void TogglePower();
@@ -181,4 +195,5 @@ private:
     void AnnounceTravel(const FString& Message) const;
     void EnsureMFDWidget();
     void UpdateCockpitReadout();
+    USPHyperjumpRouteComponent* FindMFDHyperjumpRoute() const;
 };

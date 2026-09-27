@@ -1,5 +1,7 @@
 #include "SPFlightPawn.h"
 #include "SPCockpitMFDWidget.h"
+#include "SPHyperjumpRouteComponent.h"
+#include "SPPlayLoopDirector.h"
 #include "SPStoryCampaignComponent.h"
 #include "SpacePatriotBlueprintBases.h"
 
@@ -12,11 +14,11 @@
 #include "Engine/StaticMesh.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "Blueprint/UserWidget.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Math/RotationMatrix.h"
-#include "EngineUtils.h"
 #if WITH_EDITOR
 #include "UnrealClient.h"
 #include "Misc/CommandLine.h"
@@ -72,7 +74,56 @@ void ASPFlightPawn::BeginPlay()
         HyperdriveVisual->SetNavigationComponent(TravelNavigation);
         HyperdriveVisual->BindToCamera(FlightCamera);
     }
+    // A collaborator downloads this exterior through InstallViktorHeroShip.
+    // Keep the native flight pawn and its Blueprint intact; only replace the
+    // temporary Kestrel art when the local mesh is available.
+    UStaticMesh* ExternalMesh = LoadObject<UStaticMesh>(nullptr,
+        TEXT("/Game/SpacePatriot/OpenAssets/ViktorShips/Cruiser03_UE.Cruiser03_UE"));
+    if (ExternalMesh)
+    {
+        UStaticMeshComponent* Visual = NewObject<UStaticMeshComponent>(this, TEXT("ViktorCruiserVisual"));
+        Visual->SetMobility(EComponentMobility::Movable);
+        Visual->SetupAttachment(RootComponent);
+        Visual->SetStaticMesh(ExternalMesh);
+        Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Visual->RegisterComponent();
+        bExternalShipVisualActive = true;
+        TArray<UStaticMeshComponent*> Meshes;
+        GetComponents<UStaticMeshComponent>(Meshes);
+        for (UStaticMeshComponent* Mesh : Meshes)
+        {
+            if (!Mesh || Mesh == Visual || !Mesh->GetStaticMesh()) continue;
+            if (!Mesh->GetStaticMesh()->GetPathName().StartsWith(TEXT("/Game/SpacePatriot/Ships/KestrelK017/"))) continue;
+            Mesh->SetVisibility(false);
+            Mesh->SetHiddenInGame(true);
+            Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        }
+    }
     UpdateCockpitReadout();
+}
+
+void ASPFlightPawn::UnPossessed()
+{
+    // The same viewport alternates between on-foot and flight pawns. A ship
+    // widget left on the player screen obscures the on-foot HUD after egress.
+    if (MFDWidget)
+    {
+        MFDWidget->RemoveFromParent();
+        MFDWidget = nullptr;
+    }
+    bMFDPointerMode = false;
+    Super::UnPossessed();
+}
+
+void ASPFlightPawn::ResetMotionAfterWarp()
+{
+    FlightVelocityCmPerSecond = FVector::ZeroVector;
+    AngularVelocityDegreesPerSecond = FVector::ZeroVector;
+    ForwardInput = RightInput = UpInput = 0.0f;
+    PitchInput = YawInput = RollInput = 0.0f;
+    MousePitch = MouseYaw = 0.0f;
+    bBrakeHeld = bBoostHeld = bLandingPending = bCruise = false;
+    OnFlightStateChanged.Broadcast();
 }
 
 void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -93,6 +144,7 @@ void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     PlayerInputComponent->BindAction(TEXT("SPBoost"), IE_Pressed, this, &ASPFlightPawn::StartBoost);
     PlayerInputComponent->BindAction(TEXT("SPBoost"), IE_Released, this, &ASPFlightPawn::StopBoost);
     PlayerInputComponent->BindAction(TEXT("SPGear"), IE_Pressed, this, &ASPFlightPawn::ToggleGear);
+    PlayerInputComponent->BindAction(TEXT("SPLaunch"), IE_Pressed, this, &ASPFlightPawn::OnLaunchPressed);
     PlayerInputComponent->BindAction(TEXT("SPAssist"), IE_Pressed, this, &ASPFlightPawn::ToggleAssist);
     PlayerInputComponent->BindAction(TEXT("SPCruise"), IE_Pressed, this, &ASPFlightPawn::ToggleCruise);
     PlayerInputComponent->BindAction(TEXT("SPPower"), IE_Pressed, this, &ASPFlightPawn::TogglePower);
@@ -120,6 +172,15 @@ void ASPFlightPawn::Tick(float DeltaSeconds)
 #endif
     if (DeltaSeconds <= 0.0f) return;
     const float Dt = FMath::Min(DeltaSeconds, 0.1f);
+    if (MFDWidget && CockpitMFDPage == 0)
+    {
+        MFDRefreshSeconds += DeltaSeconds;
+        if (MFDRefreshSeconds >= 0.25f)
+        {
+            MFDRefreshSeconds = 0.0f;
+            UpdateCockpitReadout();
+        }
+    }
     if (TickTravel(Dt)) return;
 
     if (bLandingPending)
@@ -412,6 +473,38 @@ void ASPFlightPawn::RefreshMFD()
     OnFlightStateChanged.Broadcast();
 }
 
+USPHyperjumpRouteComponent* ASPFlightPawn::FindMFDHyperjumpRoute() const
+{
+    if (CachedMFDHyperjumpRoute.IsValid()) return CachedMFDHyperjumpRoute.Get();
+    if (!GetWorld()) return nullptr;
+    for (TActorIterator<ASPPlayLoopDirector> It(GetWorld()); It; ++It)
+    {
+        if (It->Ship != this || !IsValid(It->HyperjumpRoute) ||
+            !It->HyperjumpRoute->GetRouteStatus().bReady) continue;
+        CachedMFDHyperjumpRoute = It->HyperjumpRoute;
+        return It->HyperjumpRoute;
+    }
+    return nullptr;
+}
+
+bool ASPFlightPawn::SelectNextMFDDestination()
+{
+    USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute();
+    const bool bSelected = Route && Route->CycleDestination();
+    UpdateCockpitReadout();
+    OnFlightStateChanged.Broadcast();
+    return bSelected;
+}
+
+bool ASPFlightPawn::RequestMFDJump()
+{
+    USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute();
+    const bool bStarted = Route && Route->RequestJump();
+    UpdateCockpitReadout();
+    OnFlightStateChanged.Broadcast();
+    return bStarted;
+}
+
 void ASPFlightPawn::ToggleMFDPointer()
 {
     APlayerController* PlayerController = Cast<APlayerController>(GetController());
@@ -480,6 +573,14 @@ void ASPFlightPawn::UpdateGearMeshes()
     for (UStaticMeshComponent* Mesh : Meshes)
     {
         const UStaticMesh* StaticMesh = Mesh ? Mesh->GetStaticMesh() : nullptr;
+        if (bExternalShipVisualActive && StaticMesh &&
+            StaticMesh->GetPathName().StartsWith(TEXT("/Game/SpacePatriot/Ships/KestrelK017/")))
+        {
+            Mesh->SetVisibility(false);
+            Mesh->SetHiddenInGame(true);
+            Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+            continue;
+        }
         const bool bIsGear = Mesh && (Mesh->GetName().StartsWith(TEXT("Gear_"))
             || (StaticMesh && StaticMesh->GetName().StartsWith(TEXT("Gear_"))));
         if (bIsGear)
@@ -536,11 +637,38 @@ void ASPFlightPawn::UpdateCockpitReadout()
     FString Text;
     if (CockpitMFDPage == 0)
     {
-        Text = FString::Printf(TEXT("MFD 1/4  NAV\nSPD %04.0f m/s   HDG %03.0f\nFUEL %03.0f%%  GEAR %s\nMODE %s  %s"),
-            GetFlightTelemetry().SpeedMetersPerSecond, GetActorRotation().Yaw < 0.0f ? GetActorRotation().Yaw + 360.0f : GetActorRotation().Yaw,
-            FuelPercent, bGearDown ? TEXT("DOWN") : TEXT("UP"),
-            *StaticEnum<ESPVesselMode>()->GetNameStringByValue(static_cast<int64>(Vessel.Mode)),
-            bPowered ? TEXT("PWR ON") : TEXT("PWR OFF"));
+        if (const USPHyperjumpRouteComponent* Route = FindMFDHyperjumpRoute())
+        {
+            const FSPHyperjumpRouteStatus Status = Route->GetRouteStatus();
+            const FString Here = Status.CurrentWorldName.IsEmpty()
+                ? Status.Navigation.CurrentWorldId.ToUpper() : Status.CurrentWorldName.ToUpper();
+            const FString Destination = Status.DestinationWorldName.IsEmpty()
+                ? (Status.Navigation.DestinationWorldId.IsEmpty()
+                    ? TEXT("NONE") : Status.Navigation.DestinationWorldId.ToUpper())
+                : Status.DestinationWorldName.ToUpper();
+            FString Phase;
+            switch (Status.Navigation.Phase)
+            {
+            case ESPTravelPhase::JumpCharging:
+                Phase = FString::Printf(TEXT("CHARGING %02.0f%%"), Status.ChargeFraction * 100.0f);
+                break;
+            case ESPTravelPhase::JumpTransit:
+                Phase = TEXT("IN TRANSIT");
+                break;
+            default:
+                Phase = Status.Navigation.DestinationWorldId.IsEmpty()
+                    ? TEXT("SELECT DESTINATION") : TEXT("ROUTE SELECTED");
+                break;
+            }
+            Text = FString::Printf(TEXT("MFD 1/4  NAV\nHERE %s  >  DEST %s\nSPD %03.0f m/s  FUEL %03.0f%%  GEAR %s\n%s\n%s"),
+                *Here, *Destination, GetFlightTelemetry().SpeedMetersPerSecond,
+                FuelPercent, bGearDown ? TEXT("DOWN") : TEXT("UP"),
+                *Phase, Status.Message.IsEmpty() ? TEXT("DEST cycles worlds; JUMP engages drive.") : *Status.Message);
+        }
+        else
+        {
+            Text = TEXT("MFD 1/4  NAV\nROUTE OFFLINE\nBoard the live ship to connect navigation.");
+        }
     }
     else if (CockpitMFDPage == 1)
     {
@@ -578,6 +706,7 @@ void ASPFlightPawn::UpdateCockpitReadout()
             }
         }
     }
+    if (!LandingFeedback.IsEmpty()) Text += TEXT("\n") + LandingFeedback;
     CockpitReadout->SetText(FText::FromString(Text));
     if (MFDWidget) MFDWidget->SetReadout(CockpitReadout->Text, CockpitMFDBrightness);
 }
@@ -606,23 +735,60 @@ bool ASPFlightPawn::Launch()
 
 bool ASPFlightPawn::RequestSurfaceLanding()
 {
-    if (!bFlying || !bGearDown || FlightVelocityCmPerSecond.Size() >= 4500.0f) return false;
+    const auto Reject = [this](const TCHAR* Reason)
+    {
+        LandingFeedback = Reason;
+        UpdateCockpitReadout();
+        OnFlightStateChanged.Broadcast();
+        return false;
+    };
+    if (!bFlying) return Reject(TEXT("LAND: ship is already grounded"));
+    // Match the original flight loop's 80 m/s approach limit. Gear extends
+    // automatically once a safe footprint is found, as it does in the source.
+    if (FlightVelocityCmPerSecond.Size() >= 8000.0f)
+        return Reject(TEXT("LAND: slow below 80 m/s"));
+    if (!GetWorld()) return Reject(TEXT("LAND: no active world"));
     const FVector Down = TraceDown();
     FHitResult Hit;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(SpacePatriotLanding), false, this);
     if (!GetWorld()->LineTraceSingleByChannel(Hit, GetActorLocation(),
-        GetActorLocation() + Down * (65000.0f + StandHeightCm), ECC_Visibility, Params)) return false;
+        GetActorLocation() + Down * (65000.0f + StandHeightCm), ECC_Visibility, Params))
+        return Reject(TEXT("LAND: no ground within 650 m"));
     const FVector Normal = Hit.ImpactNormal.GetSafeNormal();
     const float Altitude = FVector::DotProduct(GetActorLocation() - Hit.ImpactPoint, Normal) - StandHeightCm;
-    if (Altitude < -200.0f || Altitude >= 65000.0f || FVector::DotProduct(GetActorUpVector(), Normal) < 0.6f)
-        return false;
+    if (Altitude < -200.0f || Altitude >= 65000.0f)
+        return Reject(TEXT("LAND: descend within 650 m"));
+    if (FVector::DotProduct(GetActorUpVector(), Normal) < 0.6f)
+        return Reject(TEXT("LAND: level the ship"));
     FVector Forward = FVector::VectorPlaneProject(GetActorForwardVector(), Normal).GetSafeNormal();
     if (Forward.IsNearlyZero()) Forward = FVector::CrossProduct(Normal, FVector::RightVector).GetSafeNormal();
-    LandingPosition = Hit.ImpactPoint + Normal * StandHeightCm;
-    LandingRotation = FRotationMatrix::MakeFromXZ(Forward, Normal).ToQuat();
+    const FVector CandidatePosition = Hit.ImpactPoint + Normal * StandHeightCm;
+    const FQuat CandidateRotation = FRotationMatrix::MakeFromXZ(Forward, Normal).ToQuat();
+    const auto HasSupport = [this, &Params, &Hit, &Normal, &CandidatePosition, &CandidateRotation]
+        (const FVector& LocalOffset, float MaxHeightDifferenceCm)
+    {
+        const FVector Foot = CandidatePosition + CandidateRotation.RotateVector(LocalOffset);
+        FHitResult Support;
+        if (!GetWorld()->LineTraceSingleByChannel(Support, Foot + Normal * 600.0f,
+            Foot - Normal * 1500.0f, ECC_Visibility, Params)) return false;
+        return FVector::DotProduct(Support.ImpactNormal.GetSafeNormal(), Normal) >= 0.75f &&
+            FMath::Abs(FVector::DotProduct(Support.ImpactPoint - Hit.ImpactPoint, Normal))
+                <= MaxHeightDifferenceCm;
+    };
+    const float PadHeight = -StandHeightCm;
+    if (!HasSupport(FVector(300.0f, -220.0f, PadHeight), 150.0f) ||
+        !HasSupport(FVector(300.0f, 220.0f, PadHeight), 150.0f) ||
+        !HasSupport(FVector(-300.0f, 0.0f, PadHeight), 150.0f) ||
+        !HasSupport(FVector(-300.0f, -800.0f, PadHeight), 250.0f))
+        return Reject(TEXT("LAND: find a broad, level site with hatch access"));
+    LandingPosition = CandidatePosition;
+    LandingRotation = CandidateRotation;
     SurfaceNormal = Normal;
+    SetGearDown(true);
     bLandingPending = true;
     bCruise = false;
+    LandingFeedback = TEXT("LAND: gear extending, descent engaged");
+    UpdateCockpitReadout();
     OnFlightStateChanged.Broadcast();
     return true;
 }

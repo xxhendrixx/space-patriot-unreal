@@ -51,13 +51,36 @@ class SPACEPATRIOTUNREAL_API ASPWildlifeEncounter : public AActor
 {
     GENERATED_BODY()
 public:
+    ASPWildlifeEncounter();
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife") FString CreatureId;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife") float MaxHealth = 100.0f;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Wildlife") float Health = 100.0f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife") bool bBoss = false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife|Combat") float Aggression = 0.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife|Combat") float AttackDamage = 0.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife|Combat") FString Ability;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife|Combat", meta=(ClampMin="0")) float DetectionRangeCm = 1800.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife|Combat", meta=(ClampMin="0")) float AttackRangeCm = 260.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife|Combat", meta=(ClampMin="0")) float ChaseSpeedCmPerSecond = 260.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Wildlife|Combat", meta=(ClampMin="0")) float AttackCooldownSeconds = 1.4f;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Wildlife|Combat") bool bDefeated = false;
     UPROPERTY(BlueprintAssignable, Category="Wildlife") FSPWildlifeHealthSignature OnHealthChanged;
+    /** Make the Shooter template's Projectile object channel hit this actor. */
+    bool ConfigureProjectileHitbox();
     UFUNCTION(BlueprintCallable, Category="Wildlife|Combat") bool ReceiveWeaponHit(float Damage);
     UFUNCTION(BlueprintCallable, Category="Wildlife|Combat") void ResetEncounter();
+    virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
+        class AController* EventInstigator, AActor* DamageCauser) override;
+
+protected:
+    virtual void Tick(float DeltaSeconds) override;
+
+private:
+    float AttackCooldownRemaining = 0.0f;
+    FVector SpawnLocation = FVector::ZeroVector;
+    bool bSpawnLocationRecorded = false;
+    float SpawnGroundClearanceCm = 0.0f;
+    float DefeatCleanupRemaining = 0.0f;
 };
 
 UCLASS(BlueprintType, Blueprintable)

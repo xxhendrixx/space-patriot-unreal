@@ -100,8 +100,16 @@ bool USpacePatriotSystemsComponent::LoadSourceCatalogs()
                 const TArray<TSharedPtr<FJsonValue>>* Abilities = nullptr;
                 if (Obj->TryGetArrayField(TEXT("abilities"), Abilities) && Abilities && Abilities->Num() > 0)
                 {
-                    const TSharedPtr<FJsonObject> First = (*Abilities)[0]->AsObject();
-                    Creature.Ability = FieldString(First, TEXT("name"));
+                    // CreatureRosters.json stores ability names as strings. Older
+                    // authored records may use {"name": ...}; accept both shapes
+                    // without asking JsonValue to cast a string to an object.
+                    const TSharedPtr<FJsonValue>& First = (*Abilities)[0];
+                    if (First.IsValid() && !First->TryGetString(Creature.Ability))
+                    {
+                        const TSharedPtr<FJsonObject>* AbilityObject = nullptr;
+                        if (First->TryGetObject(AbilityObject) && AbilityObject)
+                            Creature.Ability = FieldString(*AbilityObject, TEXT("name"));
+                    }
                 }
                 CreatureCatalog.Add(MoveTemp(Creature));
             }

@@ -772,6 +772,11 @@ int32 USPSocietySimulationComponent::GetHoldCargo(const FString& Good) const
     return State && ValidGood(Good) ? HoldUnits(Good) : 0;
 }
 
+int32 USPSocietySimulationComponent::GetHoldUsed() const
+{
+    return State ? State->HoldOrganics + State->HoldOre + State->HoldCrystal : 0;
+}
+
 int32 USPSocietySimulationComponent::GetHoldCapacity() const
 {
     return State ? State->HoldCapacity : 0;
@@ -799,6 +804,16 @@ bool USPSocietySimulationComponent::SellAtSettlement(const FString& CityId, cons
     if (!State || !ValidGood(Good) || Units <= 0 || Units > GetStagedCargo(CityId, Good)) return false;
     const int32 CityIndex = FindSettlementIndex(CityId);
     if (CityIndex == INDEX_NONE) return false;
+    // Freight is sealed at its departure dock and its destination dock.
+    // The first playable board deliberately accepts one contract at a time;
+    // mixed ownership of that good cannot be resolved from legacy save data.
+    const FString& WorldId = State->Settlements[CityIndex].WorldId;
+    if (State->FreightContracts.ContainsByPredicate([&](const FSPFreightContract& Contract)
+    {
+        return Contract.Good == Good &&
+            ((Contract.Status == TEXT("awaiting loading") && Contract.FromWorldId == WorldId) ||
+             (Contract.Status == TEXT("in transit") && Contract.ToWorldId == WorldId));
+    })) return false;
     const int32 MarketIndex = FindMarketIndex(State->Settlements[CityIndex].WorldId);
     if (MarketIndex == INDEX_NONE) return false;
     const int64 Income = static_cast<int64>(GetPrice(State->Markets[MarketIndex].WorldId, Good, false)) * Units;
@@ -812,20 +827,30 @@ bool USPSocietySimulationComponent::SellAtSettlement(const FString& CityId, cons
 
 bool USPSocietySimulationComponent::TransferCargo(const FString& CityId, const FString& Good, int32 Units, bool bLoad)
 {
-    if (!State || !ValidGood(Good) || Units <= 0 || FindSettlementIndex(CityId) == INDEX_NONE) return false;
+    if (!State || !ValidGood(Good) || Units <= 0) return false;
+    const int32 CityIndex = FindSettlementIndex(CityId);
+    if (CityIndex == INDEX_NONE) return false;
+    const FString& WorldId = State->Settlements[CityIndex].WorldId;
     int32& Hold = HoldUnits(Good);
     FSPCargoEntry* Entry = State->StagedCargo.FindByPredicate([&](const FSPCargoEntry& Item) { return Item.CityId == CityId && Item.Good == Good; });
     if (bLoad)
     {
-        if (!Entry || Entry->Units < Units || State->HoldOrganics + State->HoldOre + State->HoldCrystal + Units > State->HoldCapacity) return false;
+        if (!Entry || Entry->Units < Units || GetHoldUsed() + Units > State->HoldCapacity) return false;
         Entry->Units -= Units; Hold += Units;
         for (FSPFreightContract& Contract : State->FreightContracts)
-            if (Contract.Status == TEXT("awaiting loading") && Contract.Good == Good && Hold >= Contract.Units)
+            if (Contract.Status == TEXT("awaiting loading") && Contract.FromWorldId == WorldId &&
+                Contract.Good == Good && Units >= Contract.Units)
                 Contract.Status = TEXT("in transit");
     }
     else
     {
         if (Hold < Units) return false;
+        // An in-transit shipment may only leave the hold at its destination.
+        if (State->FreightContracts.ContainsByPredicate([&](const FSPFreightContract& Contract)
+        {
+            return Contract.Good == Good && Contract.Status == TEXT("in transit") &&
+                Contract.ToWorldId != WorldId;
+        })) return false;
         if (!Entry) { FSPCargoEntry NewEntry; NewEntry.CityId = CityId; NewEntry.Good = Good; Entry = &State->StagedCargo.Add_GetRef(NewEntry); }
         Hold -= Units; Entry->Units += Units;
     }

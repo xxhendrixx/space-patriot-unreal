@@ -235,6 +235,7 @@ public:
     UFUNCTION(BlueprintPure, Category="Society|Economy") int32 GetRifleReserve() const;
     UFUNCTION(BlueprintPure, Category="Society|Cargo") int32 GetStagedCargo(const FString& CityId, const FString& Good) const;
     UFUNCTION(BlueprintPure, Category="Society|Cargo") int32 GetHoldCargo(const FString& Good) const;
+    UFUNCTION(BlueprintPure, Category="Society|Cargo") int32 GetHoldUsed() const;
     UFUNCTION(BlueprintPure, Category="Society|Cargo") int32 GetHoldCapacity() const;
     UFUNCTION(BlueprintCallable, Category="Society|Cargo") bool BuyAtSettlement(const FString& CityId, const FString& Good, int32 Units);
     UFUNCTION(BlueprintCallable, Category="Society|Cargo") bool SellAtSettlement(const FString& CityId, const FString& Good, int32 Units);

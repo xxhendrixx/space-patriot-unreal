@@ -79,19 +79,16 @@ ship_pawns = [actor for actor in actors if isinstance(actor, unreal.Pawn)]
 check("no_ship_auto_possess", all(actor.get_editor_property("auto_possess_player") == unreal.AutoReceiveInput.DISABLED
                                   for actor in ship_pawns),
       [(actor.get_actor_label(), str(actor.get_editor_property("auto_possess_player"))) for actor in ship_pawns])
-ship_expected = {
-    "Kestrel K-017 / Wing_Port": (-190, 70, 160),
-    "Kestrel K-017 / Wing_Starboard": (-440, -150, 0),
-    "Kestrel K-017 / Drive_Port": (0, -180, 0),
-    "Kestrel K-017 / Drive_Starboard": (0, 190, 0),
-}
-for label, xyz in ship_expected.items():
-    actor = named.get(label)
-    actual = actor.get_actor_location() if actor else None
-    check("preserved_" + label.rsplit("/", 1)[-1].strip(),
-          actual is not None and all(abs(getattr(actual, axis) - xyz[index]) < 0.1
-                                     for index, axis in enumerate("xyz")),
-          (label, (actual.x, actual.y, actual.z) if actual else None))
+old_ship_parts = [actor.get_actor_label() for actor in actors
+                  if actor.get_actor_label().startswith("Kestrel K-017 / ")]
+check("old_display_parts_removed", not old_ship_parts, old_ship_parts)
+ship_display = named.get("SP Ship / Viktor cruiser display")
+ship_display_mesh = ship_display.static_mesh_component.get_editor_property("static_mesh") \
+    if isinstance(ship_display, unreal.StaticMeshActor) else None
+check("local_cruiser_display", ship_display_mesh is not None and
+      ship_display_mesh.get_path_name().split(".")[0] ==
+      "/Game/SpacePatriot/OpenAssets/ViktorShips/Cruiser03_UE",
+      ship_display_mesh.get_path_name() if ship_display_mesh else "missing")
 
 world_actors = [actor for actor in actors if world_bp and actor.get_class() == world_bp.generated_class()]
 check("society_runtime_preserved", len(world_actors) == 1, len(world_actors))
@@ -135,11 +132,23 @@ check("arena_ai_spawner_placed", spawner is not None and "BP_ShooterNPCSpawner" 
       spawner.get_class().get_path_name() if spawner else None)
 nav = named.get("SP Walk / NavMesh bounds")
 if nav and isinstance(nav, unreal.NavMeshBoundsVolume):
-    _, extent = nav.get_actor_bounds(False, False)
-    check("navmesh_bounds_cover_route", extent.x >= 4500 and extent.y >= 3500,
-          (extent.x, extent.y, extent.z))
+    center, extent = nav.get_actor_bounds(False, False)
+    check("navmesh_bounds_cover_port_route", extent.x >= 3500 and extent.y >= 2900 and
+          abs(center.x + 1900) < 25 and abs(center.y + 250) < 25,
+          (center.x, center.y, extent.x, extent.y, extent.z))
 else:
-    check("navmesh_bounds_cover_route", False, "missing NavMeshBoundsVolume")
+    check("navmesh_bounds_cover_port_route", False, "missing NavMeshBoundsVolume")
+combat_nav = named.get("SP Walk / combat NavMesh bounds")
+if combat_nav and isinstance(combat_nav, unreal.NavMeshBoundsVolume):
+    center, extent = combat_nav.get_actor_bounds(False, False)
+    check("separate_combat_navmesh_bounds", extent.x >= 2500 and extent.y >= 2200 and
+          abs(center.x - 7200) < 25 and abs(center.y - 3600) < 25 and
+          (nav.get_actor_bounds(False, False)[0].x +
+           nav.get_actor_bounds(False, False)[1].x) < center.x - extent.x - 1000
+          if nav else False,
+          (center.x, center.y, extent.x, extent.y, extent.z))
+else:
+    check("separate_combat_navmesh_bounds", False, "missing combat NavMeshBoundsVolume")
 
 if table:
     rows = [str(row) for row in unreal.DataTableFunctionLibrary.get_data_table_row_names(table)]

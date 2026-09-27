@@ -6,6 +6,7 @@
 
 class ASPFlightPawn;
 class UCanvasPanelSlot;
+class UHorizontalBox;
 class UTextBlock;
 
 // Camera-independent, dark-backed flight display. The ship supplies live data;
@@ -27,6 +28,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<UTextBlock> HeaderText;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> BodyText;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> HintText;
+    UPROPERTY(Transient) TObjectPtr<UHorizontalBox> NavControls;
     TWeakObjectPtr<ASPFlightPawn> Ship;
     UCanvasPanelSlot* FrameSlot = nullptr;
 
@@ -35,4 +37,6 @@ private:
     UFUNCTION() void OnTravelPreset();
     UFUNCTION() void OnCombatPreset();
     UFUNCTION() void OnDim();
+    UFUNCTION() void OnSelectDestination();
+    UFUNCTION() void OnRequestJump();
 };

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "engine": "5.8.3",
+  "license": "Poly Haven CC0",
+  "license_url": "https://polyhaven.com/license",
+  "api_credit": "Powered by Poly Haven",
+  "assets": [
+    {
+      "id": "wild_rooibos_bush",
+      "folder": "WildRooibosBush",
+      "source_page": "https://polyhaven.com/a/wild_rooibos_bush",
+      "author": "James Ray Cock; Jenelle van Heerden",
+      "files": [
+        {
+          "channel": "mesh",
+          "filename": "wild_rooibos_bush_1k.fbx",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/wild_rooibos_bush/wild_rooibos_bush_1k.fbx",
+          "md5": "82b7e210b3a0b2b8648f1a78fc355bde",
+          "bytes": 1037820
+        },
+        {
+          "channel": "diffuse",
+          "filename": "wild_rooibos_bush_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wild_rooibos_bush/wild_rooibos_bush_diff_1k.jpg",
+          "md5": "47ee13b7a87d2aff07c0ec708a33f6ab",
+          "bytes": 374003
+        },
+        {
+          "channel": "normal",
+          "filename": "wild_rooibos_bush_nor_dx_1k.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/wild_rooibos_bush/wild_rooibos_bush_nor_dx_1k.png",
+          "md5": "c841cdfce5795f5c5bd33456e2d552f6",
+          "bytes": 2847894
+        },
+        {
+          "channel": "roughness",
+          "filename": "wild_rooibos_bush_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wild_rooibos_bush/wild_rooibos_bush_rough_1k.jpg",
+          "md5": "1fdc5f75b7aeb2a1e4d043d97e319a88",
+          "bytes": 232122
+        },
+        {
+          "channel": "opacity",
+          "filename": "wild_rooibos_bush_alpha_1k.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/wild_rooibos_bush/wild_rooibos_bush_alpha_1k.png",
+          "md5": "f58e9c4d8874751b2a02dcc65c11c655",
+          "bytes": 90888
+        }
+      ],
+      "expected_packages": [
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/WildRooibosBush/wild_rooibos_bush_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/WildRooibosBush/M_PH_WildRooibosBush.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/WildRooibosBush/wild_rooibos_bush_diff_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/WildRooibosBush/wild_rooibos_bush_nor_dx_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/WildRooibosBush/wild_rooibos_bush_rough_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/WildRooibosBush/wild_rooibos_bush_alpha_1k.uasset"
+      ]
+    },
+    {
+      "id": "shrub_02",
+      "folder": "Shrub02",
+      "source_page": "https://polyhaven.com/a/shrub_02",
+      "author": "Rico Cilliers",
+      "files": [
+        {
+          "channel": "mesh",
+          "filename": "shrub_02_1k.fbx",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/shrub_02/shrub_02_1k.fbx",
+          "md5": "f4d00cbfa3dd3a6594e5b63c6324cb42",
+          "bytes": 832300
+        },
+        {
+          "channel": "diffuse",
+          "filename": "shrub_02_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/shrub_02/shrub_02_diff_1k.jpg",
+          "md5": "3f4ae281928de030c7d4e41ad5b88a8b",
+          "bytes": 395120
+        },
+        {
+          "channel": "normal",
+          "filename": "shrub_02_nor_dx_1k.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/shrub_02/shrub_02_nor_dx_1k.png",
+          "md5": "5787a61cc1615d97d7f61ad00280dced",
+          "bytes": 1750592
+        },
+        {
+          "channel": "roughness",
+          "filename": "shrub_02_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/shrub_02/shrub_02_rough_1k.jpg",
+          "md5": "2dd3a87a7ea8b184ba93084d5301e851",
+          "bytes": 252084
+        },
+        {
+          "channel": "opacity",
+          "filename": "shrub_02_alpha_1k.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/shrub_02/shrub_02_alpha_1k.png",
+          "md5": "64a1f609d80ea076b43412498a3d2db5",
+          "bytes": 91741
+        }
+      ],
+      "expected_packages": [
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/Shrub02/shrub_02_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/Shrub02/M_PH_Shrub02.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/Shrub02/shrub_02_diff_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/Shrub02/shrub_02_nor_dx_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/Shrub02/shrub_02_rough_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/Shrub02/shrub_02_alpha_1k.uasset"
+      ]
+    },
+    {
+      "id": "quiver_tree_02",
+      "folder": "QuiverTree02",
+      "source_page": "https://polyhaven.com/a/quiver_tree_02",
+      "author": "Dario Barresi; Rico Cilliers",
+      "files": [
+        {
+          "channel": "mesh",
+          "filename": "quiver_tree_02_1k.fbx",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/quiver_tree_02/quiver_tree_02_1k.fbx",
+          "md5": "04b5eb576fe53b8b509f2cbb5ced71fe",
+          "bytes": 2601532
+        },
+        {
+          "channel": "diffuse",
+          "filename": "quiver_tree_02_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/quiver_tree_02/quiver_tree_02_diff_1k.jpg",
+          "md5": "7f14325c48fc30112476b851d7e05232",
+          "bytes": 736321
+        },
+        {
+          "channel": "normal",
+          "filename": "quiver_tree_02_nor_dx_1k.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/quiver_tree_02/quiver_tree_02_nor_dx_1k.png",
+          "md5": "624acae7d6d69e89630683484f8aa5ba",
+          "bytes": 5311781
+        },
+        {
+          "channel": "roughness",
+          "filename": "quiver_tree_02_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/quiver_tree_02/quiver_tree_02_rough_1k.jpg",
+          "md5": "33458112bcdf190dafb638fcd7d606a1",
+          "bytes": 441029
+        },
+        {
+          "channel": "opacity",
+          "filename": "quiver_tree_02_mask_1k.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/quiver_tree_02/quiver_tree_02_mask_1k.png",
+          "md5": "6d52395d33a5a29b5da578c88de07671",
+          "bytes": 42786
+        }
+      ],
+      "expected_packages": [
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/QuiverTree02/quiver_tree_02_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/QuiverTree02/M_PH_QuiverTree02.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/QuiverTree02/quiver_tree_02_diff_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/QuiverTree02/quiver_tree_02_nor_dx_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/QuiverTree02/quiver_tree_02_rough_1k.uasset",
+        "Content/SpacePatriot/OpenAssets/PolyHaven/Foliage/QuiverTree02/quiver_tree_02_mask_1k.uasset"
+      ]
+    }
+  ]
+}
