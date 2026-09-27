@@ -172,6 +172,17 @@ bool USPTravelNavigationComponent::CancelJump()
     return true;
 }
 
+bool USPTravelNavigationComponent::AbortJumpTransit()
+{
+    if (State.Phase != ESPTravelPhase::JumpTransit) return false;
+    State.JumpChargeSeconds = 0.0f;
+    State.bCruiseLatched = false;
+    State.CruiseSpool = 0.0f;
+    State.DriveMode = ESPTravelDriveMode::SCM;
+    ChangePhase(ESPTravelPhase::Flight);
+    return true;
+}
+
 void USPTravelNavigationComponent::AdvanceDrive(float DeltaSeconds, const FSPTravelContext& Context, bool bCruiseHeld, bool bBrakeHeld)
 {
     if (!FMath::IsFinite(DeltaSeconds) || DeltaSeconds <= 0.0f) return;

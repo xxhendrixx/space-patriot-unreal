@@ -106,6 +106,8 @@ public:
     UFUNCTION(BlueprintCallable, Category="Travel|Drive") void AdvanceDrive(float DeltaSeconds, const FSPTravelContext& Context, bool bCruiseHeld, bool bBrakeHeld);
     UFUNCTION(BlueprintCallable, Category="Travel|Jump") bool BeginJump(const FSPTravelContext& Context);
     UFUNCTION(BlueprintCallable, Category="Travel|Jump") bool CancelJump();
+    /** Spatial route failed after charge; return control without inventing an arrival or refund. */
+    UFUNCTION(BlueprintCallable, Category="Travel|Jump") bool AbortJumpTransit();
     /** Call only after the spatial route actor reaches its exterior arrival marker. */
     UFUNCTION(BlueprintCallable, Category="Travel|Jump") bool ConfirmJumpArrival();
 

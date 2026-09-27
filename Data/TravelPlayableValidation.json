@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "name": "flyable_kestrel_blueprint",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "kestrel_game_mode",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "inherits_native_flight_pawn",
+      "passed": true,
+      "detail": "<class 'SPFlightPawn'>"
+    },
+    {
+      "name": "pawn_owns_travel_authority",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "pawn_owns_hyperdrive_visuals",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "pawn_owns_flight_camera",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "speed_effect_material",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "game_mode_spawns_travel_pawn",
+      "passed": true,
+      "detail": "<Object '/Game/SpacePatriot/Blueprints/BP_KestrelFlyable.BP_KestrelFlyable_C' (0x0000022D053B3100) Class 'BlueprintGeneratedClass'>"
+    },
+    {
+      "name": "saved_flight_map_loads",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "map_uses_kestrel_game_mode",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "one_live_world_surface",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "map_starts_at_earth",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "source_world_surface_loaded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "input_sptravelnext",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "input_sptraveljump",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "input_sptravelcancel",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": 16,
+  "failed": 0
+}

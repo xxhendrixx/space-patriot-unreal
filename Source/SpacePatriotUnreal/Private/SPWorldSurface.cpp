@@ -576,3 +576,16 @@ FSPWorldSurfaceSample ASPWorldSurface::SampleAtWorldLocation(FVector WorldLocati
         FVector2D(Nominal.X, Nominal.Y).Length() < LocalRegionMeters * WorldSurfaceUnitsPerMeter;
     return Result;
 }
+
+float ASPWorldSurface::GetAltitudeMetersAtWorldLocation(FVector WorldLocation) const
+{
+    const FVector Local = GetActorTransform().InverseTransformPosition(WorldLocation);
+    const FVector Radial = GetRadialAtLocal(Local);
+    return static_cast<float>((Local - GetPlanetCenterLocal()).Length() / WorldSurfaceUnitsPerMeter)
+        - PlanetRadiusMeters - SurfaceHeightMeters(Radial);
+}
+
+float ASPWorldSurface::GetScaledRadiusKm() const
+{
+    return PlanetRadiusMeters / 1000.0f;
+}

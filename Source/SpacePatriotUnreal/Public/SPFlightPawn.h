@@ -2,9 +2,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/DefaultPawn.h"
+#include "SPTravelNavigationComponent.h"
 #include "SPFlightPawn.generated.h"
 
 class UCameraComponent;
+class USPHyperdriveVisualComponent;
+class ASPWorldSurface;
 
 USTRUCT(BlueprintType)
 struct FSPFlightTelemetry
@@ -38,6 +41,22 @@ public:
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Flight")
     TObjectPtr<UCameraComponent> FlightCamera;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Travel")
+    TObjectPtr<USPTravelNavigationComponent> TravelNavigation;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Space Patriot|Travel")
+    TObjectPtr<USPHyperdriveVisualComponent> HyperdriveVisual;
+
+    /** Local exterior marker used after a confirmed jump; this is not a galaxy-scale route. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Space Patriot|Travel")
+    FVector ExteriorArrivalOffsetCm = FVector(700000.0f, 0.0f, 500000.0f);
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Space Patriot|Travel", meta=(ClampMin="0.5", ClampMax="15"))
+    float TransitDurationSeconds = 3.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Space Patriot|Travel")
+    bool bCargoHatchClosed = true;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Space Patriot|Flight", meta=(ClampMin="100"))
     float MaxSpeedCmPerSecond = 12000.0f;
@@ -77,6 +96,12 @@ public:
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") bool Launch();
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Flight") bool RequestSurfaceLanding();
 
+    UFUNCTION(BlueprintPure, Category="Space Patriot|Travel") FSPTravelContext GetTravelContext() const;
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") bool SelectNextTravelDestination();
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") bool BeginHyperdriveJump();
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") bool CancelHyperdriveJump();
+    UFUNCTION(BlueprintCallable, Category="Space Patriot|Travel") void SetTravelWorldSurface(ASPWorldSurface* InSurface);
+
 private:
     FVector FlightVelocityCmPerSecond = FVector::ZeroVector;
     FVector AngularVelocityDegreesPerSecond = FVector::ZeroVector;
@@ -95,6 +120,9 @@ private:
     bool bBoostHeld = false;
     bool bLandingPending = false;
     bool bCockpitCamera = false;
+    UPROPERTY(Transient) TObjectPtr<ASPWorldSurface> TravelWorldSurface;
+    ESPTravelPhase PreviousTravelPhase = ESPTravelPhase::Flight;
+    float TransitElapsedSeconds = 0.0f;
 
     void SetForward(float Value) { ForwardInput = Value; }
     void SetRight(float Value) { RightInput = Value; }
@@ -115,6 +143,12 @@ private:
     void TogglePower();
     void ToggleCamera();
     void TryLand() { RequestSurfaceLanding(); }
+    void InputNextTravelDestination() { SelectNextTravelDestination(); }
+    void InputBeginHyperdriveJump() { BeginHyperdriveJump(); }
+    void InputCancelHyperdriveJump() { CancelHyperdriveJump(); }
     FVector TraceDown() const;
     void UpdateGearMeshes();
+    bool TickTravel(float DeltaSeconds);
+    bool CompleteTravelArrival();
+    void AnnounceTravel(const FString& Message) const;
 };

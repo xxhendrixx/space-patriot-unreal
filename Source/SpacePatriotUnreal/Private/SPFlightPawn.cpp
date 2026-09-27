@@ -1,11 +1,15 @@
 #include "SPFlightPawn.h"
 
+#include "SPHyperdriveVisualComponent.h"
+#include "SPWorldSurface.h"
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
+#include "Engine/Engine.h"
 #include "Engine/World.h"
 #include "Math/RotationMatrix.h"
+#include "EngineUtils.h"
 
 ASPFlightPawn::ASPFlightPawn()
 {
@@ -16,12 +20,37 @@ ASPFlightPawn::ASPFlightPawn()
     FlightCamera->bUsePawnControlRotation = false;
     FlightCamera->SetRelativeLocation(FVector(-2200.0f, 0.0f, 650.0f));
     FlightCamera->SetRelativeRotation(FRotator(-5.0f, 0.0f, 0.0f));
+    TravelNavigation = CreateDefaultSubobject<USPTravelNavigationComponent>(TEXT("TravelNavigation"));
+    HyperdriveVisual = CreateDefaultSubobject<USPHyperdriveVisualComponent>(TEXT("HyperdriveVisual"));
 }
 
 void ASPFlightPawn::BeginPlay()
 {
     Super::BeginPlay();
     UpdateGearMeshes();
+    if (TravelNavigation) TravelNavigation->LoadWorldCatalog();
+    if (GetWorld())
+    {
+        for (TActorIterator<ASPWorldSurface> It(GetWorld()); It; ++It)
+        {
+            SetTravelWorldSurface(*It);
+            break;
+        }
+    }
+    if (TravelWorldSurface)
+    {
+        if (TravelNavigation && TravelWorldSurface->WorldId != TravelNavigation->GetNavigationState().CurrentWorldId)
+        {
+            FSPTravelNavigationState Saved = TravelNavigation->GetNavigationState();
+            Saved.CurrentWorldId = TravelWorldSurface->WorldId;
+            TravelNavigation->RestoreSaveState(Saved);
+        }
+    }
+    if (HyperdriveVisual)
+    {
+        HyperdriveVisual->SetNavigationComponent(TravelNavigation);
+        HyperdriveVisual->BindToCamera(FlightCamera);
+    }
 }
 
 void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -47,6 +76,9 @@ void ASPFlightPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     PlayerInputComponent->BindAction(TEXT("SPPower"), IE_Pressed, this, &ASPFlightPawn::TogglePower);
     PlayerInputComponent->BindAction(TEXT("SPCamera"), IE_Pressed, this, &ASPFlightPawn::ToggleCamera);
     PlayerInputComponent->BindAction(TEXT("SPLand"), IE_Pressed, this, &ASPFlightPawn::TryLand);
+    PlayerInputComponent->BindAction(TEXT("SPTravelNext"), IE_Pressed, this, &ASPFlightPawn::InputNextTravelDestination);
+    PlayerInputComponent->BindAction(TEXT("SPTravelJump"), IE_Pressed, this, &ASPFlightPawn::InputBeginHyperdriveJump);
+    PlayerInputComponent->BindAction(TEXT("SPTravelCancel"), IE_Pressed, this, &ASPFlightPawn::InputCancelHyperdriveJump);
 }
 
 void ASPFlightPawn::Tick(float DeltaSeconds)
@@ -54,6 +86,7 @@ void ASPFlightPawn::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
     if (DeltaSeconds <= 0.0f) return;
     const float Dt = FMath::Min(DeltaSeconds, 0.1f);
+    if (TickTravel(Dt)) return;
 
     if (bLandingPending)
     {
@@ -144,6 +177,147 @@ void ASPFlightPawn::Tick(float DeltaSeconds)
         FuelPercent = FMath::Max(0.0f, FuelPercent - Dt * (bBoosting ? 0.12f : 0.012f) * Load);
     }
     HeatPercent = FMath::Clamp(HeatPercent + Dt * (bBoosting ? 24.0f : -6.0f), 0.0f, 100.0f);
+}
+
+FSPTravelContext ASPFlightPawn::GetTravelContext() const
+{
+    FSPTravelContext Context;
+    Context.bPilotAtControls = GetController() != nullptr;
+    Context.bShipPowered = bPowered;
+    Context.bGearRetracted = !bGearDown;
+    Context.bShipTransitioning = bLandingPending || !bFlying;
+    Context.bCargoHatchClosed = bCargoHatchClosed;
+    Context.SpeedMetersPerSecond = FlightVelocityCmPerSecond.Size() / 100.0;
+    Context.AltitudeKm = -1.0;
+    Context.NearestStationDistanceKm = 0.0;
+    if (IsValid(TravelWorldSurface) && TravelWorldSurface->SourceClimateWidth > 0)
+    {
+        const float AltitudeMeters = TravelWorldSurface->GetAltitudeMetersAtWorldLocation(GetActorLocation());
+        Context.AltitudeKm = AltitudeMeters / 1000.0;
+        Context.SurfaceClearanceMeters = AltitudeMeters;
+        Context.NearbyBodyRadiusKm = TravelWorldSurface->GetScaledRadiusKm();
+        // The authored Kellen Reach pad is at the surface actor's origin.
+        Context.NearestStationDistanceKm = FVector::Dist(GetActorLocation(), TravelWorldSurface->GetActorLocation()) / 100000.0;
+    }
+    return Context;
+}
+
+bool ASPFlightPawn::SelectNextTravelDestination()
+{
+    if (!TravelNavigation || !TravelNavigation->CycleDestination()) return false;
+    FSPTravelWorld Destination;
+    if (TravelNavigation->FindWorld(TravelNavigation->GetNavigationState().DestinationWorldId, Destination))
+        AnnounceTravel(FString::Printf(TEXT("NAV target: %s  |  J charge  K cancel"), *Destination.Name));
+    return true;
+}
+
+void ASPFlightPawn::AnnounceTravel(const FString& Message) const
+{
+    UE_LOG(LogTemp, Display, TEXT("Kestrel travel: %s"), *Message);
+    if (GEngine && GetWorld() && GetWorld()->IsGameWorld())
+        GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor(77, 183, 194), Message);
+}
+
+void ASPFlightPawn::SetTravelWorldSurface(ASPWorldSurface* InSurface)
+{
+    TravelWorldSurface = InSurface;
+    if (IsValid(InSurface)) InSurface->FocusActor = this;
+}
+
+bool ASPFlightPawn::BeginHyperdriveJump()
+{
+    if (!bFlying || !IsValid(TravelWorldSurface) || !TravelNavigation || !TravelNavigation->BeginJump(GetTravelContext()))
+    {
+        AnnounceTravel(TEXT("Jump blocked: set a target, retract gear, clear the port, climb above 2 km, and check fuel/heat"));
+        return false;
+    }
+    bCruise = false;
+    TransitElapsedSeconds = 0.0f;
+    AnnounceTravel(TEXT("Hyperdrive charging: K cancels before transit"));
+    if (HyperdriveVisual) HyperdriveVisual->RefreshVisuals(0.0f);
+    OnFlightStateChanged.Broadcast();
+    return true;
+}
+
+bool ASPFlightPawn::CancelHyperdriveJump()
+{
+    if (!TravelNavigation || !TravelNavigation->CancelJump()) return false;
+    TravelNavigation->SetDriveMode(ESPTravelDriveMode::SCM);
+    bCruise = false;
+    AnnounceTravel(TEXT("Charge canceled: manual flight restored"));
+    if (HyperdriveVisual) HyperdriveVisual->RefreshVisuals(0.0f);
+    OnFlightStateChanged.Broadcast();
+    return true;
+}
+
+bool ASPFlightPawn::TickTravel(float DeltaSeconds)
+{
+    if (!TravelNavigation) return false;
+    TravelNavigation->SetDriveResources(FuelPercent, HeatPercent / 100.0f);
+    TravelNavigation->AdvanceDrive(DeltaSeconds, GetTravelContext(), bCruise, bBrakeHeld);
+    const FSPTravelNavigationState State = TravelNavigation->GetNavigationState();
+    FuelPercent = State.FuelPercent;
+    HeatPercent = State.HeatNormalized * 100.0f;
+    if (State.Phase == ESPTravelPhase::JumpTransit)
+    {
+        if (PreviousTravelPhase != ESPTravelPhase::JumpTransit)
+        {
+            TransitElapsedSeconds = 0.0f;
+            FlightVelocityCmPerSecond = FVector::ZeroVector;
+            AngularVelocityDegreesPerSecond = FVector::ZeroVector;
+            bCruise = false;
+            AnnounceTravel(TEXT("Hyperdrive transit: hold position"));
+            OnFlightStateChanged.Broadcast();
+        }
+        PreviousTravelPhase = ESPTravelPhase::JumpTransit;
+        TransitElapsedSeconds += DeltaSeconds;
+        if (TransitElapsedSeconds >= TransitDurationSeconds) CompleteTravelArrival();
+        return true;
+    }
+    if (PreviousTravelPhase == ESPTravelPhase::JumpCharging && State.Phase == ESPTravelPhase::Flight)
+        TravelNavigation->SetDriveMode(ESPTravelDriveMode::SCM);
+    PreviousTravelPhase = State.Phase;
+    return false;
+}
+
+bool ASPFlightPawn::CompleteTravelArrival()
+{
+    if (!TravelNavigation || !IsValid(TravelWorldSurface)) return false;
+    const FSPTravelNavigationState State = TravelNavigation->GetNavigationState();
+    if (State.Phase != ESPTravelPhase::JumpTransit || State.DestinationWorldId.IsEmpty()) return false;
+
+    const FString PreviousWorldId = TravelWorldSurface->WorldId;
+    const FVector Arrival = TravelWorldSurface->GetActorTransform().TransformPosition(ExteriorArrivalOffsetCm);
+    if (!TravelWorldSurface->ActivateWorld(State.DestinationWorldId) ||
+        TravelWorldSurface->GetAltitudeMetersAtWorldLocation(Arrival) < 2000.0f)
+    {
+        TravelWorldSurface->ActivateWorld(PreviousWorldId);
+        TravelNavigation->AbortJumpTransit();
+        if (HyperdriveVisual) HyperdriveVisual->RefreshVisuals(0.0f);
+        UE_LOG(LogTemp, Error, TEXT("Travel route failed to activate safe exterior for %s"), *State.DestinationWorldId);
+        AnnounceTravel(TEXT("Destination surface unavailable: manual flight restored"));
+        return false;
+    }
+
+    SetActorLocation(Arrival, false);
+    SetActorRotation(TravelWorldSurface->GetActorRotation());
+    FlightVelocityCmPerSecond = FVector::ZeroVector;
+    AngularVelocityDegreesPerSecond = FVector::ZeroVector;
+    bFlightAssist = true;
+    bCruise = false;
+    if (!TravelNavigation->ConfirmJumpArrival())
+    {
+        TravelWorldSurface->ActivateWorld(PreviousWorldId);
+        TravelNavigation->AbortJumpTransit();
+        return false;
+    }
+    TravelNavigation->SetDriveMode(ESPTravelDriveMode::SCM);
+    FSPTravelWorld ArrivedWorld;
+    if (TravelNavigation->FindWorld(TravelNavigation->GetNavigationState().CurrentWorldId, ArrivedWorld))
+        AnnounceTravel(FString::Printf(TEXT("Arrived outside %s: manual flight restored"), *ArrivedWorld.Name));
+    if (HyperdriveVisual) HyperdriveVisual->RefreshVisuals(0.0f);
+    OnFlightStateChanged.Broadcast();
+    return true;
 }
 
 FSPFlightTelemetry ASPFlightPawn::GetFlightTelemetry() const

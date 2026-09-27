@@ -90,6 +90,13 @@ public:
     UFUNCTION(BlueprintPure, Category="Worldworks")
     FSPWorldSurfaceSample SampleAtWorldLocation(FVector WorldLocation) const;
 
+    /** Distance above this world's generated surface, independent of streamed detail LOD. */
+    UFUNCTION(BlueprintPure, Category="Worldworks")
+    float GetAltitudeMetersAtWorldLocation(FVector WorldLocation) const;
+
+    UFUNCTION(BlueprintPure, Category="Worldworks")
+    float GetScaledRadiusKm() const;
+
 protected:
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
