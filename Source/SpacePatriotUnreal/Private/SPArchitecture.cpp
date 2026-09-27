@@ -15,7 +15,7 @@
 
 namespace
 {
-    constexpr float UnitsPerMeter = 100.0f;
+    constexpr float ArchitectureUnitsPerMeter = 100.0f;
     constexpr float RoomHeight = 2.8f;
     constexpr float BulkheadThickness = 0.16f;
     constexpr int32 MaxRooms = 64;
@@ -23,14 +23,14 @@ namespace
     constexpr int32 MaxFixtures = 256;
     constexpr int32 MaxStructureInstances = 2048;
 
-    float Number(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, float Default = 0.0f)
+    float ArchitectureNumber(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, float Default = 0.0f)
     {
         double Value = Default;
         return Object.IsValid() && Object->TryGetNumberField(Key, Value) && FMath::IsFinite(Value)
             ? static_cast<float>(Value) : Default;
     }
 
-    FString String(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key)
+    FString ArchitectureString(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key)
     {
         FString Value;
         if (Object.IsValid()) Object->TryGetStringField(Key, Value);
@@ -44,7 +44,7 @@ namespace
         return Value;
     }
 
-    const TArray<TSharedPtr<FJsonValue>>* Array(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key)
+    const TArray<TSharedPtr<FJsonValue>>* ArchitectureArray(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key)
     {
         const TArray<TSharedPtr<FJsonValue>>* Values = nullptr;
         return Object.IsValid() && Object->TryGetArrayField(Key, Values) ? Values : nullptr;
@@ -116,8 +116,8 @@ void ASPArchitecture::AdvanceLift(float DeltaSeconds)
     LiftHeightMeters = FMath::FInterpConstantTo(LiftHeightMeters, Target, FMath::Clamp(DeltaSeconds, 0.0f, 60.0f), LiftSpeedMetersPerSecond);
     if (!LiftStopsMeters.IsEmpty())
     {
-        LiftPlatform->SetRelativeLocation(FVector(LiftStopsMeters[0].X * UnitsPerMeter,
-            -LiftStopsMeters[0].Y * UnitsPerMeter, (LiftHeightMeters - 0.07f) * UnitsPerMeter));
+        LiftPlatform->SetRelativeLocation(FVector(LiftStopsMeters[0].X * ArchitectureUnitsPerMeter,
+            -LiftStopsMeters[0].Y * ArchitectureUnitsPerMeter, (LiftHeightMeters - 0.07f) * ArchitectureUnitsPerMeter));
     }
     if (FMath::IsNearlyEqual(LiftHeightMeters, Target, 0.002f))
     {
@@ -157,7 +157,7 @@ bool ASPArchitecture::ParseSource(const FString& JsonText, int32 Family)
         LastBuildError = TEXT("Invalid DeckPlans JSON");
         return false;
     }
-    const TArray<TSharedPtr<FJsonValue>>* Plans = Array(Root, TEXT("plans"));
+    const TArray<TSharedPtr<FJsonValue>>* Plans = ArchitectureArray(Root, TEXT("plans"));
     if (!Plans || Plans->Num() > 32)
     {
         LastBuildError = TEXT("Deck catalog has no bounded plans array");
@@ -167,18 +167,18 @@ bool ASPArchitecture::ParseSource(const FString& JsonText, int32 Family)
     for (const TSharedPtr<FJsonValue>& Value : *Plans)
     {
         const TSharedPtr<FJsonObject> Candidate = Value->AsObject();
-        if (Candidate.IsValid() && FMath::RoundToInt(Number(Candidate, TEXT("family"), -1)) == Family) { Plan = Candidate; break; }
+        if (Candidate.IsValid() && FMath::RoundToInt(ArchitectureNumber(Candidate, TEXT("family"), -1)) == Family) { Plan = Candidate; break; }
     }
     if (!Plan.IsValid())
     {
         LastBuildError = FString::Printf(TEXT("No deck plan for interior family %d"), Family);
         return false;
     }
-    const auto* DeckValues = Array(Plan, TEXT("decks"));
-    const auto* RoomValues = Array(Plan, TEXT("rooms"));
-    const auto* DoorValues = Array(Plan, TEXT("doors"));
-    const auto* FixtureValues = Array(Plan, TEXT("fixtures"));
-    const auto* LiftValues = Array(Plan, TEXT("lifts"));
+    const auto* DeckValues = ArchitectureArray(Plan, TEXT("decks"));
+    const auto* RoomValues = ArchitectureArray(Plan, TEXT("rooms"));
+    const auto* DoorValues = ArchitectureArray(Plan, TEXT("doors"));
+    const auto* FixtureValues = ArchitectureArray(Plan, TEXT("fixtures"));
+    const auto* LiftValues = ArchitectureArray(Plan, TEXT("lifts"));
     if (!DeckValues || !RoomValues || !DoorValues || !FixtureValues || !LiftValues ||
         DeckValues->IsEmpty() || DeckValues->Num() > 8 || RoomValues->Num() > MaxRooms ||
         DoorValues->Num() > MaxDoors || FixtureValues->Num() > MaxFixtures || LiftValues->Num() > 8)
@@ -198,9 +198,9 @@ bool ASPArchitecture::ParseSource(const FString& JsonText, int32 Family)
         const TSharedPtr<FJsonObject> Object = Value->AsObject();
         if (!Object.IsValid()) { LastBuildError = TEXT("Invalid deck row"); return false; }
         FSPArchitectureDeck Deck;
-        Deck.Index = FMath::RoundToInt(Number(Object, TEXT("index"), -1));
-        Deck.Name = String(Object, TEXT("name"));
-        Deck.FloorMeters = Number(Object, TEXT("y"));
+        Deck.Index = FMath::RoundToInt(ArchitectureNumber(Object, TEXT("index"), -1));
+        Deck.Name = ArchitectureString(Object, TEXT("name"));
+        Deck.FloorMeters = ArchitectureNumber(Object, TEXT("y"));
         if (Deck.Index != ParsedDecks.Num() || Deck.Name.IsEmpty()) { LastBuildError = TEXT("Nonsequential or unnamed deck"); return false; }
         ParsedDecks.Add(MoveTemp(Deck));
     }
@@ -209,11 +209,11 @@ bool ASPArchitecture::ParseSource(const FString& JsonText, int32 Family)
         const TSharedPtr<FJsonObject> Object = Value->AsObject();
         if (!Object.IsValid()) { LastBuildError = TEXT("Invalid room row"); return false; }
         FSPArchitectureRoom Room;
-        Room.Id = String(Object, TEXT("id")); Room.Name = String(Object, TEXT("name"));
-        Room.Deck = FMath::RoundToInt(Number(Object, TEXT("deck"), -1));
-        Room.FloorMeters = Number(Object, TEXT("y"));
-        Room.MinMeters = FVector2D(Number(Object, TEXT("x0")), Number(Object, TEXT("z0")));
-        Room.MaxMeters = FVector2D(Number(Object, TEXT("x1")), Number(Object, TEXT("z1")));
+        Room.Id = ArchitectureString(Object, TEXT("id")); Room.Name = ArchitectureString(Object, TEXT("name"));
+        Room.Deck = FMath::RoundToInt(ArchitectureNumber(Object, TEXT("deck"), -1));
+        Room.FloorMeters = ArchitectureNumber(Object, TEXT("y"));
+        Room.MinMeters = FVector2D(ArchitectureNumber(Object, TEXT("x0")), ArchitectureNumber(Object, TEXT("z0")));
+        Room.MaxMeters = FVector2D(ArchitectureNumber(Object, TEXT("x1")), ArchitectureNumber(Object, TEXT("z1")));
         Room.bCorridor = Room.Id.StartsWith(TEXT("corridor"));
         if (Room.Id.IsEmpty() || Room.Name.IsEmpty() || Ids.Contains(Room.Id) || !ParsedDecks.IsValidIndex(Room.Deck) ||
             Room.MaxMeters.X <= Room.MinMeters.X || Room.MaxMeters.Y <= Room.MinMeters.Y ||
@@ -230,12 +230,12 @@ bool ASPArchitecture::ParseSource(const FString& JsonText, int32 Family)
         const TSharedPtr<FJsonObject> Object = Value->AsObject();
         if (!Object.IsValid()) { LastBuildError = TEXT("Invalid door row"); return false; }
         FSPArchitectureDoor Door;
-        Door.Id = String(Object, TEXT("id")); Door.Name = String(Object, TEXT("name"));
-        Door.Deck = FMath::RoundToInt(Number(Object, TEXT("deck"), -1));
-        Door.FloorMeters = Number(Object, TEXT("y"));
-        Door.CenterMeters = FVector2D(Number(Object, TEXT("x")), Number(Object, TEXT("z")));
-        Door.WidthMeters = Number(Object, TEXT("width"), 1.0f);
-        Door.bFixedX = String(Object, TEXT("axis")) == TEXT("x");
+        Door.Id = ArchitectureString(Object, TEXT("id")); Door.Name = ArchitectureString(Object, TEXT("name"));
+        Door.Deck = FMath::RoundToInt(ArchitectureNumber(Object, TEXT("deck"), -1));
+        Door.FloorMeters = ArchitectureNumber(Object, TEXT("y"));
+        Door.CenterMeters = FVector2D(ArchitectureNumber(Object, TEXT("x")), ArchitectureNumber(Object, TEXT("z")));
+        Door.WidthMeters = ArchitectureNumber(Object, TEXT("width"), 1.0f);
+        Door.bFixedX = ArchitectureString(Object, TEXT("axis")) == TEXT("x");
         Door.bOpen = true; // The Unity DeckWalk source starts every bulkhead open.
         if (Door.Id.IsEmpty() || Ids.Contains(Door.Id) || !ParsedDecks.IsValidIndex(Door.Deck) ||
             Door.WidthMeters < 0.55f || Door.WidthMeters > 6.0f ||
@@ -252,11 +252,11 @@ bool ASPArchitecture::ParseSource(const FString& JsonText, int32 Family)
         const TSharedPtr<FJsonObject> Object = Value->AsObject();
         if (!Object.IsValid()) { LastBuildError = TEXT("Invalid fixture row"); return false; }
         FFixture Fixture;
-        Fixture.Id = String(Object, TEXT("id")); Fixture.Type = String(Object, TEXT("type"));
-        Fixture.Deck = FMath::RoundToInt(Number(Object, TEXT("deck"), -1));
-        Fixture.X = Number(Object, TEXT("x")); Fixture.Z = Number(Object, TEXT("z"));
-        Fixture.Y = Number(Object, TEXT("y")); Fixture.W = Number(Object, TEXT("w"));
-        Fixture.D = Number(Object, TEXT("d")); Fixture.H = Number(Object, TEXT("h"));
+        Fixture.Id = ArchitectureString(Object, TEXT("id")); Fixture.Type = ArchitectureString(Object, TEXT("type"));
+        Fixture.Deck = FMath::RoundToInt(ArchitectureNumber(Object, TEXT("deck"), -1));
+        Fixture.X = ArchitectureNumber(Object, TEXT("x")); Fixture.Z = ArchitectureNumber(Object, TEXT("z"));
+        Fixture.Y = ArchitectureNumber(Object, TEXT("y")); Fixture.W = ArchitectureNumber(Object, TEXT("w"));
+        Fixture.D = ArchitectureNumber(Object, TEXT("d")); Fixture.H = ArchitectureNumber(Object, TEXT("h"));
         Fixture.bSolid = Bool(Object, TEXT("solid"));
         if (Fixture.Id.IsEmpty() || Ids.Contains(Fixture.Id) || !ParsedDecks.IsValidIndex(Fixture.Deck) ||
             Fixture.W <= 0 || Fixture.D <= 0 || Fixture.H <= 0)
@@ -271,9 +271,9 @@ bool ASPArchitecture::ParseSource(const FString& JsonText, int32 Family)
     {
         const TSharedPtr<FJsonObject> Object = Value->AsObject();
         if (!Object.IsValid()) { LastBuildError = TEXT("Invalid lift stop"); return false; }
-        const int32 Deck = FMath::RoundToInt(Number(Object, TEXT("deck"), -1));
+        const int32 Deck = FMath::RoundToInt(ArchitectureNumber(Object, TEXT("deck"), -1));
         if (!ParsedDecks.IsValidIndex(Deck)) { LastBuildError = TEXT("Lift stop references missing deck"); return false; }
-        ParsedLiftStops.Add(FVector(Number(Object, TEXT("x")), Number(Object, TEXT("z")), Number(Object, TEXT("y"))));
+        ParsedLiftStops.Add(FVector(ArchitectureNumber(Object, TEXT("x")), ArchitectureNumber(Object, TEXT("z")), ArchitectureNumber(Object, TEXT("y"))));
     }
     if (ParsedDecks.Num() > 1 && ParsedLiftStops.Num() != ParsedDecks.Num())
     {
@@ -306,7 +306,7 @@ void ASPArchitecture::ClearGeometry()
 void ASPArchitecture::AddBox(UInstancedStaticMeshComponent* Component, float X, float Y, float Z, float Width, float Height, float Depth)
 {
     if (!Component || Width <= 0.001f || Height <= 0.001f || Depth <= 0.001f || StructureInstances >= MaxStructureInstances) return;
-    const FVector Location(X * UnitsPerMeter, -Z * UnitsPerMeter, Y * UnitsPerMeter);
+    const FVector Location(X * ArchitectureUnitsPerMeter, -Z * ArchitectureUnitsPerMeter, Y * ArchitectureUnitsPerMeter);
     // Engine cube is 100 cm on each axis; source widths are metres.
     Component->AddInstance(FTransform(FQuat::Identity, Location, FVector(Width, Depth, Height)));
     ++StructureInstances;
@@ -470,8 +470,8 @@ bool ASPArchitecture::BuildGeometry()
     LiftPlatform->SetVisibility(!LiftStopsMeters.IsEmpty());
     if (!LiftStopsMeters.IsEmpty())
     {
-        LiftPlatform->SetRelativeLocation(FVector(LiftStopsMeters[0].X * UnitsPerMeter,
-            -LiftStopsMeters[0].Y * UnitsPerMeter, (LiftHeightMeters - 0.07f) * UnitsPerMeter));
+        LiftPlatform->SetRelativeLocation(FVector(LiftStopsMeters[0].X * ArchitectureUnitsPerMeter,
+            -LiftStopsMeters[0].Y * ArchitectureUnitsPerMeter, (LiftHeightMeters - 0.07f) * ArchitectureUnitsPerMeter));
     }
     if (StructureInstances >= MaxStructureInstances)
     {
@@ -488,8 +488,8 @@ void ASPArchitecture::UpdateDoorMesh(int32 DoorIndex)
     const float Slide = Door.bOpen ? Door.WidthMeters - 0.10f : 0.0f;
     const float X = Door.CenterMeters.X + (Door.bFixedX ? 0.0f : Slide);
     const float Z = Door.CenterMeters.Y + (Door.bFixedX ? Slide : 0.0f);
-    DoorMeshes[DoorIndex]->SetRelativeLocation(FVector(X * UnitsPerMeter, -Z * UnitsPerMeter,
-        (Door.FloorMeters + 1.1f) * UnitsPerMeter));
+    DoorMeshes[DoorIndex]->SetRelativeLocation(FVector(X * ArchitectureUnitsPerMeter, -Z * ArchitectureUnitsPerMeter,
+        (Door.FloorMeters + 1.1f) * ArchitectureUnitsPerMeter));
     DoorMeshes[DoorIndex]->SetRelativeScale3D(Door.bFixedX
         ? FVector(0.075f, FMath::Max(0.55f, Door.WidthMeters - 0.12f), 2.2f)
         : FVector(FMath::Max(0.55f, Door.WidthMeters - 0.12f), 0.075f, 2.2f));
@@ -559,19 +559,19 @@ int32 ASPArchitecture::FindRoomIndex(float X, float Z, int32 Deck, bool bPreferN
 
 FSPArchitectureRoom ASPArchitecture::RoomAtLocalLocation(FVector LocalCentimetres, bool& bFound) const
 {
-    const int32 Deck = FindDeckAtHeight(LocalCentimetres.Z / UnitsPerMeter);
-    const int32 Index = FindRoomIndex(LocalCentimetres.X / UnitsPerMeter,
-        -LocalCentimetres.Y / UnitsPerMeter, Deck, true);
+    const int32 Deck = FindDeckAtHeight(LocalCentimetres.Z / ArchitectureUnitsPerMeter);
+    const int32 Index = FindRoomIndex(LocalCentimetres.X / ArchitectureUnitsPerMeter,
+        -LocalCentimetres.Y / ArchitectureUnitsPerMeter, Deck, true);
     bFound = Rooms.IsValidIndex(Index);
     return bFound ? Rooms[Index] : FSPArchitectureRoom();
 }
 
 bool ASPArchitecture::CanOccupyLocalLocation(FVector LocalCentimetres, float RadiusCentimetres) const
 {
-    const float X = LocalCentimetres.X / UnitsPerMeter;
-    const float Z = -LocalCentimetres.Y / UnitsPerMeter;
-    const float Y = LocalCentimetres.Z / UnitsPerMeter;
-    const float Radius = FMath::Clamp(RadiusCentimetres / UnitsPerMeter, 0.05f, 0.5f);
+    const float X = LocalCentimetres.X / ArchitectureUnitsPerMeter;
+    const float Z = -LocalCentimetres.Y / ArchitectureUnitsPerMeter;
+    const float Y = LocalCentimetres.Z / ArchitectureUnitsPerMeter;
+    const float Radius = FMath::Clamp(RadiusCentimetres / ArchitectureUnitsPerMeter, 0.05f, 0.5f);
     const int32 Deck = FindDeckAtHeight(Y);
     if (Deck == INDEX_NONE)
     {

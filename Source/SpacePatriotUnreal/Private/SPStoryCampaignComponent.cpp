@@ -12,7 +12,7 @@
 
 namespace
 {
-    TSharedPtr<FJsonObject> ReadJson(const FString& Path, FString* RawText = nullptr)
+    TSharedPtr<FJsonObject> StoryReadJson(const FString& Path, FString* RawText = nullptr)
     {
         FString Text;
         if (!FFileHelper::LoadFileToString(Text, *Path)) return nullptr;
@@ -22,26 +22,26 @@ namespace
         return Object;
     }
 
-    FString String(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key)
+    FString StoryString(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key)
     {
         FString Result;
         if (Object.IsValid()) Object->TryGetStringField(Key, Result);
         return Result;
     }
 
-    int32 Number(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, int32 Default = 0)
+    int32 StoryNumber(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, int32 Default = 0)
     {
         double Result = 0.0;
         return Object.IsValid() && Object->TryGetNumberField(Key, Result) ? static_cast<int32>(Result) : Default;
     }
 
-    TSharedPtr<FJsonObject> Object(const TSharedPtr<FJsonObject>& Parent, const TCHAR* Key)
+    TSharedPtr<FJsonObject> StoryObject(const TSharedPtr<FJsonObject>& Parent, const TCHAR* Key)
     {
         const TSharedPtr<FJsonObject>* Result = nullptr;
         return Parent.IsValid() && Parent->TryGetObjectField(Key, Result) && Result ? *Result : nullptr;
     }
 
-    const TArray<TSharedPtr<FJsonValue>>* Array(const TSharedPtr<FJsonObject>& Parent, const TCHAR* Key)
+    const TArray<TSharedPtr<FJsonValue>>* StoryArray(const TSharedPtr<FJsonObject>& Parent, const TCHAR* Key)
     {
         const TArray<TSharedPtr<FJsonValue>>* Result = nullptr;
         return Parent.IsValid() && Parent->TryGetArrayField(Key, Result) ? Result : nullptr;
@@ -70,11 +70,11 @@ void USPStoryCampaignComponent::EndPlay(const EEndPlayReason::Type EndPlayReason
 bool USPStoryCampaignComponent::InitializeCampaign(bool bLoadExisting)
 {
     FString Raw;
-    const TSharedPtr<FJsonObject> Root = ReadJson(FPaths::Combine(FPaths::ProjectDir(), TEXT("Data/StoryCampaign.json")), &Raw);
-    if (!Root.IsValid() || String(Root, TEXT("format")) != TEXT("storyworks-project") || Number(Root, TEXT("version")) != 1)
+    const TSharedPtr<FJsonObject> Root = StoryReadJson(FPaths::Combine(FPaths::ProjectDir(), TEXT("Data/StoryCampaign.json")), &Raw);
+    if (!Root.IsValid() || StoryString(Root, TEXT("format")) != TEXT("storyworks-project") || StoryNumber(Root, TEXT("version")) != 1)
         return false;
-    const TArray<TSharedPtr<FJsonValue>>* QuestValues = Array(Root, TEXT("quests"));
-    const TArray<TSharedPtr<FJsonValue>>* NodeValues = Array(Root, TEXT("nodes"));
+    const TArray<TSharedPtr<FJsonValue>>* QuestValues = StoryArray(Root, TEXT("quests"));
+    const TArray<TSharedPtr<FJsonValue>>* NodeValues = StoryArray(Root, TEXT("nodes"));
     if (!QuestValues || !NodeValues || QuestValues->Num() != 9 || NodeValues->Num() != 90) return false;
 
     TMap<FString, TSharedPtr<FJsonObject>> NewQuests;
@@ -83,8 +83,8 @@ bool USPStoryCampaignComponent::InitializeCampaign(bool bLoadExisting)
     for (const TSharedPtr<FJsonValue>& Value : *QuestValues)
     {
         const TSharedPtr<FJsonObject> Def = Value->AsObject();
-        const FString Id = String(Def, TEXT("id"));
-        if (Id.IsEmpty() || NewQuests.Contains(Id) || String(Def, TEXT("entry")).IsEmpty()) return false;
+        const FString Id = StoryString(Def, TEXT("id"));
+        if (Id.IsEmpty() || NewQuests.Contains(Id) || StoryString(Def, TEXT("entry")).IsEmpty()) return false;
         NewQuests.Add(Id, Def);
         NewOrder.Add(Id);
     }
@@ -93,67 +93,67 @@ bool USPStoryCampaignComponent::InitializeCampaign(bool bLoadExisting)
     for (const TSharedPtr<FJsonValue>& Value : *NodeValues)
     {
         const TSharedPtr<FJsonObject> Def = Value->AsObject();
-        const FString Id = String(Def, TEXT("id"));
-        const FString QuestId = String(Def, TEXT("questId"));
+        const FString Id = StoryString(Def, TEXT("id"));
+        const FString QuestId = StoryString(Def, TEXT("questId"));
         if (Id.IsEmpty() || NewNodes.Contains(Id) || !NewQuests.Contains(QuestId)) return false;
         NewNodes.Add(Id, Def);
-        ObjectiveCount += String(Def, TEXT("type")) == TEXT("objective") ? 1 : 0;
-        EndingCount += String(Def, TEXT("type")) == TEXT("end") ? 1 : 0;
+        ObjectiveCount += StoryString(Def, TEXT("type")) == TEXT("objective") ? 1 : 0;
+        EndingCount += StoryString(Def, TEXT("type")) == TEXT("end") ? 1 : 0;
     }
     if (ObjectiveCount != 27 || EndingCount != 18) return false;
     for (const TPair<FString, TSharedPtr<FJsonObject>>& Pair : NewQuests)
     {
-        const TSharedPtr<FJsonObject>* Entry = NewNodes.Find(String(Pair.Value, TEXT("entry")));
-        if (!Entry || String(*Entry, TEXT("questId")) != Pair.Key) return false;
-        if (const TSharedPtr<FJsonObject> Requires = Object(Pair.Value, TEXT("requires")))
+        const TSharedPtr<FJsonObject>* Entry = NewNodes.Find(StoryString(Pair.Value, TEXT("entry")));
+        if (!Entry || StoryString(*Entry, TEXT("questId")) != Pair.Key) return false;
+        if (const TSharedPtr<FJsonObject> Requires = StoryObject(Pair.Value, TEXT("requires")))
         {
-            const TArray<TSharedPtr<FJsonValue>>* Conditions = Array(Requires, TEXT("all"));
+            const TArray<TSharedPtr<FJsonValue>>* Conditions = StoryArray(Requires, TEXT("all"));
             if (!Conditions) return false;
             for (const TSharedPtr<FJsonValue>& Condition : *Conditions)
             {
                 const TSharedPtr<FJsonObject> Required = Condition->AsObject();
-                if (String(Required, TEXT("source")) != TEXT("quest") ||
-                    String(Required, TEXT("value")) != TEXT("completed") ||
-                    !NewQuests.Contains(String(Required, TEXT("key")))) return false;
+                if (StoryString(Required, TEXT("source")) != TEXT("quest") ||
+                    StoryString(Required, TEXT("value")) != TEXT("completed") ||
+                    !NewQuests.Contains(StoryString(Required, TEXT("key")))) return false;
             }
         }
     }
     for (const TPair<FString, TSharedPtr<FJsonObject>>& Pair : NewNodes)
     {
         const TSharedPtr<FJsonObject> Def = Pair.Value;
-        if (String(Def, TEXT("type")) == TEXT("end")) continue;
+        if (StoryString(Def, TEXT("type")) == TEXT("end")) continue;
         TArray<FString> Targets;
-        if (String(Def, TEXT("type")) == TEXT("dialogue"))
+        if (StoryString(Def, TEXT("type")) == TEXT("dialogue"))
         {
-            const TArray<TSharedPtr<FJsonValue>>* Choices = Array(Def, TEXT("choices"));
+            const TArray<TSharedPtr<FJsonValue>>* Choices = StoryArray(Def, TEXT("choices"));
             if (!Choices || Choices->IsEmpty()) return false;
-            for (const TSharedPtr<FJsonValue>& Choice : *Choices) Targets.Add(String(Choice->AsObject(), TEXT("next")));
+            for (const TSharedPtr<FJsonValue>& Choice : *Choices) Targets.Add(StoryString(Choice->AsObject(), TEXT("next")));
         }
-        else Targets.Add(String(Def, TEXT("next")));
+        else Targets.Add(StoryString(Def, TEXT("next")));
         for (const FString& TargetId : Targets)
         {
             const TSharedPtr<FJsonObject>* Target = NewNodes.Find(TargetId);
-            if (!Target || String(*Target, TEXT("questId")) != String(Def, TEXT("questId"))) return false;
+            if (!Target || StoryString(*Target, TEXT("questId")) != StoryString(Def, TEXT("questId"))) return false;
         }
     }
 
-    const TSharedPtr<FJsonObject> WorldsRoot = ReadJson(FPaths::Combine(FPaths::ProjectDir(), TEXT("Data/Worlds.json")));
-    const TArray<TSharedPtr<FJsonValue>>* WorldValues = Array(WorldsRoot, TEXT("worlds"));
+    const TSharedPtr<FJsonObject> WorldsRoot = StoryReadJson(FPaths::Combine(FPaths::ProjectDir(), TEXT("Data/Worlds.json")));
+    const TArray<TSharedPtr<FJsonValue>>* WorldValues = StoryArray(WorldsRoot, TEXT("worlds"));
     if (!WorldValues || WorldValues->Num() != 19) return false;
     TMap<FString, FString> NewWorlds;
     for (const TSharedPtr<FJsonValue>& Value : *WorldValues)
     {
         const TSharedPtr<FJsonObject> Def = Value->AsObject();
-        const FString WorldId = String(Def, TEXT("id"));
+        const FString WorldId = StoryString(Def, TEXT("id"));
         if (WorldId.IsEmpty()) return false;
         NewWorlds.Add(WorldId.ToLower(), WorldId);
-        NewWorlds.Add(String(Def, TEXT("name")).ToLower(), WorldId);
+        NewWorlds.Add(StoryString(Def, TEXT("name")).ToLower(), WorldId);
     }
     Quests = MoveTemp(NewQuests);
     Nodes = MoveTemp(NewNodes);
     QuestOrder = MoveTemp(NewOrder);
     WorldIdByName = MoveTemp(NewWorlds);
-    ProjectId = String(Root, TEXT("id"));
+    ProjectId = StoryString(Root, TEXT("id"));
     CatalogHash = FString::Printf(TEXT("%08x"), FCrc::StrCrc32(*Raw));
 
     USPSStoryCampaignSaveGame* Loaded = bLoadExisting ? Cast<USPSStoryCampaignSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlot, 0)) : nullptr;
@@ -187,7 +187,7 @@ bool USPStoryCampaignComponent::ValidateLoadedState(const USPSStoryCampaignSaveG
         if (Quest.Status != TEXT("available"))
         {
             const TSharedPtr<FJsonObject>* Node = Nodes.Find(Quest.NodeId);
-            if (!Node || String(*Node, TEXT("questId")) != Quest.Id) return false;
+            if (!Node || StoryString(*Node, TEXT("questId")) != Quest.Id) return false;
         }
     }
     TSet<FString> Rewards;
@@ -223,12 +223,12 @@ bool USPStoryCampaignComponent::IsUnlocked(const FString& QuestId) const
 {
     const TSharedPtr<FJsonObject>* Quest = Quests.Find(QuestId);
     if (!Quest) return false;
-    const TSharedPtr<FJsonObject> Requires = Object(*Quest, TEXT("requires"));
-    const TArray<TSharedPtr<FJsonValue>>* Conditions = Array(Requires, TEXT("all"));
+    const TSharedPtr<FJsonObject> Requires = StoryObject(*Quest, TEXT("requires"));
+    const TArray<TSharedPtr<FJsonValue>>* Conditions = StoryArray(Requires, TEXT("all"));
     if (!Conditions) return true;
     for (const TSharedPtr<FJsonValue>& Value : *Conditions)
     {
-        const FSPStoryQuestState* Dependency = FindQuestState(String(Value->AsObject(), TEXT("key")));
+        const FSPStoryQuestState* Dependency = FindQuestState(StoryString(Value->AsObject(), TEXT("key")));
         if (!Dependency || Dependency->Status != TEXT("completed")) return false;
     }
     return true;
@@ -241,7 +241,7 @@ TArray<FSPStoryQuestView> USPStoryCampaignComponent::GetQuestSummaries() const
     {
         FSPStoryQuestView View;
         View.Id = Id;
-        View.Title = String(Quests.FindRef(Id), TEXT("title"));
+        View.Title = StoryString(Quests.FindRef(Id), TEXT("title"));
         if (const FSPStoryQuestState* Quest = FindQuestState(Id))
         {
             View.Status = Quest->Status;
@@ -262,24 +262,24 @@ bool USPStoryCampaignComponent::GetCurrentNode(const FString& QuestId, FSPStoryN
     if (!Def) return false;
     OutNode.Id = Quest->NodeId;
     OutNode.QuestId = QuestId;
-    OutNode.Type = String(*Def, TEXT("type"));
-    OutNode.Title = String(*Def, TEXT("title"));
-    OutNode.Speaker = String(*Def, TEXT("speaker"));
-    OutNode.Text = String(*Def, TEXT("text"));
+    OutNode.Type = StoryString(*Def, TEXT("type"));
+    OutNode.Title = StoryString(*Def, TEXT("title"));
+    OutNode.Speaker = StoryString(*Def, TEXT("speaker"));
+    OutNode.Text = StoryString(*Def, TEXT("text"));
     OutNode.Progress = Quest->Progress;
-    OutNode.Goal = Number(*Def, TEXT("goal"), OutNode.Type == TEXT("objective") ? 1 : 0);
-    const TSharedPtr<FJsonObject> Location = Object(*Def, TEXT("location"));
-    OutNode.ObjectiveKind = String(Location, TEXT("kind"));
-    OutNode.WorldId = CanonicalWorldId(String(Location, TEXT("world")));
-    OutNode.Good = String(Location, TEXT("good"));
-    OutNode.Units = Number(Location, TEXT("units"));
-    if (const TArray<TSharedPtr<FJsonValue>>* Choices = Array(*Def, TEXT("choices")))
+    OutNode.Goal = StoryNumber(*Def, TEXT("goal"), OutNode.Type == TEXT("objective") ? 1 : 0);
+    const TSharedPtr<FJsonObject> Location = StoryObject(*Def, TEXT("location"));
+    OutNode.ObjectiveKind = StoryString(Location, TEXT("kind"));
+    OutNode.WorldId = CanonicalWorldId(StoryString(Location, TEXT("world")));
+    OutNode.Good = StoryString(Location, TEXT("good"));
+    OutNode.Units = StoryNumber(Location, TEXT("units"));
+    if (const TArray<TSharedPtr<FJsonValue>>* Choices = StoryArray(*Def, TEXT("choices")))
     {
         for (const TSharedPtr<FJsonValue>& Value : *Choices)
         {
             FSPStoryChoiceView Choice;
-            Choice.Id = String(Value->AsObject(), TEXT("id"));
-            Choice.Text = String(Value->AsObject(), TEXT("text"));
+            Choice.Id = StoryString(Value->AsObject(), TEXT("id"));
+            Choice.Text = StoryString(Value->AsObject(), TEXT("text"));
             OutNode.Choices.Add(MoveTemp(Choice));
         }
     }
@@ -302,7 +302,7 @@ bool USPStoryCampaignComponent::StartQuest(const FString& QuestId)
     const TSharedPtr<FJsonObject>* Def = Quests.Find(QuestId);
     if (!Quest || !Def || Quest->Status != TEXT("available") || !IsUnlocked(QuestId)) return false;
     Quest->Status = TEXT("active");
-    if (!EnterNode(QuestId, String(*Def, TEXT("entry")))) return false;
+    if (!EnterNode(QuestId, StoryString(*Def, TEXT("entry")))) return false;
     if (bAutoSave) SaveCampaign();
     return true;
 }
@@ -311,23 +311,23 @@ bool USPStoryCampaignComponent::Choose(const FString& QuestId, const FString& Ch
 {
     FSPStoryQuestState* Quest = FindQuestState(QuestId);
     const TSharedPtr<FJsonObject>* Def = Quest ? Nodes.Find(Quest->NodeId) : nullptr;
-    if (!Quest || Quest->Status != TEXT("active") || !Def || String(*Def, TEXT("type")) != TEXT("dialogue")) return false;
-    const TArray<TSharedPtr<FJsonValue>>* Choices = Array(*Def, TEXT("choices"));
+    if (!Quest || Quest->Status != TEXT("active") || !Def || StoryString(*Def, TEXT("type")) != TEXT("dialogue")) return false;
+    const TArray<TSharedPtr<FJsonValue>>* Choices = StoryArray(*Def, TEXT("choices"));
     if (!Choices) return false;
     for (const TSharedPtr<FJsonValue>& Value : *Choices)
     {
         const TSharedPtr<FJsonObject> Choice = Value->AsObject();
-        if (String(Choice, TEXT("id")) != ChoiceId) continue;
-        const FString Next = String(Choice, TEXT("next"));
+        if (StoryString(Choice, TEXT("id")) != ChoiceId) continue;
+        const FString Next = StoryString(Choice, TEXT("next"));
         if (!Nodes.Contains(Next)) return false;
-        if (const TArray<TSharedPtr<FJsonValue>>* Actions = Array(Choice, TEXT("actions")))
+        if (const TArray<TSharedPtr<FJsonValue>>* Actions = StoryArray(Choice, TEXT("actions")))
         {
             for (const TSharedPtr<FJsonValue>& ActionValue : *Actions)
             {
                 const TSharedPtr<FJsonObject> Action = ActionValue->AsObject();
-                if (String(Action, TEXT("type")) == TEXT("flag"))
+                if (StoryString(Action, TEXT("type")) == TEXT("flag"))
                 {
-                    const FString Flag = String(Action, TEXT("key"));
+                    const FString Flag = StoryString(Action, TEXT("key"));
                     if (!Flag.IsEmpty()) State->Flags.AddUnique(Flag);
                 }
             }
@@ -344,11 +344,11 @@ bool USPStoryCampaignComponent::MatchObjective(const FString& QuestId, const FSt
 {
     const FSPStoryQuestState* Quest = FindQuestState(QuestId);
     const TSharedPtr<FJsonObject>* Def = Quest ? Nodes.Find(Quest->NodeId) : nullptr;
-    if (!Quest || Quest->Status != TEXT("active") || !Def || String(*Def, TEXT("type")) != TEXT("objective") ||
-        String(*Def, TEXT("event")) != TEXT("gameplay.signal")) return false;
-    const TSharedPtr<FJsonObject> Match = Object(*Def, TEXT("match"));
-    return String(Match, TEXT("kind")) == Kind &&
-        CanonicalWorldId(String(Match, TEXT("world"))) == CanonicalWorldId(WorldId) &&
+    if (!Quest || Quest->Status != TEXT("active") || !Def || StoryString(*Def, TEXT("type")) != TEXT("objective") ||
+        StoryString(*Def, TEXT("event")) != TEXT("gameplay.signal")) return false;
+    const TSharedPtr<FJsonObject> Match = StoryObject(*Def, TEXT("match"));
+    return StoryString(Match, TEXT("kind")) == Kind &&
+        CanonicalWorldId(StoryString(Match, TEXT("world"))) == CanonicalWorldId(WorldId) &&
         !CanonicalWorldId(WorldId).IsEmpty();
 }
 
@@ -366,8 +366,8 @@ bool USPStoryCampaignComponent::SignalGameplay(const FString& Kind, const FStrin
         FSPStoryQuestState* Quest = FindQuestState(QuestId);
         const TSharedPtr<FJsonObject>* Def = Quest ? Nodes.Find(Quest->NodeId) : nullptr;
         if (!Quest || !Def) continue;
-        Quest->Progress = FMath::Min(Number(*Def, TEXT("goal"), 1), Quest->Progress + 1);
-        if (Quest->Progress >= Number(*Def, TEXT("goal"), 1)) EnterNode(QuestId, String(*Def, TEXT("next")));
+        Quest->Progress = FMath::Min(StoryNumber(*Def, TEXT("goal"), 1), Quest->Progress + 1);
+        if (Quest->Progress >= StoryNumber(*Def, TEXT("goal"), 1)) EnterNode(QuestId, StoryString(*Def, TEXT("next")));
     }
     if (bAutoSave) SaveCampaign();
     return true;
@@ -378,9 +378,9 @@ bool USPStoryCampaignComponent::DeliverObjective(const FString& QuestId, const F
     if (!bConfirmedAtPort || !State || !Society || !Society->State || !MatchObjective(QuestId, TEXT("delivery"), WorldId)) return false;
     FSPStoryQuestState* Quest = FindQuestState(QuestId);
     const TSharedPtr<FJsonObject>* Def = Quest ? Nodes.Find(Quest->NodeId) : nullptr;
-    const TSharedPtr<FJsonObject> Location = Def ? Object(*Def, TEXT("location")) : nullptr;
-    const FString Good = String(Location, TEXT("good"));
-    const int32 Units = Number(Location, TEXT("units"));
+    const TSharedPtr<FJsonObject> Location = Def ? StoryObject(*Def, TEXT("location")) : nullptr;
+    const FString Good = StoryString(Location, TEXT("good"));
+    const int32 Units = StoryNumber(Location, TEXT("units"));
     const FString CanonicalWorld = CanonicalWorldId(WorldId);
     if (Units <= 0 || Society->GetHoldCargo(Good) < Units) return false;
     FSPMarketRecord* Market = Society->State->Markets.FindByPredicate([&](const FSPMarketRecord& Item) { return Item.WorldId == CanonicalWorld; });
@@ -388,11 +388,11 @@ bool USPStoryCampaignComponent::DeliverObjective(const FString& QuestId, const F
         Good == TEXT("ore") ? &Society->State->HoldOre : Good == TEXT("crystal") ? &Society->State->HoldCrystal : nullptr;
     float* Stock = Market ? (Good == TEXT("organics") ? &Market->Organics :
         Good == TEXT("ore") ? &Market->Ore : Good == TEXT("crystal") ? &Market->Crystal : nullptr) : nullptr;
-    if (!Cargo || !Stock || !Nodes.Contains(String(*Def, TEXT("next")))) return false;
+    if (!Cargo || !Stock || !Nodes.Contains(StoryString(*Def, TEXT("next")))) return false;
     *Cargo -= Units;
     *Stock = FMath::Clamp(*Stock + Units, 0.0f, 2000.0f);
-    Quest->Progress = Number(*Def, TEXT("goal"), 1);
-    if (!EnterNode(QuestId, String(*Def, TEXT("next")))) return false;
+    Quest->Progress = StoryNumber(*Def, TEXT("goal"), 1);
+    if (!EnterNode(QuestId, StoryString(*Def, TEXT("next")))) return false;
     if (bAutoSave)
     {
         Society->SaveSociety();
@@ -405,12 +405,12 @@ bool USPStoryCampaignComponent::EnterNode(const FString& QuestId, const FString&
 {
     FSPStoryQuestState* Quest = FindQuestState(QuestId);
     const TSharedPtr<FJsonObject>* Node = Nodes.Find(NodeId);
-    if (!Quest || Quest->Status != TEXT("active") || !Node || String(*Node, TEXT("questId")) != QuestId) return false;
+    if (!Quest || Quest->Status != TEXT("active") || !Node || StoryString(*Node, TEXT("questId")) != QuestId) return false;
     Quest->NodeId = NodeId;
     Quest->Progress = 0;
     // A reward may persist both save slots while this node is entered. Keep the saved
     // quest status terminal as well, so a restart never strands a paid ending as active.
-    if (String(*Node, TEXT("type")) == TEXT("end")) Quest->Status = String(*Node, TEXT("result"));
+    if (StoryString(*Node, TEXT("type")) == TEXT("end")) Quest->Status = StoryString(*Node, TEXT("result"));
     ApplyNodeActions(QuestId, NodeId, *Node);
     FSPStoryNodeView View;
     if (GetCurrentNode(QuestId, View)) OnNodeChanged.Broadcast(View);
@@ -419,34 +419,34 @@ bool USPStoryCampaignComponent::EnterNode(const FString& QuestId, const FString&
 
 void USPStoryCampaignComponent::ApplyNodeActions(const FString& QuestId, const FString& NodeId, const TSharedPtr<FJsonObject>& Node)
 {
-    const TArray<TSharedPtr<FJsonValue>>* Actions = Array(Node, TEXT("actions"));
+    const TArray<TSharedPtr<FJsonValue>>* Actions = StoryArray(Node, TEXT("actions"));
     if (!State || !Actions) return;
     for (const TSharedPtr<FJsonValue>& Value : *Actions)
     {
         const TSharedPtr<FJsonObject> Action = Value->AsObject();
-        if (String(Action, TEXT("type")) == TEXT("journal"))
+        if (StoryString(Action, TEXT("type")) == TEXT("journal"))
         {
             FSPStoryJournalEntry Entry;
             Entry.QuestId = QuestId;
             Entry.NodeId = NodeId;
-            Entry.Text = String(Action, TEXT("text"));
+            Entry.Text = StoryString(Action, TEXT("text"));
             Entry.Sequence = ++State->Sequence;
             State->Journal.Add(MoveTemp(Entry));
             if (State->Journal.Num() > 2000) State->Journal.RemoveAt(0);
         }
-        else if (String(Action, TEXT("type")) == TEXT("command") && String(Action, TEXT("command")) == TEXT("campaign.reward"))
+        else if (StoryString(Action, TEXT("type")) == TEXT("command") && StoryString(Action, TEXT("command")) == TEXT("campaign.reward"))
         {
             if (State->Rewards.ContainsByPredicate([&](const FSPStoryReward& Reward) { return Reward.QuestId == QuestId; })) continue;
-            const TSharedPtr<FJsonObject> Payload = Object(Action, TEXT("payload"));
-            const TSharedPtr<FJsonObject> Market = Object(Payload, TEXT("market"));
+            const TSharedPtr<FJsonObject> Payload = StoryObject(Action, TEXT("payload"));
+            const TSharedPtr<FJsonObject> Market = StoryObject(Payload, TEXT("market"));
             FSPStoryReward Reward;
-            Reward.QuestId = String(Payload, TEXT("key"));
-            Reward.FactionId = String(Payload, TEXT("faction"));
-            Reward.Standing = Number(Payload, TEXT("standing"));
-            Reward.Credits = Number(Payload, TEXT("credits"));
-            Reward.WorldId = CanonicalWorldId(String(Market, TEXT("world")));
-            Reward.Good = String(Market, TEXT("good"));
-            Reward.Stock = Number(Market, TEXT("stock"));
+            Reward.QuestId = StoryString(Payload, TEXT("key"));
+            Reward.FactionId = StoryString(Payload, TEXT("faction"));
+            Reward.Standing = StoryNumber(Payload, TEXT("standing"));
+            Reward.Credits = StoryNumber(Payload, TEXT("credits"));
+            Reward.WorldId = CanonicalWorldId(StoryString(Market, TEXT("world")));
+            Reward.Good = StoryString(Market, TEXT("good"));
+            Reward.Stock = StoryNumber(Market, TEXT("stock"));
             if (Reward.QuestId != QuestId || Reward.WorldId.IsEmpty()) continue;
             State->Rewards.Add(Reward);
             ApplyPendingRewards();

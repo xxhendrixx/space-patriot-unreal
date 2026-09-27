@@ -15,7 +15,7 @@
 namespace
 {
     constexpr float PlanetRadiusMeters = 18000.0f;
-    constexpr float UnitsPerMeter = 100.0f;
+    constexpr float WorldSurfaceUnitsPerMeter = 100.0f;
     constexpr float LocalRegionMeters = 3000.0f;
 
     // This is PlanetEngineSurface.ToSourceNormal with Unity (X,Y-up,Z) mapped
@@ -283,7 +283,7 @@ bool ASPWorldSurface::ActivateWorld(const FString& NewWorldId)
 
 FVector ASPWorldSurface::GetPlanetCenterLocal() const
 {
-    return FVector(0.0, 0.0, -(PlanetRadiusMeters + 3.0f) * UnitsPerMeter);
+    return FVector(0.0, 0.0, -(PlanetRadiusMeters + 3.0f) * WorldSurfaceUnitsPerMeter);
 }
 
 FVector ASPWorldSurface::GetRadialAtLocal(const FVector& LocalPoint) const
@@ -336,9 +336,9 @@ float ASPWorldSurface::SurfaceHeightMeters(const FVector& Radial) const
 {
     const float Globe = GlobeHeightMeters(Radial);
     if (TerrainField.Width == 0 || Radial.Z < 0.985f) return Globe;
-    const FVector Nominal = GetPlanetCenterLocal() + Radial * PlanetRadiusMeters * UnitsPerMeter;
-    const float X = static_cast<float>(Nominal.X / UnitsPerMeter);
-    const float Y = static_cast<float>(Nominal.Y / UnitsPerMeter);
+    const FVector Nominal = GetPlanetCenterLocal() + Radial * PlanetRadiusMeters * WorldSurfaceUnitsPerMeter;
+    const float X = static_cast<float>(Nominal.X / WorldSurfaceUnitsPerMeter);
+    const float Y = static_cast<float>(Nominal.Y / WorldSurfaceUnitsPerMeter);
     const float Radius = FMath::Sqrt(X * X + Y * Y);
     if (Radius >= LocalRegionMeters) return Globe;
     const float GridX = (X / TerrainField.SizeMeters + 0.5f) * (TerrainField.Width - 1);
@@ -358,9 +358,9 @@ FVector4f ASPWorldSurface::ClimateChannels(const FVector& Radial) const
     FVector4f Result = ClimateField.SampleClimate(Radial);
     if (TerrainField.Width > 0 && Radial.Z > 0.985f)
     {
-        const FVector Nominal = GetPlanetCenterLocal() + Radial * PlanetRadiusMeters * UnitsPerMeter;
-        const float X = static_cast<float>(Nominal.X / UnitsPerMeter);
-        const float Y = static_cast<float>(Nominal.Y / UnitsPerMeter);
+        const FVector Nominal = GetPlanetCenterLocal() + Radial * PlanetRadiusMeters * WorldSurfaceUnitsPerMeter;
+        const float X = static_cast<float>(Nominal.X / WorldSurfaceUnitsPerMeter);
+        const float Y = static_cast<float>(Nominal.Y / WorldSurfaceUnitsPerMeter);
         const float Radius = FMath::Sqrt(X * X + Y * Y);
         if (Radius < LocalRegionMeters)
         {
@@ -419,7 +419,7 @@ void ASPWorldSurface::BuildPlanetMesh()
             const float Phi = 2.0f * PI * Column / Longitudes;
             const FVector Radial(FMath::Sin(Theta) * FMath::Cos(Phi), FMath::Sin(Theta) * FMath::Sin(Phi), FMath::Cos(Theta));
             const float Height = SurfaceHeightMeters(Radial);
-            Vertices.Add(GetPlanetCenterLocal() + Radial * (PlanetRadiusMeters + Height) * UnitsPerMeter);
+            Vertices.Add(GetPlanetCenterLocal() + Radial * (PlanetRadiusMeters + Height) * WorldSurfaceUnitsPerMeter);
             UV.Add(FVector2D(static_cast<float>(Column) / Longitudes, static_cast<float>(Row) / Latitudes));
             Colors.Add(SurfaceColor(Radial, Height));
         }
@@ -452,7 +452,7 @@ void ASPWorldSurface::UpdateDetailMesh(bool bForce)
     }
     const FVector Focus = GetFocusLocal();
     const FVector Radial = GetRadialAtLocal(Focus);
-    LastFocusAltitudeMeters = static_cast<float>((Focus - GetPlanetCenterLocal()).Length() / UnitsPerMeter) - PlanetRadiusMeters - SurfaceHeightMeters(Radial);
+    LastFocusAltitudeMeters = static_cast<float>((Focus - GetPlanetCenterLocal()).Length() / WorldSurfaceUnitsPerMeter) - PlanetRadiusMeters - SurfaceHeightMeters(Radial);
     if (LastFocusAltitudeMeters > MaxDetailAltitudeMeters)
     {
         DetailMesh->SetVisibility(false);
@@ -460,7 +460,7 @@ void ASPWorldSurface::UpdateDetailMesh(bool bForce)
     }
     const int32 NewLOD = LastFocusAltitudeMeters < 40.0f ? 0 : (LastFocusAltitudeMeters < 400.0f ? 1 : 2);
     const float RecenterMeters = NewLOD == 0 ? 120.0f : 700.0f;
-    if (!bForce && NewLOD == DetailLOD && FVector::Dist(Focus, DetailAnchor) < RecenterMeters * UnitsPerMeter)
+    if (!bForce && NewLOD == DetailLOD && FVector::Dist(Focus, DetailAnchor) < RecenterMeters * WorldSurfaceUnitsPerMeter)
     {
         DetailMesh->SetVisibility(true);
         return;
@@ -489,14 +489,14 @@ void ASPWorldSurface::BuildDetailMesh(const FVector& FocusLocal, int32 Segments)
     for (int32 Y = 0; Y <= Segments; ++Y)
     {
         const float TY = (2.0f * Y / Segments) - 1.0f;
-        const float SpreadY = FMath::Sign(TY) * FMath::Pow(FMath::Abs(TY), 2.1f) * PatchHalfSizeMeters * UnitsPerMeter;
+        const float SpreadY = FMath::Sign(TY) * FMath::Pow(FMath::Abs(TY), 2.1f) * PatchHalfSizeMeters * WorldSurfaceUnitsPerMeter;
         for (int32 X = 0; X <= Segments; ++X)
         {
             const float TX = (2.0f * X / Segments) - 1.0f;
-            const float SpreadX = FMath::Sign(TX) * FMath::Pow(FMath::Abs(TX), 2.1f) * PatchHalfSizeMeters * UnitsPerMeter;
-            const FVector PointRadial = (Radial * PlanetRadiusMeters * UnitsPerMeter + East * SpreadX + North * SpreadY).GetSafeNormal();
+            const float SpreadX = FMath::Sign(TX) * FMath::Pow(FMath::Abs(TX), 2.1f) * PatchHalfSizeMeters * WorldSurfaceUnitsPerMeter;
+            const FVector PointRadial = (Radial * PlanetRadiusMeters * WorldSurfaceUnitsPerMeter + East * SpreadX + North * SpreadY).GetSafeNormal();
             const float Height = SurfaceHeightMeters(PointRadial);
-            Vertices.Add(GetPlanetCenterLocal() + PointRadial * ((PlanetRadiusMeters + Height) * UnitsPerMeter + 3.5f));
+            Vertices.Add(GetPlanetCenterLocal() + PointRadial * ((PlanetRadiusMeters + Height) * WorldSurfaceUnitsPerMeter + 3.5f));
             UV.Add(FVector2D(static_cast<float>(X) / Segments, static_cast<float>(Y) / Segments));
             Colors.Add(SurfaceColor(PointRadial, Height));
         }
@@ -532,8 +532,8 @@ FSPWorldSurfaceSample ASPWorldSurface::SampleAtWorldLocation(FVector WorldLocati
     Result.Rock = Climate.Z;
     Result.Forest = Climate.W;
     Result.Color = SurfaceColor(Radial, Result.ElevationMeters);
-    const FVector Nominal = GetPlanetCenterLocal() + Radial * PlanetRadiusMeters * UnitsPerMeter;
+    const FVector Nominal = GetPlanetCenterLocal() + Radial * PlanetRadiusMeters * WorldSurfaceUnitsPerMeter;
     Result.bSourceTerrainField = TerrainField.Width > 0 && Radial.Z > 0.985f &&
-        FVector2D(Nominal.X, Nominal.Y).Length() < LocalRegionMeters * UnitsPerMeter;
+        FVector2D(Nominal.X, Nominal.Y).Length() < LocalRegionMeters * WorldSurfaceUnitsPerMeter;
     return Result;
 }
