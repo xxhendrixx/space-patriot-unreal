@@ -60,7 +60,7 @@ namespace
     {
         if (Phase == TEXT("arrival")) return TEXT("Reach the survey site on foot");
         if (Phase == TEXT("scan")) return TEXT("Scan the environment \u00b7 B");
-        if (Phase == TEXT("sample")) return TEXT("Collect a field sample \u00b7 Shift+B");
+        if (Phase == TEXT("sample")) return TEXT("Collect a field sample \u00b7 Y or Shift+B");
         if (Phase == TEXT("complete")) return TEXT("Field survey complete");
         return FString();
     }

@@ -96,11 +96,12 @@ void ASPPlayLoopDirector::BindPlayerInput()
     InputComponent->BindKey(EKeys::O, IE_Pressed, this, &ASPPlayLoopDirector::OnLoadJourney).bConsumeInput = false;
     InputComponent->BindKey(EKeys::U, IE_Pressed, this, &ASPPlayLoopDirector::OnSkipTime).bConsumeInput = false;
     // A shifted chord masks the plain B binding in Unreal's input stack.
-    // Explicit bindings also work in PIE, where modifier polling in a B
-    // callback does not reliably report Shift as held.
+    // Y is also a single-key sample action: fast synthetic and accessibility
+    // key presses may release Shift before the next input frame is processed.
     InputComponent->BindKey(EKeys::B, IE_Pressed, this, &ASPPlayLoopDirector::OnScanPressed).bConsumeInput = false;
     InputComponent->BindKey(FInputChord(EKeys::B, true, false, false, false), IE_Pressed,
         this, &ASPPlayLoopDirector::OnSamplePressed).bConsumeInput = false;
+    InputComponent->BindKey(EKeys::Y, IE_Pressed, this, &ASPPlayLoopDirector::OnSamplePressed).bConsumeInput = false;
     bInputBound = true;
 }
 

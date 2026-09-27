@@ -63,7 +63,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Play Loop") bool TryBoard();
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Play Loop") bool TryDisembark();
     UFUNCTION(BlueprintPure, Category="Space Patriot|Play Loop") bool IsPiloting() const;
-    /** B scans local terrain/wildlife; Shift+B collects one report sample when the survey asks for it. */
+    /** B scans local terrain/wildlife; Y or Shift+B collects one report sample. */
     UFUNCTION(BlueprintCallable, Category="Space Patriot|Field Survey") bool TrySurveyAction(bool bCollectSample);
 
 private:
