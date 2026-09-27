@@ -1,0 +1,3364 @@
+{
+  "settlements": [
+    {
+      "id": "mercury:city:0",
+      "world": "mercury",
+      "name": "New Alexandria",
+      "kind": "city",
+      "primary": true,
+      "seed": 1174044037
+    },
+    {
+      "id": "mercury:city:1",
+      "world": "mercury",
+      "name": "New Kyoto",
+      "kind": "city",
+      "primary": false,
+      "seed": 1174091870
+    },
+    {
+      "id": "mercury:city:2",
+      "world": "mercury",
+      "name": "New Havana",
+      "kind": "city",
+      "primary": false,
+      "seed": 1173943859
+    },
+    {
+      "id": "mercury:city:3",
+      "world": "mercury",
+      "name": "New Dakar",
+      "kind": "city",
+      "primary": false,
+      "seed": 1173990420
+    },
+    {
+      "id": "mercury:city:4",
+      "world": "mercury",
+      "name": "Solace Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1174366953
+    },
+    {
+      "id": "mercury:city:5",
+      "world": "mercury",
+      "name": "Emberwatch City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1174151362
+    },
+    {
+      "id": "mercury:city:6",
+      "world": "mercury",
+      "name": "Glasshaven Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1174265511
+    },
+    {
+      "id": "mercury:city:7",
+      "world": "mercury",
+      "name": "Greywater Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1173525880
+    },
+    {
+      "id": "mercury:outpost:0",
+      "world": "mercury",
+      "name": "New Alexandria Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1174044147
+    },
+    {
+      "id": "mercury:outpost:1",
+      "world": "mercury",
+      "name": "Asterfall Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1174026000
+    },
+    {
+      "id": "mercury:outpost:2",
+      "world": "mercury",
+      "name": "Kestrel Reach Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1174071349
+    },
+    {
+      "id": "mercury:outpost:3",
+      "world": "mercury",
+      "name": "New Dakar Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1174052186
+    },
+    {
+      "id": "mercury:outpost:4",
+      "world": "mercury",
+      "name": "Solace Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1174099583
+    },
+    {
+      "id": "mercury:outpost:5",
+      "world": "mercury",
+      "name": "Emberwatch Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1174080412
+    },
+    {
+      "id": "mercury:outpost:6",
+      "world": "mercury",
+      "name": "New Lisbon Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1174125729
+    },
+    {
+      "id": "mercury:outpost:7",
+      "world": "mercury",
+      "name": "Greywater Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1173909958
+    },
+    {
+      "id": "mercury:outpost:8",
+      "world": "mercury",
+      "name": "Nacre Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1173891819
+    },
+    {
+      "id": "mercury:outpost:9",
+      "world": "mercury",
+      "name": "New Valencia Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1173937160
+    },
+    {
+      "id": "mercury:outpost:10",
+      "world": "mercury",
+      "name": "Velorum Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1173917997
+    },
+    {
+      "id": "mercury:outpost:11",
+      "world": "mercury",
+      "name": "Farpoint Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1173965362
+    },
+    {
+      "id": "venus:city:0",
+      "world": "venus",
+      "name": "New Dakar",
+      "kind": "city",
+      "primary": true,
+      "seed": 1732359244
+    },
+    {
+      "id": "venus:city:1",
+      "world": "venus",
+      "name": "New Oslo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1732309399
+    },
+    {
+      "id": "venus:city:2",
+      "world": "venus",
+      "name": "New Perth",
+      "kind": "city",
+      "primary": false,
+      "seed": 1732460538
+    },
+    {
+      "id": "venus:city:3",
+      "world": "venus",
+      "name": "New Lisbon",
+      "kind": "city",
+      "primary": false,
+      "seed": 1732404701
+    },
+    {
+      "id": "venus:city:4",
+      "world": "venus",
+      "name": "Farpoint Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1732551456
+    },
+    {
+      "id": "venus:city:5",
+      "world": "venus",
+      "name": "Halcyon City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1732765963
+    },
+    {
+      "id": "venus:city:6",
+      "world": "venus",
+      "name": "Tern Crossing Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1732646766
+    },
+    {
+      "id": "venus:city:7",
+      "world": "venus",
+      "name": "Juniper Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1732861105
+    },
+    {
+      "id": "venus:outpost:0",
+      "world": "venus",
+      "name": "New Kyoto Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732359226
+    },
+    {
+      "id": "venus:outpost:1",
+      "world": "venus",
+      "name": "Halcyon Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732378329
+    },
+    {
+      "id": "venus:outpost:2",
+      "world": "venus",
+      "name": "Tern Crossing Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732321788
+    },
+    {
+      "id": "venus:outpost:3",
+      "world": "venus",
+      "name": "New Oslo Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732334739
+    },
+    {
+      "id": "venus:outpost:4",
+      "world": "venus",
+      "name": "Dawnmere Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732288438
+    },
+    {
+      "id": "venus:outpost:5",
+      "world": "venus",
+      "name": "Sable Rock Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732297301
+    },
+    {
+      "id": "venus:outpost:6",
+      "world": "venus",
+      "name": "New Accra Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732277608
+    },
+    {
+      "id": "venus:outpost:7",
+      "world": "venus",
+      "name": "Lumen Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732491279
+    },
+    {
+      "id": "venus:outpost:8",
+      "world": "venus",
+      "name": "Orison Vale Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732502306
+    },
+    {
+      "id": "venus:outpost:9",
+      "world": "venus",
+      "name": "New Sapporo Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732449729
+    },
+    {
+      "id": "venus:outpost:10",
+      "world": "venus",
+      "name": "Boreal Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732466916
+    },
+    {
+      "id": "venus:outpost:11",
+      "world": "venus",
+      "name": "Ilex Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1732412411
+    },
+    {
+      "id": "earth:city:0",
+      "world": "earth",
+      "name": "New York",
+      "kind": "city",
+      "primary": true,
+      "seed": 1270752749
+    },
+    {
+      "id": "earth:city:1",
+      "world": "earth",
+      "name": "London",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270833206
+    },
+    {
+      "id": "earth:city:2",
+      "world": "earth",
+      "name": "Tokyo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270656603
+    },
+    {
+      "id": "earth:city:3",
+      "world": "earth",
+      "name": "Singapore",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270740092
+    },
+    {
+      "id": "earth:city:4",
+      "world": "earth",
+      "name": "Sydney",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270559361
+    },
+    {
+      "id": "earth:city:5",
+      "world": "earth",
+      "name": "Cape Town",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270380714
+    },
+    {
+      "id": "earth:city:6",
+      "world": "earth",
+      "name": "Cairo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270449871
+    },
+    {
+      "id": "earth:city:7",
+      "world": "earth",
+      "name": "Nairobi",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270271248
+    },
+    {
+      "id": "earth:city:8",
+      "world": "earth",
+      "name": "Lagos",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270090549
+    },
+    {
+      "id": "earth:city:9",
+      "world": "earth",
+      "name": "Accra",
+      "kind": "city",
+      "primary": false,
+      "seed": 1270174046
+    },
+    {
+      "id": "earth:city:10",
+      "world": "earth",
+      "name": "Paris",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269997411
+    },
+    {
+      "id": "earth:city:11",
+      "world": "earth",
+      "name": "Berlin",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269835140
+    },
+    {
+      "id": "earth:city:12",
+      "world": "earth",
+      "name": "Rome",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269916585
+    },
+    {
+      "id": "earth:city:13",
+      "world": "earth",
+      "name": "Madrid",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269737970
+    },
+    {
+      "id": "earth:city:14",
+      "world": "earth",
+      "name": "Lisbon",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269822487
+    },
+    {
+      "id": "earth:city:15",
+      "world": "earth",
+      "name": "Athens",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269641784
+    },
+    {
+      "id": "earth:city:16",
+      "world": "earth",
+      "name": "Istanbul",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269463133
+    },
+    {
+      "id": "earth:city:17",
+      "world": "earth",
+      "name": "Mumbai",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269532262
+    },
+    {
+      "id": "earth:city:18",
+      "world": "earth",
+      "name": "Delhi",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269353611
+    },
+    {
+      "id": "earth:city:19",
+      "world": "earth",
+      "name": "Bangkok",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269172908
+    },
+    {
+      "id": "earth:city:20",
+      "world": "earth",
+      "name": "Seoul",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269256433
+    },
+    {
+      "id": "earth:city:21",
+      "world": "earth",
+      "name": "Shanghai",
+      "kind": "city",
+      "primary": false,
+      "seed": 1269079834
+    },
+    {
+      "id": "earth:city:22",
+      "world": "earth",
+      "name": "Beijing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268917567
+    },
+    {
+      "id": "earth:city:23",
+      "world": "earth",
+      "name": "Jakarta",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268998976
+    },
+    {
+      "id": "earth:city:24",
+      "world": "earth",
+      "name": "Manila",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268820325
+    },
+    {
+      "id": "earth:city:25",
+      "world": "earth",
+      "name": "Hanoi",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268905870
+    },
+    {
+      "id": "earth:city:26",
+      "world": "earth",
+      "name": "Melbourne",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268727251
+    },
+    {
+      "id": "earth:city:27",
+      "world": "earth",
+      "name": "Auckland",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268546548
+    },
+    {
+      "id": "earth:city:28",
+      "world": "earth",
+      "name": "Honolulu",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268614681
+    },
+    {
+      "id": "earth:city:29",
+      "world": "earth",
+      "name": "Vancouver",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268436002
+    },
+    {
+      "id": "earth:city:30",
+      "world": "earth",
+      "name": "Toronto",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268255303
+    },
+    {
+      "id": "earth:city:31",
+      "world": "earth",
+      "name": "Montreal",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268338792
+    },
+    {
+      "id": "earth:city:32",
+      "world": "earth",
+      "name": "Chicago",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268162189
+    },
+    {
+      "id": "earth:city:33",
+      "world": "earth",
+      "name": "Los Angeles",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267999958
+    },
+    {
+      "id": "earth:city:34",
+      "world": "earth",
+      "name": "San Francisco",
+      "kind": "city",
+      "primary": false,
+      "seed": 1268081403
+    },
+    {
+      "id": "earth:city:35",
+      "world": "earth",
+      "name": "Mexico City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267902748
+    },
+    {
+      "id": "earth:city:36",
+      "world": "earth",
+      "name": "Bogotá",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267988257
+    },
+    {
+      "id": "earth:city:37",
+      "world": "earth",
+      "name": "Lima",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267809610
+    },
+    {
+      "id": "earth:city:38",
+      "world": "earth",
+      "name": "Santiago",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267628911
+    },
+    {
+      "id": "earth:city:39",
+      "world": "earth",
+      "name": "Buenos Aires",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267696048
+    },
+    {
+      "id": "earth:city:40",
+      "world": "earth",
+      "name": "São Paulo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267519445
+    },
+    {
+      "id": "earth:city:41",
+      "world": "earth",
+      "name": "Rio de Janeiro",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267340798
+    },
+    {
+      "id": "earth:city:42",
+      "world": "earth",
+      "name": "Reykjavík",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267421187
+    },
+    {
+      "id": "earth:city:43",
+      "world": "earth",
+      "name": "Helsinki",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267244580
+    },
+    {
+      "id": "earth:city:44",
+      "world": "earth",
+      "name": "Stockholm",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267082313
+    },
+    {
+      "id": "earth:city:45",
+      "world": "earth",
+      "name": "Oslo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267163794
+    },
+    {
+      "id": "earth:city:46",
+      "world": "earth",
+      "name": "Warsaw",
+      "kind": "city",
+      "primary": false,
+      "seed": 1266985143
+    },
+    {
+      "id": "earth:city:47",
+      "world": "earth",
+      "name": "Prague",
+      "kind": "city",
+      "primary": false,
+      "seed": 1267070680
+    },
+    {
+      "id": "earth:outpost:0",
+      "world": "earth",
+      "name": "New Havana Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270752667
+    },
+    {
+      "id": "earth:outpost:1",
+      "world": "earth",
+      "name": "Tamar Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270771576
+    },
+    {
+      "id": "earth:outpost:2",
+      "world": "earth",
+      "name": "Vesper Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270788189
+    },
+    {
+      "id": "earth:outpost:3",
+      "world": "earth",
+      "name": "New Perth Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270793522
+    },
+    {
+      "id": "earth:outpost:4",
+      "world": "earth",
+      "name": "Kestrel Reach Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270812183
+    },
+    {
+      "id": "earth:outpost:5",
+      "world": "earth",
+      "name": "Morrowgate Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270830068
+    },
+    {
+      "id": "earth:outpost:6",
+      "world": "earth",
+      "name": "New Jaipur Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270867145
+    },
+    {
+      "id": "earth:outpost:7",
+      "world": "earth",
+      "name": "Emberwatch Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270622638
+    },
+    {
+      "id": "earth:outpost:8",
+      "world": "earth",
+      "name": "Glasshaven Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270641283
+    },
+    {
+      "id": "earth:outpost:9",
+      "world": "earth",
+      "name": "New Mombasa Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270645856
+    },
+    {
+      "id": "earth:outpost:10",
+      "world": "earth",
+      "name": "Nacre Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270663493
+    },
+    {
+      "id": "earth:outpost:11",
+      "world": "earth",
+      "name": "Cinderbank Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1270682202
+    },
+    {
+      "id": "mars:city:0",
+      "world": "mars",
+      "name": "New Valencia",
+      "kind": "city",
+      "primary": true,
+      "seed": 1631129815
+    },
+    {
+      "id": "mars:city:1",
+      "world": "mars",
+      "name": "New Sapporo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1631081740
+    },
+    {
+      "id": "mars:city:2",
+      "world": "mars",
+      "name": "New Mombasa",
+      "kind": "city",
+      "primary": false,
+      "seed": 1631296353
+    },
+    {
+      "id": "mars:city:3",
+      "world": "mars",
+      "name": "New Alexandria",
+      "kind": "city",
+      "primary": false,
+      "seed": 1631240518
+    },
+    {
+      "id": "mars:city:4",
+      "world": "mars",
+      "name": "Asterfall Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1631324091
+    },
+    {
+      "id": "mars:city:5",
+      "world": "mars",
+      "name": "Kestrel Reach City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1631538576
+    },
+    {
+      "id": "mars:city:6",
+      "world": "mars",
+      "name": "Morrowgate Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1631499253
+    },
+    {
+      "id": "mars:city:7",
+      "world": "mars",
+      "name": "Solace Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1630664746
+    },
+    {
+      "id": "mars:outpost:0",
+      "world": "mars",
+      "name": "New Dakar Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631129761
+    },
+    {
+      "id": "mars:outpost:1",
+      "world": "mars",
+      "name": "Velorum Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631148610
+    },
+    {
+      "id": "mars:outpost:2",
+      "world": "mars",
+      "name": "Farpoint Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631159655
+    },
+    {
+      "id": "mars:outpost:3",
+      "world": "mars",
+      "name": "New Lisbon Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631186952
+    },
+    {
+      "id": "mars:outpost:4",
+      "world": "mars",
+      "name": "Tern Crossing Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631075117
+    },
+    {
+      "id": "mars:outpost:5",
+      "world": "mars",
+      "name": "Juniper Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631086286
+    },
+    {
+      "id": "mars:outpost:6",
+      "world": "mars",
+      "name": "New Valencia Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631113715
+    },
+    {
+      "id": "mars:outpost:7",
+      "world": "mars",
+      "name": "Sable Rock Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631263892
+    },
+    {
+      "id": "mars:outpost:8",
+      "world": "mars",
+      "name": "Meridian Rest Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631274937
+    },
+    {
+      "id": "mars:outpost:9",
+      "world": "mars",
+      "name": "New Alexandria Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631301978
+    },
+    {
+      "id": "mars:outpost:10",
+      "world": "mars",
+      "name": "Orison Vale Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631321215
+    },
+    {
+      "id": "mars:outpost:11",
+      "world": "mars",
+      "name": "Pelagic Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1631201120
+    },
+    {
+      "id": "jupiter:city:0",
+      "world": "jupiter",
+      "name": "New Alexandria Cloud City",
+      "kind": "city",
+      "primary": true,
+      "seed": 296910089
+    },
+    {
+      "id": "jupiter:city:1",
+      "world": "jupiter",
+      "name": "New Kyoto Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 296958162
+    },
+    {
+      "id": "jupiter:city:2",
+      "world": "jupiter",
+      "name": "New Havana Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 296810175
+    },
+    {
+      "id": "jupiter:city:3",
+      "world": "jupiter",
+      "name": "New Dakar Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 296856728
+    },
+    {
+      "id": "jupiter:city:4",
+      "world": "jupiter",
+      "name": "Nacre Haven Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 297232997
+    },
+    {
+      "id": "jupiter:city:5",
+      "world": "jupiter",
+      "name": "Cinderbank City Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 297017422
+    },
+    {
+      "id": "jupiter:city:6",
+      "world": "jupiter",
+      "name": "Velorum Crossing Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 297131563
+    },
+    {
+      "id": "jupiter:city:7",
+      "world": "jupiter",
+      "name": "Farpoint Port Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 297440756
+    },
+    {
+      "id": "jupiter:outpost:0",
+      "world": "jupiter",
+      "name": "New Oslo Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296910207
+    },
+    {
+      "id": "jupiter:outpost:1",
+      "world": "jupiter",
+      "name": "Boreal Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296892316
+    },
+    {
+      "id": "jupiter:outpost:2",
+      "world": "jupiter",
+      "name": "Ilex Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296937657
+    },
+    {
+      "id": "jupiter:outpost:3",
+      "world": "jupiter",
+      "name": "New Accra Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296918486
+    },
+    {
+      "id": "jupiter:outpost:4",
+      "world": "jupiter",
+      "name": "Vesper Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296965875
+    },
+    {
+      "id": "jupiter:outpost:5",
+      "world": "jupiter",
+      "name": "Asterfall Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296946448
+    },
+    {
+      "id": "jupiter:outpost:6",
+      "world": "jupiter",
+      "name": "New Sapporo Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296991789
+    },
+    {
+      "id": "jupiter:outpost:7",
+      "world": "jupiter",
+      "name": "Morrowgate Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296776010
+    },
+    {
+      "id": "jupiter:outpost:8",
+      "world": "jupiter",
+      "name": "Solace Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296757863
+    },
+    {
+      "id": "jupiter:outpost:9",
+      "world": "jupiter",
+      "name": "New Kyoto Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296803460
+    },
+    {
+      "id": "jupiter:outpost:10",
+      "world": "jupiter",
+      "name": "Glasshaven Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296784289
+    },
+    {
+      "id": "jupiter:outpost:11",
+      "world": "jupiter",
+      "name": "Greywater Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 296831678
+    },
+    {
+      "id": "saturn:city:0",
+      "world": "saturn",
+      "name": "New Dakar Cloud City",
+      "kind": "city",
+      "primary": true,
+      "seed": 872456640
+    },
+    {
+      "id": "saturn:city:1",
+      "world": "saturn",
+      "name": "New Oslo Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 872539163
+    },
+    {
+      "id": "saturn:city:2",
+      "world": "saturn",
+      "name": "New Perth Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 872557174
+    },
+    {
+      "id": "saturn:city:3",
+      "world": "saturn",
+      "name": "New Lisbon Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 872640593
+    },
+    {
+      "id": "saturn:city:4",
+      "world": "saturn",
+      "name": "Dawnmere Haven Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 872789676
+    },
+    {
+      "id": "saturn:city:5",
+      "world": "saturn",
+      "name": "Sable Rock City Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 872873095
+    },
+    {
+      "id": "saturn:city:6",
+      "world": "saturn",
+      "name": "Meridian Rest Crossing Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 872874722
+    },
+    {
+      "id": "saturn:city:7",
+      "world": "saturn",
+      "name": "Lumen Port Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 872958269
+    },
+    {
+      "id": "saturn:outpost:0",
+      "world": "saturn",
+      "name": "New Perth Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872456630
+    },
+    {
+      "id": "saturn:outpost:1",
+      "world": "saturn",
+      "name": "Nacre Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872475477
+    },
+    {
+      "id": "saturn:outpost:2",
+      "world": "saturn",
+      "name": "Cinderbank Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872428656
+    },
+    {
+      "id": "saturn:outpost:3",
+      "world": "saturn",
+      "name": "New Jaipur Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872431903
+    },
+    {
+      "id": "saturn:outpost:4",
+      "world": "saturn",
+      "name": "Farpoint Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872516154
+    },
+    {
+      "id": "saturn:outpost:5",
+      "world": "saturn",
+      "name": "Halcyon Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872536025
+    },
+    {
+      "id": "saturn:outpost:6",
+      "world": "saturn",
+      "name": "New Mombasa Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872505572
+    },
+    {
+      "id": "saturn:outpost:7",
+      "world": "saturn",
+      "name": "Juniper Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872590723
+    },
+    {
+      "id": "saturn:outpost:8",
+      "world": "saturn",
+      "name": "Dawnmere Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872609454
+    },
+    {
+      "id": "saturn:outpost:9",
+      "world": "saturn",
+      "name": "New Havana Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872546381
+    },
+    {
+      "id": "saturn:outpost:10",
+      "world": "saturn",
+      "name": "Meridian Rest Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872566120
+    },
+    {
+      "id": "saturn:outpost:11",
+      "world": "saturn",
+      "name": "Lumen Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 872650359
+    },
+    {
+      "id": "uranus:city:0",
+      "world": "uranus",
+      "name": "New Lisbon Cloud City",
+      "kind": "city",
+      "primary": true,
+      "seed": 87653223
+    },
+    {
+      "id": "uranus:city:1",
+      "world": "uranus",
+      "name": "New Accra Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 87572156
+    },
+    {
+      "id": "uranus:city:2",
+      "world": "uranus",
+      "name": "New Jaipur Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 87814353
+    },
+    {
+      "id": "uranus:city:3",
+      "world": "uranus",
+      "name": "New Valencia Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 87730934
+    },
+    {
+      "id": "uranus:city:4",
+      "world": "uranus",
+      "name": "Ilex Haven Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 87845899
+    },
+    {
+      "id": "uranus:city:5",
+      "world": "uranus",
+      "name": "Tamar City Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 88024608
+    },
+    {
+      "id": "uranus:city:6",
+      "world": "uranus",
+      "name": "Vesper Crossing Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 88004677
+    },
+    {
+      "id": "uranus:city:7",
+      "world": "uranus",
+      "name": "Asterfall Port Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 87135130
+    },
+    {
+      "id": "uranus:outpost:0",
+      "world": "uranus",
+      "name": "New Lisbon Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87653137
+    },
+    {
+      "id": "uranus:outpost:1",
+      "world": "uranus",
+      "name": "Orison Vale Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87634418
+    },
+    {
+      "id": "uranus:outpost:2",
+      "world": "uranus",
+      "name": "Pelagic Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87682775
+    },
+    {
+      "id": "uranus:outpost:3",
+      "world": "uranus",
+      "name": "New Valencia Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87661496
+    },
+    {
+      "id": "uranus:outpost:4",
+      "world": "uranus",
+      "name": "Ilex Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87576733
+    },
+    {
+      "id": "uranus:outpost:5",
+      "world": "uranus",
+      "name": "Tamar Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87559550
+    },
+    {
+      "id": "uranus:outpost:6",
+      "world": "uranus",
+      "name": "New Alexandria Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87603779
+    },
+    {
+      "id": "uranus:outpost:7",
+      "world": "uranus",
+      "name": "Asterfall Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87783204
+    },
+    {
+      "id": "uranus:outpost:8",
+      "world": "uranus",
+      "name": "Kestrel Reach Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87763977
+    },
+    {
+      "id": "uranus:outpost:9",
+      "world": "uranus",
+      "name": "New Dakar Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87808746
+    },
+    {
+      "id": "uranus:outpost:10",
+      "world": "uranus",
+      "name": "Solace Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87791567
+    },
+    {
+      "id": "uranus:outpost:11",
+      "world": "uranus",
+      "name": "Emberwatch Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 87706832
+    },
+    {
+      "id": "neptune:city:0",
+      "world": "neptune",
+      "name": "New Valencia Cloud City",
+      "kind": "city",
+      "primary": true,
+      "seed": 2060457813
+    },
+    {
+      "id": "neptune:city:1",
+      "world": "neptune",
+      "name": "New Sapporo Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2060538510
+    },
+    {
+      "id": "neptune:city:2",
+      "world": "neptune",
+      "name": "New Mombasa Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2060623075
+    },
+    {
+      "id": "neptune:city:3",
+      "world": "neptune",
+      "name": "New Alexandria Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2060699332
+    },
+    {
+      "id": "neptune:city:4",
+      "world": "neptune",
+      "name": "Emberwatch Haven Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2060779577
+    },
+    {
+      "id": "neptune:city:5",
+      "world": "neptune",
+      "name": "Glasshaven City Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2060864018
+    },
+    {
+      "id": "neptune:city:6",
+      "world": "neptune",
+      "name": "Greywater Crossing Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2060956791
+    },
+    {
+      "id": "neptune:city:7",
+      "world": "neptune",
+      "name": "Nacre Port Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2061041576
+    },
+    {
+      "id": "neptune:outpost:0",
+      "world": "neptune",
+      "name": "New Accra Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060457763
+    },
+    {
+      "id": "neptune:outpost:1",
+      "world": "neptune",
+      "name": "Glasshaven Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060475840
+    },
+    {
+      "id": "neptune:outpost:2",
+      "world": "neptune",
+      "name": "Greywater Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060485349
+    },
+    {
+      "id": "neptune:outpost:3",
+      "world": "neptune",
+      "name": "New Sapporo Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060515210
+    },
+    {
+      "id": "neptune:outpost:4",
+      "world": "neptune",
+      "name": "Cinderbank Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060532911
+    },
+    {
+      "id": "neptune:outpost:5",
+      "world": "neptune",
+      "name": "Velorum Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060542284
+    },
+    {
+      "id": "neptune:outpost:6",
+      "world": "neptune",
+      "name": "New Kyoto Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060572273
+    },
+    {
+      "id": "neptune:outpost:7",
+      "world": "neptune",
+      "name": "Halcyon Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060589846
+    },
+    {
+      "id": "neptune:outpost:8",
+      "world": "neptune",
+      "name": "Tern Crossing Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060599355
+    },
+    {
+      "id": "neptune:outpost:9",
+      "world": "neptune",
+      "name": "New Oslo Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060629720
+    },
+    {
+      "id": "neptune:outpost:10",
+      "world": "neptune",
+      "name": "Dawnmere Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060647421
+    },
+    {
+      "id": "neptune:outpost:11",
+      "world": "neptune",
+      "name": "Sable Rock Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2060656866
+    },
+    {
+      "id": "trappist-1-b:city:0",
+      "world": "trappist-1-b",
+      "name": "New Alexandria",
+      "kind": "city",
+      "primary": true,
+      "seed": 1953829944
+    },
+    {
+      "id": "trappist-1-b:city:1",
+      "world": "trappist-1-b",
+      "name": "New Kyoto",
+      "kind": "city",
+      "primary": false,
+      "seed": 1953780195
+    },
+    {
+      "id": "trappist-1-b:city:2",
+      "world": "trappist-1-b",
+      "name": "New Havana",
+      "kind": "city",
+      "primary": false,
+      "seed": 1953996686
+    },
+    {
+      "id": "trappist-1-b:city:3",
+      "world": "trappist-1-b",
+      "name": "New Dakar",
+      "kind": "city",
+      "primary": false,
+      "seed": 1953940905
+    },
+    {
+      "id": "trappist-1-b:city:4",
+      "world": "trappist-1-b",
+      "name": "Halcyon Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1953497940
+    },
+    {
+      "id": "trappist-1-b:city:5",
+      "world": "trappist-1-b",
+      "name": "Tern Crossing City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1953712511
+    },
+    {
+      "id": "trappist-1-b:city:6",
+      "world": "trappist-1-b",
+      "name": "Juniper Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1953675034
+    },
+    {
+      "id": "trappist-1-b:city:7",
+      "world": "trappist-1-b",
+      "name": "Dawnmere Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1954413765
+    },
+    {
+      "id": "trappist-1-b:outpost:0",
+      "world": "trappist-1-b",
+      "name": "New Jaipur Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953829966
+    },
+    {
+      "id": "trappist-1-b:outpost:1",
+      "world": "trappist-1-b",
+      "name": "Meridian Rest Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953849005
+    },
+    {
+      "id": "trappist-1-b:outpost:2",
+      "world": "trappist-1-b",
+      "name": "Lumen Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953857928
+    },
+    {
+      "id": "trappist-1-b:outpost:3",
+      "world": "trappist-1-b",
+      "name": "New Mombasa Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953887463
+    },
+    {
+      "id": "trappist-1-b:outpost:4",
+      "world": "trappist-1-b",
+      "name": "Pelagic Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953775554
+    },
+    {
+      "id": "trappist-1-b:outpost:5",
+      "world": "trappist-1-b",
+      "name": "Boreal Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953784353
+    },
+    {
+      "id": "trappist-1-b:outpost:6",
+      "world": "trappist-1-b",
+      "name": "New Havana Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953813788
+    },
+    {
+      "id": "trappist-1-b:outpost:7",
+      "world": "trappist-1-b",
+      "name": "Tamar Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953962107
+    },
+    {
+      "id": "trappist-1-b:outpost:8",
+      "world": "trappist-1-b",
+      "name": "Vesper Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953973078
+    },
+    {
+      "id": "trappist-1-b:outpost:9",
+      "world": "trappist-1-b",
+      "name": "New Perth Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1954002357
+    },
+    {
+      "id": "trappist-1-b:outpost:10",
+      "world": "trappist-1-b",
+      "name": "Kestrel Reach Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1954019472
+    },
+    {
+      "id": "trappist-1-b:outpost:11",
+      "world": "trappist-1-b",
+      "name": "Morrowgate Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1953899407
+    },
+    {
+      "id": "trappist-1-c:city:0",
+      "world": "trappist-1-c",
+      "name": "New Dakar",
+      "kind": "city",
+      "primary": true,
+      "seed": 1970607563
+    },
+    {
+      "id": "trappist-1-c:city:1",
+      "world": "trappist-1-c",
+      "name": "New Oslo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1970556944
+    },
+    {
+      "id": "trappist-1-c:city:2",
+      "world": "trappist-1-c",
+      "name": "New Perth",
+      "kind": "city",
+      "primary": false,
+      "seed": 1970773629
+    },
+    {
+      "id": "trappist-1-c:city:3",
+      "world": "trappist-1-c",
+      "name": "New Lisbon",
+      "kind": "city",
+      "primary": false,
+      "seed": 1970717786
+    },
+    {
+      "id": "trappist-1-c:city:4",
+      "world": "trappist-1-c",
+      "name": "Orison Vale Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1970274983
+    },
+    {
+      "id": "trappist-1-c:city:5",
+      "world": "trappist-1-c",
+      "name": "Pelagic City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1970489484
+    },
+    {
+      "id": "trappist-1-c:city:6",
+      "world": "trappist-1-c",
+      "name": "Boreal Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1970452201
+    },
+    {
+      "id": "trappist-1-c:city:7",
+      "world": "trappist-1-c",
+      "name": "Ilex Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1971191094
+    },
+    {
+      "id": "trappist-1-c:outpost:0",
+      "world": "trappist-1-c",
+      "name": "New Valencia Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970607549
+    },
+    {
+      "id": "trappist-1-c:outpost:1",
+      "world": "trappist-1-c",
+      "name": "Solace Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970626398
+    },
+    {
+      "id": "trappist-1-c:outpost:2",
+      "world": "trappist-1-c",
+      "name": "Emberwatch Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970634875
+    },
+    {
+      "id": "trappist-1-c:outpost:3",
+      "world": "trappist-1-c",
+      "name": "New Alexandria Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970664724
+    },
+    {
+      "id": "trappist-1-c:outpost:4",
+      "world": "trappist-1-c",
+      "name": "Greywater Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970552369
+    },
+    {
+      "id": "trappist-1-c:outpost:5",
+      "world": "trappist-1-c",
+      "name": "Nacre Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970562002
+    },
+    {
+      "id": "trappist-1-c:outpost:6",
+      "world": "trappist-1-c",
+      "name": "New Dakar Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970590959
+    },
+    {
+      "id": "trappist-1-c:outpost:7",
+      "world": "trappist-1-c",
+      "name": "Velorum Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970739592
+    },
+    {
+      "id": "trappist-1-c:outpost:8",
+      "world": "trappist-1-c",
+      "name": "Farpoint Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970750117
+    },
+    {
+      "id": "trappist-1-c:outpost:9",
+      "world": "trappist-1-c",
+      "name": "New Lisbon Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970779206
+    },
+    {
+      "id": "trappist-1-c:outpost:10",
+      "world": "trappist-1-c",
+      "name": "Tern Crossing Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970796899
+    },
+    {
+      "id": "trappist-1-c:outpost:11",
+      "world": "trappist-1-c",
+      "name": "Juniper Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1970676348
+    },
+    {
+      "id": "trappist-1-d:city:0",
+      "world": "trappist-1-d",
+      "name": "New Lisbon",
+      "kind": "city",
+      "primary": true,
+      "seed": 2054495658
+    },
+    {
+      "id": "trappist-1-d:city:1",
+      "world": "trappist-1-d",
+      "name": "New Accra",
+      "kind": "city",
+      "primary": false,
+      "seed": 2054445169
+    },
+    {
+      "id": "trappist-1-d:city:2",
+      "world": "trappist-1-d",
+      "name": "New Jaipur",
+      "kind": "city",
+      "primary": false,
+      "seed": 2054657564
+    },
+    {
+      "id": "trappist-1-d:city:3",
+      "world": "trappist-1-d",
+      "name": "New Valencia",
+      "kind": "city",
+      "primary": false,
+      "seed": 2054605883
+    },
+    {
+      "id": "trappist-1-d:city:4",
+      "world": "trappist-1-d",
+      "name": "Kestrel Reach Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 2054163142
+    },
+    {
+      "id": "trappist-1-d:city:5",
+      "world": "trappist-1-d",
+      "name": "Morrowgate City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2054373613
+    },
+    {
+      "id": "trappist-1-d:city:6",
+      "world": "trappist-1-d",
+      "name": "Solace Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 2054340232
+    },
+    {
+      "id": "trappist-1-d:city:7",
+      "world": "trappist-1-d",
+      "name": "Emberwatch Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 2055075159
+    },
+    {
+      "id": "trappist-1-d:outpost:0",
+      "world": "trappist-1-d",
+      "name": "New Sapporo Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054495708
+    },
+    {
+      "id": "trappist-1-d:outpost:1",
+      "world": "trappist-1-d",
+      "name": "Dawnmere Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054510399
+    },
+    {
+      "id": "trappist-1-d:outpost:2",
+      "world": "trappist-1-d",
+      "name": "Sable Rock Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054522906
+    },
+    {
+      "id": "trappist-1-d:outpost:3",
+      "world": "trappist-1-d",
+      "name": "New Kyoto Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054552949
+    },
+    {
+      "id": "trappist-1-d:outpost:4",
+      "world": "trappist-1-d",
+      "name": "Lumen Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054436432
+    },
+    {
+      "id": "trappist-1-d:outpost:5",
+      "world": "trappist-1-d",
+      "name": "Orison Vale Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054450099
+    },
+    {
+      "id": "trappist-1-d:outpost:6",
+      "world": "trappist-1-d",
+      "name": "New Oslo Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054478990
+    },
+    {
+      "id": "trappist-1-d:outpost:7",
+      "world": "trappist-1-d",
+      "name": "Boreal Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054623721
+    },
+    {
+      "id": "trappist-1-d:outpost:8",
+      "world": "trappist-1-d",
+      "name": "Ilex Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054638276
+    },
+    {
+      "id": "trappist-1-d:outpost:9",
+      "world": "trappist-1-d",
+      "name": "New Accra Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054667303
+    },
+    {
+      "id": "trappist-1-d:outpost:10",
+      "world": "trappist-1-d",
+      "name": "Vesper Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054680834
+    },
+    {
+      "id": "trappist-1-d:outpost:11",
+      "world": "trappist-1-d",
+      "name": "Asterfall Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2054564381
+    },
+    {
+      "id": "trappist-1-e:city:0",
+      "world": "trappist-1-e",
+      "name": "New Valencia",
+      "kind": "city",
+      "primary": true,
+      "seed": 2071273277
+    },
+    {
+      "id": "trappist-1-e:city:1",
+      "world": "trappist-1-e",
+      "name": "New Sapporo",
+      "kind": "city",
+      "primary": false,
+      "seed": 2071223014
+    },
+    {
+      "id": "trappist-1-e:city:2",
+      "world": "trappist-1-e",
+      "name": "New Mombasa",
+      "kind": "city",
+      "primary": false,
+      "seed": 2071434379
+    },
+    {
+      "id": "trappist-1-e:city:3",
+      "world": "trappist-1-e",
+      "name": "New Alexandria",
+      "kind": "city",
+      "primary": false,
+      "seed": 2071383724
+    },
+    {
+      "id": "trappist-1-e:city:4",
+      "world": "trappist-1-e",
+      "name": "Cinderbank Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 2070939729
+    },
+    {
+      "id": "trappist-1-e:city:5",
+      "world": "trappist-1-e",
+      "name": "Velorum City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2071151226
+    },
+    {
+      "id": "trappist-1-e:city:6",
+      "world": "trappist-1-e",
+      "name": "Farpoint Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 2071116831
+    },
+    {
+      "id": "trappist-1-e:city:7",
+      "world": "trappist-1-e",
+      "name": "Halcyon Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 2071852992
+    },
+    {
+      "id": "trappist-1-e:outpost:0",
+      "world": "trappist-1-e",
+      "name": "New Mombasa Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071273291
+    },
+    {
+      "id": "trappist-1-e:outpost:1",
+      "world": "trappist-1-e",
+      "name": "Kestrel Reach Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071287208
+    },
+    {
+      "id": "trappist-1-e:outpost:2",
+      "world": "trappist-1-e",
+      "name": "Morrowgate Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071300749
+    },
+    {
+      "id": "trappist-1-e:outpost:3",
+      "world": "trappist-1-e",
+      "name": "New Havana Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071330786
+    },
+    {
+      "id": "trappist-1-e:outpost:4",
+      "world": "trappist-1-e",
+      "name": "Emberwatch Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071213255
+    },
+    {
+      "id": "trappist-1-e:outpost:5",
+      "world": "trappist-1-e",
+      "name": "Glasshaven Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071226660
+    },
+    {
+      "id": "trappist-1-e:outpost:6",
+      "world": "trappist-1-e",
+      "name": "New Perth Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071256601
+    },
+    {
+      "id": "trappist-1-e:outpost:7",
+      "world": "trappist-1-e",
+      "name": "Nacre Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071401342
+    },
+    {
+      "id": "trappist-1-e:outpost:8",
+      "world": "trappist-1-e",
+      "name": "Cinderbank Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071414867
+    },
+    {
+      "id": "trappist-1-e:outpost:9",
+      "world": "trappist-1-e",
+      "name": "New Jaipur Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071445168
+    },
+    {
+      "id": "trappist-1-e:outpost:10",
+      "world": "trappist-1-e",
+      "name": "Farpoint Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071458709
+    },
+    {
+      "id": "trappist-1-e:outpost:11",
+      "world": "trappist-1-e",
+      "name": "Halcyon Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2071341194
+    },
+    {
+      "id": "trappist-1-f:city:0",
+      "world": "trappist-1-f",
+      "name": "New Alexandria",
+      "kind": "city",
+      "primary": true,
+      "seed": 2020940420
+    },
+    {
+      "id": "trappist-1-f:city:1",
+      "world": "trappist-1-f",
+      "name": "New Kyoto",
+      "kind": "city",
+      "primary": false,
+      "seed": 2020892511
+    },
+    {
+      "id": "trappist-1-f:city:2",
+      "world": "trappist-1-f",
+      "name": "New Havana",
+      "kind": "city",
+      "primary": false,
+      "seed": 2021101874
+    },
+    {
+      "id": "trappist-1-f:city:3",
+      "world": "trappist-1-f",
+      "name": "New Dakar",
+      "kind": "city",
+      "primary": false,
+      "seed": 2021051157
+    },
+    {
+      "id": "trappist-1-f:city:4",
+      "world": "trappist-1-f",
+      "name": "Sable Rock Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 2020609512
+    },
+    {
+      "id": "trappist-1-f:city:5",
+      "world": "trappist-1-f",
+      "name": "Meridian Rest City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2020820931
+    },
+    {
+      "id": "trappist-1-f:city:6",
+      "world": "trappist-1-f",
+      "name": "Lumen Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 2020784550
+    },
+    {
+      "id": "trappist-1-f:city:7",
+      "world": "trappist-1-f",
+      "name": "Orison Vale Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 2021519993
+    },
+    {
+      "id": "trappist-1-f:outpost:0",
+      "world": "trappist-1-f",
+      "name": "New Alexandria Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2020940530
+    },
+    {
+      "id": "trappist-1-f:outpost:1",
+      "world": "trappist-1-f",
+      "name": "Tern Crossing Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2020954129
+    },
+    {
+      "id": "trappist-1-f:outpost:2",
+      "world": "trappist-1-f",
+      "name": "Juniper Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2020970292
+    },
+    {
+      "id": "trappist-1-f:outpost:3",
+      "world": "trappist-1-f",
+      "name": "New Dakar Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2020997723
+    },
+    {
+      "id": "trappist-1-f:outpost:4",
+      "world": "trappist-1-f",
+      "name": "Sable Rock Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2020880766
+    },
+    {
+      "id": "trappist-1-f:outpost:5",
+      "world": "trappist-1-f",
+      "name": "Meridian Rest Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2020895901
+    },
+    {
+      "id": "trappist-1-f:outpost:6",
+      "world": "trappist-1-f",
+      "name": "New Lisbon Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2020924320
+    },
+    {
+      "id": "trappist-1-f:outpost:7",
+      "world": "trappist-1-f",
+      "name": "Orison Vale Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2021070535
+    },
+    {
+      "id": "trappist-1-f:outpost:8",
+      "world": "trappist-1-f",
+      "name": "Pelagic Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2021084650
+    },
+    {
+      "id": "trappist-1-f:outpost:9",
+      "world": "trappist-1-f",
+      "name": "New Valencia Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2021112585
+    },
+    {
+      "id": "trappist-1-f:outpost:10",
+      "world": "trappist-1-f",
+      "name": "Ilex Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2021127724
+    },
+    {
+      "id": "trappist-1-f:outpost:11",
+      "world": "trappist-1-f",
+      "name": "Tamar Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2021010739
+    },
+    {
+      "id": "trappist-1-g:city:0",
+      "world": "trappist-1-g",
+      "name": "New Dakar",
+      "kind": "city",
+      "primary": true,
+      "seed": 2037718039
+    },
+    {
+      "id": "trappist-1-g:city:1",
+      "world": "trappist-1-g",
+      "name": "New Oslo",
+      "kind": "city",
+      "primary": false,
+      "seed": 2037668300
+    },
+    {
+      "id": "trappist-1-g:city:2",
+      "world": "trappist-1-g",
+      "name": "New Perth",
+      "kind": "city",
+      "primary": false,
+      "seed": 2037880737
+    },
+    {
+      "id": "trappist-1-g:city:3",
+      "world": "trappist-1-g",
+      "name": "New Lisbon",
+      "kind": "city",
+      "primary": false,
+      "seed": 2037828998
+    },
+    {
+      "id": "trappist-1-g:city:4",
+      "world": "trappist-1-g",
+      "name": "Tamar Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 2037386107
+    },
+    {
+      "id": "trappist-1-g:city:5",
+      "world": "trappist-1-g",
+      "name": "Vesper City",
+      "kind": "city",
+      "primary": false,
+      "seed": 2037596496
+    },
+    {
+      "id": "trappist-1-g:city:6",
+      "world": "trappist-1-g",
+      "name": "Asterfall Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 2037563189
+    },
+    {
+      "id": "trappist-1-g:city:7",
+      "world": "trappist-1-g",
+      "name": "Kestrel Reach Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 2038297834
+    },
+    {
+      "id": "trappist-1-g:outpost:0",
+      "world": "trappist-1-g",
+      "name": "New Kyoto Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037718113
+    },
+    {
+      "id": "trappist-1-g:outpost:1",
+      "world": "trappist-1-g",
+      "name": "Vesper Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037732994
+    },
+    {
+      "id": "trappist-1-g:outpost:2",
+      "world": "trappist-1-g",
+      "name": "Asterfall Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037746087
+    },
+    {
+      "id": "trappist-1-g:outpost:3",
+      "world": "trappist-1-g",
+      "name": "New Oslo Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037775560
+    },
+    {
+      "id": "trappist-1-g:outpost:4",
+      "world": "trappist-1-g",
+      "name": "Morrowgate Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037659629
+    },
+    {
+      "id": "trappist-1-g:outpost:5",
+      "world": "trappist-1-g",
+      "name": "Solace Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037672462
+    },
+    {
+      "id": "trappist-1-g:outpost:6",
+      "world": "trappist-1-g",
+      "name": "New Accra Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037701939
+    },
+    {
+      "id": "trappist-1-g:outpost:7",
+      "world": "trappist-1-g",
+      "name": "Glasshaven Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037846100
+    },
+    {
+      "id": "trappist-1-g:outpost:8",
+      "world": "trappist-1-g",
+      "name": "Greywater Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037861241
+    },
+    {
+      "id": "trappist-1-g:outpost:9",
+      "world": "trappist-1-g",
+      "name": "New Sapporo Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037890458
+    },
+    {
+      "id": "trappist-1-g:outpost:10",
+      "world": "trappist-1-g",
+      "name": "Cinderbank Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037903551
+    },
+    {
+      "id": "trappist-1-g:outpost:11",
+      "world": "trappist-1-g",
+      "name": "Velorum Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 2037787552
+    },
+    {
+      "id": "trappist-1-h:city:0",
+      "world": "trappist-1-h",
+      "name": "New Lisbon",
+      "kind": "city",
+      "primary": true,
+      "seed": 1853164230
+    },
+    {
+      "id": "trappist-1-h:city:1",
+      "world": "trappist-1-h",
+      "name": "New Accra",
+      "kind": "city",
+      "primary": false,
+      "seed": 1853116189
+    },
+    {
+      "id": "trappist-1-h:city:2",
+      "world": "trappist-1-h",
+      "name": "New Jaipur",
+      "kind": "city",
+      "primary": false,
+      "seed": 1853325680
+    },
+    {
+      "id": "trappist-1-h:city:3",
+      "world": "trappist-1-h",
+      "name": "New Valencia",
+      "kind": "city",
+      "primary": false,
+      "seed": 1853283159
+    },
+    {
+      "id": "trappist-1-h:city:4",
+      "world": "trappist-1-h",
+      "name": "Glasshaven Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1852841386
+    },
+    {
+      "id": "trappist-1-h:city:5",
+      "world": "trappist-1-h",
+      "name": "Greywater City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1853052801
+    },
+    {
+      "id": "trappist-1-h:city:6",
+      "world": "trappist-1-h",
+      "name": "Nacre Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1853008356
+    },
+    {
+      "id": "trappist-1-h:city:7",
+      "world": "trappist-1-h",
+      "name": "Cinderbank Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1853743675
+    },
+    {
+      "id": "trappist-1-h:outpost:0",
+      "world": "trappist-1-h",
+      "name": "New Havana Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853164208
+    },
+    {
+      "id": "trappist-1-h:outpost:1",
+      "world": "trappist-1-h",
+      "name": "Farpoint Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853177939
+    },
+    {
+      "id": "trappist-1-h:outpost:2",
+      "world": "trappist-1-h",
+      "name": "Halcyon Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853202294
+    },
+    {
+      "id": "trappist-1-h:outpost:3",
+      "world": "trappist-1-h",
+      "name": "New Perth Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853221401
+    },
+    {
+      "id": "trappist-1-h:outpost:4",
+      "world": "trappist-1-h",
+      "name": "Juniper Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853104444
+    },
+    {
+      "id": "trappist-1-h:outpost:5",
+      "world": "trappist-1-h",
+      "name": "Dawnmere Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853127903
+    },
+    {
+      "id": "trappist-1-h:outpost:6",
+      "world": "trappist-1-h",
+      "name": "New Jaipur Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853148130
+    },
+    {
+      "id": "trappist-1-h:outpost:7",
+      "world": "trappist-1-h",
+      "name": "Meridian Rest Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853294213
+    },
+    {
+      "id": "trappist-1-h:outpost:8",
+      "world": "trappist-1-h",
+      "name": "Lumen Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853316520
+    },
+    {
+      "id": "trappist-1-h:outpost:9",
+      "world": "trappist-1-h",
+      "name": "New Mombasa Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853336395
+    },
+    {
+      "id": "trappist-1-h:outpost:10",
+      "world": "trappist-1-h",
+      "name": "Pelagic Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853351534
+    },
+    {
+      "id": "trappist-1-h:outpost:11",
+      "world": "trappist-1-h",
+      "name": "Boreal Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1853242737
+    },
+    {
+      "id": "toi-270-b:city:0",
+      "world": "toi-270-b",
+      "name": "New Valencia",
+      "kind": "city",
+      "primary": true,
+      "seed": 274680840
+    },
+    {
+      "id": "toi-270-b:city:1",
+      "world": "toi-270-b",
+      "name": "New Sapporo",
+      "kind": "city",
+      "primary": false,
+      "seed": 274598355
+    },
+    {
+      "id": "toi-270-b:city:2",
+      "world": "toi-270-b",
+      "name": "New Mombasa",
+      "kind": "city",
+      "primary": false,
+      "seed": 274581438
+    },
+    {
+      "id": "toi-270-b:city:3",
+      "world": "toi-270-b",
+      "name": "New Alexandria",
+      "kind": "city",
+      "primary": false,
+      "seed": 274505113
+    },
+    {
+      "id": "toi-270-b:city:4",
+      "world": "toi-270-b",
+      "name": "Tern Crossing Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 274357092
+    },
+    {
+      "id": "toi-270-b:city:5",
+      "world": "toi-270-b",
+      "name": "Juniper City",
+      "kind": "city",
+      "primary": false,
+      "seed": 274272591
+    },
+    {
+      "id": "toi-270-b:city:6",
+      "world": "toi-270-b",
+      "name": "Dawnmere Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 274263850
+    },
+    {
+      "id": "toi-270-b:city:7",
+      "world": "toi-270-b",
+      "name": "Sable Rock Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 274179317
+    },
+    {
+      "id": "toi-270-b:outpost:0",
+      "world": "toi-270-b",
+      "name": "New Dakar Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274680958
+    },
+    {
+      "id": "toi-270-b:outpost:1",
+      "world": "toi-270-b",
+      "name": "Ilex Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274663069
+    },
+    {
+      "id": "toi-270-b:outpost:2",
+      "world": "toi-270-b",
+      "name": "Tamar Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274717112
+    },
+    {
+      "id": "toi-270-b:outpost:3",
+      "world": "toi-270-b",
+      "name": "New Lisbon Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274705623
+    },
+    {
+      "id": "toi-270-b:outpost:4",
+      "world": "toi-270-b",
+      "name": "Asterfall Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274622450
+    },
+    {
+      "id": "toi-270-b:outpost:5",
+      "world": "toi-270-b",
+      "name": "Kestrel Reach Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274610705
+    },
+    {
+      "id": "toi-270-b:outpost:6",
+      "world": "toi-270-b",
+      "name": "New Valencia Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274631980
+    },
+    {
+      "id": "toi-270-b:outpost:7",
+      "world": "toi-270-b",
+      "name": "Solace Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274546763
+    },
+    {
+      "id": "toi-270-b:outpost:8",
+      "world": "toi-270-b",
+      "name": "Emberwatch Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274537318
+    },
+    {
+      "id": "toi-270-b:outpost:9",
+      "world": "toi-270-b",
+      "name": "New Alexandria Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274591109
+    },
+    {
+      "id": "toi-270-b:outpost:10",
+      "world": "toi-270-b",
+      "name": "Greywater Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274571424
+    },
+    {
+      "id": "toi-270-b:outpost:11",
+      "world": "toi-270-b",
+      "name": "Nacre Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 274496447
+    },
+    {
+      "id": "toi-270-c:city:0",
+      "world": "toi-270-c",
+      "name": "New Alexandria Cloud City",
+      "kind": "city",
+      "primary": true,
+      "seed": 291458459
+    },
+    {
+      "id": "toi-270-c:city:1",
+      "world": "toi-270-c",
+      "name": "New Kyoto Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 291375168
+    },
+    {
+      "id": "toi-270-c:city:2",
+      "world": "toi-270-c",
+      "name": "New Havana Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 291358253
+    },
+    {
+      "id": "toi-270-c:city:3",
+      "world": "toi-270-c",
+      "name": "New Dakar Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 291281930
+    },
+    {
+      "id": "toi-270-c:city:4",
+      "world": "toi-270-c",
+      "name": "Pelagic Haven Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 291134199
+    },
+    {
+      "id": "toi-270-c:city:5",
+      "world": "toi-270-c",
+      "name": "Boreal City Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 291049692
+    },
+    {
+      "id": "toi-270-c:city:6",
+      "world": "toi-270-c",
+      "name": "Ilex Crossing Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 291040953
+    },
+    {
+      "id": "toi-270-c:city:7",
+      "world": "toi-270-c",
+      "name": "Tamar Port Cloud City",
+      "kind": "city",
+      "primary": false,
+      "seed": 290956646
+    },
+    {
+      "id": "toi-270-c:outpost:0",
+      "world": "toi-270-c",
+      "name": "New Oslo Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291458541
+    },
+    {
+      "id": "toi-270-c:outpost:1",
+      "world": "toi-270-c",
+      "name": "Cinderbank Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291440398
+    },
+    {
+      "id": "toi-270-c:outpost:2",
+      "world": "toi-270-c",
+      "name": "Velorum Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291493931
+    },
+    {
+      "id": "toi-270-c:outpost:3",
+      "world": "toi-270-c",
+      "name": "New Accra Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291482948
+    },
+    {
+      "id": "toi-270-c:outpost:4",
+      "world": "toi-270-c",
+      "name": "Halcyon Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291399265
+    },
+    {
+      "id": "toi-270-c:outpost:5",
+      "world": "toi-270-c",
+      "name": "Tern Crossing Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291388290
+    },
+    {
+      "id": "toi-270-c:outpost:6",
+      "world": "toi-270-c",
+      "name": "New Sapporo Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291409087
+    },
+    {
+      "id": "toi-270-c:outpost:7",
+      "world": "toi-270-c",
+      "name": "Dawnmere Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291324376
+    },
+    {
+      "id": "toi-270-c:outpost:8",
+      "world": "toi-270-c",
+      "name": "Sable Rock Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291314421
+    },
+    {
+      "id": "toi-270-c:outpost:9",
+      "world": "toi-270-c",
+      "name": "New Kyoto Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291367958
+    },
+    {
+      "id": "toi-270-c:outpost:10",
+      "world": "toi-270-c",
+      "name": "Lumen Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291348787
+    },
+    {
+      "id": "toi-270-c:outpost:11",
+      "world": "toi-270-c",
+      "name": "Orison Vale Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 291273260
+    },
+    {
+      "id": "k2-141-b:city:0",
+      "world": "k2-141-b",
+      "name": "New Dakar",
+      "kind": "city",
+      "primary": true,
+      "seed": 1822258171
+    },
+    {
+      "id": "k2-141-b:city:1",
+      "world": "k2-141-b",
+      "name": "New Oslo",
+      "kind": "city",
+      "primary": false,
+      "seed": 1822176800
+    },
+    {
+      "id": "k2-141-b:city:2",
+      "world": "k2-141-b",
+      "name": "New Perth",
+      "kind": "city",
+      "primary": false,
+      "seed": 1822423117
+    },
+    {
+      "id": "k2-141-b:city:3",
+      "world": "k2-141-b",
+      "name": "New Lisbon",
+      "kind": "city",
+      "primary": false,
+      "seed": 1822335594
+    },
+    {
+      "id": "k2-141-b:city:4",
+      "world": "k2-141-b",
+      "name": "Morrowgate Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1821926551
+    },
+    {
+      "id": "k2-141-b:city:5",
+      "world": "k2-141-b",
+      "name": "Solace City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1822109372
+    },
+    {
+      "id": "k2-141-b:city:6",
+      "world": "k2-141-b",
+      "name": "Emberwatch Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1822085337
+    },
+    {
+      "id": "k2-141-b:city:7",
+      "world": "k2-141-b",
+      "name": "Glasshaven Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1821743878
+    },
+    {
+      "id": "k2-141-b:outpost:0",
+      "world": "k2-141-b",
+      "name": "New Perth Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822258061
+    },
+    {
+      "id": "k2-141-b:outpost:1",
+      "world": "k2-141-b",
+      "name": "Pelagic Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822243182
+    },
+    {
+      "id": "k2-141-b:outpost:2",
+      "world": "k2-141-b",
+      "name": "Boreal Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822287435
+    },
+    {
+      "id": "k2-141-b:outpost:3",
+      "world": "k2-141-b",
+      "name": "New Jaipur Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822266148
+    },
+    {
+      "id": "k2-141-b:outpost:4",
+      "world": "k2-141-b",
+      "name": "Tamar Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822185473
+    },
+    {
+      "id": "k2-141-b:outpost:5",
+      "world": "k2-141-b",
+      "name": "Vesper Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822164450
+    },
+    {
+      "id": "k2-141-b:outpost:6",
+      "world": "k2-141-b",
+      "name": "New Mombasa Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822208735
+    },
+    {
+      "id": "k2-141-b:outpost:7",
+      "world": "k2-141-b",
+      "name": "Kestrel Reach Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822392248
+    },
+    {
+      "id": "k2-141-b:outpost:8",
+      "world": "k2-141-b",
+      "name": "Morrowgate Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822368917
+    },
+    {
+      "id": "k2-141-b:outpost:9",
+      "world": "k2-141-b",
+      "name": "New Havana Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822413430
+    },
+    {
+      "id": "k2-141-b:outpost:10",
+      "world": "k2-141-b",
+      "name": "Emberwatch Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822400339
+    },
+    {
+      "id": "k2-141-b:outpost:11",
+      "world": "k2-141-b",
+      "name": "Glasshaven Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1822311500
+    },
+    {
+      "id": "wasp-76-b:city:0",
+      "world": "wasp-76-b",
+      "name": "New Lisbon",
+      "kind": "city",
+      "primary": true,
+      "seed": 1016419044
+    },
+    {
+      "id": "wasp-76-b:city:1",
+      "world": "wasp-76-b",
+      "name": "New Accra",
+      "kind": "city",
+      "primary": false,
+      "seed": 1016338239
+    },
+    {
+      "id": "wasp-76-b:city:2",
+      "world": "wasp-76-b",
+      "name": "New Jaipur",
+      "kind": "city",
+      "primary": false,
+      "seed": 1016584530
+    },
+    {
+      "id": "wasp-76-b:city:3",
+      "world": "wasp-76-b",
+      "name": "New Valencia",
+      "kind": "city",
+      "primary": false,
+      "seed": 1016497013
+    },
+    {
+      "id": "wasp-76-b:city:4",
+      "world": "wasp-76-b",
+      "name": "Velorum Haven",
+      "kind": "city",
+      "primary": false,
+      "seed": 1016087944
+    },
+    {
+      "id": "wasp-76-b:city:5",
+      "world": "wasp-76-b",
+      "name": "Farpoint City",
+      "kind": "city",
+      "primary": false,
+      "seed": 1016270755
+    },
+    {
+      "id": "wasp-76-b:city:6",
+      "world": "wasp-76-b",
+      "name": "Halcyon Crossing",
+      "kind": "city",
+      "primary": false,
+      "seed": 1016263110
+    },
+    {
+      "id": "wasp-76-b:city:7",
+      "world": "wasp-76-b",
+      "name": "Tern Crossing Port",
+      "kind": "city",
+      "primary": false,
+      "seed": 1016969753
+    },
+    {
+      "id": "wasp-76-b:outpost:0",
+      "world": "wasp-76-b",
+      "name": "New Lisbon Survey",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016418962
+    },
+    {
+      "id": "wasp-76-b:outpost:1",
+      "world": "wasp-76-b",
+      "name": "Greywater Relay",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016404081
+    },
+    {
+      "id": "wasp-76-b:outpost:2",
+      "world": "wasp-76-b",
+      "name": "Nacre Listening Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016448852
+    },
+    {
+      "id": "wasp-76-b:outpost:3",
+      "world": "wasp-76-b",
+      "name": "New Valencia Research Camp",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016443451
+    },
+    {
+      "id": "wasp-76-b:outpost:4",
+      "world": "wasp-76-b",
+      "name": "Velorum Freight Depot",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016363294
+    },
+    {
+      "id": "wasp-76-b:outpost:5",
+      "world": "wasp-76-b",
+      "name": "Farpoint Waterworks",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016341757
+    },
+    {
+      "id": "wasp-76-b:outpost:6",
+      "world": "wasp-76-b",
+      "name": "New Alexandria Observatory",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016370112
+    },
+    {
+      "id": "wasp-76-b:outpost:7",
+      "world": "wasp-76-b",
+      "name": "Tern Crossing Prospector Base",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016553127
+    },
+    {
+      "id": "wasp-76-b:outpost:8",
+      "world": "wasp-76-b",
+      "name": "Juniper Ranger Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016530314
+    },
+    {
+      "id": "wasp-76-b:outpost:9",
+      "world": "wasp-76-b",
+      "name": "New Dakar Rescue Post",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016591209
+    },
+    {
+      "id": "wasp-76-b:outpost:10",
+      "world": "wasp-76-b",
+      "name": "Sable Rock Weather Station",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016577612
+    },
+    {
+      "id": "wasp-76-b:outpost:11",
+      "world": "wasp-76-b",
+      "name": "Meridian Rest Hydroponics",
+      "kind": "outpost",
+      "primary": false,
+      "seed": 1016489299
+    }
+  ]
+}

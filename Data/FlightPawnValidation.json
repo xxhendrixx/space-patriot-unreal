@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "name": "native_pawn_class",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "map_loads",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "native_pawn_spawns",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "default_gear_down",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "default_assist_on",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "gear_can_retract",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assist_can_decouple",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "throttle_limit_clamped",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "grounded_launch",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "launch_moves_up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "launch_restores_flight",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": 11,
+  "failed": 0
+}

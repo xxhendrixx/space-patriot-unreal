@@ -1,0 +1,10 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+  "actor_class": "ASPWorldSurface",
+  "actor_count": 1,
+  "world_id": "earth",
+  "material": "/Game/SpacePatriot/Materials/M_WorldVertex",
+  "source_terrain_resolution": 129,
+  "source_climate_width": 256,
+  "saved_and_reloaded": true
+}

@@ -1,0 +1,7098 @@
+{
+  "plans": [
+    {
+      "family": 0,
+      "end": 7.7,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "crew-bunk",
+          "type": "bunk",
+          "x": 1.23,
+          "z": 3.8,
+          "w": 1.1,
+          "d": 2,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "utility-locker",
+          "type": "locker",
+          "x": -1.45,
+          "z": 3.6,
+          "w": 0.65,
+          "d": 2.4,
+          "h": 1.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        }
+      ],
+      "doors": [],
+      "stations": [
+        {
+          "id": "engineering",
+          "name": "SERVICE PANEL",
+          "x": -1,
+          "z": 6.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "airlock",
+          "name": "AIRLOCK",
+          "x": 0,
+          "z": 7.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / UTILITY",
+          "y": 0
+        }
+      ],
+      "lifts": []
+    },
+    {
+      "family": 1,
+      "end": 7.7,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "crew-bunk",
+          "type": "bunk",
+          "x": 1.23,
+          "z": 3.8,
+          "w": 1.1,
+          "d": 2,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "utility-locker",
+          "type": "locker",
+          "x": -1.45,
+          "z": 3.6,
+          "w": 0.65,
+          "d": 2.4,
+          "h": 1.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        }
+      ],
+      "doors": [],
+      "stations": [
+        {
+          "id": "engineering",
+          "name": "SERVICE PANEL",
+          "x": -1,
+          "z": 6.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "airlock",
+          "name": "AIRLOCK",
+          "x": 0,
+          "z": 7.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / UTILITY",
+          "y": 0
+        }
+      ],
+      "lifts": []
+    },
+    {
+      "family": 2,
+      "end": 16,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 16,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-0--1",
+          "name": "QUARTERS",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1",
+          "name": "MESS",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1",
+          "name": "MESS",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1",
+          "name": "QUARTERS",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "corridor-1",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 16,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0--1",
+          "name": "CARGO",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-1--1",
+          "name": "CARGO",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 1,
+          "y": -3.3
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "quarters-0-0--10",
+          "type": "bunk",
+          "x": -3.3,
+          "z": 9.05,
+          "w": 1.1400000000000001,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--1lock",
+          "type": "locker",
+          "x": -2.7,
+          "z": 9.999999999999998,
+          "w": 2,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1table",
+          "type": "table",
+          "x": 2.7,
+          "z": 9.174999999999999,
+          "w": 0.85,
+          "d": 1.1,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1bench",
+          "type": "bench",
+          "x": 3.5,
+          "z": 9.174999999999999,
+          "w": 0.65,
+          "d": 1.5499999999999998,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1galley",
+          "type": "locker",
+          "x": 2.7,
+          "z": 9.95,
+          "w": 2,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1table",
+          "type": "table",
+          "x": -2.7,
+          "z": 12.274999999999999,
+          "w": 0.85,
+          "d": 1.1,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1bench",
+          "type": "bench",
+          "x": -3.5,
+          "z": 12.274999999999999,
+          "w": 0.65,
+          "d": 1.5499999999999998,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1galley",
+          "type": "locker",
+          "x": -2.7,
+          "z": 13.049999999999999,
+          "w": 2,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-10",
+          "type": "bunk",
+          "x": 3.3,
+          "z": 12.149999999999999,
+          "w": 1.1400000000000001,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-1lock",
+          "type": "locker",
+          "x": 2.7,
+          "z": 13.099999999999998,
+          "w": 2,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-0--10",
+          "type": "crate",
+          "x": -3.2,
+          "z": 9,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-0-10",
+          "type": "crate",
+          "x": 3.2,
+          "z": 9,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-1--10",
+          "type": "crate",
+          "x": -3.2,
+          "z": 12.099999999999998,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-1-10",
+          "type": "rack",
+          "x": 3.2,
+          "z": 12.099999999999998,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        }
+      ],
+      "doors": [
+        {
+          "id": "quarters-0-0--1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "aft-0",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 14,
+          "width": 2.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "cargo-1-0--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-1--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "aft-1",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 14,
+          "width": 2.1,
+          "deck": 1,
+          "y": -3.3
+        }
+      ],
+      "stations": [
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 15,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 9.174999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 9.174999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 12.274999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 12.274999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 15,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / CREW",
+          "y": 0
+        },
+        {
+          "index": 1,
+          "name": "WORK DECK / AIRLOCK",
+          "y": -3.3
+        }
+      ],
+      "lifts": [
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 1,
+          "y": -3.3
+        }
+      ]
+    },
+    {
+      "family": 3,
+      "end": 7.7,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "crew-bunk",
+          "type": "bunk",
+          "x": 1.23,
+          "z": 3.8,
+          "w": 1.1,
+          "d": 2,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "utility-locker",
+          "type": "locker",
+          "x": -1.45,
+          "z": 3.6,
+          "w": 0.65,
+          "d": 2.4,
+          "h": 1.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        }
+      ],
+      "doors": [],
+      "stations": [
+        {
+          "id": "engineering",
+          "name": "SERVICE PANEL",
+          "x": -1,
+          "z": 6.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "airlock",
+          "name": "AIRLOCK",
+          "x": 0,
+          "z": 7.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / UTILITY",
+          "y": 0
+        }
+      ],
+      "lifts": []
+    },
+    {
+      "family": 4,
+      "end": 7.7,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "crew-bunk",
+          "type": "bunk",
+          "x": 1.23,
+          "z": 3.8,
+          "w": 1.1,
+          "d": 2,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "utility-locker",
+          "type": "locker",
+          "x": -1.45,
+          "z": 3.6,
+          "w": 0.65,
+          "d": 2.4,
+          "h": 1.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        }
+      ],
+      "doors": [],
+      "stations": [
+        {
+          "id": "engineering",
+          "name": "SERVICE PANEL",
+          "x": -1,
+          "z": 6.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "airlock",
+          "name": "AIRLOCK",
+          "x": 0,
+          "z": 7.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / UTILITY",
+          "y": 0
+        }
+      ],
+      "lifts": []
+    },
+    {
+      "family": 5,
+      "end": 16,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 16,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-0--1",
+          "name": "QUARTERS",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1",
+          "name": "MESS",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1",
+          "name": "MESS",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1",
+          "name": "QUARTERS",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "corridor-1",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 16,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0--1",
+          "name": "CARGO",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-1--1",
+          "name": "CARGO",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 1,
+          "y": -3.3
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "quarters-0-0--10",
+          "type": "bunk",
+          "x": -3.3,
+          "z": 9.05,
+          "w": 1.1400000000000001,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--1lock",
+          "type": "locker",
+          "x": -2.7,
+          "z": 9.999999999999998,
+          "w": 2,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1table",
+          "type": "table",
+          "x": 2.7,
+          "z": 9.174999999999999,
+          "w": 0.85,
+          "d": 1.1,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1bench",
+          "type": "bench",
+          "x": 3.5,
+          "z": 9.174999999999999,
+          "w": 0.65,
+          "d": 1.5499999999999998,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1galley",
+          "type": "locker",
+          "x": 2.7,
+          "z": 9.95,
+          "w": 2,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1table",
+          "type": "table",
+          "x": -2.7,
+          "z": 12.274999999999999,
+          "w": 0.85,
+          "d": 1.1,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1bench",
+          "type": "bench",
+          "x": -3.5,
+          "z": 12.274999999999999,
+          "w": 0.65,
+          "d": 1.5499999999999998,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1galley",
+          "type": "locker",
+          "x": -2.7,
+          "z": 13.049999999999999,
+          "w": 2,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-10",
+          "type": "bunk",
+          "x": 3.3,
+          "z": 12.149999999999999,
+          "w": 1.1400000000000001,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-1lock",
+          "type": "locker",
+          "x": 2.7,
+          "z": 13.099999999999998,
+          "w": 2,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-0--10",
+          "type": "crate",
+          "x": -3.2,
+          "z": 9,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-0-10",
+          "type": "crate",
+          "x": 3.2,
+          "z": 9,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-1--10",
+          "type": "crate",
+          "x": -3.2,
+          "z": 12.099999999999998,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-1-10",
+          "type": "rack",
+          "x": 3.2,
+          "z": 12.099999999999998,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        }
+      ],
+      "doors": [
+        {
+          "id": "quarters-0-0--1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "aft-0",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 14,
+          "width": 2.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "cargo-1-0--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-1--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "aft-1",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 14,
+          "width": 2.1,
+          "deck": 1,
+          "y": -3.3
+        }
+      ],
+      "stations": [
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 15,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 9.174999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 9.174999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 12.274999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 12.274999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 15,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / CREW",
+          "y": 0
+        },
+        {
+          "index": 1,
+          "name": "WORK DECK / AIRLOCK",
+          "y": -3.3
+        }
+      ],
+      "lifts": [
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 1,
+          "y": -3.3
+        }
+      ]
+    },
+    {
+      "family": 6,
+      "end": 16,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 16,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-0--1",
+          "name": "QUARTERS",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1",
+          "name": "MESS",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1",
+          "name": "MESS",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1",
+          "name": "QUARTERS",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "corridor-1",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 16,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0--1",
+          "name": "CARGO",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 7.8,
+          "z1": 10.549999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-1--1",
+          "name": "CARGO",
+          "x0": -4.2,
+          "x1": -1.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 4.2,
+          "z0": 10.899999999999999,
+          "z1": 13.649999999999999,
+          "deck": 1,
+          "y": -3.3
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "quarters-0-0--10",
+          "type": "bunk",
+          "x": -3.3,
+          "z": 9.05,
+          "w": 1.1400000000000001,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--1lock",
+          "type": "locker",
+          "x": -2.7,
+          "z": 9.999999999999998,
+          "w": 2,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1table",
+          "type": "table",
+          "x": 2.7,
+          "z": 9.174999999999999,
+          "w": 0.85,
+          "d": 1.1,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1bench",
+          "type": "bench",
+          "x": 3.5,
+          "z": 9.174999999999999,
+          "w": 0.65,
+          "d": 1.5499999999999998,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1galley",
+          "type": "locker",
+          "x": 2.7,
+          "z": 9.95,
+          "w": 2,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1table",
+          "type": "table",
+          "x": -2.7,
+          "z": 12.274999999999999,
+          "w": 0.85,
+          "d": 1.1,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1bench",
+          "type": "bench",
+          "x": -3.5,
+          "z": 12.274999999999999,
+          "w": 0.65,
+          "d": 1.5499999999999998,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1galley",
+          "type": "locker",
+          "x": -2.7,
+          "z": 13.049999999999999,
+          "w": 2,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-10",
+          "type": "bunk",
+          "x": 3.3,
+          "z": 12.149999999999999,
+          "w": 1.1400000000000001,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-1lock",
+          "type": "locker",
+          "x": 2.7,
+          "z": 13.099999999999998,
+          "w": 2,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-0--10",
+          "type": "crate",
+          "x": -3.2,
+          "z": 9,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-0-10",
+          "type": "crate",
+          "x": 3.2,
+          "z": 9,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "cargo-1-1--10",
+          "type": "crate",
+          "x": -3.2,
+          "z": 12.099999999999998,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-1-10",
+          "type": "rack",
+          "x": 3.2,
+          "z": 12.099999999999998,
+          "w": 1.8,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        }
+      ],
+      "doors": [
+        {
+          "id": "quarters-0-0--1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "aft-0",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 14,
+          "width": 2.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "cargo-1-0--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-0-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 9.174999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-1-1--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 12.274999999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "aft-1",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 14,
+          "width": 2.1,
+          "deck": 1,
+          "y": -3.3
+        }
+      ],
+      "stations": [
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 15,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 9.174999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 9.174999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 12.274999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 12.274999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 15,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / CREW",
+          "y": 0
+        },
+        {
+          "index": 1,
+          "name": "WORK DECK / AIRLOCK",
+          "y": -3.3
+        }
+      ],
+      "lifts": [
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 1,
+          "y": -3.3
+        }
+      ]
+    },
+    {
+      "family": 7,
+      "end": 52,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 52,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-0--1",
+          "name": "QUARTERS",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 8,
+          "z1": 18.15,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1",
+          "name": "MESS",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 8,
+          "z1": 18.15,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1",
+          "name": "MESS",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 18.5,
+          "z1": 28.65,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1",
+          "name": "QUARTERS",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 18.5,
+          "z1": 28.65,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-2--1",
+          "name": "QUARTERS",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 29,
+          "z1": 39.15,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-2-1",
+          "name": "OPERATIONS",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 29,
+          "z1": 39.15,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-3--1",
+          "name": "OPERATIONS",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 39.5,
+          "z1": 49.65,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "briefing-0-3-1",
+          "name": "BRIEFING",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 39.5,
+          "z1": 49.65,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "corridor-1",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 52,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering-1-0--1",
+          "name": "ENGINEERING",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 8,
+          "z1": 18.15,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-0-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 8,
+          "z1": 18.15,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1--1",
+          "name": "WORKSHOP",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 18.5,
+          "z1": 28.65,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "life-support-1-1-1",
+          "name": "LIFE SUPPORT",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 18.5,
+          "z1": 28.65,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "life-support-1-2--1",
+          "name": "LIFE SUPPORT",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 29,
+          "z1": 39.15,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering-1-2-1",
+          "name": "ENGINEERING",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 29,
+          "z1": 39.15,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering-1-3--1",
+          "name": "ENGINEERING",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 39.5,
+          "z1": 49.65,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "storage-1-3-1",
+          "name": "STORAGE",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 39.5,
+          "z1": 49.65,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "corridor-2",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 52,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-0--1",
+          "name": "CARGO",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 8,
+          "z1": 18.15,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-0-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 8,
+          "z1": 18.15,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-1--1",
+          "name": "CARGO",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 18.5,
+          "z1": 28.65,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-1-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 18.5,
+          "z1": 28.65,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-2--1",
+          "name": "WORKSHOP",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 29,
+          "z1": 39.15,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-2-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 29,
+          "z1": 39.15,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-3--1",
+          "name": "CARGO",
+          "x0": -6,
+          "x1": -1.2,
+          "z0": 39.5,
+          "z1": 49.65,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "hangar-2-3-1",
+          "name": "HANGAR",
+          "x0": 1.2,
+          "x1": 6,
+          "z0": 39.5,
+          "z1": 49.65,
+          "deck": 2,
+          "y": -6.6
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "quarters-0-0--10",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 9.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--11",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 11.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--12",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 14.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--13",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 16.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--1lock",
+          "type": "locker",
+          "x": -3.6,
+          "z": 17.599999999999998,
+          "w": 3.8,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1table",
+          "type": "table",
+          "x": 3.6,
+          "z": 13.075,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1bench",
+          "type": "bench",
+          "x": 5.3,
+          "z": 13.075,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1galley",
+          "type": "locker",
+          "x": 3.6,
+          "z": 17.549999999999997,
+          "w": 3.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1table",
+          "type": "table",
+          "x": -3.6,
+          "z": 23.575,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1bench",
+          "type": "bench",
+          "x": -5.3,
+          "z": 23.575,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1galley",
+          "type": "locker",
+          "x": -3.6,
+          "z": 28.049999999999997,
+          "w": 3.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-10",
+          "type": "bunk",
+          "x": 5.1,
+          "z": 19.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-11",
+          "type": "bunk",
+          "x": 5.1,
+          "z": 22.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-12",
+          "type": "bunk",
+          "x": 5.1,
+          "z": 24.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-13",
+          "type": "bunk",
+          "x": 5.1,
+          "z": 27.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-1lock",
+          "type": "locker",
+          "x": 3.6,
+          "z": 28.099999999999998,
+          "w": 3.8,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--10",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 30.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--11",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 32.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--12",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 35.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--13",
+          "type": "bunk",
+          "x": -5.1,
+          "z": 37.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--1lock",
+          "type": "locker",
+          "x": -3.6,
+          "z": 38.6,
+          "w": 3.8,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-10",
+          "type": "crate",
+          "x": 5,
+          "z": 30.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-11",
+          "type": "crate",
+          "x": 5,
+          "z": 33.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-12",
+          "type": "crate",
+          "x": 5,
+          "z": 36.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--10",
+          "type": "crate",
+          "x": -5,
+          "z": 40.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--11",
+          "type": "crate",
+          "x": -5,
+          "z": 43.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--12",
+          "type": "crate",
+          "x": -5,
+          "z": 46.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-3-1table",
+          "type": "table",
+          "x": 3.6,
+          "z": 44.575,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-3-1bench",
+          "type": "bench",
+          "x": 5.3,
+          "z": 44.575,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-3-1galley",
+          "type": "locker",
+          "x": 3.6,
+          "z": 49.05,
+          "w": 3.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "engineering-1-0--1reactor",
+          "type": "reactor",
+          "x": -4.85,
+          "z": 13.075,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "engineering-1-0--1rack",
+          "type": "rack",
+          "x": -3.6,
+          "z": 17.549999999999997,
+          "w": 3.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-0-10",
+          "type": "rack",
+          "x": 5,
+          "z": 9.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-0-11",
+          "type": "rack",
+          "x": 5,
+          "z": 12.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-0-12",
+          "type": "rack",
+          "x": 5,
+          "z": 15.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-1--10",
+          "type": "rack",
+          "x": -5,
+          "z": 19.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-1--11",
+          "type": "rack",
+          "x": -5,
+          "z": 22.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "workshop-1-1--12",
+          "type": "rack",
+          "x": -5,
+          "z": 25.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "life-support-1-1-1reactor",
+          "type": "reactor",
+          "x": 4.85,
+          "z": 23.575,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "life-support-1-1-1rack",
+          "type": "rack",
+          "x": 3.6,
+          "z": 28.049999999999997,
+          "w": 3.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "life-support-1-2--1reactor",
+          "type": "reactor",
+          "x": -4.85,
+          "z": 34.075,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "life-support-1-2--1rack",
+          "type": "rack",
+          "x": -3.6,
+          "z": 38.55,
+          "w": 3.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "engineering-1-2-1reactor",
+          "type": "reactor",
+          "x": 4.85,
+          "z": 34.075,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "engineering-1-2-1rack",
+          "type": "rack",
+          "x": 3.6,
+          "z": 38.55,
+          "w": 3.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "engineering-1-3--1reactor",
+          "type": "reactor",
+          "x": -4.85,
+          "z": 44.575,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "engineering-1-3--1rack",
+          "type": "rack",
+          "x": -3.6,
+          "z": 49.05,
+          "w": 3.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-3-10",
+          "type": "crate",
+          "x": 5,
+          "z": 40.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-3-11",
+          "type": "crate",
+          "x": 5,
+          "z": 43.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-3-12",
+          "type": "crate",
+          "x": 5,
+          "z": 46.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-0--10",
+          "type": "crate",
+          "x": -5,
+          "z": 9.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-0--11",
+          "type": "crate",
+          "x": -5,
+          "z": 12.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-0--12",
+          "type": "crate",
+          "x": -5,
+          "z": 15.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-0-10",
+          "type": "crate",
+          "x": 5,
+          "z": 9.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-0-11",
+          "type": "crate",
+          "x": 5,
+          "z": 12.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-0-12",
+          "type": "crate",
+          "x": 5,
+          "z": 15.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-1--10",
+          "type": "crate",
+          "x": -5,
+          "z": 19.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-1--11",
+          "type": "crate",
+          "x": -5,
+          "z": 22.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-1--12",
+          "type": "crate",
+          "x": -5,
+          "z": 25.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1-10",
+          "type": "rack",
+          "x": 5,
+          "z": 19.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1-11",
+          "type": "rack",
+          "x": 5,
+          "z": 22.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1-12",
+          "type": "rack",
+          "x": 5,
+          "z": 25.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-2--10",
+          "type": "rack",
+          "x": -5,
+          "z": 30.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-2--11",
+          "type": "rack",
+          "x": -5,
+          "z": 33.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-2--12",
+          "type": "rack",
+          "x": -5,
+          "z": 36.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-2-10",
+          "type": "crate",
+          "x": 5,
+          "z": 30.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-2-11",
+          "type": "crate",
+          "x": 5,
+          "z": 33.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-2-12",
+          "type": "crate",
+          "x": 5,
+          "z": 36.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-3--10",
+          "type": "crate",
+          "x": -5,
+          "z": 40.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-3--11",
+          "type": "crate",
+          "x": -5,
+          "z": 43.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-2-3--12",
+          "type": "crate",
+          "x": -5,
+          "z": 46.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "hangar-2-3-10",
+          "type": "crate",
+          "x": 5,
+          "z": 40.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "hangar-2-3-11",
+          "type": "crate",
+          "x": 5,
+          "z": 43.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "hangar-2-3-12",
+          "type": "crate",
+          "x": 5,
+          "z": 46.7,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        }
+      ],
+      "doors": [
+        {
+          "id": "quarters-0-0--1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 13.075,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 13.075,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 23.575,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 23.575,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-2--1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 34.075,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-2-1-door",
+          "name": "OPERATIONS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 34.075,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-3--1-door",
+          "name": "OPERATIONS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 44.575,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "briefing-0-3-1-door",
+          "name": "BRIEFING BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 44.575,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "aft-0",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 50,
+          "width": 2.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "engineering-1-0--1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 13.075,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-0-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 13.075,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "workshop-1-1--1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 23.575,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "life-support-1-1-1-door",
+          "name": "LIFE-SUPPORT BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 23.575,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "life-support-1-2--1-door",
+          "name": "LIFE-SUPPORT BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 34.075,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering-1-2-1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 34.075,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering-1-3--1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 44.575,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "storage-1-3-1-door",
+          "name": "STORAGE BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 44.575,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "aft-1",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 50,
+          "width": 2.1,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo-2-0--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 13.075,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-0-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 13.075,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-1--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 23.575,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-1-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 23.575,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-2--1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 34.075,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-2-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 34.075,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-2-3--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 44.575,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "hangar-2-3-1-door",
+          "name": "HANGAR BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 44.575,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "aft-2",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 50,
+          "width": 2.1,
+          "deck": 2,
+          "y": -6.6
+        }
+      ],
+      "stations": [
+        {
+          "id": "engineering",
+          "name": "OPERATIONS",
+          "x": 2.1,
+          "z": 34.075,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "engineering",
+          "name": "OPERATIONS",
+          "x": -2.1,
+          "z": 44.575,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 51,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-1-0--1",
+          "x": -2.1,
+          "z": 13.075,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 13.075,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": -2.1,
+          "z": 23.575,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / life-support-1-1-1",
+          "x": 2.1,
+          "z": 23.575,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / life-support-1-2--1",
+          "x": -2.1,
+          "z": 34.075,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-1-2-1",
+          "x": 2.1,
+          "z": 34.075,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-1-3--1",
+          "x": -2.1,
+          "z": 44.575,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "STORAGE",
+          "x": 2.1,
+          "z": 44.575,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 51,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 13.075,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 13.075,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 23.575,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 23.575,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": -2.1,
+          "z": 34.075,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 34.075,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 44.575,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo",
+          "name": "HANGAR",
+          "x": 2.1,
+          "z": 44.575,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 51,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "BRIDGE / CREW",
+          "y": 0
+        },
+        {
+          "index": 1,
+          "name": "SCIENCE / ENGINEERING",
+          "y": -3.3
+        },
+        {
+          "index": 2,
+          "name": "CARGO / AIRLOCK",
+          "y": -6.6
+        }
+      ],
+      "lifts": [
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 2,
+          "y": -6.6
+        }
+      ]
+    },
+    {
+      "family": 8,
+      "end": 7.7,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "crew-bunk",
+          "type": "bunk",
+          "x": 1.23,
+          "z": 3.8,
+          "w": 1.1,
+          "d": 2,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "utility-locker",
+          "type": "locker",
+          "x": -1.45,
+          "z": 3.6,
+          "w": 0.65,
+          "d": 2.4,
+          "h": 1.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        }
+      ],
+      "doors": [],
+      "stations": [
+        {
+          "id": "engineering",
+          "name": "SERVICE PANEL",
+          "x": -1,
+          "z": 6.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "airlock",
+          "name": "AIRLOCK",
+          "x": 0,
+          "z": 7.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "FLIGHT / UTILITY",
+          "y": 0
+        }
+      ],
+      "lifts": []
+    },
+    {
+      "family": 9,
+      "end": 108,
+      "rooms": [
+        {
+          "id": "corridor-0",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": -1.4,
+          "z1": 108,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "bridge",
+          "name": "FLIGHT DECK",
+          "x0": -1.9,
+          "x1": 1.9,
+          "z0": -1.45,
+          "z1": 7.7,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-0--1",
+          "name": "QUARTERS",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1",
+          "name": "MESS",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1",
+          "name": "MESS",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1",
+          "name": "QUARTERS",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-2--1",
+          "name": "QUARTERS",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-2-1",
+          "name": "OPERATIONS",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-3--1",
+          "name": "OPERATIONS",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "briefing-0-3-1",
+          "name": "BRIEFING",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "briefing-0-4--1",
+          "name": "BRIEFING",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "observation-0-4-1",
+          "name": "OBSERVATION",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "observation-0-5--1",
+          "name": "OBSERVATION",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-5-1",
+          "name": "QUARTERS",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "corridor-1",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 108,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical-1-0--1",
+          "name": "MEDICAL",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-0-1",
+          "name": "SCIENCE",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-1--1",
+          "name": "SCIENCE",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "hydroponics-1-1-1",
+          "name": "HYDROPONICS",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "hydroponics-1-2--1",
+          "name": "HYDROPONICS",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-2-1",
+          "name": "SCIENCE",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-3--1",
+          "name": "SCIENCE",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical-1-3-1",
+          "name": "MEDICAL",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical-1-4--1",
+          "name": "MEDICAL",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "storage-1-4-1",
+          "name": "STORAGE",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "storage-1-5--1",
+          "name": "STORAGE",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical-1-5-1",
+          "name": "MEDICAL",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "corridor-2",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 108,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering-2-0--1",
+          "name": "ENGINEERING",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-0-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-1--1",
+          "name": "WORKSHOP",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "life-support-2-1-1",
+          "name": "LIFE SUPPORT",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "life-support-2-2--1",
+          "name": "LIFE SUPPORT",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering-2-2-1",
+          "name": "ENGINEERING",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering-2-3--1",
+          "name": "ENGINEERING",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "storage-2-3-1",
+          "name": "STORAGE",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "storage-2-4--1",
+          "name": "STORAGE",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-4-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-5--1",
+          "name": "WORKSHOP",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering-2-5-1",
+          "name": "ENGINEERING",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "corridor-3",
+          "name": "CENTRAL PASSAGE",
+          "x0": -1.25,
+          "x1": 1.25,
+          "z0": 2,
+          "z1": 108,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-0--1",
+          "name": "CARGO",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-0-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 8,
+          "z1": 23.98333333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-1--1",
+          "name": "CARGO",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "workshop-3-1-1",
+          "name": "WORKSHOP",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 24.333333333333332,
+          "z1": 40.31666666666666,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "workshop-3-2--1",
+          "name": "WORKSHOP",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-2-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 40.666666666666664,
+          "z1": 56.65,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-3--1",
+          "name": "CARGO",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "hangar-3-3-1",
+          "name": "HANGAR",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 57,
+          "z1": 72.98333333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "hangar-3-4--1",
+          "name": "HANGAR",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering-3-4-1",
+          "name": "ENGINEERING",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 73.33333333333333,
+          "z1": 89.31666666666666,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering-3-5--1",
+          "name": "ENGINEERING",
+          "x0": -12,
+          "x1": -1.2,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-5-1",
+          "name": "CARGO",
+          "x0": 1.2,
+          "x1": 12,
+          "z0": 89.66666666666666,
+          "z1": 105.64999999999999,
+          "deck": 3,
+          "y": -9.899999999999999
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "quarters-0-0--10",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 9.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--11",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 11.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--12",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 14.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--13",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 16.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--14",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 19.25,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--15",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 21.75,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-0--1lock",
+          "type": "locker",
+          "x": -6.6,
+          "z": 23.43333333333333,
+          "w": 9.8,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1table",
+          "type": "table",
+          "x": 6.6,
+          "z": 15.991666666666665,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1bench",
+          "type": "bench",
+          "x": 11.3,
+          "z": 15.991666666666665,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-0-1galley",
+          "type": "locker",
+          "x": 6.6,
+          "z": 23.38333333333333,
+          "w": 9.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1table",
+          "type": "table",
+          "x": -6.6,
+          "z": 32.324999999999996,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1bench",
+          "type": "bench",
+          "x": -11.3,
+          "z": 32.324999999999996,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "mess-0-1--1galley",
+          "type": "locker",
+          "x": -6.6,
+          "z": 39.71666666666666,
+          "w": 9.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-10",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 25.583333333333332,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-11",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 28.083333333333332,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-12",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 30.583333333333332,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-13",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 33.08333333333333,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-14",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 35.58333333333333,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-15",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 38.08333333333333,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-1-1lock",
+          "type": "locker",
+          "x": 6.6,
+          "z": 39.766666666666666,
+          "w": 9.8,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--10",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 41.916666666666664,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--11",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 44.416666666666664,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--12",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 46.916666666666664,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--13",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 49.416666666666664,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--14",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 51.916666666666664,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--15",
+          "type": "bunk",
+          "x": -11.100000000000001,
+          "z": 54.416666666666664,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-2--1lock",
+          "type": "locker",
+          "x": -6.6,
+          "z": 56.1,
+          "w": 9.8,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-10",
+          "type": "crate",
+          "x": 11,
+          "z": 41.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-11",
+          "type": "crate",
+          "x": 11,
+          "z": 44.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-12",
+          "type": "crate",
+          "x": 11,
+          "z": 47.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-13",
+          "type": "crate",
+          "x": 11,
+          "z": 50.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-2-14",
+          "type": "crate",
+          "x": 11,
+          "z": 53.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--10",
+          "type": "crate",
+          "x": -11,
+          "z": 58.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--11",
+          "type": "crate",
+          "x": -11,
+          "z": 61.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--12",
+          "type": "crate",
+          "x": -11,
+          "z": 64.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--13",
+          "type": "crate",
+          "x": -11,
+          "z": 67.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "operations-0-3--14",
+          "type": "crate",
+          "x": -11,
+          "z": 70.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-3-1table",
+          "type": "table",
+          "x": 6.6,
+          "z": 64.99166666666667,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-3-1bench",
+          "type": "bench",
+          "x": 11.3,
+          "z": 64.99166666666667,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-3-1galley",
+          "type": "locker",
+          "x": 6.6,
+          "z": 72.38333333333334,
+          "w": 9.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-4--1table",
+          "type": "table",
+          "x": -6.6,
+          "z": 81.32499999999999,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-4--1bench",
+          "type": "bench",
+          "x": -11.3,
+          "z": 81.32499999999999,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "briefing-0-4--1galley",
+          "type": "locker",
+          "x": -6.6,
+          "z": 88.71666666666667,
+          "w": 9.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "observation-0-4-1table",
+          "type": "table",
+          "x": 6.6,
+          "z": 81.32499999999999,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "observation-0-4-1bench",
+          "type": "bench",
+          "x": 11.3,
+          "z": 81.32499999999999,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "observation-0-4-1galley",
+          "type": "locker",
+          "x": 6.6,
+          "z": 88.71666666666667,
+          "w": 9.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "observation-0-5--1table",
+          "type": "table",
+          "x": -6.6,
+          "z": 97.65833333333333,
+          "w": 1.4,
+          "d": 2.4,
+          "h": 0.83,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "observation-0-5--1bench",
+          "type": "bench",
+          "x": -11.3,
+          "z": 97.65833333333333,
+          "w": 0.65,
+          "d": 2.6,
+          "h": 0.9,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "observation-0-5--1galley",
+          "type": "locker",
+          "x": -6.6,
+          "z": 105.05,
+          "w": 9.8,
+          "d": 0.7,
+          "h": 1.2,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-5-10",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 90.91666666666666,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-5-11",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 93.41666666666666,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-5-12",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 95.91666666666666,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-5-13",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 98.41666666666666,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-5-14",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 100.91666666666666,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-5-15",
+          "type": "bunk",
+          "x": 11.100000000000001,
+          "z": 103.41666666666666,
+          "w": 1.5,
+          "d": 2.1,
+          "h": 2.25,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "quarters-0-5-1lock",
+          "type": "locker",
+          "x": 6.6,
+          "z": 105.1,
+          "w": 9.8,
+          "d": 0.65,
+          "h": 2.3,
+          "deck": 0,
+          "y": 0,
+          "solid": true
+        },
+        {
+          "id": "medical-1-0--1bed",
+          "type": "medical",
+          "x": -11.05,
+          "z": 15.991666666666665,
+          "w": 1.15,
+          "d": 2.3,
+          "h": 0.85,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "medical-1-0--1cabinet",
+          "type": "locker",
+          "x": -6.6,
+          "z": 23.38333333333333,
+          "w": 1.4,
+          "d": 0.7,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "science-1-0-1bench",
+          "type": "science",
+          "x": 11.3,
+          "z": 15.991666666666665,
+          "w": 1.2,
+          "d": 3,
+          "h": 1.1,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "science-1-1--1bench",
+          "type": "science",
+          "x": -11.3,
+          "z": 32.324999999999996,
+          "w": 1.2,
+          "d": 3,
+          "h": 1.1,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "hydroponics-1-1-1bench",
+          "type": "science",
+          "x": 11.3,
+          "z": 32.324999999999996,
+          "w": 1.2,
+          "d": 3,
+          "h": 1.1,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "hydroponics-1-2--1bench",
+          "type": "science",
+          "x": -11.3,
+          "z": 48.65833333333333,
+          "w": 1.2,
+          "d": 3,
+          "h": 1.1,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "science-1-2-1bench",
+          "type": "science",
+          "x": 11.3,
+          "z": 48.65833333333333,
+          "w": 1.2,
+          "d": 3,
+          "h": 1.1,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "science-1-3--1bench",
+          "type": "science",
+          "x": -11.3,
+          "z": 64.99166666666667,
+          "w": 1.2,
+          "d": 3,
+          "h": 1.1,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "medical-1-3-1bed",
+          "type": "medical",
+          "x": 11.05,
+          "z": 64.99166666666667,
+          "w": 1.15,
+          "d": 2.3,
+          "h": 0.85,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "medical-1-3-1cabinet",
+          "type": "locker",
+          "x": 6.6,
+          "z": 72.38333333333334,
+          "w": 1.4,
+          "d": 0.7,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "medical-1-4--1bed",
+          "type": "medical",
+          "x": -11.05,
+          "z": 81.32499999999999,
+          "w": 1.15,
+          "d": 2.3,
+          "h": 0.85,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "medical-1-4--1cabinet",
+          "type": "locker",
+          "x": -6.6,
+          "z": 88.71666666666667,
+          "w": 1.4,
+          "d": 0.7,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-4-10",
+          "type": "crate",
+          "x": 11,
+          "z": 74.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-4-11",
+          "type": "crate",
+          "x": 11,
+          "z": 77.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-4-12",
+          "type": "crate",
+          "x": 11,
+          "z": 80.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-4-13",
+          "type": "crate",
+          "x": 11,
+          "z": 83.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-4-14",
+          "type": "crate",
+          "x": 11,
+          "z": 86.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-5--10",
+          "type": "crate",
+          "x": -11,
+          "z": 90.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-5--11",
+          "type": "crate",
+          "x": -11,
+          "z": 93.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-5--12",
+          "type": "crate",
+          "x": -11,
+          "z": 96.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-5--13",
+          "type": "crate",
+          "x": -11,
+          "z": 99.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "storage-1-5--14",
+          "type": "crate",
+          "x": -11,
+          "z": 102.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "medical-1-5-1bed",
+          "type": "medical",
+          "x": 11.05,
+          "z": 97.65833333333333,
+          "w": 1.15,
+          "d": 2.3,
+          "h": 0.85,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "medical-1-5-1cabinet",
+          "type": "locker",
+          "x": 6.6,
+          "z": 105.05,
+          "w": 1.4,
+          "d": 0.7,
+          "h": 2.2,
+          "deck": 1,
+          "y": -3.3,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-0--1reactor",
+          "type": "reactor",
+          "x": -10.850000000000001,
+          "z": 15.991666666666665,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-0--1rack",
+          "type": "rack",
+          "x": -6.6,
+          "z": 23.38333333333333,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-0-10",
+          "type": "rack",
+          "x": 11,
+          "z": 9.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-0-11",
+          "type": "rack",
+          "x": 11,
+          "z": 12.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-0-12",
+          "type": "rack",
+          "x": 11,
+          "z": 15.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-0-13",
+          "type": "rack",
+          "x": 11,
+          "z": 18.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-0-14",
+          "type": "rack",
+          "x": 11,
+          "z": 21.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1--10",
+          "type": "rack",
+          "x": -11,
+          "z": 25.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1--11",
+          "type": "rack",
+          "x": -11,
+          "z": 28.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1--12",
+          "type": "rack",
+          "x": -11,
+          "z": 31.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1--13",
+          "type": "rack",
+          "x": -11,
+          "z": 34.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-1--14",
+          "type": "rack",
+          "x": -11,
+          "z": 37.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "life-support-2-1-1reactor",
+          "type": "reactor",
+          "x": 10.850000000000001,
+          "z": 32.324999999999996,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "life-support-2-1-1rack",
+          "type": "rack",
+          "x": 6.6,
+          "z": 39.71666666666666,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "life-support-2-2--1reactor",
+          "type": "reactor",
+          "x": -10.850000000000001,
+          "z": 48.65833333333333,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "life-support-2-2--1rack",
+          "type": "rack",
+          "x": -6.6,
+          "z": 56.05,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-2-1reactor",
+          "type": "reactor",
+          "x": 10.850000000000001,
+          "z": 48.65833333333333,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-2-1rack",
+          "type": "rack",
+          "x": 6.6,
+          "z": 56.05,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-3--1reactor",
+          "type": "reactor",
+          "x": -10.850000000000001,
+          "z": 64.99166666666667,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-3--1rack",
+          "type": "rack",
+          "x": -6.6,
+          "z": 72.38333333333334,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-3-10",
+          "type": "crate",
+          "x": 11,
+          "z": 58.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-3-11",
+          "type": "crate",
+          "x": 11,
+          "z": 61.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-3-12",
+          "type": "crate",
+          "x": 11,
+          "z": 64.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-3-13",
+          "type": "crate",
+          "x": 11,
+          "z": 67.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-3-14",
+          "type": "crate",
+          "x": 11,
+          "z": 70.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-4--10",
+          "type": "crate",
+          "x": -11,
+          "z": 74.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-4--11",
+          "type": "crate",
+          "x": -11,
+          "z": 77.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-4--12",
+          "type": "crate",
+          "x": -11,
+          "z": 80.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-4--13",
+          "type": "crate",
+          "x": -11,
+          "z": 83.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "storage-2-4--14",
+          "type": "crate",
+          "x": -11,
+          "z": 86.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-4-10",
+          "type": "rack",
+          "x": 11,
+          "z": 74.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-4-11",
+          "type": "rack",
+          "x": 11,
+          "z": 77.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-4-12",
+          "type": "rack",
+          "x": 11,
+          "z": 80.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-4-13",
+          "type": "rack",
+          "x": 11,
+          "z": 83.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-4-14",
+          "type": "rack",
+          "x": 11,
+          "z": 86.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-5--10",
+          "type": "rack",
+          "x": -11,
+          "z": 90.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-5--11",
+          "type": "rack",
+          "x": -11,
+          "z": 93.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-5--12",
+          "type": "rack",
+          "x": -11,
+          "z": 96.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-5--13",
+          "type": "rack",
+          "x": -11,
+          "z": 99.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "workshop-2-5--14",
+          "type": "rack",
+          "x": -11,
+          "z": 102.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-5-1reactor",
+          "type": "reactor",
+          "x": 10.850000000000001,
+          "z": 97.65833333333333,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "engineering-2-5-1rack",
+          "type": "rack",
+          "x": 6.6,
+          "z": 105.05,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 2,
+          "y": -6.6,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0--10",
+          "type": "crate",
+          "x": -11,
+          "z": 9.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0--11",
+          "type": "crate",
+          "x": -11,
+          "z": 12.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0--12",
+          "type": "crate",
+          "x": -11,
+          "z": 15.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0--13",
+          "type": "crate",
+          "x": -11,
+          "z": 18.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0--14",
+          "type": "crate",
+          "x": -11,
+          "z": 21.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0-10",
+          "type": "crate",
+          "x": 11,
+          "z": 9.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0-11",
+          "type": "crate",
+          "x": 11,
+          "z": 12.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0-12",
+          "type": "crate",
+          "x": 11,
+          "z": 15.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0-13",
+          "type": "crate",
+          "x": 11,
+          "z": 18.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-0-14",
+          "type": "crate",
+          "x": 11,
+          "z": 21.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-1--10",
+          "type": "crate",
+          "x": -11,
+          "z": 25.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-1--11",
+          "type": "crate",
+          "x": -11,
+          "z": 28.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-1--12",
+          "type": "crate",
+          "x": -11,
+          "z": 31.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-1--13",
+          "type": "crate",
+          "x": -11,
+          "z": 34.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-1--14",
+          "type": "crate",
+          "x": -11,
+          "z": 37.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-1-10",
+          "type": "rack",
+          "x": 11,
+          "z": 25.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-1-11",
+          "type": "rack",
+          "x": 11,
+          "z": 28.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-1-12",
+          "type": "rack",
+          "x": 11,
+          "z": 31.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-1-13",
+          "type": "rack",
+          "x": 11,
+          "z": 34.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-1-14",
+          "type": "rack",
+          "x": 11,
+          "z": 37.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-2--10",
+          "type": "rack",
+          "x": -11,
+          "z": 41.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-2--11",
+          "type": "rack",
+          "x": -11,
+          "z": 44.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-2--12",
+          "type": "rack",
+          "x": -11,
+          "z": 47.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-2--13",
+          "type": "rack",
+          "x": -11,
+          "z": 50.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "workshop-3-2--14",
+          "type": "rack",
+          "x": -11,
+          "z": 53.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 2.2,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-2-10",
+          "type": "crate",
+          "x": 11,
+          "z": 41.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-2-11",
+          "type": "crate",
+          "x": 11,
+          "z": 44.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-2-12",
+          "type": "crate",
+          "x": 11,
+          "z": 47.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-2-13",
+          "type": "crate",
+          "x": 11,
+          "z": 50.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-2-14",
+          "type": "crate",
+          "x": 11,
+          "z": 53.86666666666667,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-3--10",
+          "type": "crate",
+          "x": -11,
+          "z": 58.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-3--11",
+          "type": "crate",
+          "x": -11,
+          "z": 61.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-3--12",
+          "type": "crate",
+          "x": -11,
+          "z": 64.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-3--13",
+          "type": "crate",
+          "x": -11,
+          "z": 67.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-3--14",
+          "type": "crate",
+          "x": -11,
+          "z": 70.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-3-10",
+          "type": "crate",
+          "x": 11,
+          "z": 58.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-3-11",
+          "type": "crate",
+          "x": 11,
+          "z": 61.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-3-12",
+          "type": "crate",
+          "x": 11,
+          "z": 64.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-3-13",
+          "type": "crate",
+          "x": 11,
+          "z": 67.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-3-14",
+          "type": "crate",
+          "x": 11,
+          "z": 70.2,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-4--10",
+          "type": "crate",
+          "x": -11,
+          "z": 74.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-4--11",
+          "type": "crate",
+          "x": -11,
+          "z": 77.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-4--12",
+          "type": "crate",
+          "x": -11,
+          "z": 80.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-4--13",
+          "type": "crate",
+          "x": -11,
+          "z": 83.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "hangar-3-4--14",
+          "type": "crate",
+          "x": -11,
+          "z": 86.53333333333333,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "engineering-3-4-1reactor",
+          "type": "reactor",
+          "x": 10.850000000000001,
+          "z": 81.32499999999999,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "engineering-3-4-1rack",
+          "type": "rack",
+          "x": 6.6,
+          "z": 88.71666666666667,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "engineering-3-5--1reactor",
+          "type": "reactor",
+          "x": -10.850000000000001,
+          "z": 97.65833333333333,
+          "w": 1.4,
+          "d": 1.8,
+          "h": 2.45,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "engineering-3-5--1rack",
+          "type": "rack",
+          "x": -6.6,
+          "z": 105.05,
+          "w": 9.8,
+          "d": 0.8,
+          "h": 2.6,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-5-10",
+          "type": "crate",
+          "x": 11,
+          "z": 90.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-5-11",
+          "type": "crate",
+          "x": 11,
+          "z": 93.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-5-12",
+          "type": "crate",
+          "x": 11,
+          "z": 96.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-5-13",
+          "type": "crate",
+          "x": 11,
+          "z": 99.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        },
+        {
+          "id": "cargo-3-5-14",
+          "type": "crate",
+          "x": 11,
+          "z": 102.86666666666666,
+          "w": 2,
+          "d": 1.8,
+          "h": 1.25,
+          "deck": 3,
+          "y": -9.899999999999999,
+          "solid": true
+        }
+      ],
+      "doors": [
+        {
+          "id": "quarters-0-0--1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-0-1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "mess-0-1--1-door",
+          "name": "MESS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-1-1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-2--1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-2-1-door",
+          "name": "OPERATIONS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "operations-0-3--1-door",
+          "name": "OPERATIONS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "briefing-0-3-1-door",
+          "name": "BRIEFING BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "briefing-0-4--1-door",
+          "name": "BRIEFING BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "observation-0-4-1-door",
+          "name": "OBSERVATION BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "observation-0-5--1-door",
+          "name": "OBSERVATION BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "quarters-0-5-1-door",
+          "name": "QUARTERS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "aft-0",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 106,
+          "width": 2.1,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "medical-1-0--1-door",
+          "name": "MEDICAL BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-0-1-door",
+          "name": "SCIENCE BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-1--1-door",
+          "name": "SCIENCE BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "hydroponics-1-1-1-door",
+          "name": "HYDROPONICS BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "hydroponics-1-2--1-door",
+          "name": "HYDROPONICS BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-2-1-door",
+          "name": "SCIENCE BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science-1-3--1-door",
+          "name": "SCIENCE BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical-1-3-1-door",
+          "name": "MEDICAL BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical-1-4--1-door",
+          "name": "MEDICAL BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "storage-1-4-1-door",
+          "name": "STORAGE BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "storage-1-5--1-door",
+          "name": "STORAGE BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical-1-5-1-door",
+          "name": "MEDICAL BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "aft-1",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 106,
+          "width": 2.1,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering-2-0--1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-0-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-1--1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "life-support-2-1-1-door",
+          "name": "LIFE-SUPPORT BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "life-support-2-2--1-door",
+          "name": "LIFE-SUPPORT BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering-2-2-1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering-2-3--1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "storage-2-3-1-door",
+          "name": "STORAGE BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "storage-2-4--1-door",
+          "name": "STORAGE BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-4-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "workshop-2-5--1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering-2-5-1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "aft-2",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 106,
+          "width": 2.1,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo-3-0--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-0-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 15.991666666666665,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-1--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "workshop-3-1-1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 32.324999999999996,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "workshop-3-2--1-door",
+          "name": "WORKSHOP BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-2-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 48.65833333333333,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-3--1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "hangar-3-3-1-door",
+          "name": "HANGAR BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 64.99166666666667,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "hangar-3-4--1-door",
+          "name": "HANGAR BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering-3-4-1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 81.32499999999999,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering-3-5--1-door",
+          "name": "ENGINEERING BULKHEAD",
+          "axis": "x",
+          "x": -1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo-3-5-1-door",
+          "name": "CARGO BULKHEAD",
+          "axis": "x",
+          "x": 1.22,
+          "z": 97.65833333333333,
+          "width": 1.55,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "aft-3",
+          "name": "AFT BULKHEAD",
+          "axis": "z",
+          "x": 0,
+          "z": 106,
+          "width": 2.1,
+          "deck": 3,
+          "y": -9.899999999999999
+        }
+      ],
+      "stations": [
+        {
+          "id": "engineering",
+          "name": "OPERATIONS",
+          "x": 2.1,
+          "z": 48.65833333333333,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "engineering",
+          "name": "OPERATIONS",
+          "x": -2.1,
+          "z": 64.99166666666667,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 107,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "medical",
+          "name": "MEDICAL BAY",
+          "x": -2.1,
+          "z": 15.991666666666665,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science",
+          "name": "RESEARCH STATION",
+          "x": 2.1,
+          "z": 15.991666666666665,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science",
+          "name": "RESEARCH STATION",
+          "x": -2.1,
+          "z": 32.324999999999996,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science",
+          "name": "RESEARCH STATION",
+          "x": 2.1,
+          "z": 32.324999999999996,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science",
+          "name": "RESEARCH STATION",
+          "x": -2.1,
+          "z": 48.65833333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science",
+          "name": "RESEARCH STATION",
+          "x": 2.1,
+          "z": 48.65833333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "science",
+          "name": "RESEARCH STATION",
+          "x": -2.1,
+          "z": 64.99166666666667,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical",
+          "name": "MEDICAL BAY",
+          "x": 2.1,
+          "z": 64.99166666666667,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical",
+          "name": "MEDICAL BAY",
+          "x": -2.1,
+          "z": 81.32499999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "STORAGE",
+          "x": 2.1,
+          "z": 81.32499999999999,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "STORAGE",
+          "x": -2.1,
+          "z": 97.65833333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "medical",
+          "name": "MEDICAL BAY",
+          "x": 2.1,
+          "z": 97.65833333333333,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 107,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-2-0--1",
+          "x": -2.1,
+          "z": 15.991666666666665,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 15.991666666666665,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": -2.1,
+          "z": 32.324999999999996,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / life-support-2-1-1",
+          "x": 2.1,
+          "z": 32.324999999999996,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / life-support-2-2--1",
+          "x": -2.1,
+          "z": 48.65833333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-2-2-1",
+          "x": 2.1,
+          "z": 48.65833333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-2-3--1",
+          "x": -2.1,
+          "z": 64.99166666666667,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "STORAGE",
+          "x": 2.1,
+          "z": 64.99166666666667,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "STORAGE",
+          "x": -2.1,
+          "z": 81.32499999999999,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 81.32499999999999,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": -2.1,
+          "z": 97.65833333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-2-5-1",
+          "x": 2.1,
+          "z": 97.65833333333333,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 107,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 15.991666666666665,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 15.991666666666665,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 32.324999999999996,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": 2.1,
+          "z": 32.324999999999996,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering",
+          "name": "WORKSHOP",
+          "x": -2.1,
+          "z": 48.65833333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 48.65833333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": -2.1,
+          "z": 64.99166666666667,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo",
+          "name": "HANGAR",
+          "x": 2.1,
+          "z": 64.99166666666667,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo",
+          "name": "HANGAR",
+          "x": -2.1,
+          "z": 81.32499999999999,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-3-4-1",
+          "x": 2.1,
+          "z": 81.32499999999999,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "engineering",
+          "name": "ENGINEERING / engineering-3-5--1",
+          "x": -2.1,
+          "z": 97.65833333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "cargo",
+          "name": "CARGO",
+          "x": 2.1,
+          "z": 97.65833333333333,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "airlock",
+          "name": "AFT AIRLOCK",
+          "x": 0,
+          "z": 107,
+          "deck": 3,
+          "y": -9.899999999999999
+        },
+        {
+          "id": "pilot",
+          "name": "PILOT STATION",
+          "x": 0,
+          "z": 0,
+          "deck": 0,
+          "y": 0
+        }
+      ],
+      "decks": [
+        {
+          "index": 0,
+          "name": "COMMAND / HABITATION",
+          "y": 0
+        },
+        {
+          "index": 1,
+          "name": "SCIENCE / MEDICAL",
+          "y": -3.3
+        },
+        {
+          "index": 2,
+          "name": "ENGINEERING / WORKSHOPS",
+          "y": -6.6
+        },
+        {
+          "index": 3,
+          "name": "FREIGHT / FLIGHT SUPPORT",
+          "y": -9.899999999999999
+        }
+      ],
+      "lifts": [
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 0,
+          "y": 0
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 1,
+          "y": -3.3
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 2,
+          "y": -6.6
+        },
+        {
+          "id": "central-lift",
+          "name": "SERVICE LIFT",
+          "x": 0,
+          "z": 5,
+          "deck": 3,
+          "y": -9.899999999999999
+        }
+      ]
+    }
+  ]
+}

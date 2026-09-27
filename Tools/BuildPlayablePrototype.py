@@ -112,7 +112,7 @@ def add_ship_components(bp, meshes):
         if comp is None:
             raise RuntimeError("Could not add " + part + ": " + str(reason))
         comp.set_editor_property("static_mesh", mesh)
-        comp.set_editor_property("relative_location", unreal.Vector(2200.0, 0.0, -250.0))
+        comp.set_editor_property("relative_location", unreal.Vector(0.0, 0.0, 0.0))
         comp.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
         count += 1
     unreal.EditorAssetLibrary.save_loaded_asset(bp)
@@ -146,7 +146,7 @@ def main():
         bounds = mesh.get_bounds()
         mesh_report[part] = {"origin_cm": [bounds.origin.x, bounds.origin.y, bounds.origin.z], "extent_cm": [bounds.box_extent.x, bounds.box_extent.y, bounds.box_extent.z]}
         meshes[part] = mesh
-    ship_bp = make_blueprint("BP_KestrelFlyable", unreal.DefaultPawn.static_class())
+    ship_bp = make_blueprint("BP_KestrelFlyable", unreal.SPFlightPawn.static_class())
     components_added = add_ship_components(ship_bp, meshes)
     mode_bp = make_blueprint("BP_KestrelGameMode", unreal.GameModeBase.static_class())
     mode_cdo = unreal.get_default_object(mode_bp.generated_class())
@@ -170,10 +170,12 @@ def main():
             spawn_mesh("Runway seam", cube, (x, 0, -30), (1.8, 140, 0.18), stripe_material)
         for y in (-8000, 8000):
             spawn_mesh("Landing mast base", cylinder, (8500, y, 900), (4, 4, 20), pad_material)
-        # This grounded display ship makes the map inspectable before pressing Play.
+        # The grounded display ship remains inspectable in Editor but must not
+        # overlap the possessed pawn during Play.
         for part, mesh in meshes.items():
-            spawn_mesh("Kestrel K-017 / " + part, mesh, (0, 0, 0), (1, 1, 1))
-        start = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.PlayerStart, unreal.Vector(-3200, 0, 1200))
+            display = spawn_mesh("Kestrel K-017 / " + part, mesh, (0, 0, 0), (1, 1, 1))
+            display.set_actor_hidden_in_game(True)
+        start = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.PlayerStart, unreal.Vector(0, 0, 250))
         start.set_actor_label("Kestrel flight start")
         unreal.EditorLevelLibrary.save_current_level()
     world = unreal.EditorLevelLibrary.get_editor_world()

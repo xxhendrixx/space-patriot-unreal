@@ -1,0 +1,521 @@
+{
+  "world_count": 19,
+  "terrain": {
+    "mercury": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 3321527684,
+      "bytes": 266272,
+      "sha256": "9da1d252ce0549d91b0a69643d87510cfac15630a69af27fe692e391570e069a",
+      "center_channels": [
+        37.517181,
+        0.134294,
+        0.780002,
+        0.777366
+      ]
+    },
+    "venus": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 1732359244,
+      "bytes": 266272,
+      "sha256": "a2af29f6e8f7c3f91fc39b8170479645780c042fd28e7be3be4199b45290fdc2",
+      "center_channels": [
+        57.775116,
+        0.0,
+        1.0,
+        0.673449
+      ]
+    },
+    "earth": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 1270752749,
+      "bytes": 266272,
+      "sha256": "7e782d8f7e19bbd60158c1329b394433ea1b739a1a5cb580180c51d311e0e105",
+      "center_channels": [
+        130.152557,
+        0.699168,
+        0.266129,
+        0.526582
+      ]
+    },
+    "mars": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 3778613462,
+      "bytes": 266272,
+      "sha256": "55f8bf291515bb66b7fc27f93267845c2f552f7d6e6cdc7cdc1a880441babf36",
+      "center_channels": [
+        -28.650305,
+        0.30061,
+        0.803478,
+        0.507971
+      ]
+    },
+    "trappist-1-b": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 1953829944,
+      "bytes": 266272,
+      "sha256": "2fdb14f6887628efc3632edbc8ea1dd0232bcde4d5b34b21d705e4354c6b06b2",
+      "center_channels": [
+        -52.67622,
+        0.0,
+        0.867671,
+        0.709972
+      ]
+    },
+    "trappist-1-c": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 1970607563,
+      "bytes": 266272,
+      "sha256": "bbfee46c99b9eef053a70fdddea83ba3d80113f22e0f750b1b5e38455ae67c46",
+      "center_channels": [
+        220.98877,
+        0.00588,
+        0.996397,
+        0.21587
+      ]
+    },
+    "trappist-1-d": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 2054495658,
+      "bytes": 266272,
+      "sha256": "53caf218bc517d0a95a7428407e9fdcb19a3660388eef5bc5215b82bf52e7989",
+      "center_channels": [
+        150.262054,
+        0.03654,
+        1.0,
+        0.221182
+      ]
+    },
+    "trappist-1-e": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 2071273277,
+      "bytes": 266272,
+      "sha256": "e870a9836df8908e9b4ffe0a8618bc30ed4731e4dc8050048ebe77668ddb3fcd",
+      "center_channels": [
+        453.208984,
+        0.714275,
+        0.843485,
+        0.874071
+      ]
+    },
+    "trappist-1-f": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 2020940420,
+      "bytes": 266272,
+      "sha256": "6a35cab501afebe02dfcdb4f32c83eea31cc30efeb6750547c051467f73b208c",
+      "center_channels": [
+        527.232422,
+        0.107367,
+        0.12987,
+        0.344501
+      ]
+    },
+    "trappist-1-g": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 2037718039,
+      "bytes": 266272,
+      "sha256": "daf11f109fc1ae58d76a4097ce9940dc8a73fdb326c2f7c1a307dbc41151786e",
+      "center_channels": [
+        21.169456,
+        0.302816,
+        0.102584,
+        0.675261
+      ]
+    },
+    "trappist-1-h": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 1853164230,
+      "bytes": 266272,
+      "sha256": "709012344a6fabd2cd2bd79c8fb36eb4ff0a0ad7c15aef0e17d5669aa8b65767",
+      "center_channels": [
+        -20.066441,
+        0.055445,
+        0.281036,
+        0.73901
+      ]
+    },
+    "toi-270-b": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 274680840,
+      "bytes": 266272,
+      "sha256": "931b17e66a73b7cab470b645d43a7f7166dee2edc2903eec4c97954ae9d7d73e",
+      "center_channels": [
+        13.973618,
+        0.485357,
+        0.742746,
+        0.469891
+      ]
+    },
+    "k2-141-b": {
+      "resolution": [
+        129,
+        129
+      ],
+      "world_size_m": 5760.0,
+      "seed": 3969741818,
+      "bytes": 266272,
+      "sha256": "174da3d47c424cfa349220ad4f27fa224b7d3733c26dd65a525080c7e6c1591d",
+      "center_channels": [
+        -60.764278,
+        0.174695,
+        0.828167,
+        0.87911
+      ]
+    }
+  },
+  "climate": {
+    "mercury": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 3321527684,
+      "bytes": 524304,
+      "sha256": "253b324ea8bd9a33cb18efc3420487b5d647917f17fef204b7108186459be3cb",
+      "center_channels": [
+        0.152374,
+        0.58304,
+        0.581721,
+        0.089427
+      ]
+    },
+    "venus": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 1732359244,
+      "bytes": 524304,
+      "sha256": "0419f819aabaa15a4ccb982ecb2034ee71ed99c511af94f20a46f869e7213acc",
+      "center_channels": [
+        0.191801,
+        0.532475,
+        0.557924,
+        0.037804
+      ]
+    },
+    "earth": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 1270752749,
+      "bytes": 524304,
+      "sha256": "6ad1574ceb49506d1f2cc4e0ef53c9c7598a9eab937de5e08203952e417f613c",
+      "center_channels": [
+        0.580864,
+        0.537434,
+        0.432643,
+        0.513962
+      ]
+    },
+    "mars": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 3778613462,
+      "bytes": 524304,
+      "sha256": "9519f7021396d0a671d162d837a9e58e40632ecbcf4e1e09b918d93ede415829",
+      "center_channels": [
+        0.150739,
+        0.913289,
+        0.488332,
+        0.05027
+      ]
+    },
+    "jupiter": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 2444393736,
+      "bytes": 524304,
+      "sha256": "e72ebf4d59a8590cbd14a93aa3d84d24f0c0c4a8442f5673f50399abb8f14167",
+      "center_channels": [
+        0.0,
+        0.497774,
+        0.74,
+        0.0
+      ]
+    },
+    "saturn": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 872456640,
+      "bytes": 524304,
+      "sha256": "cbe0da15bda6014b8974f005b8a3917e38f353669516d2238d684a472fe0f2d7",
+      "center_channels": [
+        0.0,
+        0.497774,
+        0.74,
+        0.0
+      ]
+    },
+    "uranus": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 87653223,
+      "bytes": 524304,
+      "sha256": "f835afe52966246d0ae0bead8cff930bcc8eff277f5ecd8af4771b7d95b51d6c",
+      "center_channels": [
+        0.0,
+        0.497774,
+        0.74,
+        0.0
+      ]
+    },
+    "neptune": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 4207941460,
+      "bytes": 524304,
+      "sha256": "60f0651558d2095502c5368f65ece12a22d5ddab3d17c86671a6627466bc6691",
+      "center_channels": [
+        0.0,
+        0.497774,
+        0.74,
+        0.0
+      ]
+    },
+    "trappist-1-b": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 1953829944,
+      "bytes": 524304,
+      "sha256": "1eb14d63879a95412aeaf2583b75a925f12722a3f18eb2df14488e9f1bf3f10b",
+      "center_channels": [
+        0.174141,
+        0.616939,
+        0.547942,
+        0.0
+      ]
+    },
+    "trappist-1-c": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 1970607563,
+      "bytes": 524304,
+      "sha256": "f0c23c503565ca09346e36c60e21daddea027db352b963a9f7b36f659f145d2c",
+      "center_channels": [
+        0.535074,
+        0.427998,
+        0.601081,
+        0.645536
+      ]
+    },
+    "trappist-1-d": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 2054495658,
+      "bytes": 524304,
+      "sha256": "fddc233ce77d15795f43c5efc2ae7c4b964446f29fe6807cea0f793c517bca60",
+      "center_channels": [
+        0.438394,
+        0.585912,
+        0.573652,
+        0.199921
+      ]
+    },
+    "trappist-1-e": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 2071273277,
+      "bytes": 524304,
+      "sha256": "08abdd41151b86f79107d72a7c1c9808f2093d1c3ba85ca1b13075dd73ca23cf",
+      "center_channels": [
+        0.520971,
+        0.661098,
+        0.494032,
+        0.368165
+      ]
+    },
+    "trappist-1-f": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 2020940420,
+      "bytes": 524304,
+      "sha256": "de76f48837978aef93d2ce71d8178cf14833437ba2b8fa74ebffbd24c921809d",
+      "center_channels": [
+        0.0,
+        0.05736,
+        0.641416,
+        0.0
+      ]
+    },
+    "trappist-1-g": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 2037718039,
+      "bytes": 524304,
+      "sha256": "a009a2f00e693f5663a88e60c459a657e3d800a895aed6f2ef866ed815932a62",
+      "center_channels": [
+        0.0,
+        0.127636,
+        0.613299,
+        0.0
+      ]
+    },
+    "trappist-1-h": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 1853164230,
+      "bytes": 524304,
+      "sha256": "a87f45917e6d4f25e39c1c1deb8cb270caa0f135dd3e4dac1dad2bd403d953ea",
+      "center_channels": [
+        0.171117,
+        0.546773,
+        0.583187,
+        0.007145
+      ]
+    },
+    "toi-270-b": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 274680840,
+      "bytes": 524304,
+      "sha256": "d9ac1dfc7a77e7c16ea70853f700796177de16c7b11764197195c14d1c836e81",
+      "center_channels": [
+        0.455417,
+        0.489866,
+        0.568864,
+        0.186385
+      ]
+    },
+    "toi-270-c": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 291458459,
+      "bytes": 524304,
+      "sha256": "abdac7245ddda7325cd92d45d6319d33f0bc3fb5e831e3a98d1e44dfe6b523c3",
+      "center_channels": [
+        0.0,
+        0.497774,
+        0.74,
+        0.0
+      ]
+    },
+    "k2-141-b": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 3969741818,
+      "bytes": 524304,
+      "sha256": "aa943a1125f35e96da169b633bf319bbd3a71b8dbaf5fa8916b4cc26f162eea2",
+      "center_channels": [
+        0.0,
+        0.558814,
+        0.67505,
+        0.0
+      ]
+    },
+    "wasp-76-b": {
+      "resolution": [
+        256,
+        128
+      ],
+      "world_size_m": null,
+      "seed": 1016419044,
+      "bytes": 524304,
+      "sha256": "34ab623e32485a88e55b385d6cfceab8b733320095cf125e452d0a90e9b38d38",
+      "center_channels": [
+        0.0,
+        0.497774,
+        0.74,
+        0.0
+      ]
+    }
+  },
+  "original_source_available": true,
+  "hashes_verified": true
+}

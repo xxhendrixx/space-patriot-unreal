@@ -1,0 +1,2258 @@
+{
+  "format": "storyworks-project",
+  "version": 1,
+  "id": "space-patriot-long-debt-v1",
+  "title": "The Long Debt",
+  "variables": {},
+  "quests": [
+    {
+      "id": "water",
+      "title": "The Water Ledger",
+      "entry": "water-brief"
+    },
+    {
+      "id": "orchard",
+      "title": "The Orchard That Remembers",
+      "entry": "orchard-brief"
+    },
+    {
+      "id": "furnace",
+      "title": "A Sun Inside the Invoice",
+      "entry": "furnace-brief"
+    },
+    {
+      "id": "missing",
+      "title": "The Passenger in the Cargo Hold",
+      "entry": "missing-brief",
+      "requires": {
+        "all": [
+          {
+            "source": "quest",
+            "key": "water",
+            "value": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "relay",
+      "title": "The Quiet Between Storms",
+      "entry": "relay-brief",
+      "requires": {
+        "all": [
+          {
+            "source": "quest",
+            "key": "orchard",
+            "value": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mirror",
+      "title": "The Mirror Fleet",
+      "entry": "mirror-brief",
+      "requires": {
+        "all": [
+          {
+            "source": "quest",
+            "key": "furnace",
+            "value": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "witness",
+      "title": "A Name No One Can Sell",
+      "entry": "witness-brief",
+      "requires": {
+        "all": [
+          {
+            "source": "quest",
+            "key": "missing",
+            "value": "completed"
+          },
+          {
+            "source": "quest",
+            "key": "mirror",
+            "value": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "assembly",
+      "title": "The Night Shift Assembly",
+      "entry": "assembly-brief",
+      "requires": {
+        "all": [
+          {
+            "source": "quest",
+            "key": "relay",
+            "value": "completed"
+          },
+          {
+            "source": "quest",
+            "key": "furnace",
+            "value": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "patriot",
+      "title": "What the Flag Is For",
+      "entry": "patriot-brief",
+      "requires": {
+        "all": [
+          {
+            "source": "quest",
+            "key": "witness",
+            "value": "completed"
+          },
+          {
+            "source": "quest",
+            "key": "assembly",
+            "value": "completed"
+          }
+        ]
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "water-brief",
+      "questId": "water",
+      "type": "dialogue",
+      "title": "The Water Ledger",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Water Ledger / Ivo Rook — Someone is buying water for people who no longer exist. Twelve manifests, twelve dead captains, every payment cleared by the same New York office. Rook has been hauling the tanks without asking questions. Last night a girl in the freight queue called him by one of those dead captains’ names. He wants to know who taught her."
+        }
+      ],
+      "speaker": "Ivo Rook",
+      "text": "Someone is buying water for people who no longer exist. Twelve manifests, twelve dead captains, every payment cleared by the same New York office. Rook has been hauling the tanks without asking questions. Last night a girl in the freight queue called him by one of those dead captains’ names. He wants to know who taught her.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "water-step0"
+        }
+      ]
+    },
+    {
+      "id": "water-step0",
+      "questId": "water",
+      "type": "objective",
+      "title": "Read a city operations terminal on Earth",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "Earth"
+      },
+      "goal": 1,
+      "next": "water-report0",
+      "location": {
+        "kind": "terminal",
+        "world": "Earth",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "water-report0",
+      "questId": "water",
+      "type": "dialogue",
+      "title": "The Water Ledger",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Water Ledger / Ivo Rook — The manifests are genuine. The names are borrowed. A clerk has been routing subsidized shipments through dead accounts to keep an unregistered Martian district alive. The discrepancy is not where the water went; it is who sold the district’s right to buy it."
+        }
+      ],
+      "speaker": "Ivo Rook",
+      "text": "The manifests are genuine. The names are borrowed. A clerk has been routing subsidized shipments through dead accounts to keep an unregistered Martian district alive. The discrepancy is not where the water went; it is who sold the district’s right to buy it.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "water-step1"
+        }
+      ]
+    },
+    {
+      "id": "water-step1",
+      "questId": "water",
+      "type": "objective",
+      "title": "Deliver four organics at a Martian port",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "delivery",
+        "world": "Mars"
+      },
+      "goal": 1,
+      "next": "water-report1",
+      "location": {
+        "kind": "delivery",
+        "world": "Mars",
+        "good": "organics",
+        "units": 4
+      }
+    },
+    {
+      "id": "water-report1",
+      "questId": "water",
+      "type": "dialogue",
+      "title": "The Water Ledger",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Water Ledger / Ivo Rook — The cargo includes membrane cultures for the district’s failing water filters. Rook expected a smuggler. The receiver is a schoolteacher, her register written on the reverse of an eviction notice. “Put their real names on your next invoice,” she says. “If you can afford to.”"
+        }
+      ],
+      "speaker": "Ivo Rook",
+      "text": "The cargo includes membrane cultures for the district’s failing water filters. Rook expected a smuggler. The receiver is a schoolteacher, her register written on the reverse of an eviction notice. “Put their real names on your next invoice,” she says. “If you can afford to.”",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "water-step2"
+        }
+      ]
+    },
+    {
+      "id": "water-step2",
+      "questId": "water",
+      "type": "objective",
+      "title": "Return to Earth and read the account authority",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "Earth"
+      },
+      "goal": 1,
+      "next": "water-report2",
+      "location": {
+        "kind": "terminal",
+        "world": "Earth",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "water-report2",
+      "questId": "water",
+      "type": "dialogue",
+      "title": "The Water Ledger",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Water Ledger / Ivo Rook — Helix bought the concession legally. The Union approved it quietly. Publishing only one signature would make a useful scandal and leave the contract intact. Publishing the whole chain will embarrass the people offering to protect you."
+        }
+      ],
+      "speaker": "Ivo Rook",
+      "text": "Helix bought the concession legally. The Union approved it quietly. Publishing only one signature would make a useful scandal and leave the contract intact. Publishing the whole chain will embarrass the people offering to protect you.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "water-decision"
+        }
+      ]
+    },
+    {
+      "id": "water-decision",
+      "questId": "water",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Water Ledger / Ivo Rook — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Ivo Rook",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Publish the complete ledger",
+          "next": "water-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "water-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Sell the concession back to its residents",
+          "next": "water-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "water-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "water-end0",
+      "questId": "water",
+      "type": "end",
+      "title": "Publish the complete ledger",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Water Ledger — The ledger is public, including the Union signatures. Emergency filter supplies reach Mars. Rook starts using his own name on manifests again."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "water",
+            "faction": "union",
+            "standing": 12,
+            "credits": 650,
+            "market": {
+              "world": "Mars",
+              "good": "organics",
+              "stock": 45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "water-end1",
+      "questId": "water",
+      "type": "end",
+      "title": "Sell the concession back to its residents",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Water Ledger — You broker a private transfer. The school keeps its water, Helix keeps the rest of its books closed, and Rook keeps a copy of every signature."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "water",
+            "faction": "helix",
+            "standing": 10,
+            "credits": 1100,
+            "market": {
+              "world": "Mars",
+              "good": "organics",
+              "stock": 24
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "orchard-brief",
+      "questId": "orchard",
+      "type": "dialogue",
+      "title": "The Orchard That Remembers",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Orchard That Remembers / Dr. Mara Sol — A grove on TRAPPIST-1 e has grown around a survey stake placed only six days ago. The tree rings say forty years. Mara does not believe in prophetic trees. She does believe that someone has changed the dating standard—and that the colony’s food contracts were priced using the old one."
+        }
+      ],
+      "speaker": "Dr. Mara Sol",
+      "text": "A grove on TRAPPIST-1 e has grown around a survey stake placed only six days ago. The tree rings say forty years. Mara does not believe in prophetic trees. She does believe that someone has changed the dating standard—and that the colony’s food contracts were priced using the old one.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "orchard-step0"
+        }
+      ]
+    },
+    {
+      "id": "orchard-step0",
+      "questId": "orchard",
+      "type": "objective",
+      "title": "Collect a surface sample on TRAPPIST-1 e · N",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "sample",
+        "world": "TRAPPIST-1 e"
+      },
+      "goal": 1,
+      "next": "orchard-report0",
+      "location": {
+        "kind": "sample",
+        "world": "TRAPPIST-1 e",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "orchard-report0",
+      "questId": "orchard",
+      "type": "dialogue",
+      "title": "The Orchard That Remembers",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Orchard That Remembers / Dr. Mara Sol — The grove is layered. Older tissue shelters younger shoots from the host star’s activity. The stake did not age the tree. It punctured a living archive, and a contractor called the resulting growth contamination."
+        }
+      ],
+      "speaker": "Dr. Mara Sol",
+      "text": "The grove is layered. Older tissue shelters younger shoots from the host star’s activity. The stake did not age the tree. It punctured a living archive, and a contractor called the resulting growth contamination.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "orchard-step1"
+        }
+      ]
+    },
+    {
+      "id": "orchard-step1",
+      "questId": "orchard",
+      "type": "objective",
+      "title": "Read a laboratory terminal on TRAPPIST-1 f",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "TRAPPIST-1 f"
+      },
+      "goal": 1,
+      "next": "orchard-report1",
+      "location": {
+        "kind": "terminal",
+        "world": "TRAPPIST-1 f",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "orchard-report1",
+      "questId": "orchard",
+      "type": "dialogue",
+      "title": "The Orchard That Remembers",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Orchard That Remembers / Dr. Mara Sol — The laboratory stores the same growth pattern under a patent number. A technician’s note names her mother as the original collector. Her mother’s citizenship was revoked before the patent was filed."
+        }
+      ],
+      "speaker": "Dr. Mara Sol",
+      "text": "The laboratory stores the same growth pattern under a patent number. A technician’s note names her mother as the original collector. Her mother’s citizenship was revoked before the patent was filed.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "orchard-step2"
+        }
+      ]
+    },
+    {
+      "id": "orchard-step2",
+      "questId": "orchard",
+      "type": "objective",
+      "title": "Deliver four organics to the habitat seed bank",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "delivery",
+        "world": "TRAPPIST-1 e"
+      },
+      "goal": 1,
+      "next": "orchard-report2",
+      "location": {
+        "kind": "delivery",
+        "world": "TRAPPIST-1 e",
+        "good": "organics",
+        "units": 4
+      }
+    },
+    {
+      "id": "orchard-report2",
+      "questId": "orchard",
+      "type": "dialogue",
+      "title": "The Orchard That Remembers",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Orchard That Remembers / Dr. Mara Sol — Mara can keep a protected sample alive, but protection is also a claim of ownership. The settlers ask for cultures they can propagate themselves. The lab asks you to keep them sterile."
+        }
+      ],
+      "speaker": "Dr. Mara Sol",
+      "text": "Mara can keep a protected sample alive, but protection is also a claim of ownership. The settlers ask for cultures they can propagate themselves. The lab asks you to keep them sterile.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "orchard-decision"
+        }
+      ]
+    },
+    {
+      "id": "orchard-decision",
+      "questId": "orchard",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Orchard That Remembers / Dr. Mara Sol — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Dr. Mara Sol",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Open the seed archive to every habitat",
+          "next": "orchard-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "orchard-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Fund a guarded research reserve",
+          "next": "orchard-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "orchard-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orchard-end0",
+      "questId": "orchard",
+      "type": "end",
+      "title": "Open the seed archive to every habitat",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Orchard That Remembers — The culture instructions travel with the samples. No faction can revoke a seed that has already been planted. Mara keeps the collector’s name on the record."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "orchard",
+            "faction": "union",
+            "standing": 14,
+            "credits": 850,
+            "market": {
+              "world": "TRAPPIST-1 e",
+              "good": "organics",
+              "stock": 60
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "orchard-end1",
+      "questId": "orchard",
+      "type": "end",
+      "title": "Fund a guarded research reserve",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Orchard That Remembers — The reserve receives power and trained staff. Its gates also receive locks. Mara accepts the funding and insists that the collector’s descendants hold a key."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "orchard",
+            "faction": "helix",
+            "standing": 12,
+            "credits": 1300,
+            "market": {
+              "world": "TRAPPIST-1 f",
+              "good": "crystal",
+              "stock": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "furnace-brief",
+      "questId": "furnace",
+      "type": "dialogue",
+      "title": "A Sun Inside the Invoice",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Sun Inside the Invoice / Leonie Park, thermal auditor — A refinery bills three systems for cooling the same tonne of metal. Leonie calls that fraud. Her employer calls it a shared thermal obligation. A maintenance crew on WASP-76 b calls it the reason their next shift may not come home."
+        }
+      ],
+      "speaker": "Leonie Park, thermal auditor",
+      "text": "A refinery bills three systems for cooling the same tonne of metal. Leonie calls that fraud. Her employer calls it a shared thermal obligation. A maintenance crew on WASP-76 b calls it the reason their next shift may not come home.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "furnace-step0"
+        }
+      ]
+    },
+    {
+      "id": "furnace-step0",
+      "questId": "furnace",
+      "type": "objective",
+      "title": "Reach the WASP-76 b orbital habitat",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "station",
+        "world": "WASP-76 b"
+      },
+      "goal": 1,
+      "next": "furnace-report0",
+      "location": {
+        "kind": "station",
+        "world": "WASP-76 b",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "furnace-report0",
+      "questId": "furnace",
+      "type": "dialogue",
+      "title": "A Sun Inside the Invoice",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Sun Inside the Invoice / Leonie Park, thermal auditor — The heat balance does not close. A reserve radiator is listed as operational, but the maintenance record says it was sold six months ago. The replacement serial belongs to a reactor controller on K2-141 b."
+        }
+      ],
+      "speaker": "Leonie Park, thermal auditor",
+      "text": "The heat balance does not close. A reserve radiator is listed as operational, but the maintenance record says it was sold six months ago. The replacement serial belongs to a reactor controller on K2-141 b.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "furnace-step1"
+        }
+      ]
+    },
+    {
+      "id": "furnace-step1",
+      "questId": "furnace",
+      "type": "objective",
+      "title": "Bring a city reactor online on K2-141 b",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "power",
+        "world": "K2-141 b"
+      },
+      "goal": 1,
+      "next": "furnace-report1",
+      "location": {
+        "kind": "power",
+        "world": "K2-141 b",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "furnace-report1",
+      "questId": "furnace",
+      "type": "dialogue",
+      "title": "A Sun Inside the Invoice",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Sun Inside the Invoice / Leonie Park, thermal auditor — The controller contains two calibration tables. One keeps equipment alive; the other meets the export quota. Leonie’s supervisor signed the quota table while his own family was on the safe shift."
+        }
+      ],
+      "speaker": "Leonie Park, thermal auditor",
+      "text": "The controller contains two calibration tables. One keeps equipment alive; the other meets the export quota. Leonie’s supervisor signed the quota table while his own family was on the safe shift.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "furnace-step2"
+        }
+      ]
+    },
+    {
+      "id": "furnace-step2",
+      "questId": "furnace",
+      "type": "objective",
+      "title": "Read the refinery audit at a WASP-76 b city terminal",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "WASP-76 b"
+      },
+      "goal": 1,
+      "next": "furnace-report2",
+      "location": {
+        "kind": "terminal",
+        "world": "WASP-76 b",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "furnace-report2",
+      "questId": "furnace",
+      "type": "dialogue",
+      "title": "A Sun Inside the Invoice",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Sun Inside the Invoice / Leonie Park, thermal auditor — The crews want a shutdown and back pay. The outer habitats need this refinery’s output. Leonie will sign either order if you attach your name beside hers. She refuses to sign a third excuse."
+        }
+      ],
+      "speaker": "Leonie Park, thermal auditor",
+      "text": "The crews want a shutdown and back pay. The outer habitats need this refinery’s output. Leonie will sign either order if you attach your name beside hers. She refuses to sign a third excuse.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "furnace-decision"
+        }
+      ]
+    },
+    {
+      "id": "furnace-decision",
+      "questId": "furnace",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Sun Inside the Invoice / Leonie Park, thermal auditor — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Leonie Park, thermal auditor",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Suspend the quota and release the evidence",
+          "next": "furnace-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "furnace-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Finance the repair without stopping exports",
+          "next": "furnace-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "furnace-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furnace-end0",
+      "questId": "furnace",
+      "type": "end",
+      "title": "Suspend the quota and release the evidence",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Sun Inside the Invoice — Emergency stock buys the crews a maintenance window. Output falls, but the hidden calibration stops deciding who gets to live through a shift."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "furnace",
+            "faction": "union",
+            "standing": 10,
+            "credits": 950,
+            "market": {
+              "world": "WASP-76 b",
+              "good": "ore",
+              "stock": -35
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "furnace-end1",
+      "questId": "furnace",
+      "type": "end",
+      "title": "Finance the repair without stopping exports",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Sun Inside the Invoice — The Compact funds replacement equipment and pays the crews. The quota survives. Leonie makes the repaired controller transmit its real readings to an open channel."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "furnace",
+            "faction": "helix",
+            "standing": 14,
+            "credits": 1600,
+            "market": {
+              "world": "K2-141 b",
+              "good": "ore",
+              "stock": 45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "missing-brief",
+      "questId": "missing",
+      "type": "dialogue",
+      "title": "The Passenger in the Cargo Hold",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Passenger in the Cargo Hold / Tamsin Cho, dock physician — A freighter arrived at TOI-270 c with forty-one life-support allocations and forty passengers. Its captain insists the missing allocation belongs to spare parts. Tamsin has heard those spare parts singing through the quarantine wall. The voice knows a childhood song that was never broadcast off Earth."
+        }
+      ],
+      "speaker": "Tamsin Cho, dock physician",
+      "text": "A freighter arrived at TOI-270 c with forty-one life-support allocations and forty passengers. Its captain insists the missing allocation belongs to spare parts. Tamsin has heard those spare parts singing through the quarantine wall. The voice knows a childhood song that was never broadcast off Earth.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "missing-step0"
+        }
+      ]
+    },
+    {
+      "id": "missing-step0",
+      "questId": "missing",
+      "type": "objective",
+      "title": "Reach the quarantine habitat at TOI-270 c",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "station",
+        "world": "TOI-270 c"
+      },
+      "goal": 1,
+      "next": "missing-report0",
+      "location": {
+        "kind": "station",
+        "world": "TOI-270 c",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "missing-report0",
+      "questId": "missing",
+      "type": "dialogue",
+      "title": "The Passenger in the Cargo Hold",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Passenger in the Cargo Hold / Tamsin Cho, dock physician — There is no hidden passenger. The “voice” is a medical archive assembled from colonists who sold memory recordings to pay for passage. One recording has identified the physician who falsified their consent forms."
+        }
+      ],
+      "speaker": "Tamsin Cho, dock physician",
+      "text": "There is no hidden passenger. The “voice” is a medical archive assembled from colonists who sold memory recordings to pay for passage. One recording has identified the physician who falsified their consent forms.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "missing-step1"
+        }
+      ]
+    },
+    {
+      "id": "missing-step1",
+      "questId": "missing",
+      "type": "objective",
+      "title": "Read the consent register on TOI-270 b",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "TOI-270 b"
+      },
+      "goal": 1,
+      "next": "missing-report1",
+      "location": {
+        "kind": "terminal",
+        "world": "TOI-270 b",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "missing-report1",
+      "questId": "missing",
+      "type": "dialogue",
+      "title": "The Passenger in the Cargo Hold",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Passenger in the Cargo Hold / Tamsin Cho, dock physician — The forged forms share the concession office from the water ledger. Rook recognizes its witness code. He signed one of the forms before he knew what the company would do with it."
+        }
+      ],
+      "speaker": "Tamsin Cho, dock physician",
+      "text": "The forged forms share the concession office from the water ledger. Rook recognizes its witness code. He signed one of the forms before he knew what the company would do with it.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "missing-step2"
+        }
+      ]
+    },
+    {
+      "id": "missing-step2",
+      "questId": "missing",
+      "type": "objective",
+      "title": "Deliver four crystals for an independent archive copy",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "delivery",
+        "world": "TOI-270 c"
+      },
+      "goal": 1,
+      "next": "missing-report2",
+      "location": {
+        "kind": "delivery",
+        "world": "TOI-270 c",
+        "good": "crystal",
+        "units": 4
+      }
+    },
+    {
+      "id": "missing-report2",
+      "questId": "missing",
+      "type": "dialogue",
+      "title": "The Passenger in the Cargo Hold",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Passenger in the Cargo Hold / Tamsin Cho, dock physician — The archive asks for storage that can leave quarantine. Tamsin refuses to call a collection of voices a person on command, and refuses to erase it on command either. A copy will let the affected families answer for themselves."
+        }
+      ],
+      "speaker": "Tamsin Cho, dock physician",
+      "text": "The archive asks for storage that can leave quarantine. Tamsin refuses to call a collection of voices a person on command, and refuses to erase it on command either. A copy will let the affected families answer for themselves.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "missing-decision"
+        }
+      ]
+    },
+    {
+      "id": "missing-decision",
+      "questId": "missing",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Passenger in the Cargo Hold / Tamsin Cho, dock physician — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Tamsin Cho, dock physician",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Give custody to the recorded families",
+          "next": "missing-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "missing-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Grant independent custody to the archive",
+          "next": "missing-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "missing-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missing-end0",
+      "questId": "missing",
+      "type": "end",
+      "title": "Give custody to the recorded families",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Passenger in the Cargo Hold — Families receive copies and the right to withdraw their own recordings. Some preserve them. Some delete them. For the first time, the archive’s silence is a choice."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "missing",
+            "faction": "union",
+            "standing": 16,
+            "credits": 1200,
+            "market": {
+              "world": "TOI-270 c",
+              "good": "crystal",
+              "stock": 20
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "missing-end1",
+      "questId": "missing",
+      "type": "end",
+      "title": "Grant independent custody to the archive",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Passenger in the Cargo Hold — You route the copy through independent ships. The archive chooses a callsign: Forty-One. Tamsin keeps the consent hearing open, including the difficult questions."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "missing",
+            "faction": "redwake",
+            "standing": 16,
+            "credits": 1500,
+            "market": {
+              "world": "TOI-270 c",
+              "good": "crystal",
+              "stock": 35
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "relay-brief",
+      "questId": "relay",
+      "type": "dialogue",
+      "title": "The Quiet Between Storms",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Quiet Between Storms / Jun Mercer, relay keeper — TRAPPIST-1 g loses a weather relay every time the same convoy leaves port. The official explanation is stellar interference. Jun has serviced those relays for twenty years. Interference, he says, does not wait for the cargo doors to close."
+        }
+      ],
+      "speaker": "Jun Mercer, relay keeper",
+      "text": "TRAPPIST-1 g loses a weather relay every time the same convoy leaves port. The official explanation is stellar interference. Jun has serviced those relays for twenty years. Interference, he says, does not wait for the cargo doors to close.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "relay-step0"
+        }
+      ]
+    },
+    {
+      "id": "relay-step0",
+      "questId": "relay",
+      "type": "objective",
+      "title": "Restore a city reactor feed on TRAPPIST-1 g",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "power",
+        "world": "TRAPPIST-1 g"
+      },
+      "goal": 1,
+      "next": "relay-report0",
+      "location": {
+        "kind": "power",
+        "world": "TRAPPIST-1 g",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "relay-report0",
+      "questId": "relay",
+      "type": "dialogue",
+      "title": "The Quiet Between Storms",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Quiet Between Storms / Jun Mercer, relay keeper — The backup feed reveals a narrow transmission window. The convoy uses storm outages to conceal a route to unlicensed habitats. The people cutting power say the licensed routes charge more than those habitats can pay."
+        }
+      ],
+      "speaker": "Jun Mercer, relay keeper",
+      "text": "The backup feed reveals a narrow transmission window. The convoy uses storm outages to conceal a route to unlicensed habitats. The people cutting power say the licensed routes charge more than those habitats can pay.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "relay-step1"
+        }
+      ]
+    },
+    {
+      "id": "relay-step1",
+      "questId": "relay",
+      "type": "objective",
+      "title": "Defeat a hostile combatant in a TRAPPIST-1 g encounter",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "combat",
+        "world": "TRAPPIST-1 g"
+      },
+      "goal": 1,
+      "next": "relay-report1",
+      "location": {
+        "kind": "combat",
+        "world": "TRAPPIST-1 g",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "relay-report1",
+      "questId": "relay",
+      "type": "dialogue",
+      "title": "The Quiet Between Storms",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Quiet Between Storms / Jun Mercer, relay keeper — The recovered orders instruct the raiders to destroy antennas, not cargo. Someone bought their discipline. Jun recognizes the payment schedule: it is his own missing maintenance budget."
+        }
+      ],
+      "speaker": "Jun Mercer, relay keeper",
+      "text": "The recovered orders instruct the raiders to destroy antennas, not cargo. Someone bought their discipline. Jun recognizes the payment schedule: it is his own missing maintenance budget.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "relay-step2"
+        }
+      ]
+    },
+    {
+      "id": "relay-step2",
+      "questId": "relay",
+      "type": "objective",
+      "title": "Read the relay procurement records on TRAPPIST-1 e",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "TRAPPIST-1 e"
+      },
+      "goal": 1,
+      "next": "relay-report2",
+      "location": {
+        "kind": "terminal",
+        "world": "TRAPPIST-1 e",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "relay-report2",
+      "questId": "relay",
+      "type": "dialogue",
+      "title": "The Quiet Between Storms",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Quiet Between Storms / Jun Mercer, relay keeper — The evidence connects the patented orchard, the relay budget, and an insurance fund that profits when remote settlements cannot prove a storm warning was withheld."
+        }
+      ],
+      "speaker": "Jun Mercer, relay keeper",
+      "text": "The evidence connects the patented orchard, the relay budget, and an insurance fund that profits when remote settlements cannot prove a storm warning was withheld.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "relay-decision"
+        }
+      ]
+    },
+    {
+      "id": "relay-decision",
+      "questId": "relay",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Quiet Between Storms / Jun Mercer, relay keeper — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Jun Mercer, relay keeper",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Publish a free warning network",
+          "next": "relay-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "relay-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Negotiate protected independent routes",
+          "next": "relay-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "relay-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relay-end0",
+      "questId": "relay",
+      "type": "end",
+      "title": "Publish a free warning network",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Quiet Between Storms — The habitats receive independent warnings. Smugglers can read them too. Jun would rather broadcast to a thief than let a child miss the evacuation order."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "relay",
+            "faction": "union",
+            "standing": 14,
+            "credits": 1300,
+            "market": {
+              "world": "TRAPPIST-1 g",
+              "good": "crystal",
+              "stock": 35
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "relay-end1",
+      "questId": "relay",
+      "type": "end",
+      "title": "Negotiate protected independent routes",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Quiet Between Storms — Independent captains stop cutting relays in exchange for access to the public forecast. Jun logs the agreement under maintenance, where nobody can pretend it was charity."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "relay",
+            "faction": "redwake",
+            "standing": 20,
+            "credits": 1700,
+            "market": {
+              "world": "TRAPPIST-1 g",
+              "good": "organics",
+              "stock": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "mirror-brief",
+      "questId": "mirror",
+      "type": "dialogue",
+      "title": "The Mirror Fleet",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Mirror Fleet / Seren Vale — Neptune’s approach radar has counted the same freighter entering port three times in one minute. The pilots blame reflections. Vale has found three matching freight payments. Someone has taught an accounting system to believe in ghosts."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "Neptune’s approach radar has counted the same freighter entering port three times in one minute. The pilots blame reflections. Vale has found three matching freight payments. Someone has taught an accounting system to believe in ghosts.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "mirror-step0"
+        }
+      ]
+    },
+    {
+      "id": "mirror-step0",
+      "questId": "mirror",
+      "type": "objective",
+      "title": "Reach Neptune’s orbital traffic station",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "station",
+        "world": "Neptune"
+      },
+      "goal": 1,
+      "next": "mirror-report0",
+      "location": {
+        "kind": "station",
+        "world": "Neptune",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "mirror-report0",
+      "questId": "mirror",
+      "type": "dialogue",
+      "title": "The Mirror Fleet",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Mirror Fleet / Seren Vale — The ghost tracks are old distress telemetry, replayed with new transponders. The missing radiator from Leonie’s audit travelled aboard one of these supposed ships. A salvage cooperative has been collecting docking fees for wrecks."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "The ghost tracks are old distress telemetry, replayed with new transponders. The missing radiator from Leonie’s audit travelled aboard one of these supposed ships. A salvage cooperative has been collecting docking fees for wrecks.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "mirror-step1"
+        }
+      ]
+    },
+    {
+      "id": "mirror-step1",
+      "questId": "mirror",
+      "type": "objective",
+      "title": "Deliver four ore to Earth’s replacement-parts pool",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "delivery",
+        "world": "Earth"
+      },
+      "goal": 1,
+      "next": "mirror-report1",
+      "location": {
+        "kind": "delivery",
+        "world": "Earth",
+        "good": "ore",
+        "units": 4
+      }
+    },
+    {
+      "id": "mirror-report1",
+      "questId": "mirror",
+      "type": "dialogue",
+      "title": "The Mirror Fleet",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Mirror Fleet / Seren Vale — The cooperative used the fees to fabricate parts for abandoned rescue beacons. It also sold the best parts to the highest bidder. Vale refuses to let either fact erase the other."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "The cooperative used the fees to fabricate parts for abandoned rescue beacons. It also sold the best parts to the highest bidder. Vale refuses to let either fact erase the other.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "mirror-step2"
+        }
+      ]
+    },
+    {
+      "id": "mirror-step2",
+      "questId": "mirror",
+      "type": "objective",
+      "title": "Deliver four ore for Neptune’s rescue-beacon repairs",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "delivery",
+        "world": "Neptune"
+      },
+      "goal": 1,
+      "next": "mirror-report2",
+      "location": {
+        "kind": "delivery",
+        "world": "Neptune",
+        "good": "ore",
+        "units": 4
+      }
+    },
+    {
+      "id": "mirror-report2",
+      "questId": "mirror",
+      "type": "dialogue",
+      "title": "The Mirror Fleet",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Mirror Fleet / Seren Vale — Live beacon power separates the genuine distress traffic from the forged fleet. One real ship is still out there. Its last manifest lists the clerk who opened the dead water accounts."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "Live beacon power separates the genuine distress traffic from the forged fleet. One real ship is still out there. Its last manifest lists the clerk who opened the dead water accounts.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "mirror-decision"
+        }
+      ]
+    },
+    {
+      "id": "mirror-decision",
+      "questId": "mirror",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Mirror Fleet / Seren Vale — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Put the rescue beacons in public trust",
+          "next": "mirror-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "mirror-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Keep the cooperative independent with restitution",
+          "next": "mirror-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "mirror-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mirror-end0",
+      "questId": "mirror",
+      "type": "end",
+      "title": "Put the rescue beacons in public trust",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Mirror Fleet — The cooperatives keep their workshops under an audited rescue charter. Vale orders the live distress channel to stay open through the hearing."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "mirror",
+            "faction": "union",
+            "standing": 18,
+            "credits": 1450,
+            "market": {
+              "world": "Neptune",
+              "good": "ore",
+              "stock": 35
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "mirror-end1",
+      "questId": "mirror",
+      "type": "end",
+      "title": "Keep the cooperative independent with restitution",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Mirror Fleet — The cooperative repays the forged fees in parts and publishes its beacon map. Independent captains defend the workshops. The falsified records remain evidence."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "mirror",
+            "faction": "redwake",
+            "standing": 14,
+            "credits": 1850,
+            "market": {
+              "world": "Neptune",
+              "good": "ore",
+              "stock": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "witness-brief",
+      "questId": "witness",
+      "type": "dialogue",
+      "title": "A Name No One Can Sell",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Name No One Can Sell / Forty-One / Ivo Rook — The water clerk survived. Her testimony is distributed across a damaged recorder, the passenger archive, and Rook’s memory of a dock he would rather forget. Each witness can prove one part. None can prove the whole transaction alone."
+        }
+      ],
+      "speaker": "Forty-One / Ivo Rook",
+      "text": "The water clerk survived. Her testimony is distributed across a damaged recorder, the passenger archive, and Rook’s memory of a dock he would rather forget. Each witness can prove one part. None can prove the whole transaction alone.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "witness-step0"
+        }
+      ]
+    },
+    {
+      "id": "witness-step0",
+      "questId": "witness",
+      "type": "objective",
+      "title": "Recover the district’s original registry on Mars",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "Mars"
+      },
+      "goal": 1,
+      "next": "witness-report0",
+      "location": {
+        "kind": "terminal",
+        "world": "Mars",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "witness-report0",
+      "questId": "witness",
+      "type": "dialogue",
+      "title": "A Name No One Can Sell",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Name No One Can Sell / Forty-One / Ivo Rook — The district was not abandoned by accident. Its debt was packaged with rights to its residents’ medical records and the salvage value of its supply fleet. The same names appear in all three ledgers."
+        }
+      ],
+      "speaker": "Forty-One / Ivo Rook",
+      "text": "The district was not abandoned by accident. Its debt was packaged with rights to its residents’ medical records and the salvage value of its supply fleet. The same names appear in all three ledgers.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "witness-step1"
+        }
+      ]
+    },
+    {
+      "id": "witness-step1",
+      "questId": "witness",
+      "type": "objective",
+      "title": "Meet the custodians of the passenger archive",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "station",
+        "world": "TOI-270 c"
+      },
+      "goal": 1,
+      "next": "witness-report1",
+      "location": {
+        "kind": "station",
+        "world": "TOI-270 c",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "witness-report1",
+      "questId": "witness",
+      "type": "dialogue",
+      "title": "A Name No One Can Sell",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Name No One Can Sell / Forty-One / Ivo Rook — Forty-One offers the missing timestamp but asks that the families’ recordings remain outside the evidence package. Rook offers his own testimony instead. It is weaker evidence and a risk he finally takes himself."
+        }
+      ],
+      "speaker": "Forty-One / Ivo Rook",
+      "text": "Forty-One offers the missing timestamp but asks that the families’ recordings remain outside the evidence package. Rook offers his own testimony instead. It is weaker evidence and a risk he finally takes himself.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "witness-step2"
+        }
+      ]
+    },
+    {
+      "id": "witness-step2",
+      "questId": "witness",
+      "type": "objective",
+      "title": "Prepare the public hearing record on Earth",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "Earth"
+      },
+      "goal": 1,
+      "next": "witness-report2",
+      "location": {
+        "kind": "terminal",
+        "world": "Earth",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "witness-report2",
+      "questId": "witness",
+      "type": "dialogue",
+      "title": "A Name No One Can Sell",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Name No One Can Sell / Forty-One / Ivo Rook — The hearing can win a quick conviction by exposing private recordings, or establish a narrower case using voluntary testimony. The residents ask to attend as witnesses, not as data."
+        }
+      ],
+      "speaker": "Forty-One / Ivo Rook",
+      "text": "The hearing can win a quick conviction by exposing private recordings, or establish a narrower case using voluntary testimony. The residents ask to attend as witnesses, not as data.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "witness-decision"
+        }
+      ]
+    },
+    {
+      "id": "witness-decision",
+      "questId": "witness",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Name No One Can Sell / Forty-One / Ivo Rook — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Forty-One / Ivo Rook",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Use only testimony its owners volunteer",
+          "next": "witness-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "witness-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Release the full archive under protected review",
+          "next": "witness-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "witness-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "witness-end0",
+      "questId": "witness",
+      "type": "end",
+      "title": "Use only testimony its owners volunteer",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Name No One Can Sell — The case takes longer. Some counts fail. The concession itself is voided, and the witnesses leave with the rights the prosecution promised to defend."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "witness",
+            "faction": "union",
+            "standing": 22,
+            "credits": 1800,
+            "market": {
+              "world": "Mars",
+              "good": "organics",
+              "stock": 55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "witness-end1",
+      "questId": "witness",
+      "type": "end",
+      "title": "Release the full archive under protected review",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "A Name No One Can Sell — The review convicts more officials and seals the records afterward. Forty-One records every access request. Trust returns slowly, even where the judgment is welcomed."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "witness",
+            "faction": "helix",
+            "standing": 8,
+            "credits": 2300,
+            "market": {
+              "world": "Earth",
+              "good": "crystal",
+              "stock": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "assembly-brief",
+      "questId": "assembly",
+      "type": "dialogue",
+      "title": "The Night Shift Assembly",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Night Shift Assembly / Leonie Park / Jun Mercer — Refinery crews, relay keepers, growers, and independent captains have called an assembly. None trusts the others to write the charter. Each has also kept someone else alive without being paid. Their first argument is over who gets to turn the lights on."
+        }
+      ],
+      "speaker": "Leonie Park / Jun Mercer",
+      "text": "Refinery crews, relay keepers, growers, and independent captains have called an assembly. None trusts the others to write the charter. Each has also kept someone else alive without being paid. Their first argument is over who gets to turn the lights on.",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "assembly-step0"
+        }
+      ]
+    },
+    {
+      "id": "assembly-step0",
+      "questId": "assembly",
+      "type": "objective",
+      "title": "Deliver four crystals for the assembly’s independent power bus",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "delivery",
+        "world": "K2-141 b"
+      },
+      "goal": 1,
+      "next": "assembly-report0",
+      "location": {
+        "kind": "delivery",
+        "world": "K2-141 b",
+        "good": "crystal",
+        "units": 4
+      }
+    },
+    {
+      "id": "assembly-report0",
+      "questId": "assembly",
+      "type": "dialogue",
+      "title": "The Night Shift Assembly",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Night Shift Assembly / Leonie Park / Jun Mercer — The bus removes the host refinery’s ability to cut the meeting short. Leonie takes the first night shift. Jun arrives with weather logs, not a speech."
+        }
+      ],
+      "speaker": "Leonie Park / Jun Mercer",
+      "text": "The bus removes the host refinery’s ability to cut the meeting short. Leonie takes the first night shift. Jun arrives with weather logs, not a speech.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "assembly-step1"
+        }
+      ]
+    },
+    {
+      "id": "assembly-step1",
+      "questId": "assembly",
+      "type": "objective",
+      "title": "Read the habitat warning charter on TRAPPIST-1 g",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "TRAPPIST-1 g"
+      },
+      "goal": 1,
+      "next": "assembly-report1",
+      "location": {
+        "kind": "terminal",
+        "world": "TRAPPIST-1 g",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "assembly-report1",
+      "questId": "assembly",
+      "type": "dialogue",
+      "title": "The Night Shift Assembly",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Night Shift Assembly / Leonie Park / Jun Mercer — The warning network has outgrown its original bargain. Smaller settlements need representation before the large ports sell priority access back to them."
+        }
+      ],
+      "speaker": "Leonie Park / Jun Mercer",
+      "text": "The warning network has outgrown its original bargain. Smaller settlements need representation before the large ports sell priority access back to them.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "assembly-step2"
+        }
+      ]
+    },
+    {
+      "id": "assembly-step2",
+      "questId": "assembly",
+      "type": "objective",
+      "title": "Carry the charter to the refinery habitat",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "station",
+        "world": "WASP-76 b"
+      },
+      "goal": 1,
+      "next": "assembly-report2",
+      "location": {
+        "kind": "station",
+        "world": "WASP-76 b",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "assembly-report2",
+      "questId": "assembly",
+      "type": "dialogue",
+      "title": "The Night Shift Assembly",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Night Shift Assembly / Leonie Park / Jun Mercer — The workers want guaranteed maintenance. The captains want open docks. The growers want reproducible seed. The Compact offers to enforce every guarantee if it owns the switchboard."
+        }
+      ],
+      "speaker": "Leonie Park / Jun Mercer",
+      "text": "The workers want guaranteed maintenance. The captains want open docks. The growers want reproducible seed. The Compact offers to enforce every guarantee if it owns the switchboard.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "assembly-decision"
+        }
+      ]
+    },
+    {
+      "id": "assembly-decision",
+      "questId": "assembly",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Night Shift Assembly / Leonie Park / Jun Mercer — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Leonie Park / Jun Mercer",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "Ratify a distributed habitat charter",
+          "next": "assembly-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "assembly-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "Create an independent captains’ mutual",
+          "next": "assembly-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "assembly-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assembly-end0",
+      "questId": "assembly",
+      "type": "end",
+      "title": "Ratify a distributed habitat charter",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Night Shift Assembly — Each habitat controls its local bus; the shared network must publish its tariffs. Disputes remain, but no single switch can silence the assembly."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "assembly",
+            "faction": "union",
+            "standing": 20,
+            "credits": 2000,
+            "market": {
+              "world": "K2-141 b",
+              "good": "crystal",
+              "stock": 55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "assembly-end1",
+      "questId": "assembly",
+      "type": "end",
+      "title": "Create an independent captains’ mutual",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "The Night Shift Assembly — The captains insure repairs and warning relays collectively. The smallest habitats receive voting shares before the richest ships do. Jun makes that line the first test of the agreement."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "assembly",
+            "faction": "redwake",
+            "standing": 22,
+            "credits": 2400,
+            "market": {
+              "world": "TRAPPIST-1 g",
+              "good": "organics",
+              "stock": 60
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "patriot-brief",
+      "questId": "patriot",
+      "type": "dialogue",
+      "title": "What the Flag Is For",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "What the Flag Is For / Seren Vale — The frontier has your records, your supply routes, and your compromises. Now every faction wants to put its flag on them. Vale offers a hangar for the signing. “Pick a symbol if you like,” she says. “But tell the night shift what it will do when the next pump fails.”"
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "The frontier has your records, your supply routes, and your compromises. Now every faction wants to put its flag on them. Vale offers a hangar for the signing. “Pick a symbol if you like,” she says. “But tell the night shift what it will do when the next pump fails.”",
+      "choices": [
+        {
+          "id": "begin",
+          "text": "Take the case",
+          "next": "patriot-step0"
+        }
+      ]
+    },
+    {
+      "id": "patriot-step0",
+      "questId": "patriot",
+      "type": "objective",
+      "title": "Deliver four organics to the first district you helped",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "delivery",
+        "world": "Mars"
+      },
+      "goal": 1,
+      "next": "patriot-report0",
+      "location": {
+        "kind": "delivery",
+        "world": "Mars",
+        "good": "organics",
+        "units": 4
+      }
+    },
+    {
+      "id": "patriot-report0",
+      "questId": "patriot",
+      "type": "dialogue",
+      "title": "What the Flag Is For",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "What the Flag Is For / Seren Vale — The schoolteacher has kept the first invoice. This one has the real residents’ names. She asks you to take a copy to the signing, beside the speeches and the casualty lists."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "The schoolteacher has kept the first invoice. This one has the real residents’ names. She asks you to take a copy to the signing, beside the speeches and the casualty lists.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "patriot-step1"
+        }
+      ]
+    },
+    {
+      "id": "patriot-step1",
+      "questId": "patriot",
+      "type": "objective",
+      "title": "Bring an Earth city reactor feed online for the meeting",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "power",
+        "world": "Earth"
+      },
+      "goal": 1,
+      "next": "patriot-report1",
+      "location": {
+        "kind": "power",
+        "world": "Earth",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "patriot-report1",
+      "questId": "patriot",
+      "type": "dialogue",
+      "title": "What the Flag Is For",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "What the Flag Is For / Seren Vale — The meeting starts while the public maintenance display is still open. A technician asks the delegates to move their chairs away from the service hatch. They do."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "The meeting starts while the public maintenance display is still open. A technician asks the delegates to move their chairs away from the service hatch. They do.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "patriot-step2"
+        }
+      ]
+    },
+    {
+      "id": "patriot-step2",
+      "questId": "patriot",
+      "type": "objective",
+      "title": "Open the final charter at an Earth city terminal",
+      "event": "gameplay.signal",
+      "match": {
+        "kind": "terminal",
+        "world": "Earth"
+      },
+      "goal": 1,
+      "next": "patriot-report2",
+      "location": {
+        "kind": "terminal",
+        "world": "Earth",
+        "good": null,
+        "units": 0
+      }
+    },
+    {
+      "id": "patriot-report2",
+      "questId": "patriot",
+      "type": "dialogue",
+      "title": "What the Flag Is For",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "What the Flag Is For / Seren Vale — Your earlier decisions remain in the journal: who received the seeds, who kept custody of the voices, who paid for repairs. A flag cannot turn those choices into a cleaner story. It can make a promise about the next one."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "Your earlier decisions remain in the journal: who received the seeds, who kept custody of the voices, who paid for repairs. A flag cannot turn those choices into a cleaner story. It can make a promise about the next one.",
+      "choices": [
+        {
+          "id": "continue",
+          "text": "Continue the investigation",
+          "next": "patriot-decision"
+        }
+      ]
+    },
+    {
+      "id": "patriot-decision",
+      "questId": "patriot",
+      "type": "dialogue",
+      "title": "Choose the outcome",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "What the Flag Is For / Seren Vale — This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal."
+        }
+      ],
+      "speaker": "Seren Vale",
+      "text": "This decision changes standing, payment, and the supplies available to the affected world. Both records remain in your journal.",
+      "choices": [
+        {
+          "id": "choice0",
+          "text": "A frontier with public services and open records",
+          "next": "patriot-end0",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "patriot-choice0",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "choice1",
+          "text": "A frontier of independent, mutually bound habitats",
+          "next": "patriot-end1",
+          "actions": [
+            {
+              "type": "flag",
+              "key": "patriot-choice1",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "patriot-end0",
+      "questId": "patriot",
+      "type": "end",
+      "title": "A frontier with public services and open records",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "What the Flag Is For — The charter funds common rescue, water, warning, and repair services. The signatories keep their factions. The terminals keep their audit logs. Space Patriot continues in a frontier that remembers what your crew changed."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "patriot",
+            "faction": "union",
+            "standing": 25,
+            "credits": 3200,
+            "market": {
+              "world": "Earth",
+              "good": "organics",
+              "stock": 90
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "patriot-end1",
+      "questId": "patriot",
+      "type": "end",
+      "title": "A frontier of independent, mutually bound habitats",
+      "result": "completed",
+      "actions": [
+        {
+          "type": "journal",
+          "text": "What the Flag Is For — The habitats own their local systems and guarantee reciprocal aid. No captain may collect a rescue debt from a child. The first test is already blinking on the maintenance display."
+        },
+        {
+          "type": "command",
+          "command": "campaign.reward",
+          "payload": {
+            "key": "patriot",
+            "faction": "redwake",
+            "standing": 25,
+            "credits": 3500,
+            "market": {
+              "world": "Earth",
+              "good": "ore",
+              "stock": 90
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

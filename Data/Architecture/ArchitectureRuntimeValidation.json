@@ -1,0 +1,116 @@
+{
+  "checks": [
+    {
+      "name": "native_architecture_class",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "test_map_loads",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture_actor_spawns",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "source_family_9_loads",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "four_decks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "fifty_three_rooms",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "fifty_two_doors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "one_hundred_seventy_six_fixtures",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bounded_structure_instances",
+      "passed": true,
+      "detail": "571"
+    },
+    {
+      "name": "corridor_occupied",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "outside_not_occupied",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "route_between_flight_and_freight_decks",
+      "passed": true,
+      "detail": "['bridge', 'corridor-0', 'corridor-1', 'corridor-2', 'corridor-3', 'cargo-3-0--1']"
+    },
+    {
+      "name": "source_bulkhead_starts_open",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bulkhead_closes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "closed_bulkhead_blocks_room_route",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bulkhead_reopens",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unpowered_lift_refuses_request",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unpowered_lift_blocks_cross_deck_route",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "powered_lift_accepts_request",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "lift_arrives_at_freight_deck",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "small_family_loads",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "small_family_source_counts",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": 22,
+  "failed": 0
+}

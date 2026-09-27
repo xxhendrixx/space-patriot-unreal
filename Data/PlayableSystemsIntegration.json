@@ -1,0 +1,32 @@
+{
+  "ship": {
+    "parent": "/Script/SpacePatriotUnreal.SPFlightPawn",
+    "part_component_count": 8,
+    "part_components": {
+      "Gear_Starboard_LOD0": "StaticMesh7_GEN_VARIABLE",
+      "Gear_Port_LOD0": "StaticMesh6_GEN_VARIABLE",
+      "Gear_Nose_LOD0": "StaticMesh5_GEN_VARIABLE",
+      "Drive_Starboard_LOD0": "StaticMesh4_GEN_VARIABLE",
+      "Drive_Port_LOD0": "StaticMesh3_GEN_VARIABLE",
+      "Wing_Port_LOD0": "StaticMesh1_GEN_VARIABLE",
+      "Wing_Starboard_LOD0": "StaticMesh2_GEN_VARIABLE",
+      "Hull_LOD0": "StaticMesh_GEN_VARIABLE"
+    }
+  },
+  "runtime": {
+    "society_component": "SPSocietySimulation_GEN_VARIABLE",
+    "campaign_component": "SPStoryCampaign_GEN_VARIABLE",
+    "field_survey_component": "SPFieldSurvey_GEN_VARIABLE"
+  },
+  "level": {
+    "map": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+    "display_ship_parts": 8,
+    "player_start_cm": [
+      0,
+      0,
+      250
+    ],
+    "runtime_actor_count": 1,
+    "display_parts_hidden_in_game": 8
+  }
+}

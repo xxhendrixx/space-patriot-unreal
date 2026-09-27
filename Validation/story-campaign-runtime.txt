@@ -1,0 +1,15 @@
+Space Patriot / The Long Debt / Unreal Storyworks validation
+Source: Reference/Original/source/campaign-data.js -> SpacePatriotCampaign.project()
+Portable data: Data/StoryCampaign.json
+Portable data SHA-256: 4244485a2806be607ba6be97e1189b2eb584d7d709825ee8eec73ace677839b7
+Source-object comparison: exact JSON equality
+Source graph: 9 quests, 90 nodes, 27 objective milestones, 18 ending nodes
+
+UE version: 5.8.3
+Build target: SpacePatriotUnrealEditor Win64 Development
+UBT result: Succeeded (initial build, Blueprint API recompile, final docking/save-order recompile)
+Automation: SpacePatriot.StoryCampaign.FullGraph
+Unreal Editor result: Test Completed. Result={Success}; TEST COMPLETE. EXIT CODE: 0
+Coverage: all nine quests traversed twice, all 27 milestones per branch, both ending choices, prerequisite gates, seven cargo-backed deliveries, undocked/wrong-world delivery rejection, market effects, faction standing, credits, journal text, choice flags, duplicate event rejection, and SaveGame memory roundtrip. Final retest: 2026-09-27 02:43 UTC, Result={Success}, EXIT CODE: 0.
+
+Limit: the component is not placed in the playable map and no terminal/station/combat actor or UMG/MFD screen invokes it yet. Separate campaign and society save slots also need one host transaction for crash-safe rewards.
