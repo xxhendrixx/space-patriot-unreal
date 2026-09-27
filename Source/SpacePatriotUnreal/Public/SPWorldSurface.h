@@ -117,12 +117,14 @@ private:
     FVector NoiseOffset = FVector::ZeroVector;
     FVector DetailAnchor = FVector::ZeroVector;
     int32 DetailLOD = -1;
+    bool bDetailSectionCollidable = false;
     float StreamElapsed = 0.0f;
 
     bool LoadWorldProfile();
     void BuildPlanetMesh();
     void UpdateDetailMesh(bool bForce);
     void BuildDetailMesh(const FVector& FocusLocal, int32 Segments);
+    void ApplyCollisionMode(bool bDetailCollidable);
     FVector GetFocusLocal() const;
     FVector GetPlanetCenterLocal() const;
     FVector GetRadialAtLocal(const FVector& LocalPoint) const;

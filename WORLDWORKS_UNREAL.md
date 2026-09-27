@@ -21,14 +21,18 @@ and 2.4–3 km fade from local terrain into planetary relief. The source
 atmosphere shader, water simulation, cities, vegetation engine, and full
 local geology branch still need Unreal implementations.
 
-The globe mesh uses 128×64 segments and has no collision. A single curved
+The globe mesh uses 128×64 segments and provides coarse collision across
+solid worlds while the local patch is unavailable. A single curved
 detail patch follows the pawn at every surface location. It spans 6 km,
 concentrates vertices near the pawn, and uses 96, 48, or 24 segments depending
-on altitude. Collision is enabled only below 400 m. The patch hides above
+on altitude. Detail collision is enabled only below 400 m and is cooked
+synchronously before replacing the old collision body. The patch hides above
 `MaxDetailAltitudeMeters` (default 1200 m), and rebuilds after a bounded
 120 m or 700 m focus move. This allows an arbitrary surface location to be
 approached without keeping high-detail terrain around the whole planet.
-The far globe remains a coarse view and does not provide collision by itself.
+The far globe remains a lower-detail collision fallback. At walking altitude,
+the local patch takes over collision because the sparse globe can differ from
+the visible detail by metres and would otherwise intercept the character.
 
 `Tools/SPWorldFieldAudit.py` checks all 32 copied binary files against the
 Unity source export, all seeds, grid dimensions, and world coverage. It writes

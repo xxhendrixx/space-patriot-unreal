@@ -1,0 +1,43 @@
+{
+  "map": "/Game/SpacePatriot/Maps/L_KestrelFlight",
+  "world_surface_count": 1,
+  "probes": [
+    {
+      "name": "near-detail",
+      "hit_actor_class": "SPWorldSurface",
+      "hit_component": "Streamed Worldworks Detail",
+      "location_cm": [
+        10000.0,
+        0.0,
+        -624.62
+      ]
+    },
+    {
+      "name": "far-globe",
+      "hit_actor_class": "SPWorldSurface",
+      "hit_component": "Source Planet",
+      "location_cm": [
+        500000.0,
+        0.0,
+        -70670.04
+      ]
+    },
+    {
+      "name": "near-after-world-switch",
+      "hit_actor_class": "SPWorldSurface",
+      "hit_component": "Streamed Worldworks Detail",
+      "location_cm": [
+        10000.0,
+        0.0,
+        -624.62
+      ]
+    }
+  ],
+  "earth_rebuild_ms": 52.55,
+  "detail_vertices": 9409,
+  "focus_altitude_m": 6.0,
+  "detail_collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+  "high_focus_altitude_m": 2006.0,
+  "gas_world_solid_hit": false,
+  "passed": true
+}

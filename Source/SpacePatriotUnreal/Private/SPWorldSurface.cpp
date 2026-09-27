@@ -2,6 +2,7 @@
 
 #include "ProceduralMeshComponent.h"
 #include "Dom/JsonObject.h"
+#include "Engine/CollisionProfile.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Pawn.h"
@@ -171,11 +172,18 @@ ASPWorldSurface::ASPWorldSurface()
     PrimaryActorTick.bCanEverTick = true;
     PlanetMesh = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("Source Planet"));
     SetRootComponent(PlanetMesh);
-    PlanetMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-    PlanetMesh->bUseAsyncCooking = true;
+    PlanetMesh->SetCollisionProfileName(UCollisionProfile::BlockAll_ProfileName);
+    PlanetMesh->SetCollisionObjectType(ECC_WorldStatic);
+    // Keep a coarse floor while the higher-detail patch moves, and have
+    // collision ready before a pawn can fall through on the first frame.
+    PlanetMesh->bUseAsyncCooking = false;
     DetailMesh = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("Streamed Worldworks Detail"));
     DetailMesh->SetupAttachment(PlanetMesh);
-    DetailMesh->bUseAsyncCooking = true;
+    DetailMesh->SetCollisionProfileName(UCollisionProfile::BlockAll_ProfileName);
+    DetailMesh->SetCollisionObjectType(ECC_WorldStatic);
+    // Async cooking leaves the previous patch active while its replacement
+    // cooks. A moving character can walk off that stale collision body.
+    DetailMesh->bUseAsyncCooking = false;
 }
 
 void ASPWorldSurface::BeginPlay()
@@ -248,11 +256,21 @@ bool ASPWorldSurface::LoadWorldProfile()
 
 bool ASPWorldSurface::RebuildSurface()
 {
+    // Placed map components may retain their old serialized async-cook value
+    // even after this class's constructor default changes.
+    PlanetMesh->bUseAsyncCooking = false;
+    DetailMesh->bUseAsyncCooking = false;
+    PlanetMesh->SetCollisionProfileName(UCollisionProfile::BlockAll_ProfileName);
+    PlanetMesh->SetCollisionObjectType(ECC_WorldStatic);
+    DetailMesh->SetCollisionProfileName(UCollisionProfile::BlockAll_ProfileName);
+    DetailMesh->SetCollisionObjectType(ECC_WorldStatic);
     if (!LoadWorldProfile())
     {
         UE_LOG(LogTemp, Error, TEXT("Worldworks profile or source field unavailable for %s"), *WorldId);
         PlanetMesh->ClearAllMeshSections();
         DetailMesh->ClearAllMeshSections();
+        PlanetMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        DetailMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         return false;
     }
     if (!SurfaceMaterial)
@@ -436,8 +454,9 @@ void ASPWorldSurface::BuildPlanetMesh()
         }
     }
     CalculateSmoothNormals(Vertices, Triangles, Normals);
-    PlanetMesh->CreateMeshSection_LinearColor(0, Vertices, Triangles, Normals, UV, Colors, TArray<FProcMeshTangent>(), false);
-    PlanetMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    const bool bSolid = ResolvedBiome != TEXT("gas");
+    PlanetMesh->SetCollisionEnabled(bSolid ? ECollisionEnabled::QueryAndPhysics : ECollisionEnabled::NoCollision);
+    PlanetMesh->CreateMeshSection_LinearColor(0, Vertices, Triangles, Normals, UV, Colors, TArray<FProcMeshTangent>(), bSolid);
 }
 
 void ASPWorldSurface::UpdateDetailMesh(bool bForce)
@@ -446,6 +465,8 @@ void ASPWorldSurface::UpdateDetailMesh(bool bForce)
     {
         DetailMesh->ClearAllMeshSections();
         DetailMesh->SetVisibility(false);
+        ApplyCollisionMode(false);
+        bDetailSectionCollidable = false;
         DetailVertices = DetailTriangles = 0;
         DetailLOD = -1;
         return;
@@ -456,12 +477,16 @@ void ASPWorldSurface::UpdateDetailMesh(bool bForce)
     if (LastFocusAltitudeMeters > MaxDetailAltitudeMeters)
     {
         DetailMesh->SetVisibility(false);
+        ApplyCollisionMode(false);
         return;
     }
     const int32 NewLOD = LastFocusAltitudeMeters < 40.0f ? 0 : (LastFocusAltitudeMeters < 400.0f ? 1 : 2);
+    const bool bNeedsDetailCollision = bEnableDetailCollision && LastFocusAltitudeMeters < 400.0f;
     const float RecenterMeters = NewLOD == 0 ? 120.0f : 700.0f;
-    if (!bForce && NewLOD == DetailLOD && FVector::Dist(Focus, DetailAnchor) < RecenterMeters * WorldSurfaceUnitsPerMeter)
+    if (!bForce && NewLOD == DetailLOD && bNeedsDetailCollision == bDetailSectionCollidable &&
+        FVector::Dist(Focus, DetailAnchor) < RecenterMeters * WorldSurfaceUnitsPerMeter)
     {
+        ApplyCollisionMode(bNeedsDetailCollision);
         DetailMesh->SetVisibility(true);
         return;
     }
@@ -469,6 +494,18 @@ void ASPWorldSurface::UpdateDetailMesh(bool bForce)
     DetailAnchor = Focus;
     DetailLOD = NewLOD;
     DetailMesh->SetVisibility(true);
+}
+
+void ASPWorldSurface::ApplyCollisionMode(bool bDetailCollidable)
+{
+    // The coarse globe and detailed patch can disagree by metres because the
+    // globe interpolates 128x64 vertices. If both block pawns, they stand on
+    // the coarse invisible collider instead of the visible ground. Keep the
+    // globe solid only while the detailed collision patch is unavailable.
+    PlanetMesh->SetCollisionEnabled(ResolvedBiome != TEXT("gas") && !bDetailCollidable
+        ? ECollisionEnabled::QueryAndPhysics : ECollisionEnabled::NoCollision);
+    DetailMesh->SetCollisionEnabled(bDetailCollidable
+        ? ECollisionEnabled::QueryAndPhysics : ECollisionEnabled::NoCollision);
 }
 
 void ASPWorldSurface::BuildDetailMesh(const FVector& FocusLocal, int32 Segments)
@@ -516,6 +553,8 @@ void ASPWorldSurface::BuildDetailMesh(const FVector& FocusLocal, int32 Segments)
     const bool bCollision = bEnableDetailCollision && LastFocusAltitudeMeters < 400.0f;
     DetailMesh->SetCollisionEnabled(bCollision ? ECollisionEnabled::QueryAndPhysics : ECollisionEnabled::NoCollision);
     DetailMesh->CreateMeshSection_LinearColor(0, Vertices, Triangles, Normals, UV, Colors, TArray<FProcMeshTangent>(), bCollision);
+    bDetailSectionCollidable = bCollision;
+    ApplyCollisionMode(bCollision);
     DetailVertices = Vertices.Num();
     DetailTriangles = Triangles.Num() / 3;
 }
